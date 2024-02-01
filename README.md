@@ -1,5 +1,5 @@
 # xdata
-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
+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
 
 30 23 * * *  /home/hungsex/server/xdata/commit.sh
 20 9 * * *  /home/hungsex/server/xdata/dist/websocket/compress.sh
