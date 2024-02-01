@@ -4209,3 +4209,12 @@ Fetching 1586
 │    0    │ 'investorData20240201.json' │
 └─────────┴─────────────────────────────┘
 Finished reading the file.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 15302    │ 0s     │ 17   │ online    │ 0%       │ 20.1mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 15063    │ 17m    │ 4    │ online    │ 0%       │ 47.4mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
