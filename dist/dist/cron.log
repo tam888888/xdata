@@ -15294,3 +15294,1251 @@ Fetching 1586
 │ foreign_institutional_buy_matched  │ 20907740000  │
 │ foreign_institutional_sell_matched │  1374735000  │
 └────────────────────────────────────┴──────────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 27955    │ 10h    │ 73   │ online    │ 0%       │ 161.5mb  │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 28639    │ 0s     │ 12   │ online    │ 0%       │ 20.3mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 28663    │ 0s     │ 74   │ online    │ 0%       │ 19.9mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 28639    │ 5m     │ 12   │ online    │ 0%       │ 49.1mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action stopProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 28663    │ 8h     │ 74   │ online    │ 0%       │ 170.7mb  │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 0        │ 0      │ 12   │ stopped   │ 0%       │ 0b       │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+[PM2] Process successfully started
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 28663    │ 8h     │ 74   │ online    │ 0%       │ 170.3mb  │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 29540    │ 0s     │ 12   │ online    │ 0%       │ 20.6mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+undefined:1
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at L (/home/hungsex/server/xdata/dist/dist/indicator.js:2:118617)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 29605    │ 0s     │ 75   │ online    │ 0%       │ 20.3mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 29540    │ 19m    │ 12   │ online    │ 5.3%     │ 50.0mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 39, res: 10, record: 10342 }
+{ req: 48, res: 20, record: 32259 }
+{ req: 59, res: 30, record: 55482 }
+{ req: 69, res: 40, record: 77411 }
+{ req: 78, res: 50, record: 101068 }
+{ req: 88, res: 60, record: 125967 }
+{ req: 98, res: 70, record: 146396 }
+{ req: 108, res: 80, record: 170597 }
+{ req: 119, res: 90, record: 194442 }
+{ req: 129, res: 100, record: 214456 }
+{ req: 139, res: 110, record: 236426 }
+{ req: 149, res: 120, record: 259914 }
+{ req: 158, res: 130, record: 282326 }
+{ req: 168, res: 140, record: 304413 }
+{ req: 179, res: 150, record: 327108 }
+{ req: 187, res: 160, record: 344613 }
+{ req: 198, res: 170, record: 366336 }
+{ req: 208, res: 180, record: 389030 }
+{ req: 219, res: 190, record: 411391 }
+{ req: 229, res: 200, record: 432619 }
+{ req: 239, res: 210, record: 452798 }
+{ req: 249, res: 220, record: 476742 }
+{ req: 259, res: 230, record: 500018 }
+{ req: 269, res: 240, record: 521558 }
+{ req: 279, res: 250, record: 544019 }
+{ req: 289, res: 260, record: 565877 }
+{ req: 297, res: 270, record: 590877 }
+{ req: 308, res: 280, record: 611793 }
+{ req: 319, res: 290, record: 634199 }
+{ req: 328, res: 300, record: 657459 }
+{ req: 338, res: 310, record: 678666 }
+{ req: 349, res: 320, record: 697697 }
+{ req: 358, res: 330, record: 719513 }
+{ req: 369, res: 340, record: 741439 }
+{ req: 379, res: 350, record: 764413 }
+{ req: 389, res: 360, record: 785890 }
+{ req: 399, res: 370, record: 809703 }
+{ req: 408, res: 380, record: 831336 }
+{ req: 417, res: 390, record: 851714 }
+{ req: 427, res: 400, record: 872553 }
+{ req: 439, res: 410, record: 896249 }
+{ req: 449, res: 420, record: 918551 }
+{ req: 459, res: 430, record: 940632 }
+{ req: 467, res: 440, record: 963297 }
+{ req: 479, res: 450, record: 984457 }
+{ req: 489, res: 460, record: 1004834 }
+{ req: 498, res: 470, record: 1024309 }
+{ req: 508, res: 480, record: 1047414 }
+{ req: 519, res: 490, record: 1072414 }
+{ req: 528, res: 500, record: 1093960 }
+{ req: 539, res: 510, record: 1115721 }
+{ req: 549, res: 520, record: 1140102 }
+{ req: 559, res: 530, record: 1163134 }
+{ req: 569, res: 540, record: 1186702 }
+{ req: 577, res: 550, record: 1206416 }
+{ req: 589, res: 560, record: 1229482 }
+{ req: 598, res: 570, record: 1249178 }
+{ req: 607, res: 580, record: 1270003 }
+{ req: 619, res: 590, record: 1294494 }
+{ req: 628, res: 600, record: 1317073 }
+{ req: 638, res: 610, record: 1342073 }
+{ req: 649, res: 620, record: 1365734 }
+{ req: 659, res: 630, record: 1390734 }
+{ req: 667, res: 640, record: 1411080 }
+{ req: 678, res: 650, record: 1432814 }
+{ req: 689, res: 660, record: 1456631 }
+{ req: 698, res: 670, record: 1478286 }
+{ req: 708, res: 680, record: 1501533 }
+{ req: 718, res: 690, record: 1525302 }
+{ req: 729, res: 700, record: 1549566 }
+{ req: 737, res: 710, record: 1567303 }
+{ req: 749, res: 720, record: 1588058 }
+{ req: 757, res: 730, record: 1608465 }
+{ req: 769, res: 740, record: 1628983 }
+{ req: 778, res: 750, record: 1642432 }
+{ req: 789, res: 760, record: 1661597 }
+{ req: 796, res: 770, record: 1680192 }
+{ req: 809, res: 780, record: 1697376 }
+{ req: 819, res: 790, record: 1716142 }
+{ req: 828, res: 800, record: 1732079 }
+{ req: 839, res: 810, record: 1747142 }
+{ req: 849, res: 820, record: 1765533 }
+{ req: 859, res: 830, record: 1782837 }
+{ req: 867, res: 840, record: 1799501 }
+{ req: 879, res: 850, record: 1816908 }
+{ req: 886, res: 860, record: 1829306 }
+{ req: 899, res: 870, record: 1848609 }
+{ req: 907, res: 880, record: 1868901 }
+{ req: 919, res: 890, record: 1886402 }
+{ req: 929, res: 900, record: 1901533 }
+{ req: 939, res: 910, record: 1923506 }
+{ req: 949, res: 920, record: 1940470 }
+{ req: 958, res: 930, record: 1956741 }
+{ req: 969, res: 940, record: 1972747 }
+{ req: 977, res: 950, record: 1988568 }
+{ req: 989, res: 960, record: 2005612 }
+{ req: 998, res: 970, record: 2020213 }
+{ req: 1008, res: 980, record: 2034469 }
+{ req: 1019, res: 990, record: 2051237 }
+{ req: 1026, res: 1000, record: 2068473 }
+{ req: 1039, res: 1010, record: 2086905 }
+{ req: 1049, res: 1020, record: 2107114 }
+{ req: 1059, res: 1030, record: 2126244 }
+{ req: 1067, res: 1040, record: 2146615 }
+{ req: 1079, res: 1050, record: 2164458 }
+{ req: 1089, res: 1060, record: 2182088 }
+{ req: 1098, res: 1070, record: 2201485 }
+{ req: 1106, res: 1080, record: 2218876 }
+{ req: 1119, res: 1090, record: 2240574 }
+{ req: 1127, res: 1100, record: 2260946 }
+{ req: 1139, res: 1110, record: 2279954 }
+{ req: 1147, res: 1120, record: 2297515 }
+{ req: 1159, res: 1130, record: 2314094 }
+{ req: 1169, res: 1140, record: 2331039 }
+{ req: 1179, res: 1150, record: 2348751 }
+{ req: 1188, res: 1160, record: 2366363 }
+{ req: 1198, res: 1170, record: 2386383 }
+{ req: 1209, res: 1180, record: 2403551 }
+{ req: 1217, res: 1190, record: 2422423 }
+{ req: 1229, res: 1200, record: 2441857 }
+{ req: 1237, res: 1210, record: 2454768 }
+{ req: 1249, res: 1220, record: 2472215 }
+{ req: 1259, res: 1230, record: 2489070 }
+{ req: 1267, res: 1240, record: 2504412 }
+{ req: 1277, res: 1250, record: 2522665 }
+{ req: 1288, res: 1260, record: 2543220 }
+{ req: 1298, res: 1270, record: 2562035 }
+{ req: 1308, res: 1280, record: 2582002 }
+{ req: 1318, res: 1290, record: 2604936 }
+{ req: 1328, res: 1300, record: 2626266 }
+{ req: 1338, res: 1310, record: 2646239 }
+{ req: 1349, res: 1320, record: 2666065 }
+{ req: 1359, res: 1330, record: 2686694 }
+{ req: 1369, res: 1340, record: 2707101 }
+{ req: 1378, res: 1350, record: 2730241 }
+{ req: 1389, res: 1360, record: 2752465 }
+{ req: 1397, res: 1370, record: 2769298 }
+{ req: 1408, res: 1380, record: 2787604 }
+{ req: 1419, res: 1390, record: 2804463 }
+{ req: 1429, res: 1400, record: 2824240 }
+{ req: 1435, res: 1410, record: 2839911 }
+{ req: 1449, res: 1420, record: 2856384 }
+{ req: 1457, res: 1430, record: 2873695 }
+{ req: 1469, res: 1440, record: 2893609 }
+{ req: 1479, res: 1450, record: 2912419 }
+{ req: 1486, res: 1460, record: 2928963 }
+{ req: 1498, res: 1470, record: 2946809 }
+{ req: 1507, res: 1480, record: 2968066 }
+{ req: 1519, res: 1490, record: 2987789 }
+{ req: 1529, res: 1500, record: 3009004 }
+{ req: 1538, res: 1510, record: 3028224 }
+{ req: 1549, res: 1520, record: 3046128 }
+{ req: 1556, res: 1530, record: 3068668 }
+{ req: 1569, res: 1540, record: 3088526 }
+{ req: 1578, res: 1550, record: 3102849 }
+{ req: 1585, res: 1560, record: 3118341 }
+{ req: 1586, res: 1570, record: 3136979 }
+{ req: 1586, res: 1580, record: 3156988 }
+{ req: 1586, res: 1586, record: 3171791 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20240209.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 29654    │ 0s     │ 76   │ online    │ 0%       │ 18.3mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 29540    │ 54m    │ 12   │ online    │ 0%       │ 51.3mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 133, res: 40, record: 800 }
+{ req: 133, res: 50, record: 1000 }
+{ req: 133, res: 60, record: 1200 }
+{ req: 133, res: 70, record: 1400 }
+{ req: 133, res: 80, record: 1600 }
+{ req: 133, res: 90, record: 1800 }
+{ req: 194, res: 100, record: 2000 }
+{ req: 194, res: 110, record: 2200 }
+{ req: 194, res: 120, record: 2400 }
+{ req: 194, res: 130, record: 2600 }
+{ req: 233, res: 140, record: 2800 }
+{ req: 233, res: 150, record: 3000 }
+{ req: 257, res: 160, record: 3200 }
+{ req: 257, res: 170, record: 3400 }
+{ req: 257, res: 180, record: 3600 }
+{ req: 257, res: 190, record: 3800 }
+{ req: 257, res: 200, record: 4000 }
+{ req: 308, res: 210, record: 4200 }
+{ req: 308, res: 220, record: 4400 }
+{ req: 308, res: 230, record: 4600 }
+{ req: 308, res: 240, record: 4800 }
+{ req: 344, res: 250, record: 5000 }
+{ req: 344, res: 260, record: 5200 }
+{ req: 344, res: 270, record: 5400 }
+{ req: 377, res: 280, record: 5600 }
+{ req: 377, res: 290, record: 5800 }
+{ req: 377, res: 300, record: 6000 }
+{ req: 377, res: 310, record: 6200 }
+{ req: 377, res: 320, record: 6400 }
+{ req: 377, res: 330, record: 6600 }
+{ req: 377, res: 340, record: 6800 }
+{ req: 444, res: 350, record: 7000 }
+{ req: 444, res: 360, record: 7200 }
+{ req: 466, res: 370, record: 7400 }
+{ req: 466, res: 380, record: 7580 }
+{ req: 466, res: 390, record: 7600 }
+{ req: 466, res: 400, record: 7640 }
+{ req: 466, res: 410, record: 7680 }
+{ req: 466, res: 420, record: 7680 }
+{ req: 466, res: 430, record: 7680 }
+{ req: 466, res: 440, record: 7800 }
+{ req: 466, res: 450, record: 7880 }
+{ req: 466, res: 460, record: 7880 }
+{ req: 566, res: 470, record: 7880 }
+{ req: 566, res: 480, record: 7880 }
+{ req: 566, res: 490, record: 7880 }
+{ req: 566, res: 500, record: 7880 }
+{ req: 566, res: 510, record: 7880 }
+{ req: 566, res: 520, record: 7880 }
+{ req: 566, res: 530, record: 7880 }
+{ req: 566, res: 540, record: 7880 }
+{ req: 566, res: 550, record: 7880 }
+{ req: 566, res: 560, record: 7880 }
+{ req: 666, res: 570, record: 7880 }
+{ req: 666, res: 580, record: 7880 }
+{ req: 666, res: 590, record: 7880 }
+{ req: 666, res: 600, record: 7880 }
+{ req: 666, res: 610, record: 7880 }
+{ req: 666, res: 620, record: 7880 }
+{ req: 666, res: 630, record: 7880 }
+{ req: 666, res: 640, record: 7880 }
+{ req: 666, res: 650, record: 7880 }
+{ req: 666, res: 660, record: 7880 }
+{ req: 766, res: 670, record: 7880 }
+{ req: 766, res: 680, record: 7880 }
+{ req: 766, res: 690, record: 7880 }
+{ req: 766, res: 700, record: 7880 }
+{ req: 766, res: 710, record: 7880 }
+{ req: 766, res: 720, record: 7880 }
+{ req: 766, res: 730, record: 7880 }
+{ req: 766, res: 740, record: 7880 }
+{ req: 766, res: 750, record: 7880 }
+{ req: 766, res: 760, record: 7900 }
+{ req: 866, res: 770, record: 7900 }
+{ req: 866, res: 780, record: 7900 }
+{ req: 866, res: 790, record: 7900 }
+{ req: 866, res: 800, record: 7900 }
+{ req: 866, res: 810, record: 7900 }
+{ req: 866, res: 820, record: 7900 }
+{ req: 866, res: 830, record: 7900 }
+{ req: 866, res: 840, record: 7900 }
+{ req: 866, res: 850, record: 7900 }
+{ req: 866, res: 860, record: 7900 }
+{ req: 966, res: 870, record: 7900 }
+{ req: 966, res: 880, record: 7900 }
+{ req: 966, res: 890, record: 7900 }
+{ req: 966, res: 900, record: 7900 }
+{ req: 966, res: 910, record: 7900 }
+{ req: 966, res: 920, record: 7900 }
+{ req: 966, res: 930, record: 7900 }
+{ req: 966, res: 940, record: 7900 }
+{ req: 966, res: 950, record: 7900 }
+{ req: 966, res: 960, record: 7900 }
+{ req: 1066, res: 970, record: 7900 }
+{ req: 1066, res: 980, record: 7900 }
+{ req: 1066, res: 990, record: 7940 }
+{ req: 1066, res: 1000, record: 7940 }
+{ req: 1066, res: 1010, record: 7960 }
+{ req: 1066, res: 1020, record: 7960 }
+{ req: 1066, res: 1030, record: 7960 }
+{ req: 1066, res: 1040, record: 7960 }
+{ req: 1066, res: 1050, record: 7960 }
+{ req: 1066, res: 1060, record: 7960 }
+{ req: 1166, res: 1070, record: 8019 }
+{ req: 1166, res: 1080, record: 8019 }
+{ req: 1166, res: 1090, record: 8039 }
+{ req: 1166, res: 1100, record: 8039 }
+{ req: 1166, res: 1110, record: 8039 }
+{ req: 1166, res: 1120, record: 8039 }
+{ req: 1166, res: 1130, record: 8039 }
+{ req: 1166, res: 1140, record: 8059 }
+{ req: 1166, res: 1150, record: 8059 }
+{ req: 1166, res: 1160, record: 8079 }
+{ req: 1266, res: 1170, record: 8079 }
+{ req: 1266, res: 1180, record: 8079 }
+{ req: 1266, res: 1190, record: 8079 }
+{ req: 1266, res: 1200, record: 8079 }
+{ req: 1266, res: 1210, record: 8079 }
+{ req: 1266, res: 1220, record: 8079 }
+{ req: 1266, res: 1230, record: 8079 }
+{ req: 1266, res: 1240, record: 8079 }
+{ req: 1266, res: 1250, record: 8079 }
+{ req: 1266, res: 1260, record: 8079 }
+{ req: 1366, res: 1270, record: 8079 }
+{ req: 1366, res: 1280, record: 8079 }
+{ req: 1366, res: 1290, record: 8079 }
+{ req: 1366, res: 1300, record: 8119 }
+{ req: 1366, res: 1310, record: 8119 }
+{ req: 1366, res: 1320, record: 8119 }
+{ req: 1366, res: 1330, record: 8139 }
+{ req: 1366, res: 1340, record: 8139 }
+{ req: 1366, res: 1350, record: 8139 }
+{ req: 1366, res: 1360, record: 8139 }
+{ req: 1466, res: 1370, record: 8159 }
+{ req: 1466, res: 1380, record: 8159 }
+{ req: 1466, res: 1390, record: 8159 }
+{ req: 1466, res: 1400, record: 8159 }
+{ req: 1466, res: 1410, record: 8167 }
+{ req: 1466, res: 1420, record: 8167 }
+{ req: 1466, res: 1430, record: 8167 }
+{ req: 1466, res: 1440, record: 8167 }
+{ req: 1466, res: 1450, record: 8167 }
+{ req: 1466, res: 1460, record: 8167 }
+{ req: 1566, res: 1470, record: 8167 }
+{ req: 1566, res: 1480, record: 8187 }
+{ req: 1566, res: 1490, record: 8187 }
+{ req: 1566, res: 1500, record: 8187 }
+{ req: 1566, res: 1510, record: 8187 }
+{ req: 1566, res: 1520, record: 8187 }
+{ req: 1566, res: 1530, record: 8187 }
+{ req: 1566, res: 1540, record: 8187 }
+{ req: 1566, res: 1550, record: 8187 }
+{ req: 1566, res: 1560, record: 8187 }
+{ req: 1586, res: 1570, record: 8187 }
+{ req: 1586, res: 1580, record: 8187 }
+{ req: 1586, res: 1586, record: 8227 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ 16355535000  │
+│           foreign_delta            │ 16355535000  │
+│         proprietary_delta          │ -29390545000 │
+│       local_individual_delta       │  7456465000  │
+│     local_institutional_delta      │  5578545000  │
+│      foreign_individual_delta      │ -3177470000  │
+│    foreign_institutional_delta     │ 19533005000  │
+│         total_buy_matched          │ 573812231250 │
+│         total_sell_matched         │ 557456696250 │
+│        foreign_buy_matched         │ 22194985000  │
+│        foreign_sell_matched        │  5839450000  │
+│      proprietary_buy_matched       │ 10464160000  │
+│      proprietary_sell_matched      │ 39854705000  │
+│    local_individual_buy_matched    │ 508932101250 │
+│   local_individual_sell_matched    │ 501475636250 │
+│  local_institutional_buy_matched   │ 10026000000  │
+│  local_institutional_sell_matched  │  4447455000  │
+│   foreign_individual_buy_matched   │  1287245000  │
+│  foreign_individual_sell_matched   │  4464715000  │
+│ foreign_institutional_buy_matched  │ 20907740000  │
+│ foreign_institutional_sell_matched │  1374735000  │
+└────────────────────────────────────┴──────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 172, res: 80, record: 1600 }
+{ req: 172, res: 90, record: 1800 }
+{ req: 193, res: 100, record: 2000 }
+{ req: 205, res: 110, record: 2200 }
+{ req: 205, res: 120, record: 2400 }
+{ req: 205, res: 130, record: 2600 }
+{ req: 205, res: 140, record: 2800 }
+{ req: 205, res: 150, record: 3000 }
+{ req: 205, res: 160, record: 3200 }
+{ req: 205, res: 170, record: 3400 }
+{ req: 205, res: 180, record: 3600 }
+{ req: 205, res: 190, record: 3800 }
+{ req: 205, res: 200, record: 4000 }
+{ req: 305, res: 210, record: 4200 }
+{ req: 310, res: 220, record: 4400 }
+{ req: 310, res: 230, record: 4600 }
+{ req: 310, res: 240, record: 4800 }
+{ req: 310, res: 250, record: 5000 }
+{ req: 310, res: 260, record: 5200 }
+{ req: 310, res: 270, record: 5400 }
+{ req: 310, res: 280, record: 5600 }
+{ req: 310, res: 290, record: 5800 }
+{ req: 310, res: 300, record: 6000 }
+{ req: 310, res: 310, record: 6200 }
+{ req: 410, res: 320, record: 6400 }
+{ req: 426, res: 330, record: 6600 }
+{ req: 426, res: 340, record: 6800 }
+{ req: 426, res: 350, record: 7000 }
+{ req: 426, res: 360, record: 7060 }
+{ req: 426, res: 370, record: 7160 }
+{ req: 426, res: 380, record: 7280 }
+{ req: 426, res: 390, record: 7480 }
+{ req: 426, res: 400, record: 7680 }
+{ req: 426, res: 410, record: 7880 }
+{ req: 426, res: 420, record: 7880 }
+{ req: 526, res: 430, record: 7880 }
+{ req: 526, res: 440, record: 7880 }
+{ req: 526, res: 450, record: 7880 }
+{ req: 526, res: 460, record: 7880 }
+{ req: 526, res: 470, record: 7880 }
+{ req: 526, res: 480, record: 7880 }
+{ req: 526, res: 490, record: 7880 }
+{ req: 526, res: 500, record: 7880 }
+{ req: 526, res: 510, record: 7880 }
+{ req: 526, res: 520, record: 7880 }
+{ req: 626, res: 530, record: 7880 }
+{ req: 626, res: 540, record: 7880 }
+{ req: 626, res: 550, record: 7880 }
+{ req: 626, res: 560, record: 7880 }
+{ req: 626, res: 570, record: 7880 }
+{ req: 626, res: 580, record: 7880 }
+{ req: 626, res: 590, record: 7880 }
+{ req: 626, res: 600, record: 7880 }
+{ req: 626, res: 610, record: 7880 }
+{ req: 626, res: 620, record: 7880 }
+{ req: 726, res: 630, record: 7880 }
+{ req: 726, res: 640, record: 7880 }
+{ req: 726, res: 650, record: 7880 }
+{ req: 726, res: 660, record: 7880 }
+{ req: 726, res: 670, record: 7880 }
+{ req: 726, res: 680, record: 7880 }
+{ req: 726, res: 690, record: 7880 }
+{ req: 726, res: 700, record: 7880 }
+{ req: 726, res: 710, record: 7880 }
+{ req: 726, res: 720, record: 7880 }
+{ req: 826, res: 730, record: 7880 }
+{ req: 826, res: 740, record: 7880 }
+{ req: 826, res: 750, record: 7900 }
+{ req: 826, res: 760, record: 7900 }
+{ req: 826, res: 770, record: 7900 }
+{ req: 826, res: 780, record: 7900 }
+{ req: 826, res: 790, record: 7900 }
+{ req: 826, res: 800, record: 7900 }
+{ req: 826, res: 810, record: 7900 }
+{ req: 826, res: 820, record: 7900 }
+{ req: 926, res: 830, record: 7900 }
+{ req: 926, res: 840, record: 7900 }
+{ req: 926, res: 850, record: 7900 }
+{ req: 926, res: 860, record: 7900 }
+{ req: 926, res: 870, record: 7900 }
+{ req: 926, res: 880, record: 7900 }
+{ req: 926, res: 890, record: 7900 }
+{ req: 926, res: 900, record: 7900 }
+{ req: 926, res: 910, record: 7900 }
+{ req: 926, res: 920, record: 7900 }
+{ req: 1026, res: 930, record: 7900 }
+{ req: 1026, res: 940, record: 7900 }
+{ req: 1026, res: 950, record: 7900 }
+{ req: 1026, res: 960, record: 7900 }
+{ req: 1026, res: 970, record: 7900 }
+{ req: 1026, res: 980, record: 7920 }
+{ req: 1026, res: 990, record: 7940 }
+{ req: 1026, res: 1000, record: 7940 }
+{ req: 1026, res: 1010, record: 7940 }
+{ req: 1026, res: 1020, record: 7960 }
+{ req: 1126, res: 1030, record: 7960 }
+{ req: 1126, res: 1040, record: 7960 }
+{ req: 1126, res: 1050, record: 7979 }
+{ req: 1126, res: 1060, record: 7999 }
+{ req: 1126, res: 1070, record: 7999 }
+{ req: 1126, res: 1080, record: 8019 }
+{ req: 1126, res: 1090, record: 8039 }
+{ req: 1126, res: 1100, record: 8039 }
+{ req: 1126, res: 1110, record: 8039 }
+{ req: 1126, res: 1120, record: 8039 }
+{ req: 1226, res: 1130, record: 8059 }
+{ req: 1226, res: 1140, record: 8059 }
+{ req: 1226, res: 1150, record: 8059 }
+{ req: 1226, res: 1160, record: 8079 }
+{ req: 1226, res: 1170, record: 8079 }
+{ req: 1226, res: 1180, record: 8079 }
+{ req: 1226, res: 1190, record: 8079 }
+{ req: 1226, res: 1200, record: 8079 }
+{ req: 1226, res: 1210, record: 8079 }
+{ req: 1226, res: 1220, record: 8079 }
+{ req: 1326, res: 1230, record: 8079 }
+{ req: 1326, res: 1240, record: 8079 }
+{ req: 1326, res: 1250, record: 8079 }
+{ req: 1326, res: 1260, record: 8079 }
+{ req: 1326, res: 1270, record: 8079 }
+{ req: 1326, res: 1280, record: 8079 }
+{ req: 1326, res: 1290, record: 8079 }
+{ req: 1326, res: 1300, record: 8099 }
+{ req: 1326, res: 1310, record: 8099 }
+{ req: 1326, res: 1320, record: 8099 }
+{ req: 1426, res: 1330, record: 8139 }
+{ req: 1426, res: 1340, record: 8139 }
+{ req: 1426, res: 1350, record: 8139 }
+{ req: 1426, res: 1360, record: 8139 }
+{ req: 1426, res: 1370, record: 8159 }
+{ req: 1426, res: 1380, record: 8159 }
+{ req: 1426, res: 1390, record: 8159 }
+{ req: 1426, res: 1400, record: 8159 }
+{ req: 1426, res: 1410, record: 8167 }
+{ req: 1426, res: 1420, record: 8167 }
+{ req: 1526, res: 1430, record: 8167 }
+{ req: 1526, res: 1440, record: 8167 }
+{ req: 1526, res: 1450, record: 8167 }
+{ req: 1526, res: 1460, record: 8167 }
+{ req: 1526, res: 1470, record: 8187 }
+{ req: 1526, res: 1480, record: 8187 }
+{ req: 1526, res: 1490, record: 8187 }
+{ req: 1526, res: 1500, record: 8187 }
+{ req: 1526, res: 1510, record: 8187 }
+{ req: 1526, res: 1520, record: 8187 }
+{ req: 1586, res: 1530, record: 8187 }
+{ req: 1586, res: 1540, record: 8187 }
+{ req: 1586, res: 1550, record: 8187 }
+{ req: 1586, res: 1560, record: 8187 }
+{ req: 1586, res: 1570, record: 8187 }
+{ req: 1586, res: 1580, record: 8187 }
+{ req: 1586, res: 1586, record: 8227 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ 16355535000  │
+│           foreign_delta            │ 16355535000  │
+│         proprietary_delta          │ -29390545000 │
+│       local_individual_delta       │  7456465000  │
+│     local_institutional_delta      │  5578545000  │
+│      foreign_individual_delta      │ -3177470000  │
+│    foreign_institutional_delta     │ 19533005000  │
+│         total_buy_matched          │ 573812231250 │
+│         total_sell_matched         │ 557456696250 │
+│        foreign_buy_matched         │ 22194985000  │
+│        foreign_sell_matched        │  5839450000  │
+│      proprietary_buy_matched       │ 10464160000  │
+│      proprietary_sell_matched      │ 39854705000  │
+│    local_individual_buy_matched    │ 508932101250 │
+│   local_individual_sell_matched    │ 501475636250 │
+│  local_institutional_buy_matched   │ 10026000000  │
+│  local_institutional_sell_matched  │  4447455000  │
+│   foreign_individual_buy_matched   │  1287245000  │
+│  foreign_individual_sell_matched   │  4464715000  │
+│ foreign_institutional_buy_matched  │ 20907740000  │
+│ foreign_institutional_sell_matched │  1374735000  │
+└────────────────────────────────────┴──────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 100, res: 80, record: 1600 }
+{ req: 185, res: 90, record: 1800 }
+{ req: 196, res: 100, record: 2000 }
+{ req: 203, res: 110, record: 2200 }
+{ req: 203, res: 120, record: 2400 }
+{ req: 203, res: 130, record: 2600 }
+{ req: 203, res: 140, record: 2800 }
+{ req: 203, res: 150, record: 3000 }
+{ req: 203, res: 160, record: 3200 }
+{ req: 203, res: 170, record: 3400 }
+{ req: 203, res: 180, record: 3600 }
+{ req: 203, res: 190, record: 3800 }
+{ req: 203, res: 200, record: 4000 }
+{ req: 303, res: 210, record: 4200 }
+{ req: 303, res: 220, record: 4400 }
+{ req: 324, res: 230, record: 4600 }
+{ req: 324, res: 240, record: 4800 }
+{ req: 324, res: 250, record: 5000 }
+{ req: 324, res: 260, record: 5200 }
+{ req: 324, res: 270, record: 5400 }
+{ req: 324, res: 280, record: 5600 }
+{ req: 324, res: 290, record: 5800 }
+{ req: 324, res: 300, record: 6000 }
+{ req: 324, res: 310, record: 6200 }
+{ req: 416, res: 320, record: 6400 }
+{ req: 427, res: 330, record: 6600 }
+{ req: 427, res: 340, record: 6800 }
+{ req: 427, res: 350, record: 6940 }
+{ req: 427, res: 360, record: 7060 }
+{ req: 427, res: 370, record: 7120 }
+{ req: 427, res: 380, record: 7320 }
+{ req: 427, res: 390, record: 7500 }
+{ req: 427, res: 400, record: 7580 }
+{ req: 427, res: 410, record: 7760 }
+{ req: 427, res: 420, record: 7880 }
+{ req: 527, res: 430, record: 7880 }
+{ req: 527, res: 440, record: 7880 }
+{ req: 542, res: 450, record: 7880 }
+{ req: 542, res: 460, record: 7880 }
+{ req: 542, res: 470, record: 7880 }
+{ req: 542, res: 480, record: 7880 }
+{ req: 542, res: 490, record: 7880 }
+{ req: 542, res: 500, record: 7880 }
+{ req: 542, res: 510, record: 7880 }
+{ req: 542, res: 520, record: 7880 }
+{ req: 542, res: 530, record: 7880 }
+{ req: 542, res: 540, record: 7880 }
+{ req: 642, res: 550, record: 7880 }
+{ req: 642, res: 560, record: 7880 }
+{ req: 642, res: 570, record: 7880 }
+{ req: 642, res: 580, record: 7880 }
+{ req: 642, res: 590, record: 7880 }
+{ req: 642, res: 600, record: 7880 }
+{ req: 642, res: 610, record: 7880 }
+{ req: 642, res: 620, record: 7880 }
+{ req: 642, res: 630, record: 7880 }
+{ req: 642, res: 640, record: 7880 }
+{ req: 742, res: 650, record: 7880 }
+{ req: 742, res: 660, record: 7880 }
+{ req: 742, res: 670, record: 7880 }
+{ req: 742, res: 680, record: 7880 }
+{ req: 742, res: 690, record: 7880 }
+{ req: 742, res: 700, record: 7880 }
+{ req: 742, res: 710, record: 7880 }
+{ req: 742, res: 720, record: 7880 }
+{ req: 742, res: 730, record: 7880 }
+{ req: 742, res: 740, record: 7880 }
+{ req: 842, res: 750, record: 7900 }
+{ req: 842, res: 760, record: 7900 }
+{ req: 842, res: 770, record: 7900 }
+{ req: 842, res: 780, record: 7900 }
+{ req: 842, res: 790, record: 7900 }
+{ req: 842, res: 800, record: 7900 }
+{ req: 842, res: 810, record: 7900 }
+{ req: 842, res: 820, record: 7900 }
+{ req: 842, res: 830, record: 7900 }
+{ req: 842, res: 840, record: 7900 }
+{ req: 942, res: 850, record: 7900 }
+{ req: 942, res: 860, record: 7900 }
+{ req: 942, res: 870, record: 7900 }
+{ req: 942, res: 880, record: 7900 }
+{ req: 942, res: 890, record: 7900 }
+{ req: 942, res: 900, record: 7900 }
+{ req: 942, res: 910, record: 7900 }
+{ req: 942, res: 920, record: 7900 }
+{ req: 942, res: 930, record: 7900 }
+{ req: 942, res: 940, record: 7900 }
+{ req: 1042, res: 950, record: 7900 }
+{ req: 1042, res: 960, record: 7900 }
+{ req: 1042, res: 970, record: 7900 }
+{ req: 1042, res: 980, record: 7900 }
+{ req: 1042, res: 990, record: 7940 }
+{ req: 1042, res: 1000, record: 7940 }
+{ req: 1042, res: 1010, record: 7960 }
+{ req: 1042, res: 1020, record: 7960 }
+{ req: 1042, res: 1030, record: 7960 }
+{ req: 1042, res: 1040, record: 7960 }
+{ req: 1142, res: 1050, record: 7960 }
+{ req: 1142, res: 1060, record: 7979 }
+{ req: 1142, res: 1070, record: 7999 }
+{ req: 1142, res: 1080, record: 8039 }
+{ req: 1142, res: 1090, record: 8039 }
+{ req: 1142, res: 1100, record: 8039 }
+{ req: 1142, res: 1110, record: 8039 }
+{ req: 1142, res: 1120, record: 8039 }
+{ req: 1142, res: 1130, record: 8059 }
+{ req: 1142, res: 1140, record: 8059 }
+{ req: 1242, res: 1150, record: 8059 }
+{ req: 1242, res: 1160, record: 8059 }
+{ req: 1242, res: 1170, record: 8059 }
+{ req: 1242, res: 1180, record: 8079 }
+{ req: 1242, res: 1190, record: 8079 }
+{ req: 1242, res: 1200, record: 8079 }
+{ req: 1242, res: 1210, record: 8079 }
+{ req: 1242, res: 1220, record: 8079 }
+{ req: 1242, res: 1230, record: 8079 }
+{ req: 1242, res: 1240, record: 8079 }
+{ req: 1342, res: 1250, record: 8079 }
+{ req: 1342, res: 1260, record: 8079 }
+{ req: 1342, res: 1270, record: 8079 }
+{ req: 1342, res: 1280, record: 8079 }
+{ req: 1342, res: 1290, record: 8079 }
+{ req: 1342, res: 1300, record: 8079 }
+{ req: 1342, res: 1310, record: 8099 }
+{ req: 1342, res: 1320, record: 8119 }
+{ req: 1342, res: 1330, record: 8139 }
+{ req: 1342, res: 1340, record: 8139 }
+{ req: 1442, res: 1350, record: 8139 }
+{ req: 1442, res: 1360, record: 8139 }
+{ req: 1442, res: 1370, record: 8159 }
+{ req: 1442, res: 1380, record: 8159 }
+{ req: 1442, res: 1390, record: 8159 }
+{ req: 1442, res: 1400, record: 8159 }
+{ req: 1442, res: 1410, record: 8167 }
+{ req: 1442, res: 1420, record: 8167 }
+{ req: 1442, res: 1430, record: 8167 }
+{ req: 1442, res: 1440, record: 8167 }
+{ req: 1542, res: 1450, record: 8167 }
+{ req: 1542, res: 1460, record: 8167 }
+{ req: 1542, res: 1470, record: 8187 }
+{ req: 1542, res: 1480, record: 8187 }
+{ req: 1542, res: 1490, record: 8187 }
+{ req: 1542, res: 1500, record: 8187 }
+{ req: 1542, res: 1510, record: 8187 }
+{ req: 1542, res: 1520, record: 8187 }
+{ req: 1542, res: 1530, record: 8187 }
+{ req: 1542, res: 1540, record: 8187 }
+{ req: 1586, res: 1550, record: 8187 }
+{ req: 1586, res: 1560, record: 8187 }
+{ req: 1586, res: 1570, record: 8187 }
+{ req: 1586, res: 1580, record: 8187 }
+{ req: 1586, res: 1586, record: 8227 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ 16355535000  │
+│           foreign_delta            │ 16355535000  │
+│         proprietary_delta          │ -29390545000 │
+│       local_individual_delta       │  7456465000  │
+│     local_institutional_delta      │  5578545000  │
+│      foreign_individual_delta      │ -3177470000  │
+│    foreign_institutional_delta     │ 19533005000  │
+│         total_buy_matched          │ 573812231250 │
+│         total_sell_matched         │ 557456696250 │
+│        foreign_buy_matched         │ 22194985000  │
+│        foreign_sell_matched        │  5839450000  │
+│      proprietary_buy_matched       │ 10464160000  │
+│      proprietary_sell_matched      │ 39854705000  │
+│    local_individual_buy_matched    │ 508932101250 │
+│   local_individual_sell_matched    │ 501475636250 │
+│  local_institutional_buy_matched   │ 10026000000  │
+│  local_institutional_sell_matched  │  4447455000  │
+│   foreign_individual_buy_matched   │  1287245000  │
+│  foreign_individual_sell_matched   │  4464715000  │
+│ foreign_institutional_buy_matched  │ 20907740000  │
+│ foreign_institutional_sell_matched │  1374735000  │
+└────────────────────────────────────┴──────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 179, res: 80, record: 1600 }
+{ req: 179, res: 90, record: 1800 }
+{ req: 197, res: 100, record: 2000 }
+{ req: 209, res: 110, record: 2200 }
+{ req: 209, res: 120, record: 2400 }
+{ req: 209, res: 130, record: 2600 }
+{ req: 209, res: 140, record: 2800 }
+{ req: 209, res: 150, record: 3000 }
+{ req: 209, res: 160, record: 3200 }
+{ req: 209, res: 170, record: 3400 }
+{ req: 209, res: 180, record: 3600 }
+{ req: 209, res: 190, record: 3800 }
+{ req: 209, res: 200, record: 4000 }
+{ req: 309, res: 210, record: 4200 }
+{ req: 311, res: 220, record: 4400 }
+{ req: 311, res: 230, record: 4600 }
+{ req: 311, res: 240, record: 4800 }
+{ req: 311, res: 250, record: 5000 }
+{ req: 311, res: 260, record: 5200 }
+{ req: 311, res: 270, record: 5400 }
+{ req: 311, res: 280, record: 5600 }
+{ req: 311, res: 290, record: 5800 }
+{ req: 311, res: 300, record: 6000 }
+{ req: 311, res: 310, record: 6200 }
+{ req: 411, res: 320, record: 6400 }
+{ req: 411, res: 330, record: 6600 }
+{ req: 411, res: 340, record: 6800 }
+{ req: 411, res: 350, record: 6960 }
+{ req: 411, res: 360, record: 7000 }
+{ req: 411, res: 370, record: 7100 }
+{ req: 477, res: 380, record: 7260 }
+{ req: 477, res: 390, record: 7460 }
+{ req: 477, res: 400, record: 7660 }
+{ req: 477, res: 410, record: 7860 }
+{ req: 511, res: 420, record: 7880 }
+{ req: 511, res: 430, record: 7880 }
+{ req: 511, res: 440, record: 7880 }
+{ req: 511, res: 450, record: 7880 }
+{ req: 511, res: 460, record: 7880 }
+{ req: 511, res: 470, record: 7880 }
+{ req: 511, res: 480, record: 7880 }
+{ req: 511, res: 490, record: 7880 }
+{ req: 511, res: 500, record: 7880 }
+{ req: 511, res: 510, record: 7880 }
+{ req: 611, res: 520, record: 7880 }
+{ req: 611, res: 530, record: 7880 }
+{ req: 611, res: 540, record: 7880 }
+{ req: 611, res: 550, record: 7880 }
+{ req: 611, res: 560, record: 7880 }
+{ req: 611, res: 570, record: 7880 }
+{ req: 611, res: 580, record: 7880 }
+{ req: 611, res: 590, record: 7880 }
+{ req: 611, res: 600, record: 7880 }
+{ req: 611, res: 610, record: 7880 }
+{ req: 711, res: 620, record: 7880 }
+{ req: 711, res: 630, record: 7880 }
+{ req: 711, res: 640, record: 7880 }
+{ req: 711, res: 650, record: 7880 }
+{ req: 711, res: 660, record: 7880 }
+{ req: 711, res: 670, record: 7880 }
+{ req: 711, res: 680, record: 7880 }
+{ req: 711, res: 690, record: 7880 }
+{ req: 711, res: 700, record: 7880 }
+{ req: 711, res: 710, record: 7880 }
+{ req: 811, res: 720, record: 7880 }
+{ req: 811, res: 730, record: 7880 }
+{ req: 811, res: 740, record: 7880 }
+{ req: 811, res: 750, record: 7880 }
+{ req: 811, res: 760, record: 7900 }
+{ req: 811, res: 770, record: 7900 }
+{ req: 811, res: 780, record: 7900 }
+{ req: 811, res: 790, record: 7900 }
+{ req: 811, res: 800, record: 7900 }
+{ req: 811, res: 810, record: 7900 }
+{ req: 911, res: 820, record: 7900 }
+{ req: 911, res: 830, record: 7900 }
+{ req: 911, res: 840, record: 7900 }
+{ req: 911, res: 850, record: 7900 }
+{ req: 911, res: 860, record: 7900 }
+{ req: 911, res: 870, record: 7900 }
+{ req: 911, res: 880, record: 7900 }
+{ req: 911, res: 890, record: 7900 }
+{ req: 911, res: 900, record: 7900 }
+{ req: 911, res: 910, record: 7900 }
+{ req: 1011, res: 920, record: 7900 }
+{ req: 1011, res: 930, record: 7900 }
+{ req: 1011, res: 940, record: 7900 }
+{ req: 1011, res: 950, record: 7900 }
+{ req: 1011, res: 960, record: 7900 }
+{ req: 1011, res: 970, record: 7900 }
+{ req: 1011, res: 980, record: 7920 }
+{ req: 1011, res: 990, record: 7940 }
+{ req: 1011, res: 1000, record: 7940 }
+{ req: 1011, res: 1010, record: 7940 }
+{ req: 1111, res: 1020, record: 7960 }
+{ req: 1111, res: 1030, record: 7960 }
+{ req: 1111, res: 1040, record: 7960 }
+{ req: 1111, res: 1050, record: 7979 }
+{ req: 1111, res: 1060, record: 7979 }
+{ req: 1111, res: 1070, record: 7999 }
+{ req: 1111, res: 1080, record: 8039 }
+{ req: 1111, res: 1090, record: 8039 }
+{ req: 1111, res: 1100, record: 8039 }
+{ req: 1111, res: 1110, record: 8039 }
+{ req: 1211, res: 1120, record: 8039 }
+{ req: 1211, res: 1130, record: 8059 }
+{ req: 1211, res: 1140, record: 8059 }
+{ req: 1211, res: 1150, record: 8079 }
+{ req: 1211, res: 1160, record: 8079 }
+{ req: 1211, res: 1170, record: 8079 }
+{ req: 1211, res: 1180, record: 8079 }
+{ req: 1211, res: 1190, record: 8079 }
+{ req: 1211, res: 1200, record: 8079 }
+{ req: 1211, res: 1210, record: 8079 }
+{ req: 1311, res: 1220, record: 8079 }
+{ req: 1311, res: 1230, record: 8079 }
+{ req: 1311, res: 1240, record: 8079 }
+{ req: 1311, res: 1250, record: 8079 }
+{ req: 1311, res: 1260, record: 8079 }
+{ req: 1311, res: 1270, record: 8079 }
+{ req: 1311, res: 1280, record: 8079 }
+{ req: 1311, res: 1290, record: 8079 }
+{ req: 1311, res: 1300, record: 8079 }
+{ req: 1311, res: 1310, record: 8119 }
+{ req: 1411, res: 1320, record: 8119 }
+{ req: 1411, res: 1330, record: 8139 }
+{ req: 1411, res: 1340, record: 8139 }
+{ req: 1411, res: 1350, record: 8139 }
+{ req: 1411, res: 1360, record: 8139 }
+{ req: 1411, res: 1370, record: 8139 }
+{ req: 1411, res: 1380, record: 8159 }
+{ req: 1411, res: 1390, record: 8159 }
+{ req: 1411, res: 1400, record: 8159 }
+{ req: 1411, res: 1410, record: 8167 }
+{ req: 1511, res: 1420, record: 8167 }
+{ req: 1511, res: 1430, record: 8167 }
+{ req: 1511, res: 1440, record: 8167 }
+{ req: 1511, res: 1450, record: 8167 }
+{ req: 1511, res: 1460, record: 8167 }
+{ req: 1511, res: 1470, record: 8167 }
+{ req: 1511, res: 1480, record: 8187 }
+{ req: 1511, res: 1490, record: 8187 }
+{ req: 1511, res: 1500, record: 8187 }
+{ req: 1511, res: 1510, record: 8187 }
+{ req: 1586, res: 1520, record: 8187 }
+{ req: 1586, res: 1530, record: 8187 }
+{ req: 1586, res: 1540, record: 8187 }
+{ req: 1586, res: 1550, record: 8187 }
+{ req: 1586, res: 1560, record: 8187 }
+{ req: 1586, res: 1570, record: 8187 }
+{ req: 1586, res: 1580, record: 8187 }
+{ req: 1586, res: 1586, record: 8227 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ 16355535000  │
+│           foreign_delta            │ 16355535000  │
+│         proprietary_delta          │ -29390545000 │
+│       local_individual_delta       │  7456465000  │
+│     local_institutional_delta      │  5578545000  │
+│      foreign_individual_delta      │ -3177470000  │
+│    foreign_institutional_delta     │ 19533005000  │
+│         total_buy_matched          │ 573812231250 │
+│         total_sell_matched         │ 557456696250 │
+│        foreign_buy_matched         │ 22194985000  │
+│        foreign_sell_matched        │  5839450000  │
+│      proprietary_buy_matched       │ 10464160000  │
+│      proprietary_sell_matched      │ 39854705000  │
+│    local_individual_buy_matched    │ 508932101250 │
+│   local_individual_sell_matched    │ 501475636250 │
+│  local_institutional_buy_matched   │ 10026000000  │
+│  local_institutional_sell_matched  │  4447455000  │
+│   foreign_individual_buy_matched   │  1287245000  │
+│  foreign_individual_sell_matched   │  4464715000  │
+│ foreign_institutional_buy_matched  │ 20907740000  │
+│ foreign_institutional_sell_matched │  1374735000  │
+└────────────────────────────────────┴──────────────┘
