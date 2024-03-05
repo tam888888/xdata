@@ -50230,3 +50230,1360 @@ Fetching 1586
 │ foreign_institutional_buy_matched  │ 26722080000  │
 │ foreign_institutional_sell_matched │ 17663615000  │
 └────────────────────────────────────┴──────────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 2412     │ 10h    │ 248  │ online    │ 0%       │ 1.9gb    │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 2984     │ 0s     │ 37   │ online    │ 0%       │ 20.1mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 3007     │ 0s     │ 249  │ online    │ 0%       │ 19.8mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 2984     │ 5m     │ 37   │ online    │ 0%       │ 49.4mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action stopProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 3007     │ 8h     │ 249  │ online    │ 0%       │ 1.8gb    │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 0        │ 0      │ 37   │ stopped   │ 0%       │ 0b       │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket3](0) ✓
+[PM2] Process successfully started
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 3007     │ 8h     │ 249  │ online    │ 0%       │ 1.8gb    │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 3486     │ 0s     │ 37   │ online    │ 0%       │ 23.8mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+/home/hungsex/server/xdata/dist/dist/457.js:2
+exports.id=457,exports.ids=[457],exports.modules={41139:(e,t,r)=>{if(!globalThis.DOMException)try{const{MessageChannel:e}=r(71267),t=(new e).port1,o=new ArrayBuffer;t.postMessage(o,[o,o])}catch(e){"DOMException"===e.constructor.name&&(globalThis.DOMException=e.constructor)}e.exports=globalThis.DOMException},24091:function(e,t){var r;r=function(e){"use strict";const t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?Symbol:e=>`Symbol(${e})`;function r(){}const o="undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:void 0;function n(e){return"object"==typeof e&&null!==e||"function"==typeof e}const i=r,s=Promise,a=Promise.prototype.then,l=Promise.resolve.bind(s),u=Promise.reject.bind(s);function c(e){return new s(e)}function d(e){return l(e)}function f(e){return u(e)}function h(e,t,r){return a.call(e,t,r)}function p(e,t,r){h(h(e,t,r),void 0,i)}function b(e,t){p(e,t)}function y(e,t){p(e,void 0,t)}function m(e,t,r){return h(e,t,r)}function _(e){h(e,void 0,i)}const g=(()=>{const e=o&&o.queueMicrotask;if("function"==typeof e)return e;const t=d(void 0);return e=>h(t,e)})();function w(e,t,r){if("function"!=typeof e)throw new TypeError("Argument is not a function");return Function.prototype.apply.call(e,t,r)}function v(e,t,r){try{return d(w(e,t,r))}catch(e){return f(e)}}class S{constructor(){this._cursor=0,this._size=0,this._front={_elements:[],_next:void 0},this._back=this._front,this._cursor=0,this._size=0}get length(){return this._size}push(e){const t=this._back;let r=t;16383===t._elements.length&&(r={_elements:[],_next:void 0}),t._elements.push(e),r!==t&&(this._back=r,t._next=r),++this._size}shift(){const e=this._front;let t=e;const r=this._cursor;let o=r+1;const n=e._elements,i=n[r];return 16384===o&&(t=e._next,o=0),--this._size,this._cursor=o,e!==t&&(this._front=t),n[r]=void 0,i}forEach(e){let t=this._cursor,r=this._front,o=r._elements;for(;!(t===o.length&&void 0===r._next||t===o.length&&(r=r._next,o=r._elements,t=0,0===o.length));)e(o[t]),++t}peek(){const e=this._front,t=this._cursor;return e._elements[t]}}function T(e,t){e._ownerReadableStream=t,t._reader=e,"readable"===t._state?C(e):"closed"===t._state?function(e){C(e),A(e)}(e):q(e,t._storedError)}function R(e,t){return wr(e._ownerReadableStream,t)}function E(e){"readable"===e._ownerReadableStream._state?k(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness")):function(e,t){q(e,new TypeError("Reader was released and can no longer be used to monitor the stream's closedness"))}(e),e._ownerReadableStream._reader=void 0,e._ownerReadableStream=void 0}function P(e){return new TypeError("Cannot "+e+" a stream using a released reader")}function C(e){e._closedPromise=c(((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r}))}function q(e,t){C(e),k(e,t)}function k(e,t){void 0!==e._closedPromise_reject&&(_(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0)}function A(e){void 0!==e._closedPromise_resolve&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0)}const O=t("[[AbortSteps]]"),B=t("[[ErrorSteps]]"),j=t("[[CancelSteps]]"),z=t("[[PullSteps]]"),W=Number.isFinite||function(e){return"number"==typeof e&&isFinite(e)},L=Math.trunc||function(e){return e<0?Math.ceil(e):Math.floor(e)};function $(e,t){if(void 0!==e&&"object"!=typeof(r=e)&&"function"!=typeof r)throw new TypeError(`${t} is not an object.`);var r}function F(e,t){if("function"!=typeof e)throw new TypeError(`${t} is not a function.`)}function M(e,t){if(!function(e){return"object"==typeof e&&null!==e||"function"==typeof e}(e))throw new TypeError(`${t} is not an object.`)}function I(e,t,r){if(void 0===e)throw new TypeError(`Parameter ${t} is required in '${r}'.`)}function x(e,t,r){if(void 0===e)throw new TypeError(`${t} is required in '${r}'.`)}function U(e){return Number(e)}function D(e){return 0===e?0:e}function H(e,t){const r=Number.MAX_SAFE_INTEGER;let o=Number(e);if(o=D(o),!W(o))throw new TypeError(`${t} is not a finite number`);if(o=function(e){return D(L(e))}(o),o<0||o>r)throw new TypeError(`${t} is outside the accepted range of 0 to ${r}, inclusive`);return W(o)&&0!==o?o:0}function N(e,t){if(!_r(e))throw new TypeError(`${t} is not a ReadableStream.`)}function V(e){return new J(e)}function Q(e,t){e._reader._readRequests.push(t)}function Y(e,t,r){const o=e._reader._readRequests.shift();r?o._closeSteps():o._chunkSteps(t)}function Z(e){return e._reader._readRequests.length}function G(e){const t=e._reader;return void 0!==t&&!!K(t)}class J{constructor(e){if(I(e,1,"ReadableStreamDefaultReader"),N(e,"First parameter"),gr(e))throw new TypeError("This stream has already been locked for exclusive reading by another reader");T(this,e),this._readRequests=new S}get closed(){return K(this)?this._closedPromise:f(ee("closed"))}cancel(e=void 0){return K(this)?void 0===this._ownerReadableStream?f(P("cancel")):R(this,e):f(ee("cancel"))}read(){if(!K(this))return f(ee("read"));if(void 0===this._ownerReadableStream)return f(P("read from"));let e,t;const r=c(((r,o)=>{e=r,t=o}));return X(this,{_chunkSteps:t=>e({value:t,done:!1}),_closeSteps:()=>e({value:void 0,done:!0}),_errorSteps:e=>t(e)}),r}releaseLock(){if(!K(this))throw ee("releaseLock");if(void 0!==this._ownerReadableStream){if(this._readRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");E(this)}}}function K(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_readRequests")&&e instanceof J}function X(e,t){const r=e._ownerReadableStream;r._disturbed=!0,"closed"===r._state?t._closeSteps():"errored"===r._state?t._errorSteps(r._storedError):r._readableStreamController[z](t)}function ee(e){return new TypeError(`ReadableStreamDefaultReader.prototype.${e} can only be used on a ReadableStreamDefaultReader`)}Object.defineProperties(J.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(J.prototype,t.toStringTag,{value:"ReadableStreamDefaultReader",configurable:!0});const te=Object.getPrototypeOf(Object.getPrototypeOf((async function*(){})).prototype);class re{constructor(e,t){this._ongoingPromise=void 0,this._isFinished=!1,this._reader=e,this._preventCancel=t}next(){const e=()=>this._nextSteps();return this._ongoingPromise=this._ongoingPromise?m(this._ongoingPromise,e,e):e(),this._ongoingPromise}return(e){const t=()=>this._returnSteps(e);return this._ongoingPromise?m(this._ongoingPromise,t,t):t()}_nextSteps(){if(this._isFinished)return Promise.resolve({value:void 0,done:!0});const e=this._reader;if(void 0===e._ownerReadableStream)return f(P("iterate"));let t,r;const o=c(((e,o)=>{t=e,r=o}));return X(e,{_chunkSteps:e=>{this._ongoingPromise=void 0,g((()=>t({value:e,done:!1})))},_closeSteps:()=>{this._ongoingPromise=void 0,this._isFinished=!0,E(e),t({value:void 0,done:!0})},_errorSteps:t=>{this._ongoingPromise=void 0,this._isFinished=!0,E(e),r(t)}}),o}_returnSteps(e){if(this._isFinished)return Promise.resolve({value:e,done:!0});this._isFinished=!0;const t=this._reader;if(void 0===t._ownerReadableStream)return f(P("finish iterating"));if(!this._preventCancel){const r=R(t,e);return E(t),m(r,(()=>({value:e,done:!0})))}return E(t),d({value:e,done:!0})}}const oe={next(){return ne(this)?this._asyncIteratorImpl.next():f(ie("next"))},return(e){return ne(this)?this._asyncIteratorImpl.return(e):f(ie("return"))}};function ne(e){if(!n(e))return!1;if(!Object.prototype.hasOwnProperty.call(e,"_asyncIteratorImpl"))return!1;try{return e._asyncIteratorImpl instanceof re}catch(e){return!1}}function ie(e){return new TypeError(`ReadableStreamAsyncIterator.${e} can only be used on a ReadableSteamAsyncIterator`)}void 0!==te&&Object.setPrototypeOf(oe,te);const se=Number.isNaN||function(e){return e!=e};function ae(e){return e.slice()}function le(e,t,r,o,n){new Uint8Array(e).set(new Uint8Array(r,o,n),t)}function ue(e,t,r){if(e.slice)return e.slice(t,r);const o=r-t,n=new ArrayBuffer(o);return le(n,0,e,t,o),n}function ce(e){const t=ue(e.buffer,e.byteOffset,e.byteOffset+e.byteLength);return new Uint8Array(t)}function de(e){const t=e._queue.shift();return e._queueTotalSize-=t.size,e._queueTotalSize<0&&(e._queueTotalSize=0),t.value}function fe(e,t,r){if("number"!=typeof(o=r)||se(o)||o<0||r===1/0)throw new RangeError("Size must be a finite, non-NaN, non-negative number.");var o;e._queue.push({value:t,size:r}),e._queueTotalSize+=r}function he(e){e._queue=new S,e._queueTotalSize=0}class pe{constructor(){throw new TypeError("Illegal constructor")}get view(){if(!me(this))throw Me("view");return this._view}respond(e){if(!me(this))throw Me("respond");if(I(e,1,"respond"),e=H(e,"First parameter"),void 0===this._associatedReadableByteStreamController)throw new TypeError("This BYOB request has been invalidated");this._view.buffer,Le(this._associatedReadableByteStreamController,e)}respondWithNewView(e){if(!me(this))throw Me("respondWithNewView");if(I(e,1,"respondWithNewView"),!ArrayBuffer.isView(e))throw new TypeError("You can only respond with array buffer views");if(void 0===this._associatedReadableByteStreamController)throw new TypeError("This BYOB request has been invalidated");e.buffer,$e(this._associatedReadableByteStreamController,e)}}Object.defineProperties(pe.prototype,{respond:{enumerable:!0},respondWithNewView:{enumerable:!0},view:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(pe.prototype,t.toStringTag,{value:"ReadableStreamBYOBRequest",configurable:!0});class be{constructor(){throw new TypeError("Illegal constructor")}get byobRequest(){if(!ye(this))throw Ie("byobRequest");return ze(this)}get desiredSize(){if(!ye(this))throw Ie("desiredSize");return We(this)}close(){if(!ye(this))throw Ie("close");if(this._closeRequested)throw new TypeError("The stream has already been closed; do not close it again!");const e=this._controlledReadableByteStream._state;if("readable"!==e)throw new TypeError(`The stream (in ${e} state) is not in the readable state and cannot be closed`);Oe(this)}enqueue(e){if(!ye(this))throw Ie("enqueue");if(I(e,1,"enqueue"),!ArrayBuffer.isView(e))throw new TypeError("chunk must be an array buffer view");if(0===e.byteLength)throw new TypeError("chunk must have non-zero byteLength");if(0===e.buffer.byteLength)throw new TypeError("chunk's buffer must have non-zero byteLength");if(this._closeRequested)throw new TypeError("stream is closed or draining");const t=this._controlledReadableByteStream._state;if("readable"!==t)throw new TypeError(`The stream (in ${t} state) is not in the readable state and cannot be enqueued to`);Be(this,e)}error(e=void 0){if(!ye(this))throw Ie("error");je(this,e)}[j](e){ge(this),he(this);const t=this._cancelAlgorithm(e);return Ae(this),t}[z](e){const t=this._controlledReadableByteStream;if(this._queueTotalSize>0){const t=this._queue.shift();this._queueTotalSize-=t.byteLength,Ee(this);const r=new Uint8Array(t.buffer,t.byteOffset,t.byteLength);return void e._chunkSteps(r)}const r=this._autoAllocateChunkSize;if(void 0!==r){let t;try{t=new ArrayBuffer(r)}catch(t){return void e._errorSteps(t)}const o={buffer:t,bufferByteLength:r,byteOffset:0,byteLength:r,bytesFilled:0,elementSize:1,viewConstructor:Uint8Array,readerType:"default"};this._pendingPullIntos.push(o)}Q(t,e),_e(this)}}function ye(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_controlledReadableByteStream")&&e instanceof be}function me(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_associatedReadableByteStreamController")&&e instanceof pe}function _e(e){const t=function(e){const t=e._controlledReadableByteStream;if("readable"!==t._state)return!1;if(e._closeRequested)return!1;if(!e._started)return!1;if(G(t)&&Z(t)>0)return!0;if(He(t)&&De(t)>0)return!0;return We(e)>0}(e);t&&(e._pulling?e._pullAgain=!0:(e._pulling=!0,p(e._pullAlgorithm(),(()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,_e(e))}),(t=>{je(e,t)}))))}function ge(e){Pe(e),e._pendingPullIntos=new S}function we(e,t){let r=!1;"closed"===e._state&&(r=!0);const o=ve(t);"default"===t.readerType?Y(e,o,r):function(e,t,r){const o=e._reader._readIntoRequests.shift();r?o._closeSteps(t):o._chunkSteps(t)}(e,o,r)}function ve(e){const t=e.bytesFilled,r=e.elementSize;return new e.viewConstructor(e.buffer,e.byteOffset,t/r)}function Se(e,t,r,o){e._queue.push({buffer:t,byteOffset:r,byteLength:o}),e._queueTotalSize+=o}function Te(e,t){const r=t.elementSize,o=t.bytesFilled-t.bytesFilled%r,n=Math.min(e._queueTotalSize,t.byteLength-t.bytesFilled),i=t.bytesFilled+n,s=i-i%r;let a=n,l=!1;s>o&&(a=s-t.bytesFilled,l=!0);const u=e._queue;for(;a>0;){const r=u.peek(),o=Math.min(a,r.byteLength),n=t.byteOffset+t.bytesFilled;le(t.buffer,n,r.buffer,r.byteOffset,o),r.byteLength===o?u.shift():(r.byteOffset+=o,r.byteLength-=o),e._queueTotalSize-=o,Re(0,o,t),a-=o}return l}function Re(e,t,r){r.bytesFilled+=t}function Ee(e){0===e._queueTotalSize&&e._closeRequested?(Ae(e),vr(e._controlledReadableByteStream)):_e(e)}function Pe(e){null!==e._byobRequest&&(e._byobRequest._associatedReadableByteStreamController=void 0,e._byobRequest._view=null,e._byobRequest=null)}function Ce(e){for(;e._pendingPullIntos.length>0;){if(0===e._queueTotalSize)return;const t=e._pendingPullIntos.peek();Te(e,t)&&(ke(e),we(e._controlledReadableByteStream,t))}}function qe(e,t){const r=e._pendingPullIntos.peek();Pe(e),"closed"===e._controlledReadableByteStream._state?function(e,t){const r=e._controlledReadableByteStream;if(He(r))for(;De(r)>0;)we(r,ke(e))}(e):function(e,t,r){if(Re(0,t,r),r.bytesFilled<r.elementSize)return;ke(e);const o=r.bytesFilled%r.elementSize;if(o>0){const t=r.byteOffset+r.bytesFilled,n=ue(r.buffer,t-o,t);Se(e,n,0,n.byteLength)}r.bytesFilled-=o,we(e._controlledReadableByteStream,r),Ce(e)}(e,t,r),_e(e)}function ke(e){return e._pendingPullIntos.shift()}function Ae(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0}function Oe(e){const t=e._controlledReadableByteStream;if(!e._closeRequested&&"readable"===t._state)if(e._queueTotalSize>0)e._closeRequested=!0;else{if(e._pendingPullIntos.length>0&&e._pendingPullIntos.peek().bytesFilled>0){const t=new TypeError("Insufficient bytes to fill elements in the given buffer");throw je(e,t),t}Ae(e),vr(t)}}function Be(e,t){const r=e._controlledReadableByteStream;if(e._closeRequested||"readable"!==r._state)return;const o=t.buffer,n=t.byteOffset,i=t.byteLength,s=o;if(e._pendingPullIntos.length>0){const t=e._pendingPullIntos.peek();t.buffer,t.buffer=t.buffer}Pe(e),G(r)?0===Z(r)?Se(e,s,n,i):(e._pendingPullIntos.length>0&&ke(e),Y(r,new Uint8Array(s,n,i),!1)):He(r)?(Se(e,s,n,i),Ce(e)):Se(e,s,n,i),_e(e)}function je(e,t){const r=e._controlledReadableByteStream;"readable"===r._state&&(ge(e),he(e),Ae(e),Sr(r,t))}function ze(e){if(null===e._byobRequest&&e._pendingPullIntos.length>0){const t=e._pendingPullIntos.peek(),r=new Uint8Array(t.buffer,t.byteOffset+t.bytesFilled,t.byteLength-t.bytesFilled),o=Object.create(pe.prototype);!function(e,t,r){e._associatedReadableByteStreamController=t,e._view=r}(o,e,r),e._byobRequest=o}return e._byobRequest}function We(e){const t=e._controlledReadableByteStream._state;return"errored"===t?null:"closed"===t?0:e._strategyHWM-e._queueTotalSize}function Le(e,t){const r=e._pendingPullIntos.peek();if("closed"===e._controlledReadableByteStream._state){if(0!==t)throw new TypeError("bytesWritten must be 0 when calling respond() on a closed stream")}else{if(0===t)throw new TypeError("bytesWritten must be greater than 0 when calling respond() on a readable stream");if(r.bytesFilled+t>r.byteLength)throw new RangeError("bytesWritten out of range")}r.buffer=r.buffer,qe(e,t)}function $e(e,t){const r=e._pendingPullIntos.peek();if("closed"===e._controlledReadableByteStream._state){if(0!==t.byteLength)throw new TypeError("The view's length must be 0 when calling respondWithNewView() on a closed stream")}else if(0===t.byteLength)throw new TypeError("The view's length must be greater than 0 when calling respondWithNewView() on a readable stream");if(r.byteOffset+r.bytesFilled!==t.byteOffset)throw new RangeError("The region specified by view does not match byobRequest");if(r.bufferByteLength!==t.buffer.byteLength)throw new RangeError("The buffer of view has different capacity than byobRequest");if(r.bytesFilled+t.byteLength>r.byteLength)throw new RangeError("The region specified by view is larger than byobRequest");const o=t.byteLength;r.buffer=t.buffer,qe(e,o)}function Fe(e,t,r,o,n,i,s){t._controlledReadableByteStream=e,t._pullAgain=!1,t._pulling=!1,t._byobRequest=null,t._queue=t._queueTotalSize=void 0,he(t),t._closeRequested=!1,t._started=!1,t._strategyHWM=i,t._pullAlgorithm=o,t._cancelAlgorithm=n,t._autoAllocateChunkSize=s,t._pendingPullIntos=new S,e._readableStreamController=t,p(d(r()),(()=>{t._started=!0,_e(t)}),(e=>{je(t,e)}))}function Me(e){return new TypeError(`ReadableStreamBYOBRequest.prototype.${e} can only be used on a ReadableStreamBYOBRequest`)}function Ie(e){return new TypeError(`ReadableByteStreamController.prototype.${e} can only be used on a ReadableByteStreamController`)}function xe(e){return new Ne(e)}function Ue(e,t){e._reader._readIntoRequests.push(t)}function De(e){return e._reader._readIntoRequests.length}function He(e){const t=e._reader;return void 0!==t&&!!Ve(t)}Object.defineProperties(be.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},byobRequest:{enumerable:!0},desiredSize:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(be.prototype,t.toStringTag,{value:"ReadableByteStreamController",configurable:!0});class Ne{constructor(e){if(I(e,1,"ReadableStreamBYOBReader"),N(e,"First parameter"),gr(e))throw new TypeError("This stream has already been locked for exclusive reading by another reader");if(!ye(e._readableStreamController))throw new TypeError("Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source");T(this,e),this._readIntoRequests=new S}get closed(){return Ve(this)?this._closedPromise:f(Ye("closed"))}cancel(e=void 0){return Ve(this)?void 0===this._ownerReadableStream?f(P("cancel")):R(this,e):f(Ye("cancel"))}read(e){if(!Ve(this))return f(Ye("read"));if(!ArrayBuffer.isView(e))return f(new TypeError("view must be an array buffer view"));if(0===e.byteLength)return f(new TypeError("view must have non-zero byteLength"));if(0===e.buffer.byteLength)return f(new TypeError("view's buffer must have non-zero byteLength"));if(e.buffer,void 0===this._ownerReadableStream)return f(P("read from"));let t,r;const o=c(((e,o)=>{t=e,r=o}));return Qe(this,e,{_chunkSteps:e=>t({value:e,done:!1}),_closeSteps:e=>t({value:e,done:!0}),_errorSteps:e=>r(e)}),o}releaseLock(){if(!Ve(this))throw Ye("releaseLock");if(void 0!==this._ownerReadableStream){if(this._readIntoRequests.length>0)throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");E(this)}}}function Ve(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_readIntoRequests")&&e instanceof Ne}function Qe(e,t,r){const o=e._ownerReadableStream;o._disturbed=!0,"errored"===o._state?r._errorSteps(o._storedError):function(e,t,r){const o=e._controlledReadableByteStream;let n=1;t.constructor!==DataView&&(n=t.constructor.BYTES_PER_ELEMENT);const i=t.constructor,s=t.buffer,a={buffer:s,bufferByteLength:s.byteLength,byteOffset:t.byteOffset,byteLength:t.byteLength,bytesFilled:0,elementSize:n,viewConstructor:i,readerType:"byob"};if(e._pendingPullIntos.length>0)return e._pendingPullIntos.push(a),void Ue(o,r);if("closed"!==o._state){if(e._queueTotalSize>0){if(Te(e,a)){const t=ve(a);return Ee(e),void r._chunkSteps(t)}if(e._closeRequested){const t=new TypeError("Insufficient bytes to fill elements in the given buffer");return je(e,t),void r._errorSteps(t)}}e._pendingPullIntos.push(a),Ue(o,r),_e(e)}else{const e=new i(a.buffer,a.byteOffset,0);r._closeSteps(e)}}(o._readableStreamController,t,r)}function Ye(e){return new TypeError(`ReadableStreamBYOBReader.prototype.${e} can only be used on a ReadableStreamBYOBReader`)}function Ze(e,t){const{highWaterMark:r}=e;if(void 0===r)return t;if(se(r)||r<0)throw new RangeError("Invalid highWaterMark");return r}function Ge(e){const{size:t}=e;return t||(()=>1)}function Je(e,t){$(e,t);const r=null==e?void 0:e.highWaterMark,o=null==e?void 0:e.size;return{highWaterMark:void 0===r?void 0:U(r),size:void 0===o?void 0:Ke(o,`${t} has member 'size' that`)}}function Ke(e,t){return F(e,t),t=>U(e(t))}function Xe(e,t,r){return F(e,r),r=>v(e,t,[r])}function et(e,t,r){return F(e,r),()=>v(e,t,[])}function tt(e,t,r){return F(e,r),r=>w(e,t,[r])}function rt(e,t,r){return F(e,r),(r,o)=>v(e,t,[r,o])}function ot(e,t){if(!lt(e))throw new TypeError(`${t} is not a WritableStream.`)}Object.defineProperties(Ne.prototype,{cancel:{enumerable:!0},read:{enumerable:!0},releaseLock:{enumerable:!0},closed:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Ne.prototype,t.toStringTag,{value:"ReadableStreamBYOBReader",configurable:!0});const nt="function"==typeof AbortController;class it{constructor(e={},t={}){void 0===e?e=null:M(e,"First parameter");const r=Je(t,"Second parameter"),o=function(e,t){$(e,t);const r=null==e?void 0:e.abort,o=null==e?void 0:e.close,n=null==e?void 0:e.start,i=null==e?void 0:e.type,s=null==e?void 0:e.write;return{abort:void 0===r?void 0:Xe(r,e,`${t} has member 'abort' that`),close:void 0===o?void 0:et(o,e,`${t} has member 'close' that`),start:void 0===n?void 0:tt(n,e,`${t} has member 'start' that`),write:void 0===s?void 0:rt(s,e,`${t} has member 'write' that`),type:i}}(e,"First parameter");if(at(this),void 0!==o.type)throw new RangeError("Invalid type is specified");const n=Ge(r);!function(e,t,r,o){const n=Object.create(Et.prototype);let i=()=>{},s=()=>d(void 0),a=()=>d(void 0),l=()=>d(void 0);void 0!==t.start&&(i=()=>t.start(n)),void 0!==t.write&&(s=e=>t.write(e,n)),void 0!==t.close&&(a=()=>t.close()),void 0!==t.abort&&(l=e=>t.abort(e)),Ct(e,n,i,s,a,l,r,o)}(this,o,Ze(r,1),n)}get locked(){if(!lt(this))throw zt("locked");return ut(this)}abort(e=void 0){return lt(this)?ut(this)?f(new TypeError("Cannot abort a stream that already has a writer")):ct(this,e):f(zt("abort"))}close(){return lt(this)?ut(this)?f(new TypeError("Cannot close a stream that already has a writer")):bt(this)?f(new TypeError("Cannot close an already-closing stream")):dt(this):f(zt("close"))}getWriter(){if(!lt(this))throw zt("getWriter");return st(this)}}function st(e){return new _t(e)}function at(e){e._state="writable",e._storedError=void 0,e._writer=void 0,e._writableStreamController=void 0,e._writeRequests=new S,e._inFlightWriteRequest=void 0,e._closeRequest=void 0,e._inFlightCloseRequest=void 0,e._pendingAbortRequest=void 0,e._backpressure=!1}function lt(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_writableStreamController")&&e instanceof it}function ut(e){return void 0!==e._writer}function ct(e,t){var r;if("closed"===e._state||"errored"===e._state)return d(void 0);e._writableStreamController._abortReason=t,null===(r=e._writableStreamController._abortController)||void 0===r||r.abort();const o=e._state;if("closed"===o||"errored"===o)return d(void 0);if(void 0!==e._pendingAbortRequest)return e._pendingAbortRequest._promise;let n=!1;"erroring"===o&&(n=!0,t=void 0);const i=c(((r,o)=>{e._pendingAbortRequest={_promise:void 0,_resolve:r,_reject:o,_reason:t,_wasAlreadyErroring:n}}));return e._pendingAbortRequest._promise=i,n||ht(e,t),i}function dt(e){const t=e._state;if("closed"===t||"errored"===t)return f(new TypeError(`The stream (in ${t} state) is not in the writable state and cannot be closed`));const r=c(((t,r)=>{const o={_resolve:t,_reject:r};e._closeRequest=o})),o=e._writer;var n;return void 0!==o&&e._backpressure&&"writable"===t&&Vt(o),fe(n=e._writableStreamController,Rt,0),At(n),r}function ft(e,t){"writable"!==e._state?pt(e):ht(e,t)}function ht(e,t){const r=e._writableStreamController;e._state="erroring",e._storedError=t;const o=e._writer;void 0!==o&&vt(o,t),!function(e){return void 0!==e._inFlightWriteRequest||void 0!==e._inFlightCloseRequest}(e)&&r._started&&pt(e)}function pt(e){e._state="errored",e._writableStreamController[B]();const t=e._storedError;if(e._writeRequests.forEach((e=>{e._reject(t)})),e._writeRequests=new S,void 0===e._pendingAbortRequest)return void yt(e);const r=e._pendingAbortRequest;if(e._pendingAbortRequest=void 0,r._wasAlreadyErroring)return r._reject(t),void yt(e);p(e._writableStreamController[O](r._reason),(()=>{r._resolve(),yt(e)}),(t=>{r._reject(t),yt(e)}))}function bt(e){return void 0!==e._closeRequest||void 0!==e._inFlightCloseRequest}function yt(e){void 0!==e._closeRequest&&(e._closeRequest._reject(e._storedError),e._closeRequest=void 0);const t=e._writer;void 0!==t&&It(t,e._storedError)}function mt(e,t){const r=e._writer;void 0!==r&&t!==e._backpressure&&(t?function(e){Ut(e)}(r):Vt(r)),e._backpressure=t}Object.defineProperties(it.prototype,{abort:{enumerable:!0},close:{enumerable:!0},getWriter:{enumerable:!0},locked:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(it.prototype,t.toStringTag,{value:"WritableStream",configurable:!0});class _t{constructor(e){if(I(e,1,"WritableStreamDefaultWriter"),ot(e,"First parameter"),ut(e))throw new TypeError("This stream has already been locked for exclusive writing by another writer");this._ownerWritableStream=e,e._writer=this;const t=e._state;if("writable"===t)!bt(e)&&e._backpressure?Ut(this):Ht(this),Ft(this);else if("erroring"===t)Dt(this,e._storedError),Ft(this);else if("closed"===t)Ht(this),Ft(this),xt(this);else{const t=e._storedError;Dt(this,t),Mt(this,t)}}get closed(){return gt(this)?this._closedPromise:f(Lt("closed"))}get desiredSize(){if(!gt(this))throw Lt("desiredSize");if(void 0===this._ownerWritableStream)throw $t("desiredSize");return function(e){const t=e._ownerWritableStream,r=t._state;return"errored"===r||"erroring"===r?null:"closed"===r?0:kt(t._writableStreamController)}(this)}get ready(){return gt(this)?this._readyPromise:f(Lt("ready"))}abort(e=void 0){return gt(this)?void 0===this._ownerWritableStream?f($t("abort")):function(e,t){return ct(e._ownerWritableStream,t)}(this,e):f(Lt("abort"))}close(){if(!gt(this))return f(Lt("close"));const e=this._ownerWritableStream;return void 0===e?f($t("close")):bt(e)?f(new TypeError("Cannot close an already-closing stream")):wt(this)}releaseLock(){if(!gt(this))throw Lt("releaseLock");void 0!==this._ownerWritableStream&&St(this)}write(e=void 0){return gt(this)?void 0===this._ownerWritableStream?f($t("write to")):Tt(this,e):f(Lt("write"))}}function gt(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_ownerWritableStream")&&e instanceof _t}function wt(e){return dt(e._ownerWritableStream)}function vt(e,t){"pending"===e._readyPromiseState?Nt(e,t):function(e,t){Dt(e,t)}(e,t)}function St(e){const t=e._ownerWritableStream,r=new TypeError("Writer was released and can no longer be used to monitor the stream's closedness");vt(e,r),function(e,t){"pending"===e._closedPromiseState?It(e,t):function(e,t){Mt(e,t)}(e,t)}(e,r),t._writer=void 0,e._ownerWritableStream=void 0}function Tt(e,t){const r=e._ownerWritableStream,o=r._writableStreamController,n=function(e,t){try{return e._strategySizeAlgorithm(t)}catch(t){return Ot(e,t),1}}(o,t);if(r!==e._ownerWritableStream)return f($t("write to"));const i=r._state;if("errored"===i)return f(r._storedError);if(bt(r)||"closed"===i)return f(new TypeError("The stream is closing or closed and cannot be written to"));if("erroring"===i)return f(r._storedError);const s=function(e){return c(((t,r)=>{const o={_resolve:t,_reject:r};e._writeRequests.push(o)}))}(r);return function(e,t,r){try{fe(e,t,r)}catch(t){return void Ot(e,t)}const o=e._controlledWritableStream;bt(o)||"writable"!==o._state||mt(o,Bt(e)),At(e)}(o,t,n),s}Object.defineProperties(_t.prototype,{abort:{enumerable:!0},close:{enumerable:!0},releaseLock:{enumerable:!0},write:{enumerable:!0},closed:{enumerable:!0},desiredSize:{enumerable:!0},ready:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(_t.prototype,t.toStringTag,{value:"WritableStreamDefaultWriter",configurable:!0});const Rt={};class Et{constructor(){throw new TypeError("Illegal constructor")}get abortReason(){if(!Pt(this))throw Wt("abortReason");return this._abortReason}get signal(){if(!Pt(this))throw Wt("signal");if(void 0===this._abortController)throw new TypeError("WritableStreamDefaultController.prototype.signal is not supported");return this._abortController.signal}error(e=void 0){if(!Pt(this))throw Wt("error");"writable"===this._controlledWritableStream._state&&jt(this,e)}[O](e){const t=this._abortAlgorithm(e);return qt(this),t}[B](){he(this)}}function Pt(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_controlledWritableStream")&&e instanceof Et}function Ct(e,t,r,o,n,i,s,a){t._controlledWritableStream=e,e._writableStreamController=t,t._queue=void 0,t._queueTotalSize=void 0,he(t),t._abortReason=void 0,t._abortController=function(){if(nt)return new AbortController}(),t._started=!1,t._strategySizeAlgorithm=a,t._strategyHWM=s,t._writeAlgorithm=o,t._closeAlgorithm=n,t._abortAlgorithm=i;const l=Bt(t);mt(e,l),p(d(r()),(()=>{t._started=!0,At(t)}),(r=>{t._started=!0,ft(e,r)}))}function qt(e){e._writeAlgorithm=void 0,e._closeAlgorithm=void 0,e._abortAlgorithm=void 0,e._strategySizeAlgorithm=void 0}function kt(e){return e._strategyHWM-e._queueTotalSize}function At(e){const t=e._controlledWritableStream;if(!e._started)return;if(void 0!==t._inFlightWriteRequest)return;if("erroring"===t._state)return void pt(t);if(0===e._queue.length)return;const r=e._queue.peek().value;r===Rt?function(e){const t=e._controlledWritableStream;(function(e){e._inFlightCloseRequest=e._closeRequest,e._closeRequest=void 0})(t),de(e);const r=e._closeAlgorithm();qt(e),p(r,(()=>{!function(e){e._inFlightCloseRequest._resolve(void 0),e._inFlightCloseRequest=void 0,"erroring"===e._state&&(e._storedError=void 0,void 0!==e._pendingAbortRequest&&(e._pendingAbortRequest._resolve(),e._pendingAbortRequest=void 0)),e._state="closed";const t=e._writer;void 0!==t&&xt(t)}(t)}),(e=>{!function(e,t){e._inFlightCloseRequest._reject(t),e._inFlightCloseRequest=void 0,void 0!==e._pendingAbortRequest&&(e._pendingAbortRequest._reject(t),e._pendingAbortRequest=void 0),ft(e,t)}(t,e)}))}(e):function(e,t){const r=e._controlledWritableStream;!function(e){e._inFlightWriteRequest=e._writeRequests.shift()}(r);p(e._writeAlgorithm(t),(()=>{!function(e){e._inFlightWriteRequest._resolve(void 0),e._inFlightWriteRequest=void 0}(r);const t=r._state;if(de(e),!bt(r)&&"writable"===t){const t=Bt(e);mt(r,t)}At(e)}),(t=>{"writable"===r._state&&qt(e),function(e,t){e._inFlightWriteRequest._reject(t),e._inFlightWriteRequest=void 0,ft(e,t)}(r,t)}))}(e,r)}function Ot(e,t){"writable"===e._controlledWritableStream._state&&jt(e,t)}function Bt(e){return kt(e)<=0}function jt(e,t){const r=e._controlledWritableStream;qt(e),ht(r,t)}function zt(e){return new TypeError(`WritableStream.prototype.${e} can only be used on a WritableStream`)}function Wt(e){return new TypeError(`WritableStreamDefaultController.prototype.${e} can only be used on a WritableStreamDefaultController`)}function Lt(e){return new TypeError(`WritableStreamDefaultWriter.prototype.${e} can only be used on a WritableStreamDefaultWriter`)}function $t(e){return new TypeError("Cannot "+e+" a stream using a released writer")}function Ft(e){e._closedPromise=c(((t,r)=>{e._closedPromise_resolve=t,e._closedPromise_reject=r,e._closedPromiseState="pending"}))}function Mt(e,t){Ft(e),It(e,t)}function It(e,t){void 0!==e._closedPromise_reject&&(_(e._closedPromise),e._closedPromise_reject(t),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="rejected")}function xt(e){void 0!==e._closedPromise_resolve&&(e._closedPromise_resolve(void 0),e._closedPromise_resolve=void 0,e._closedPromise_reject=void 0,e._closedPromiseState="resolved")}function Ut(e){e._readyPromise=c(((t,r)=>{e._readyPromise_resolve=t,e._readyPromise_reject=r})),e._readyPromiseState="pending"}function Dt(e,t){Ut(e),Nt(e,t)}function Ht(e){Ut(e),Vt(e)}function Nt(e,t){void 0!==e._readyPromise_reject&&(_(e._readyPromise),e._readyPromise_reject(t),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="rejected")}function Vt(e){void 0!==e._readyPromise_resolve&&(e._readyPromise_resolve(void 0),e._readyPromise_resolve=void 0,e._readyPromise_reject=void 0,e._readyPromiseState="fulfilled")}Object.defineProperties(Et.prototype,{abortReason:{enumerable:!0},signal:{enumerable:!0},error:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Et.prototype,t.toStringTag,{value:"WritableStreamDefaultController",configurable:!0});const Qt="undefined"!=typeof DOMException?DOMException:void 0,Yt=function(e){if("function"!=typeof e&&"object"!=typeof e)return!1;try{return new e,!0}catch(e){return!1}}(Qt)?Qt:function(){const e=function(e,t){this.message=e||"",this.name=t||"Error",Error.captureStackTrace&&Error.captureStackTrace(this,this.constructor)};return e.prototype=Object.create(Error.prototype),Object.defineProperty(e.prototype,"constructor",{value:e,writable:!0,configurable:!0}),e}();function Zt(e,t,o,n,i,s){const a=V(e),l=st(t);e._disturbed=!0;let u=!1,m=d(void 0);return c(((g,w)=>{let v;if(void 0!==s){if(v=()=>{const r=new Yt("Aborted","AbortError"),o=[];n||o.push((()=>"writable"===t._state?ct(t,r):d(void 0))),i||o.push((()=>"readable"===e._state?wr(e,r):d(void 0))),q((()=>Promise.all(o.map((e=>e())))),!0,r)},s.aborted)return void v();s.addEventListener("abort",v)}var S,T,R;if(C(e,a._closedPromise,(e=>{n?k(!0,e):q((()=>ct(t,e)),!0,e)})),C(t,l._closedPromise,(t=>{i?k(!0,t):q((()=>wr(e,t)),!0,t)})),S=e,T=a._closedPromise,R=()=>{o?k():q((()=>function(e){const t=e._ownerWritableStream,r=t._state;return bt(t)||"closed"===r?d(void 0):"errored"===r?f(t._storedError):wt(e)}(l)))},"closed"===S._state?R():b(T,R),bt(t)||"closed"===t._state){const t=new TypeError("the destination writable stream closed before all data could be piped to it");i?k(!0,t):q((()=>wr(e,t)),!0,t)}function P(){const e=m;return h(m,(()=>e!==m?P():void 0))}function C(e,t,r){"errored"===e._state?r(e._storedError):y(t,r)}function q(e,r,o){function n(){p(e(),(()=>A(r,o)),(e=>A(!0,e)))}u||(u=!0,"writable"!==t._state||bt(t)?n():b(P(),n))}function k(e,r){u||(u=!0,"writable"!==t._state||bt(t)?A(e,r):b(P(),(()=>A(e,r))))}function A(e,t){St(l),E(a),void 0!==s&&s.removeEventListener("abort",v),e?w(t):g(void 0)}_(c(((e,t)=>{!function o(n){n?e():h(u?d(!0):h(l._readyPromise,(()=>c(((e,t)=>{X(a,{_chunkSteps:t=>{m=h(Tt(l,t),void 0,r),e(!1)},_closeSteps:()=>e(!0),_errorSteps:t})})))),o,t)}(!1)})))}))}class Gt{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!Jt(this))throw ar("desiredSize");return nr(this)}close(){if(!Jt(this))throw ar("close");if(!ir(this))throw new TypeError("The stream is not in a state that permits close");tr(this)}enqueue(e=void 0){if(!Jt(this))throw ar("enqueue");if(!ir(this))throw new TypeError("The stream is not in a state that permits enqueue");return rr(this,e)}error(e=void 0){if(!Jt(this))throw ar("error");or(this,e)}[j](e){he(this);const t=this._cancelAlgorithm(e);return er(this),t}[z](e){const t=this._controlledReadableStream;if(this._queue.length>0){const r=de(this);this._closeRequested&&0===this._queue.length?(er(this),vr(t)):Kt(this),e._chunkSteps(r)}else Q(t,e),Kt(this)}}function Jt(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_controlledReadableStream")&&e instanceof Gt}function Kt(e){Xt(e)&&(e._pulling?e._pullAgain=!0:(e._pulling=!0,p(e._pullAlgorithm(),(()=>{e._pulling=!1,e._pullAgain&&(e._pullAgain=!1,Kt(e))}),(t=>{or(e,t)}))))}function Xt(e){const t=e._controlledReadableStream;return!!ir(e)&&!!e._started&&(!!(gr(t)&&Z(t)>0)||nr(e)>0)}function er(e){e._pullAlgorithm=void 0,e._cancelAlgorithm=void 0,e._strategySizeAlgorithm=void 0}function tr(e){if(!ir(e))return;const t=e._controlledReadableStream;e._closeRequested=!0,0===e._queue.length&&(er(e),vr(t))}function rr(e,t){if(!ir(e))return;const r=e._controlledReadableStream;if(gr(r)&&Z(r)>0)Y(r,t,!1);else{let r;try{r=e._strategySizeAlgorithm(t)}catch(t){throw or(e,t),t}try{fe(e,t,r)}catch(t){throw or(e,t),t}}Kt(e)}function or(e,t){const r=e._controlledReadableStream;"readable"===r._state&&(he(e),er(e),Sr(r,t))}function nr(e){const t=e._controlledReadableStream._state;return"errored"===t?null:"closed"===t?0:e._strategyHWM-e._queueTotalSize}function ir(e){const t=e._controlledReadableStream._state;return!e._closeRequested&&"readable"===t}function sr(e,t,r,o,n,i,s){t._controlledReadableStream=e,t._queue=void 0,t._queueTotalSize=void 0,he(t),t._started=!1,t._closeRequested=!1,t._pullAgain=!1,t._pulling=!1,t._strategySizeAlgorithm=s,t._strategyHWM=i,t._pullAlgorithm=o,t._cancelAlgorithm=n,e._readableStreamController=t,p(d(r()),(()=>{t._started=!0,Kt(t)}),(e=>{or(t,e)}))}function ar(e){return new TypeError(`ReadableStreamDefaultController.prototype.${e} can only be used on a ReadableStreamDefaultController`)}function lr(e,t,r){return F(e,r),r=>v(e,t,[r])}function ur(e,t,r){return F(e,r),r=>v(e,t,[r])}function cr(e,t,r){return F(e,r),r=>w(e,t,[r])}function dr(e,t){if("bytes"!=(e=`${e}`))throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamType`);return e}function fr(e,t){if("byob"!=(e=`${e}`))throw new TypeError(`${t} '${e}' is not a valid enumeration value for ReadableStreamReaderMode`);return e}function hr(e,t){$(e,t);const r=null==e?void 0:e.preventAbort,o=null==e?void 0:e.preventCancel,n=null==e?void 0:e.preventClose,i=null==e?void 0:e.signal;return void 0!==i&&function(e,t){if(!function(e){if("object"!=typeof e||null===e)return!1;try{return"boolean"==typeof e.aborted}catch(e){return!1}}(e))throw new TypeError(`${t} is not an AbortSignal.`)}(i,`${t} has member 'signal' that`),{preventAbort:Boolean(r),preventCancel:Boolean(o),preventClose:Boolean(n),signal:i}}Object.defineProperties(Gt.prototype,{close:{enumerable:!0},enqueue:{enumerable:!0},error:{enumerable:!0},desiredSize:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Gt.prototype,t.toStringTag,{value:"ReadableStreamDefaultController",configurable:!0});class pr{constructor(e={},t={}){void 0===e?e=null:M(e,"First parameter");const r=Je(t,"Second parameter"),o=function(e,t){$(e,t);const r=e,o=null==r?void 0:r.autoAllocateChunkSize,n=null==r?void 0:r.cancel,i=null==r?void 0:r.pull,s=null==r?void 0:r.start,a=null==r?void 0:r.type;return{autoAllocateChunkSize:void 0===o?void 0:H(o,`${t} has member 'autoAllocateChunkSize' that`),cancel:void 0===n?void 0:lr(n,r,`${t} has member 'cancel' that`),pull:void 0===i?void 0:ur(i,r,`${t} has member 'pull' that`),start:void 0===s?void 0:cr(s,r,`${t} has member 'start' that`),type:void 0===a?void 0:dr(a,`${t} has member 'type' that`)}}(e,"First parameter");if(mr(this),"bytes"===o.type){if(void 0!==r.size)throw new RangeError("The strategy for a byte stream cannot have a size function");!function(e,t,r){const o=Object.create(be.prototype);let n=()=>{},i=()=>d(void 0),s=()=>d(void 0);void 0!==t.start&&(n=()=>t.start(o)),void 0!==t.pull&&(i=()=>t.pull(o)),void 0!==t.cancel&&(s=e=>t.cancel(e));const a=t.autoAllocateChunkSize;if(0===a)throw new TypeError("autoAllocateChunkSize must be greater than 0");Fe(e,o,n,i,s,r,a)}(this,o,Ze(r,0))}else{const e=Ge(r);!function(e,t,r,o){const n=Object.create(Gt.prototype);let i=()=>{},s=()=>d(void 0),a=()=>d(void 0);void 0!==t.start&&(i=()=>t.start(n)),void 0!==t.pull&&(s=()=>t.pull(n)),void 0!==t.cancel&&(a=e=>t.cancel(e)),sr(e,n,i,s,a,r,o)}(this,o,Ze(r,1),e)}}get locked(){if(!_r(this))throw Tr("locked");return gr(this)}cancel(e=void 0){return _r(this)?gr(this)?f(new TypeError("Cannot cancel a stream that already has a reader")):wr(this,e):f(Tr("cancel"))}getReader(e=void 0){if(!_r(this))throw Tr("getReader");return void 0===function(e,t){$(e,t);const r=null==e?void 0:e.mode;return{mode:void 0===r?void 0:fr(r,`${t} has member 'mode' that`)}}(e,"First parameter").mode?V(this):xe(this)}pipeThrough(e,t={}){if(!_r(this))throw Tr("pipeThrough");I(e,1,"pipeThrough");const r=function(e,t){$(e,t);const r=null==e?void 0:e.readable;x(r,"readable","ReadableWritablePair"),N(r,`${t} has member 'readable' that`);const o=null==e?void 0:e.writable;return x(o,"writable","ReadableWritablePair"),ot(o,`${t} has member 'writable' that`),{readable:r,writable:o}}(e,"First parameter"),o=hr(t,"Second parameter");if(gr(this))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream");if(ut(r.writable))throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream");return _(Zt(this,r.writable,o.preventClose,o.preventAbort,o.preventCancel,o.signal)),r.readable}pipeTo(e,t={}){if(!_r(this))return f(Tr("pipeTo"));if(void 0===e)return f("Parameter 1 is required in 'pipeTo'.");if(!lt(e))return f(new TypeError("ReadableStream.prototype.pipeTo's first argument must be a WritableStream"));let r;try{r=hr(t,"Second parameter")}catch(e){return f(e)}return gr(this)?f(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream")):ut(e)?f(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream")):Zt(this,e,r.preventClose,r.preventAbort,r.preventCancel,r.signal)}tee(){if(!_r(this))throw Tr("tee");return ae(ye((e=this)._readableStreamController)?function(e){let t,r,o,n,i,s=V(e),a=!1,l=!1,u=!1,f=!1,h=!1;const p=c((e=>{i=e}));function b(e){y(e._closedPromise,(t=>{e===s&&(je(o._readableStreamController,t),je(n._readableStreamController,t),f&&h||i(void 0))}))}function m(){Ve(s)&&(E(s),s=V(e),b(s)),X(s,{_chunkSteps:t=>{g((()=>{l=!1,u=!1;const r=t;let s=t;if(!f&&!h)try{s=ce(t)}catch(t){return je(o._readableStreamController,t),je(n._readableStreamController,t),void i(wr(e,t))}f||Be(o._readableStreamController,r),h||Be(n._readableStreamController,s),a=!1,l?w():u&&v()}))},_closeSteps:()=>{a=!1,f||Oe(o._readableStreamController),h||Oe(n._readableStreamController),o._readableStreamController._pendingPullIntos.length>0&&Le(o._readableStreamController,0),n._readableStreamController._pendingPullIntos.length>0&&Le(n._readableStreamController,0),f&&h||i(void 0)},_errorSteps:()=>{a=!1}})}function _(t,r){K(s)&&(E(s),s=xe(e),b(s));const c=r?n:o,d=r?o:n;Qe(s,t,{_chunkSteps:t=>{g((()=>{l=!1,u=!1;const o=r?h:f;if(r?f:h)o||$e(c._readableStreamController,t);else{let r;try{r=ce(t)}catch(t){return je(c._readableStreamController,t),je(d._readableStreamController,t),void i(wr(e,t))}o||$e(c._readableStreamController,t),Be(d._readableStreamController,r)}a=!1,l?w():u&&v()}))},_closeSteps:e=>{a=!1;const t=r?h:f,o=r?f:h;t||Oe(c._readableStreamController),o||Oe(d._readableStreamController),void 0!==e&&(t||$e(c._readableStreamController,e),!o&&d._readableStreamController._pendingPullIntos.length>0&&Le(d._readableStreamController,0)),t&&o||i(void 0)},_errorSteps:()=>{a=!1}})}function w(){if(a)return l=!0,d(void 0);a=!0;const e=ze(o._readableStreamController);return null===e?m():_(e._view,!1),d(void 0)}function v(){if(a)return u=!0,d(void 0);a=!0;const e=ze(n._readableStreamController);return null===e?m():_(e._view,!0),d(void 0)}function S(){}return o=yr(S,w,(function(o){if(f=!0,t=o,h){const o=ae([t,r]),n=wr(e,o);i(n)}return p})),n=yr(S,v,(function(o){if(h=!0,r=o,f){const o=ae([t,r]),n=wr(e,o);i(n)}return p})),b(s),[o,n]}(e):function(e,t){const r=V(e);let o,n,i,s,a,l=!1,u=!1,f=!1,h=!1;const p=c((e=>{a=e}));function b(){return l?(u=!0,d(void 0)):(l=!0,X(r,{_chunkSteps:e=>{g((()=>{u=!1;const t=e,r=e;f||rr(i._readableStreamController,t),h||rr(s._readableStreamController,r),l=!1,u&&b()}))},_closeSteps:()=>{l=!1,f||tr(i._readableStreamController),h||tr(s._readableStreamController),f&&h||a(void 0)},_errorSteps:()=>{l=!1}}),d(void 0))}function m(){}return i=br(m,b,(function(t){if(f=!0,o=t,h){const t=ae([o,n]),r=wr(e,t);a(r)}return p})),s=br(m,b,(function(t){if(h=!0,n=t,f){const t=ae([o,n]),r=wr(e,t);a(r)}return p})),y(r._closedPromise,(e=>{or(i._readableStreamController,e),or(s._readableStreamController,e),f&&h||a(void 0)})),[i,s]}(e));var e}values(e=void 0){if(!_r(this))throw Tr("values");return function(e,t){const r=V(e),o=new re(r,t),n=Object.create(oe);return n._asyncIteratorImpl=o,n}(this,function(e,t){$(e,"First parameter");const r=null==e?void 0:e.preventCancel;return{preventCancel:Boolean(r)}}(e).preventCancel)}}function br(e,t,r,o=1,n=(()=>1)){const i=Object.create(pr.prototype);return mr(i),sr(i,Object.create(Gt.prototype),e,t,r,o,n),i}function yr(e,t,r){const o=Object.create(pr.prototype);return mr(o),Fe(o,Object.create(be.prototype),e,t,r,0,void 0),o}function mr(e){e._state="readable",e._reader=void 0,e._storedError=void 0,e._disturbed=!1}function _r(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_readableStreamController")&&e instanceof pr}function gr(e){return void 0!==e._reader}function wr(e,t){if(e._disturbed=!0,"closed"===e._state)return d(void 0);if("errored"===e._state)return f(e._storedError);vr(e);const o=e._reader;return void 0!==o&&Ve(o)&&(o._readIntoRequests.forEach((e=>{e._closeSteps(void 0)})),o._readIntoRequests=new S),m(e._readableStreamController[j](t),r)}function vr(e){e._state="closed";const t=e._reader;void 0!==t&&(A(t),K(t)&&(t._readRequests.forEach((e=>{e._closeSteps()})),t._readRequests=new S))}function Sr(e,t){e._state="errored",e._storedError=t;const r=e._reader;void 0!==r&&(k(r,t),K(r)?(r._readRequests.forEach((e=>{e._errorSteps(t)})),r._readRequests=new S):(r._readIntoRequests.forEach((e=>{e._errorSteps(t)})),r._readIntoRequests=new S))}function Tr(e){return new TypeError(`ReadableStream.prototype.${e} can only be used on a ReadableStream`)}function Rr(e,t){$(e,t);const r=null==e?void 0:e.highWaterMark;return x(r,"highWaterMark","QueuingStrategyInit"),{highWaterMark:U(r)}}Object.defineProperties(pr.prototype,{cancel:{enumerable:!0},getReader:{enumerable:!0},pipeThrough:{enumerable:!0},pipeTo:{enumerable:!0},tee:{enumerable:!0},values:{enumerable:!0},locked:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(pr.prototype,t.toStringTag,{value:"ReadableStream",configurable:!0}),"symbol"==typeof t.asyncIterator&&Object.defineProperty(pr.prototype,t.asyncIterator,{value:pr.prototype.values,writable:!0,configurable:!0});const Er=e=>e.byteLength;try{Object.defineProperty(Er,"name",{value:"size",configurable:!0})}catch(e){}class Pr{constructor(e){I(e,1,"ByteLengthQueuingStrategy"),e=Rr(e,"First parameter"),this._byteLengthQueuingStrategyHighWaterMark=e.highWaterMark}get highWaterMark(){if(!qr(this))throw Cr("highWaterMark");return this._byteLengthQueuingStrategyHighWaterMark}get size(){if(!qr(this))throw Cr("size");return Er}}function Cr(e){return new TypeError(`ByteLengthQueuingStrategy.prototype.${e} can only be used on a ByteLengthQueuingStrategy`)}function qr(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_byteLengthQueuingStrategyHighWaterMark")&&e instanceof Pr}Object.defineProperties(Pr.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Pr.prototype,t.toStringTag,{value:"ByteLengthQueuingStrategy",configurable:!0});const kr=()=>1;try{Object.defineProperty(kr,"name",{value:"size",configurable:!0})}catch(e){}class Ar{constructor(e){I(e,1,"CountQueuingStrategy"),e=Rr(e,"First parameter"),this._countQueuingStrategyHighWaterMark=e.highWaterMark}get highWaterMark(){if(!Br(this))throw Or("highWaterMark");return this._countQueuingStrategyHighWaterMark}get size(){if(!Br(this))throw Or("size");return kr}}function Or(e){return new TypeError(`CountQueuingStrategy.prototype.${e} can only be used on a CountQueuingStrategy`)}function Br(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_countQueuingStrategyHighWaterMark")&&e instanceof Ar}function jr(e,t,r){return F(e,r),r=>v(e,t,[r])}function zr(e,t,r){return F(e,r),r=>w(e,t,[r])}function Wr(e,t,r){return F(e,r),(r,o)=>v(e,t,[r,o])}Object.defineProperties(Ar.prototype,{highWaterMark:{enumerable:!0},size:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Ar.prototype,t.toStringTag,{value:"CountQueuingStrategy",configurable:!0});class Lr{constructor(e={},t={},r={}){void 0===e&&(e=null);const o=Je(t,"Second parameter"),n=Je(r,"Third parameter"),i=function(e,t){$(e,t);const r=null==e?void 0:e.flush,o=null==e?void 0:e.readableType,n=null==e?void 0:e.start,i=null==e?void 0:e.transform,s=null==e?void 0:e.writableType;return{flush:void 0===r?void 0:jr(r,e,`${t} has member 'flush' that`),readableType:o,start:void 0===n?void 0:zr(n,e,`${t} has member 'start' that`),transform:void 0===i?void 0:Wr(i,e,`${t} has member 'transform' that`),writableType:s}}(e,"First parameter");if(void 0!==i.readableType)throw new RangeError("Invalid readableType specified");if(void 0!==i.writableType)throw new RangeError("Invalid writableType specified");const s=Ze(n,0),a=Ge(n),l=Ze(o,1),u=Ge(o);let h;!function(e,t,r,o,n,i){function s(){return t}e._writable=function(e,t,r,o,n=1,i=(()=>1)){const s=Object.create(it.prototype);return at(s),Ct(s,Object.create(Et.prototype),e,t,r,o,n,i),s}(s,(function(t){return function(e,t){const r=e._transformStreamController;return e._backpressure?m(e._backpressureChangePromise,(()=>{const o=e._writable;if("erroring"===o._state)throw o._storedError;return Nr(r,t)})):Nr(r,t)}(e,t)}),(function(){return function(e){const t=e._readable,r=e._transformStreamController,o=r._flushAlgorithm();return Dr(r),m(o,(()=>{if("errored"===t._state)throw t._storedError;tr(t._readableStreamController)}),(r=>{throw Fr(e,r),t._storedError}))}(e)}),(function(t){return function(e,t){return Fr(e,t),d(void 0)}(e,t)}),r,o),e._readable=br(s,(function(){return function(e){return Ir(e,!1),e._backpressureChangePromise}(e)}),(function(t){return Mr(e,t),d(void 0)}),n,i),e._backpressure=void 0,e._backpressureChangePromise=void 0,e._backpressureChangePromise_resolve=void 0,Ir(e,!0),e._transformStreamController=void 0}(this,c((e=>{h=e})),l,u,s,a),function(e,t){const r=Object.create(xr.prototype);let o=e=>{try{return Hr(r,e),d(void 0)}catch(e){return f(e)}},n=()=>d(void 0);void 0!==t.transform&&(o=e=>t.transform(e,r)),void 0!==t.flush&&(n=()=>t.flush(r)),function(e,t,r,o){t._controlledTransformStream=e,e._transformStreamController=t,t._transformAlgorithm=r,t._flushAlgorithm=o}(e,r,o,n)}(this,i),void 0!==i.start?h(i.start(this._transformStreamController)):h(void 0)}get readable(){if(!$r(this))throw Qr("readable");return this._readable}get writable(){if(!$r(this))throw Qr("writable");return this._writable}}function $r(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_transformStreamController")&&e instanceof Lr}function Fr(e,t){or(e._readable._readableStreamController,t),Mr(e,t)}function Mr(e,t){Dr(e._transformStreamController),Ot(e._writable._writableStreamController,t),e._backpressure&&Ir(e,!1)}function Ir(e,t){void 0!==e._backpressureChangePromise&&e._backpressureChangePromise_resolve(),e._backpressureChangePromise=c((t=>{e._backpressureChangePromise_resolve=t})),e._backpressure=t}Object.defineProperties(Lr.prototype,{readable:{enumerable:!0},writable:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(Lr.prototype,t.toStringTag,{value:"TransformStream",configurable:!0});class xr{constructor(){throw new TypeError("Illegal constructor")}get desiredSize(){if(!Ur(this))throw Vr("desiredSize");return nr(this._controlledTransformStream._readable._readableStreamController)}enqueue(e=void 0){if(!Ur(this))throw Vr("enqueue");Hr(this,e)}error(e=void 0){if(!Ur(this))throw Vr("error");var t;t=e,Fr(this._controlledTransformStream,t)}terminate(){if(!Ur(this))throw Vr("terminate");!function(e){const t=e._controlledTransformStream;tr(t._readable._readableStreamController);Mr(t,new TypeError("TransformStream terminated"))}(this)}}function Ur(e){return!!n(e)&&!!Object.prototype.hasOwnProperty.call(e,"_controlledTransformStream")&&e instanceof xr}function Dr(e){e._transformAlgorithm=void 0,e._flushAlgorithm=void 0}function Hr(e,t){const r=e._controlledTransformStream,o=r._readable._readableStreamController;if(!ir(o))throw new TypeError("Readable side is not in a state that permits enqueue");try{rr(o,t)}catch(e){throw Mr(r,e),r._readable._storedError}const n=function(e){return!Xt(e)}(o);n!==r._backpressure&&Ir(r,!0)}function Nr(e,t){return m(e._transformAlgorithm(t),void 0,(t=>{throw Fr(e._controlledTransformStream,t),t}))}function Vr(e){return new TypeError(`TransformStreamDefaultController.prototype.${e} can only be used on a TransformStreamDefaultController`)}function Qr(e){return new TypeError(`TransformStream.prototype.${e} can only be used on a TransformStream`)}Object.defineProperties(xr.prototype,{enqueue:{enumerable:!0},error:{enumerable:!0},terminate:{enumerable:!0},desiredSize:{enumerable:!0}}),"symbol"==typeof t.toStringTag&&Object.defineProperty(xr.prototype,t.toStringTag,{value:"TransformStreamDefaultController",configurable:!0}),e.ByteLengthQueuingStrategy=Pr,e.CountQueuingStrategy=Ar,e.ReadableByteStreamController=be,e.ReadableStream=pr,e.ReadableStreamBYOBReader=Ne,e.ReadableStreamBYOBRequest=pe,e.ReadableStreamDefaultController=Gt,e.ReadableStreamDefaultReader=J,e.TransformStream=Lr,e.TransformStreamDefaultController=xr,e.WritableStream=it,e.WritableStreamDefaultController=Et,e.WritableStreamDefaultWriter=_t,Object.defineProperty(e,"__esModule",{value:!0})},r(t)},55572:(e,t,r)=>{if(!globalThis.ReadableStream)try{const e=r(97742),{emitWarning:t}=e;try{e.emitWarning=()=>{},Object.assign(globalThis,r(72477)),e.emitWarning=t}catch(r){throw e.emitWarning=t,r}}catch(e){Object.assign(globalThis,r(24091))}try{const{Blob:e}=r(14300);e&&!e.prototype.stream&&(e.prototype.stream=function(e){let t=0;const r=this;return new ReadableStream({type:"bytes",async pull(e){const o=r.slice(t,Math.min(r.size,t+65536)),n=await o.arrayBuffer();t+=n.byteLength,e.enqueue(new Uint8Array(n)),t===r.size&&e.close()}})})}catch(e){}},61645:(e,t,r)=>{"use strict";r.d(t,{Z:()=>n});var o=r(58521);const n=class extends o.Z{#e=0;#t="";constructor(e,t,r={}){if(arguments.length<2)throw new TypeError(`Failed to construct 'File': 2 arguments required, but only ${arguments.length} present.`);super(e,r),null===r&&(r={});const o=void 0===r.lastModified?Date.now():Number(r.lastModified);Number.isNaN(o)||(this.#e=o),this.#t=String(t)}get name(){return this.#t}get lastModified(){return this.#e}get[Symbol.toStringTag](){return"File"}static[Symbol.hasInstance](e){return!!e&&e instanceof o.Z&&/^(File)$/.test(e[Symbol.toStringTag])}}},95228:(e,t,r)=>{"use strict";r.d(t,{$B:()=>s.Z,RA:()=>f,SX:()=>u,e2:()=>d,t6:()=>a.Z,xB:()=>c});var o=r(87561),n=r(49411),i=r(41139),s=r(61645),a=r(58521);const{stat:l}=o.promises,u=(e,t)=>h((0,o.statSync)(e),e,t),c=(e,t)=>l(e).then((r=>h(r,e,t))),d=(e,t)=>l(e).then((r=>p(r,e,t))),f=(e,t)=>p((0,o.statSync)(e),e,t),h=(e,t,r="")=>new a.Z([new b({path:t,size:e.size,lastModified:e.mtimeMs,start:0})],{type:r}),p=(e,t,r="")=>new s.Z([new b({path:t,size:e.size,lastModified:e.mtimeMs,start:0})],(0,n.basename)(t),{type:r,lastModified:e.mtimeMs});class b{#r;#o;constructor(e){this.#r=e.path,this.#o=e.start,this.size=e.size,this.lastModified=e.lastModified}slice(e,t){return new b({path:this.#r,lastModified:this.lastModified,size:t-e,start:this.#o+e})}async*stream(){const{mtimeMs:e}=await l(this.#r);if(e>this.lastModified)throw new i("The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.","NotReadableError");yield*(0,o.createReadStream)(this.#r,{start:this.#o,end:this.#o+this.size-1})}get[Symbol.toStringTag](){return"Blob"}}},58521:(e,t,r)=>{"use strict";async function*o(e,t=!0){for(const r of e)if("stream"in r)yield*r.stream();else if(ArrayBuffer.isView(r))if(t){let e=r.byteOffset;const t=r.byteOffset+r.byteLength;for(;e!==t;){const o=Math.min(t-e,65536),n=r.buffer.slice(e,e+o);e+=n.byteLength,yield new Uint8Array(n)}}else yield r;else{let e=0,t=r;for(;e!==t.size;){const r=t.slice(e,Math.min(t.size,e+65536)),o=await r.arrayBuffer();e+=o.byteLength,yield new Uint8Array(o)}}}r.d(t,{Z:()=>i}),r(55572);const n=class e{#n=[];#i="";#s=0;#a="transparent";constructor(t=[],r={}){if("object"!=typeof t||null===t)throw new TypeError("Failed to construct 'Blob': The provided value cannot be converted to a sequence.");if("function"!=typeof t[Symbol.iterator])throw new TypeError("Failed to construct 'Blob': The object must have a callable @@iterator property.");if("object"!=typeof r&&"function"!=typeof r)throw new TypeError("Failed to construct 'Blob': parameter 2 cannot convert to dictionary.");null===r&&(r={});const o=new TextEncoder;for(const r of t){let t;t=ArrayBuffer.isView(r)?new Uint8Array(r.buffer.slice(r.byteOffset,r.byteOffset+r.byteLength)):r instanceof ArrayBuffer?new Uint8Array(r.slice(0)):r instanceof e?r:o.encode(`${r}`),this.#s+=ArrayBuffer.isView(t)?t.byteLength:t.size,this.#n.push(t)}this.#a=`${void 0===r.endings?"transparent":r.endings}`;const n=void 0===r.type?"":String(r.type);this.#i=/^[\x20-\x7E]*$/.test(n)?n:""}get size(){return this.#s}get type(){return this.#i}async text(){const e=new TextDecoder;let t="";for await(const r of o(this.#n,!1))t+=e.decode(r,{stream:!0});return t+=e.decode(),t}async arrayBuffer(){const e=new Uint8Array(this.size);let t=0;for await(const r of o(this.#n,!1))e.set(r,t),t+=r.length;return e.buffer}stream(){const e=o(this.#n,!0);return new globalThis.ReadableStream({type:"bytes",async pull(t){const r=await e.next();r.done?t.close():t.enqueue(r.value)},async cancel(){await e.return()}})}slice(t=0,r=this.size,o=""){const{size:n}=this;let i=t<0?Math.max(n+t,0):Math.min(t,n),s=r<0?Math.max(n+r,0):Math.min(r,n);const a=Math.max(s-i,0),l=this.#n,u=[];let c=0;for(const e of l){if(c>=a)break;const t=ArrayBuffer.isView(e)?e.byteLength:e.size;if(i&&t<=i)i-=t,s-=t;else{let r;ArrayBuffer.isView(e)?(r=e.subarray(i,Math.min(t,s)),c+=r.byteLength):(r=e.slice(i,Math.min(t,s)),c+=r.size),s-=t,u.push(r),i=0}}const d=new e([],{type:String(o).toLowerCase()});return d.#s=a,d.#n=u,d}get[Symbol.toStringTag](){return"Blob"}static[Symbol.hasInstance](e){return e&&"object"==typeof e&&"function"==typeof e.constructor&&("function"==typeof e.stream||"function"==typeof e.arrayBuffer)&&/^(Blob|File)$/.test(e[Symbol.toStringTag])}};Object.defineProperties(n.prototype,{size:{enumerable:!0},type:{enumerable:!0},slice:{enumerable:!0}});const i=n},63248:(e,t,r)=>{"use strict";r.d(t,{Ct:()=>h,au:()=>p});var o=r(58521),n=r(61645),{toStringTag:i,iterator:s,hasInstance:a}=Symbol,l=Math.random,u="append,set,get,getAll,delete,keys,values,entries,forEach,constructor".split(","),c=(e,t,r)=>(e+="",/^(Blob|File)$/.test(t&&t[i])?[(r=void 0!==r?r+"":"File"==t[i]?t.name:"blob",e),t.name!==r||"blob"==t[i]?new n.Z([t],r,t):t]:[e,t+""]),d=(e,t)=>(t?e:e.replace(/\r?\n|\r/g,"\r\n")).replace(/\n/g,"%0A").replace(/\r/g,"%0D").replace(/"/g,"%22"),f=(e,t,r)=>{if(t.length<r)throw new TypeError(`Failed to execute '${e}' on 'FormData': ${r} arguments required, but only ${t.length} present.`)};const h=class{#l=[];constructor(...e){if(e.length)throw new TypeError("Failed to construct 'FormData': parameter 1 is not of type 'HTMLFormElement'.")}get[i](){return"FormData"}[s](){return this.entries()}static[a](e){return e&&"object"==typeof e&&"FormData"===e[i]&&!u.some((t=>"function"!=typeof e[t]))}append(...e){f("append",arguments,2),this.#l.push(c(...e))}delete(e){f("delete",arguments,1),e+="",this.#l=this.#l.filter((([t])=>t!==e))}get(e){f("get",arguments,1),e+="";for(var t=this.#l,r=t.length,o=0;o<r;o++)if(t[o][0]===e)return t[o][1];return null}getAll(e,t){return f("getAll",arguments,1),t=[],e+="",this.#l.forEach((r=>r[0]===e&&t.push(r[1]))),t}has(e){return f("has",arguments,1),e+="",this.#l.some((t=>t[0]===e))}forEach(e,t){for(var[r,o]of(f("forEach",arguments,1),this))e.call(t,o,r,this)}set(...e){f("set",arguments,2);var t=[],r=!0;e=c(...e),this.#l.forEach((o=>{o[0]===e[0]?r&&(r=!t.push(e)):t.push(o)})),r&&t.push(e),this.#l=t}*entries(){yield*this.#l}*keys(){for(var[e]of this)yield e}*values(){for(var[,e]of this)yield e}};function p(e,t=o.Z){var r=`${l()}${l()}`.replace(/\./g,"").slice(-28).padStart(32,"-"),n=[],i=`--${r}\r\nContent-Disposition: form-data; name="`;return e.forEach(((e,t)=>"string"==typeof e?n.push(i+d(t)+`"\r\n\r\n${e.replace(/\r(?!\n)|(?<!\r)\n/g,"\r\n")}\r\n`):n.push(i+d(t)+`"; filename="${d(e.name,1)}"\r\nContent-Type: ${e.type||"application/octet-stream"}\r\n\r\n`,e,"\r\n"))),n.push(`--${r}--`),new t(n,{type:"multipart/form-data; boundary="+r})}},97457:(e,t,r)=>{"use strict";r.r(t),r.d(t,{AbortError:()=>H,Blob:()=>N.t6,FetchError:()=>h,File:()=>N.$B,FormData:()=>d.Ct,Headers:()=>k,Request:()=>U,Response:()=>j,blobFrom:()=>N.xB,blobFromSync:()=>N.SX,default:()=>Q,fileFrom:()=>N.e2,fileFromSync:()=>N.RA,isRedirect:()=>O});var o=r(88849),n=r(22286),i=r(65628),s=r(84492),a=r(72254);const l=function(e){if(!/^data:/i.test(e))throw new TypeError('`uri` does not appear to be a Data URI (must begin with "data:")');const t=(e=e.replace(/\r?\n/g,"")).indexOf(",");if(-1===t||t<=4)throw new TypeError("malformed data: URI");const r=e.substring(5,t).split(";");let o="",n=!1;const i=r[0]||"text/plain";let s=i;for(let e=1;e<r.length;e++)"base64"===r[e]?n=!0:r[e]&&(s+=`;${r[e]}`,0===r[e].indexOf("charset=")&&(o=r[e].substring(8)));r[0]||o.length||(s+=";charset=US-ASCII",o="US-ASCII");const a=n?"base64":"ascii",l=unescape(e.substring(t+1)),u=Buffer.from(l,a);return u.type=i,u.typeFull=s,u.charset=o,u};var u=r(47261),c=r(58521),d=r(63248);class f extends Error{constructor(e,t){super(e),Error.captureStackTrace(this,this.constructor),this.type=t}get name(){return this.constructor.name}get[Symbol.toStringTag](){return this.constructor.name}}class h extends f{constructor(e,t,r){super(e,t),r&&(this.code=this.errno=r.code,this.erroredSysCall=r.syscall)}}const p=Symbol.toStringTag,b=e=>"object"==typeof e&&"function"==typeof e.append&&"function"==typeof e.delete&&"function"==typeof e.get&&"function"==typeof e.getAll&&"function"==typeof e.has&&"function"==typeof e.set&&"function"==typeof e.sort&&"URLSearchParams"===e[p],y=e=>e&&"object"==typeof e&&"function"==typeof e.arrayBuffer&&"string"==typeof e.type&&"function"==typeof e.stream&&"function"==typeof e.constructor&&/^(Blob|File)$/.test(e[p]),m=(e,t)=>{const r=new URL(t).hostname,o=new URL(e).hostname;return r===o||r.endsWith(`.${o}`)},_=(e,t)=>new URL(t).protocol===new URL(e).protocol,g=(0,u.promisify)(s.pipeline),w=Symbol("Body internals");class v{constructor(e,{size:t=0}={}){let r=null;null===e?e=null:b(e)?e=a.Buffer.from(e.toString()):y(e)||a.Buffer.isBuffer(e)||(u.types.isAnyArrayBuffer(e)?e=a.Buffer.from(e):ArrayBuffer.isView(e)?e=a.Buffer.from(e.buffer,e.byteOffset,e.byteLength):e instanceof s||(e instanceof d.Ct?r=(e=(0,d.au)(e)).type.split("=")[1]:e=a.Buffer.from(String(e))));let o=e;a.Buffer.isBuffer(e)?o=s.Readable.from(e):y(e)&&(o=s.Readable.from(e.stream())),this[w]={body:e,stream:o,boundary:r,disturbed:!1,error:null},this.size=t,e instanceof s&&e.on("error",(e=>{const t=e instanceof f?e:new h(`Invalid response body while trying to fetch ${this.url}: ${e.message}`,"system",e);this[w].error=t}))}get body(){return this[w].stream}get bodyUsed(){return this[w].disturbed}async arrayBuffer(){const{buffer:e,byteOffset:t,byteLength:r}=await S(this);return e.slice(t,t+r)}async formData(){const e=this.headers.get("content-type");if(e.startsWith("application/x-www-form-urlencoded")){const e=new d.Ct,t=new URLSearchParams(await this.text());for(const[r,o]of t)e.append(r,o);return e}const{toFormData:t}=await r.e(708).then(r.bind(r,51708));return t(this.body,e)}async blob(){const e=this.headers&&this.headers.get("content-type")||this[w].body&&this[w].body.type||"",t=await this.arrayBuffer();return new c.Z([t],{type:e})}async json(){const e=await this.text();return JSON.parse(e)}async text(){const e=await S(this);return(new TextDecoder).decode(e)}buffer(){return S(this)}}async function S(e){if(e[w].disturbed)throw new TypeError(`body used already for: ${e.url}`);if(e[w].disturbed=!0,e[w].error)throw e[w].error;const{body:t}=e;if(null===t)return a.Buffer.alloc(0);if(!(t instanceof s))return a.Buffer.alloc(0);const r=[];let o=0;try{for await(const n of t){if(e.size>0&&o+n.length>e.size){const r=new h(`content size at ${e.url} over limit: ${e.size}`,"max-size");throw t.destroy(r),r}o+=n.length,r.push(n)}}catch(t){throw t instanceof f?t:new h(`Invalid response body while trying to fetch ${e.url}: ${t.message}`,"system",t)}if(!0!==t.readableEnded&&!0!==t._readableState.ended)throw new h(`Premature close of server response while trying to fetch ${e.url}`);try{return r.every((e=>"string"==typeof e))?a.Buffer.from(r.join("")):a.Buffer.concat(r,o)}catch(t){throw new h(`Could not create Buffer from response body for ${e.url}: ${t.message}`,"system",t)}}v.prototype.buffer=(0,u.deprecate)(v.prototype.buffer,"Please use 'response.arrayBuffer()' instead of 'response.buffer()'","node-fetch#buffer"),Object.defineProperties(v.prototype,{body:{enumerable:!0},bodyUsed:{enumerable:!0},arrayBuffer:{enumerable:!0},blob:{enumerable:!0},json:{enumerable:!0},text:{enumerable:!0},data:{get:(0,u.deprecate)((()=>{}),"data doesn't exist, use json(), text(), arrayBuffer(), or body instead","https://github.com/node-fetch/node-fetch/issues/1000 (response)")}});const T=(e,t)=>{let r,o,{body:n}=e[w];if(e.bodyUsed)throw new Error("cannot clone body after it is used");return n instanceof s&&"function"!=typeof n.getBoundary&&(r=new s.PassThrough({highWaterMark:t}),o=new s.PassThrough({highWaterMark:t}),n.pipe(r),n.pipe(o),e[w].stream=r,n=o),n},R=(0,u.deprecate)((e=>e.getBoundary()),"form-data doesn't follow the spec and requires special treatment. Use alternative package","https://github.com/node-fetch/node-fetch/issues/1167"),E=(e,t)=>null===e?null:"string"==typeof e?"text/plain;charset=UTF-8":b(e)?"application/x-www-form-urlencoded;charset=UTF-8":y(e)?e.type||null:a.Buffer.isBuffer(e)||u.types.isAnyArrayBuffer(e)||ArrayBuffer.isView(e)?null:e instanceof d.Ct?`multipart/form-data; boundary=${t[w].boundary}`:e&&"function"==typeof e.getBoundary?`multipart/form-data;boundary=${R(e)}`:e instanceof s?null:"text/plain;charset=UTF-8",P=async(e,{body:t})=>{null===t?e.end():await g(t,e)},C="function"==typeof o.validateHeaderName?o.validateHeaderName:e=>{if(!/^[\^`\-\w!#$%&'*+.|~]+$/.test(e)){const t=new TypeError(`Header name must be a valid HTTP token [${e}]`);throw Object.defineProperty(t,"code",{value:"ERR_INVALID_HTTP_TOKEN"}),t}},q="function"==typeof o.validateHeaderValue?o.validateHeaderValue:(e,t)=>{if(/[^\t\u0020-\u007E\u0080-\u00FF]/.test(t)){const t=new TypeError(`Invalid character in header content ["${e}"]`);throw Object.defineProperty(t,"code",{value:"ERR_INVALID_CHAR"}),t}};class k extends URLSearchParams{constructor(e){let t=[];if(e instanceof k){const r=e.raw();for(const[e,o]of Object.entries(r))t.push(...o.map((t=>[e,t])))}else if(null==e);else{if("object"!=typeof e||u.types.isBoxedPrimitive(e))throw new TypeError("Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)");{const r=e[Symbol.iterator];if(null==r)t.push(...Object.entries(e));else{if("function"!=typeof r)throw new TypeError("Header pairs must be iterable");t=[...e].map((e=>{if("object"!=typeof e||u.types.isBoxedPrimitive(e))throw new TypeError("Each header pair must be an iterable object");return[...e]})).map((e=>{if(2!==e.length)throw new TypeError("Each header pair must be a name/value tuple");return[...e]}))}}}return t=t.length>0?t.map((([e,t])=>(C(e),q(e,String(t)),[String(e).toLowerCase(),String(t)]))):void 0,super(t),new Proxy(this,{get(e,t,r){switch(t){case"append":case"set":return(r,o)=>(C(r),q(r,String(o)),URLSearchParams.prototype[t].call(e,String(r).toLowerCase(),String(o)));case"delete":case"has":case"getAll":return r=>(C(r),URLSearchParams.prototype[t].call(e,String(r).toLowerCase()));case"keys":return()=>(e.sort(),new Set(URLSearchParams.prototype.keys.call(e)).keys());default:return Reflect.get(e,t,r)}}})}get[Symbol.toStringTag](){return this.constructor.name}toString(){return Object.prototype.toString.call(this)}get(e){const t=this.getAll(e);if(0===t.length)return null;let r=t.join(", ");return/^content-encoding$/i.test(e)&&(r=r.toLowerCase()),r}forEach(e,t=void 0){for(const r of this.keys())Reflect.apply(e,t,[this.get(r),r,this])}*values(){for(const e of this.keys())yield this.get(e)}*entries(){for(const e of this.keys())yield[e,this.get(e)]}[Symbol.iterator](){return this.entries()}raw(){return[...this.keys()].reduce(((e,t)=>(e[t]=this.getAll(t),e)),{})}[Symbol.for("nodejs.util.inspect.custom")](){return[...this.keys()].reduce(((e,t)=>{const r=this.getAll(t);return e[t]="host"===t?r[0]:r.length>1?r:r[0],e}),{})}}Object.defineProperties(k.prototype,["get","entries","forEach","values"].reduce(((e,t)=>(e[t]={enumerable:!0},e)),{}));const A=new Set([301,302,303,307,308]),O=e=>A.has(e),B=Symbol("Response internals");class j extends v{constructor(e=null,t={}){super(e,t);const r=null!=t.status?t.status:200,o=new k(t.headers);if(null!==e&&!o.has("Content-Type")){const t=E(e,this);t&&o.append("Content-Type",t)}this[B]={type:"default",url:t.url,status:r,statusText:t.statusText||"",headers:o,counter:t.counter,highWaterMark:t.highWaterMark}}get type(){return this[B].type}get url(){return this[B].url||""}get status(){return this[B].status}get ok(){return this[B].status>=200&&this[B].status<300}get redirected(){return this[B].counter>0}get statusText(){return this[B].statusText}get headers(){return this[B].headers}get highWaterMark(){return this[B].highWaterMark}clone(){return new j(T(this,this.highWaterMark),{type:this.type,url:this.url,status:this.status,statusText:this.statusText,headers:this.headers,ok:this.ok,redirected:this.redirected,size:this.size,highWaterMark:this.highWaterMark})}static redirect(e,t=302){if(!O(t))throw new RangeError('Failed to execute "redirect" on "response": Invalid status code');return new j(null,{headers:{location:new URL(e).toString()},status:t})}static error(){const e=new j(null,{status:0,statusText:""});return e[B].type="error",e}static json(e=void 0,t={}){const r=JSON.stringify(e);if(void 0===r)throw new TypeError("data is not JSON serializable");const o=new k(t&&t.headers);return o.has("content-type")||o.set("content-type","application/json"),new j(r,{...t,headers:o})}get[Symbol.toStringTag](){return"Response"}}Object.defineProperties(j.prototype,{type:{enumerable:!0},url:{enumerable:!0},status:{enumerable:!0},ok:{enumerable:!0},redirected:{enumerable:!0},statusText:{enumerable:!0},headers:{enumerable:!0},clone:{enumerable:!0}});var z=r(41041),W=r(87503);function L(e,t=!1){return null==e?"no-referrer":(e=new URL(e),/^(about|blob|data):$/.test(e.protocol)?"no-referrer":(e.username="",e.password="",e.hash="",t&&(e.pathname="",e.search=""),e))}const $=new Set(["","no-referrer","no-referrer-when-downgrade","same-origin","origin","strict-origin","origin-when-cross-origin","strict-origin-when-cross-origin","unsafe-url"]);function F(e){return!!/^about:(blank|srcdoc)$/.test(e)||"data:"===e.protocol||!!/^(blob|filesystem):$/.test(e.protocol)||function(e){if(/^(http|ws)s:$/.test(e.protocol))return!0;const t=e.host.replace(/(^\[)|(]$)/g,""),r=(0,W.isIP)(t);return!(4!==r||!/^127\./.test(t))||!(6!==r||!/^(((0+:){7})|(::(0+:){0,6}))0*1$/.test(t))||"localhost"!==e.host&&!e.host.endsWith(".localhost")&&"file:"===e.protocol}(e)}const M=Symbol("Request internals"),I=e=>"object"==typeof e&&"object"==typeof e[M],x=(0,u.deprecate)((()=>{}),".data is not a valid RequestInit property, use .body instead","https://github.com/node-fetch/node-fetch/issues/1000 (request)");class U extends v{constructor(e,t={}){let r;if(I(e)?r=new URL(e.url):(r=new URL(e),e={}),""!==r.username||""!==r.password)throw new TypeError(`${r} is an url with embedded credentials.`);let o=t.method||e.method||"GET";if(/^(delete|get|head|options|post|put)$/i.test(o)&&(o=o.toUpperCase()),!I(t)&&"data"in t&&x(),(null!=t.body||I(e)&&null!==e.body)&&("GET"===o||"HEAD"===o))throw new TypeError("Request with GET/HEAD method cannot have body");const n=t.body?t.body:I(e)&&null!==e.body?T(e):null;super(n,{size:t.size||e.size||0});const i=new k(t.headers||e.headers||{});if(null!==n&&!i.has("Content-Type")){const e=E(n,this);e&&i.set("Content-Type",e)}let s=I(e)?e.signal:null;if("signal"in t&&(s=t.signal),null!=s&&("object"!=typeof(a=s)||"AbortSignal"!==a[p]&&"EventTarget"!==a[p]))throw new TypeError("Expected signal to be an instanceof AbortSignal or EventTarget");var a;let l=null==t.referrer?e.referrer:t.referrer;if(""===l)l="no-referrer";else if(l){const e=new URL(l);l=/^about:(\/\/)?client$/.test(e)?"client":e}else l=void 0;this[M]={method:o,redirect:t.redirect||e.redirect||"follow",headers:i,parsedURL:r,signal:s,referrer:l},this.follow=void 0===t.follow?void 0===e.follow?20:e.follow:t.follow,this.compress=void 0===t.compress?void 0===e.compress||e.compress:t.compress,this.counter=t.counter||e.counter||0,this.agent=t.agent||e.agent,this.highWaterMark=t.highWaterMark||e.highWaterMark||16384,this.insecureHTTPParser=t.insecureHTTPParser||e.insecureHTTPParser||!1,this.referrerPolicy=t.referrerPolicy||e.referrerPolicy||""}get method(){return this[M].method}get url(){return(0,z.format)(this[M].parsedURL)}get headers(){return this[M].headers}get redirect(){return this[M].redirect}get signal(){return this[M].signal}get referrer(){return"no-referrer"===this[M].referrer?"":"client"===this[M].referrer?"about:client":this[M].referrer?this[M].referrer.toString():void 0}get referrerPolicy(){return this[M].referrerPolicy}set referrerPolicy(e){this[M].referrerPolicy=function(e){if(!$.has(e))throw new TypeError(`Invalid referrerPolicy: ${e}`);return e}(e)}clone(){return new U(this)}get[Symbol.toStringTag](){return"Request"}}Object.defineProperties(U.prototype,{method:{enumerable:!0},url:{enumerable:!0},headers:{enumerable:!0},redirect:{enumerable:!0},clone:{enumerable:!0},signal:{enumerable:!0},referrer:{enumerable:!0},referrerPolicy:{enumerable:!0}});const D=e=>{const{parsedURL:t}=e[M],r=new k(e[M].headers);r.has("Accept")||r.set("Accept","*/*");let o=null;if(null===e.body&&/^(post|put)$/i.test(e.method)&&(o="0"),null!==e.body){const t=(e=>{const{body:t}=e[w];return null===t?0:y(t)?t.size:a.Buffer.isBuffer(t)?t.length:t&&"function"==typeof t.getLengthSync&&t.hasKnownLength&&t.hasKnownLength()?t.getLengthSync():null})(e);"number"!=typeof t||Number.isNaN(t)||(o=String(t))}o&&r.set("Content-Length",o),""===e.referrerPolicy&&(e.referrerPolicy="strict-origin-when-cross-origin"),e.referrer&&"no-referrer"!==e.referrer?e[M].referrer=function(e,{referrerURLCallback:t,referrerOriginCallback:r}={}){if("no-referrer"===e.referrer||""===e.referrerPolicy)return null;const o=e.referrerPolicy;if("about:client"===e.referrer)return"no-referrer";const n=e.referrer;let i=L(n),s=L(n,!0);i.toString().length>4096&&(i=s),t&&(i=t(i)),r&&(s=r(s));const a=new URL(e.url);switch(o){case"no-referrer":return"no-referrer";case"origin":return s;case"unsafe-url":return i;case"strict-origin":return F(i)&&!F(a)?"no-referrer":s.toString();case"strict-origin-when-cross-origin":return i.origin===a.origin?i:F(i)&&!F(a)?"no-referrer":s;case"same-origin":return i.origin===a.origin?i:"no-referrer";case"origin-when-cross-origin":return i.origin===a.origin?i:s;case"no-referrer-when-downgrade":return F(i)&&!F(a)?"no-referrer":i;default:throw new TypeError(`Invalid referrerPolicy: ${o}`)}}(e):e[M].referrer="no-referrer",e[M].referrer instanceof URL&&r.set("Referer",e.referrer),r.has("User-Agent")||r.set("User-Agent","node-fetch"),e.compress&&!r.has("Accept-Encoding")&&r.set("Accept-Encoding","gzip, deflate, br");let{agent:n}=e;"function"==typeof n&&(n=n(t));const i=(e=>{if(e.search)return e.search;const t=e.href.length-1,r=e.hash||("#"===e.href[t]?"#":"");return"?"===e.href[t-r.length]?"?":""})(t);return{parsedURL:t,options:{path:t.pathname+i,method:e.method,headers:r[Symbol.for("nodejs.util.inspect.custom")](),insecureHTTPParser:e.insecureHTTPParser,agent:n}}};class H extends f{constructor(e,t="aborted"){super(e,t)}}var N=r(95228);const V=new Set(["data:","http:","https:"]);async function Q(e,t){return new Promise(((r,u)=>{const c=new U(e,t),{parsedURL:d,options:f}=D(c);if(!V.has(d.protocol))throw new TypeError(`node-fetch cannot load ${e}. URL scheme "${d.protocol.replace(/:$/,"")}" is not supported.`);if("data:"===d.protocol){const e=l(c.url),t=new j(e,{headers:{"Content-Type":e.typeFull}});return void r(t)}const p=("https:"===d.protocol?n:o).request,{signal:b}=c;let y=null;const g=()=>{const e=new H("The operation was aborted.");u(e),c.body&&c.body instanceof s.Readable&&c.body.destroy(e),y&&y.body&&y.body.emit("error",e)};if(b&&b.aborted)return void g();const w=()=>{g(),S()},v=p(d.toString(),f);b&&b.addEventListener("abort",w);const S=()=>{v.abort(),b&&b.removeEventListener("abort",w)};v.on("error",(e=>{u(new h(`request to ${c.url} failed, reason: ${e.message}`,"system",e)),S()})),function(e,t){const r=a.Buffer.from("0\r\n\r\n");let o,n=!1,i=!1;e.on("response",(e=>{const{headers:t}=e;n="chunked"===t["transfer-encoding"]&&!t["content-length"]})),e.on("socket",(t=>{const s=()=>{if(n&&!i){const e=new Error("Premature close");e.code="ERR_STREAM_PREMATURE_CLOSE",(e=>{y&&y.body&&y.body.destroy(e)})(e)}},l=e=>{i=0===a.Buffer.compare(e.slice(-5),r),!i&&o&&(i=0===a.Buffer.compare(o.slice(-3),r.slice(0,3))&&0===a.Buffer.compare(e.slice(-2),r.slice(3))),o=e};t.prependListener("close",s),t.on("data",l),e.on("close",(()=>{t.removeListener("close",s),t.removeListener("data",l)}))}))}(v),process.version<"v14"&&v.on("socket",(e=>{let t;e.prependListener("end",(()=>{t=e._eventsCount})),e.prependListener("close",(r=>{if(y&&t<e._eventsCount&&!r){const e=new Error("Premature close");e.code="ERR_STREAM_PREMATURE_CLOSE",y.body.emit("error",e)}}))})),v.on("response",(e=>{v.setTimeout(0);const o=function(e=[]){return new k(e.reduce(((e,t,r,o)=>(r%2==0&&e.push(o.slice(r,r+2)),e)),[]).filter((([e,t])=>{try{return C(e),q(e,String(t)),!0}catch{return!1}})))}(e.rawHeaders);if(O(e.statusCode)){const n=o.get("Location");let i=null;try{i=null===n?null:new URL(n,c.url)}catch{if("manual"!==c.redirect)return u(new h(`uri requested responds with an invalid redirect URL: ${n}`,"invalid-redirect")),void S()}switch(c.redirect){case"error":return u(new h(`uri requested responds with a redirect, redirect mode is set to error: ${c.url}`,"no-redirect")),void S();case"manual":break;case"follow":{if(null===i)break;if(c.counter>=c.follow)return u(new h(`maximum redirect reached at: ${c.url}`,"max-redirect")),void S();const n={headers:new k(c.headers),follow:c.follow,counter:c.counter+1,agent:c.agent,compress:c.compress,method:c.method,body:T(c),signal:c.signal,size:c.size,referrer:c.referrer,referrerPolicy:c.referrerPolicy};if(!m(c.url,i)||!_(c.url,i))for(const e of["authorization","www-authenticate","cookie","cookie2"])n.headers.delete(e);if(303!==e.statusCode&&c.body&&t.body instanceof s.Readable)return u(new h("Cannot follow redirect with body being a readable stream","unsupported-redirect")),void S();303!==e.statusCode&&(301!==e.statusCode&&302!==e.statusCode||"POST"!==c.method)||(n.method="GET",n.body=void 0,n.headers.delete("content-length"));const a=function(e){const t=(e.get("referrer-policy")||"").split(/[,\s]+/);let r="";for(const e of t)e&&$.has(e)&&(r=e);return r}(o);return a&&(n.referrerPolicy=a),r(Q(new U(i,n))),void S()}default:return u(new TypeError(`Redirect option '${c.redirect}' is not a valid value of RequestRedirect`))}}b&&e.once("end",(()=>{b.removeEventListener("abort",w)}));let n=(0,s.pipeline)(e,new s.PassThrough,(e=>{e&&u(e)}));process.version<"v12.10"&&e.on("aborted",w);const a={url:c.url,status:e.statusCode,statusText:e.statusMessage,headers:o,size:c.size,counter:c.counter,highWaterMark:c.highWaterMark},l=o.get("Content-Encoding");if(!c.compress||"HEAD"===c.method||null===l||204===e.statusCode||304===e.statusCode)return y=new j(n,a),void r(y);const d={flush:i.Z_SYNC_FLUSH,finishFlush:i.Z_SYNC_FLUSH};if("gzip"===l||"x-gzip"===l)return n=(0,s.pipeline)(n,i.createGunzip(d),(e=>{e&&u(e)})),y=new j(n,a),void r(y);if("deflate"===l||"x-deflate"===l){const t=(0,s.pipeline)(e,new s.PassThrough,(e=>{e&&u(e)}));return t.once("data",(e=>{n=8==(15&e[0])?(0,s.pipeline)(n,i.createInflate(),(e=>{e&&u(e)})):(0,s.pipeline)(n,i.createInflateRaw(),(e=>{e&&u(e)})),y=new j(n,a),r(y)})),void t.once("end",(()=>{y||(y=new j(n,a),r(y))}))}if("br"===l)return n=(0,s.pipeline)(n,i.createBrotliDecompress(),(e=>{e&&u(e)})),y=new j(n,a),void r(y);y=new j(n,a),r(y)})),P(v,c).catch(u)}))}}};
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+h: request to https://restv2.fireant.vn/symbols/ANV/historical-quotes?startDate=2000-12-06&endDate=2024-03-05&offset=0&limit=2500 failed, reason: read ECONNRESET
+    at ClientRequest.<anonymous> (/home/hungsex/server/xdata/dist/dist/457.js:2:77189)
+    at ClientRequest.emit (node:events:513:28)
+    at TLSSocket.socketErrorListener (node:_http_client:494:9)
+    at TLSSocket.emit (node:events:513:28)
+    at emitErrorNT (node:internal/streams/destroy:157:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21) {
+  type: 'system',
+  errno: 'ECONNRESET',
+  code: 'ECONNRESET',
+  erroredSysCall: 'read'
+}
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 3551     │ 0s     │ 250  │ online    │ 0%       │ 20.1mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 3486     │ 16m    │ 37   │ online    │ 0%       │ 50.0mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 39, res: 10, record: 9682 }
+{ req: 49, res: 20, record: 31032 }
+{ req: 58, res: 30, record: 55692 }
+{ req: 69, res: 40, record: 77663 }
+{ req: 78, res: 50, record: 101348 }
+{ req: 88, res: 60, record: 125135 }
+{ req: 99, res: 70, record: 146355 }
+{ req: 108, res: 80, record: 171355 }
+{ req: 119, res: 90, record: 193046 }
+{ req: 129, res: 100, record: 215775 }
+{ req: 137, res: 110, record: 236958 }
+{ req: 149, res: 120, record: 261239 }
+{ req: 157, res: 130, record: 282928 }
+{ req: 168, res: 140, record: 304847 }
+{ req: 179, res: 150, record: 327121 }
+{ req: 189, res: 160, record: 343565 }
+{ req: 199, res: 170, record: 367176 }
+{ req: 209, res: 180, record: 390731 }
+{ req: 218, res: 190, record: 412301 }
+{ req: 228, res: 200, record: 433571 }
+{ req: 237, res: 210, record: 453820 }
+{ req: 249, res: 220, record: 477806 }
+{ req: 258, res: 230, record: 501110 }
+{ req: 268, res: 240, record: 522692 }
+{ req: 279, res: 250, record: 545195 }
+{ req: 288, res: 260, record: 567966 }
+{ req: 298, res: 270, record: 592123 }
+{ req: 308, res: 280, record: 612275 }
+{ req: 318, res: 290, record: 635456 }
+{ req: 328, res: 300, record: 657785 }
+{ req: 338, res: 310, record: 680756 }
+{ req: 348, res: 320, record: 698736 }
+{ req: 359, res: 330, record: 721910 }
+{ req: 369, res: 340, record: 743049 }
+{ req: 378, res: 350, record: 766093 }
+{ req: 388, res: 360, record: 787626 }
+{ req: 399, res: 370, record: 811467 }
+{ req: 409, res: 380, record: 831871 }
+{ req: 419, res: 390, record: 853604 }
+{ req: 427, res: 400, record: 874485 }
+{ req: 439, res: 410, record: 898209 }
+{ req: 448, res: 420, record: 922270 }
+{ req: 458, res: 430, record: 943231 }
+{ req: 467, res: 440, record: 965425 }
+{ req: 478, res: 450, record: 986613 }
+{ req: 489, res: 460, record: 1008367 }
+{ req: 499, res: 470, record: 1026591 }
+{ req: 509, res: 480, record: 1049738 }
+{ req: 519, res: 490, record: 1074738 }
+{ req: 529, res: 500, record: 1096900 }
+{ req: 538, res: 510, record: 1118643 }
+{ req: 549, res: 520, record: 1142524 }
+{ req: 559, res: 530, record: 1166016 }
+{ req: 568, res: 540, record: 1189180 }
+{ req: 579, res: 550, record: 1208964 }
+{ req: 589, res: 560, record: 1232070 }
+{ req: 599, res: 570, record: 1251346 }
+{ req: 608, res: 580, record: 1273540 }
+{ req: 616, res: 590, record: 1297264 }
+{ req: 628, res: 600, record: 1319885 }
+{ req: 639, res: 610, record: 1344885 }
+{ req: 649, res: 620, record: 1368574 }
+{ req: 659, res: 630, record: 1393574 }
+{ req: 668, res: 640, record: 1415548 }
+{ req: 679, res: 650, record: 1435752 }
+{ req: 689, res: 660, record: 1458749 }
+{ req: 698, res: 670, record: 1481969 }
+{ req: 709, res: 680, record: 1506170 }
+{ req: 719, res: 690, record: 1528366 }
+{ req: 727, res: 700, record: 1550710 }
+{ req: 739, res: 710, record: 1571291 }
+{ req: 747, res: 720, record: 1591262 }
+{ req: 759, res: 730, record: 1612718 }
+{ req: 766, res: 740, record: 1632234 }
+{ req: 779, res: 750, record: 1649084 }
+{ req: 789, res: 760, record: 1663242 }
+{ req: 797, res: 770, record: 1683413 }
+{ req: 808, res: 780, record: 1701567 }
+{ req: 818, res: 790, record: 1719772 }
+{ req: 829, res: 800, record: 1736126 }
+{ req: 836, res: 810, record: 1751329 }
+{ req: 849, res: 820, record: 1769557 }
+{ req: 856, res: 830, record: 1787220 }
+{ req: 869, res: 840, record: 1804569 }
+{ req: 879, res: 850, record: 1819865 }
+{ req: 889, res: 860, record: 1834798 }
+{ req: 899, res: 870, record: 1852524 }
+{ req: 909, res: 880, record: 1872008 }
+{ req: 917, res: 890, record: 1890692 }
+{ req: 929, res: 900, record: 1907827 }
+{ req: 938, res: 910, record: 1928694 }
+{ req: 949, res: 920, record: 1944704 }
+{ req: 956, res: 930, record: 1963300 }
+{ req: 968, res: 940, record: 1978353 }
+{ req: 979, res: 950, record: 1994218 }
+{ req: 988, res: 960, record: 2011129 }
+{ req: 998, res: 970, record: 2025543 }
+{ req: 1009, res: 980, record: 2040469 }
+{ req: 1017, res: 990, record: 2057363 }
+{ req: 1027, res: 1000, record: 2072916 }
+{ req: 1039, res: 1010, record: 2093241 }
+{ req: 1048, res: 1020, record: 2113469 }
+{ req: 1059, res: 1030, record: 2131858 }
+{ req: 1066, res: 1040, record: 2152421 }
+{ req: 1078, res: 1050, record: 2171471 }
+{ req: 1089, res: 1060, record: 2188942 }
+{ req: 1096, res: 1070, record: 2207569 }
+{ req: 1108, res: 1080, record: 2225940 }
+{ req: 1119, res: 1090, record: 2247917 }
+{ req: 1129, res: 1100, record: 2268418 }
+{ req: 1139, res: 1110, record: 2287125 }
+{ req: 1149, res: 1120, record: 2305662 }
+{ req: 1159, res: 1130, record: 2321620 }
+{ req: 1168, res: 1140, record: 2338649 }
+{ req: 1178, res: 1150, record: 2357036 }
+{ req: 1185, res: 1160, record: 2375042 }
+{ req: 1197, res: 1170, record: 2394287 }
+{ req: 1207, res: 1180, record: 2411576 }
+{ req: 1217, res: 1190, record: 2428843 }
+{ req: 1229, res: 1200, record: 2446695 }
+{ req: 1239, res: 1210, record: 2464054 }
+{ req: 1248, res: 1220, record: 2480689 }
+{ req: 1259, res: 1230, record: 2497656 }
+{ req: 1268, res: 1240, record: 2513124 }
+{ req: 1279, res: 1250, record: 2533201 }
+{ req: 1286, res: 1260, record: 2552100 }
+{ req: 1297, res: 1270, record: 2570192 }
+{ req: 1309, res: 1280, record: 2591764 }
+{ req: 1318, res: 1290, record: 2613307 }
+{ req: 1329, res: 1300, record: 2634726 }
+{ req: 1338, res: 1310, record: 2656548 }
+{ req: 1347, res: 1320, record: 2675407 }
+{ req: 1358, res: 1330, record: 2696106 }
+{ req: 1367, res: 1340, record: 2716569 }
+{ req: 1379, res: 1350, record: 2739751 }
+{ req: 1388, res: 1360, record: 2761817 }
+{ req: 1398, res: 1370, record: 2778948 }
+{ req: 1408, res: 1380, record: 2796842 }
+{ req: 1417, res: 1390, record: 2814309 }
+{ req: 1429, res: 1400, record: 2832706 }
+{ req: 1438, res: 1410, record: 2849806 }
+{ req: 1447, res: 1420, record: 2866538 }
+{ req: 1458, res: 1430, record: 2883333 }
+{ req: 1467, res: 1440, record: 2904180 }
+{ req: 1479, res: 1450, record: 2922867 }
+{ req: 1488, res: 1460, record: 2939523 }
+{ req: 1498, res: 1470, record: 2958188 }
+{ req: 1509, res: 1480, record: 2978668 }
+{ req: 1516, res: 1490, record: 2998615 }
+{ req: 1527, res: 1500, record: 3019290 }
+{ req: 1536, res: 1510, record: 3039204 }
+{ req: 1549, res: 1520, record: 3056739 }
+{ req: 1558, res: 1530, record: 3079227 }
+{ req: 1569, res: 1540, record: 3101571 }
+{ req: 1579, res: 1550, record: 3113490 }
+{ req: 1586, res: 1560, record: 3128611 }
+{ req: 1586, res: 1570, record: 3148144 }
+{ req: 1586, res: 1580, record: 3168623 }
+{ req: 1586, res: 1586, record: 3183440 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20240305.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [1](ids: [ '1' ])
+[PM2] [app](1) ✓
+┌────┬───────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name          │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼───────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app           │ default     │ 1.0.0   │ fork    │ 3607     │ 0s     │ 251  │ online    │ 0%       │ 20.1mb   │ hungsex  │ disabled │
+│ 0  │ websocket3    │ default     │ N/A     │ fork    │ 3486     │ 51m    │ 37   │ online    │ 2.4%     │ 50.3mb   │ hungsex  │ disabled │
+└────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 166, res: 70, record: 1400 }
+{ req: 166, res: 80, record: 1600 }
+{ req: 166, res: 90, record: 1800 }
+{ req: 197, res: 100, record: 2000 }
+{ req: 209, res: 110, record: 2200 }
+{ req: 209, res: 120, record: 2400 }
+{ req: 209, res: 130, record: 2600 }
+{ req: 209, res: 140, record: 2800 }
+{ req: 209, res: 150, record: 3000 }
+{ req: 209, res: 160, record: 3200 }
+{ req: 209, res: 170, record: 3400 }
+{ req: 209, res: 180, record: 3600 }
+{ req: 209, res: 190, record: 3800 }
+{ req: 209, res: 200, record: 4000 }
+{ req: 309, res: 210, record: 4200 }
+{ req: 318, res: 220, record: 4400 }
+{ req: 322, res: 230, record: 4600 }
+{ req: 322, res: 240, record: 4800 }
+{ req: 322, res: 250, record: 5000 }
+{ req: 322, res: 260, record: 5200 }
+{ req: 322, res: 270, record: 5400 }
+{ req: 322, res: 280, record: 5600 }
+{ req: 322, res: 290, record: 5800 }
+{ req: 322, res: 300, record: 6000 }
+{ req: 322, res: 310, record: 6200 }
+{ req: 322, res: 320, record: 6400 }
+{ req: 422, res: 330, record: 6600 }
+{ req: 422, res: 340, record: 6800 }
+{ req: 449, res: 350, record: 6920 }
+{ req: 449, res: 360, record: 7080 }
+{ req: 449, res: 370, record: 7180 }
+{ req: 449, res: 380, record: 7200 }
+{ req: 449, res: 390, record: 7300 }
+{ req: 449, res: 400, record: 7440 }
+{ req: 449, res: 410, record: 7640 }
+{ req: 449, res: 420, record: 7840 }
+{ req: 449, res: 430, record: 7880 }
+{ req: 449, res: 440, record: 7880 }
+{ req: 549, res: 450, record: 7880 }
+{ req: 549, res: 460, record: 7880 }
+{ req: 549, res: 470, record: 7880 }
+{ req: 549, res: 480, record: 7880 }
+{ req: 549, res: 490, record: 7880 }
+{ req: 549, res: 500, record: 7880 }
+{ req: 549, res: 510, record: 7880 }
+{ req: 549, res: 520, record: 7880 }
+{ req: 549, res: 530, record: 7880 }
+{ req: 549, res: 540, record: 7880 }
+{ req: 649, res: 550, record: 7880 }
+{ req: 649, res: 560, record: 7880 }
+{ req: 649, res: 570, record: 7880 }
+{ req: 649, res: 580, record: 7880 }
+{ req: 649, res: 590, record: 7880 }
+{ req: 649, res: 600, record: 7880 }
+{ req: 649, res: 610, record: 7880 }
+{ req: 649, res: 620, record: 7880 }
+{ req: 649, res: 630, record: 7880 }
+{ req: 649, res: 640, record: 7880 }
+{ req: 749, res: 650, record: 7880 }
+{ req: 749, res: 660, record: 7880 }
+{ req: 749, res: 670, record: 7880 }
+{ req: 749, res: 680, record: 7880 }
+{ req: 749, res: 690, record: 7880 }
+{ req: 749, res: 700, record: 7880 }
+{ req: 749, res: 710, record: 7880 }
+{ req: 749, res: 720, record: 7880 }
+{ req: 749, res: 730, record: 7880 }
+{ req: 749, res: 740, record: 7880 }
+{ req: 849, res: 750, record: 7900 }
+{ req: 853, res: 760, record: 7900 }
+{ req: 853, res: 770, record: 7900 }
+{ req: 853, res: 780, record: 7900 }
+{ req: 853, res: 790, record: 7900 }
+{ req: 853, res: 800, record: 7900 }
+{ req: 853, res: 810, record: 7900 }
+{ req: 853, res: 820, record: 7900 }
+{ req: 853, res: 830, record: 7900 }
+{ req: 853, res: 840, record: 7900 }
+{ req: 853, res: 850, record: 7900 }
+{ req: 953, res: 860, record: 7900 }
+{ req: 953, res: 870, record: 7900 }
+{ req: 953, res: 880, record: 7900 }
+{ req: 953, res: 890, record: 7900 }
+{ req: 953, res: 900, record: 7900 }
+{ req: 953, res: 910, record: 7900 }
+{ req: 953, res: 920, record: 7900 }
+{ req: 953, res: 930, record: 7900 }
+{ req: 953, res: 940, record: 7900 }
+{ req: 953, res: 950, record: 7900 }
+{ req: 1053, res: 960, record: 7900 }
+{ req: 1053, res: 970, record: 7900 }
+{ req: 1053, res: 980, record: 7900 }
+{ req: 1053, res: 990, record: 7940 }
+{ req: 1053, res: 1000, record: 7940 }
+{ req: 1053, res: 1010, record: 7960 }
+{ req: 1053, res: 1020, record: 7960 }
+{ req: 1053, res: 1030, record: 7960 }
+{ req: 1053, res: 1040, record: 7960 }
+{ req: 1053, res: 1050, record: 7960 }
+{ req: 1153, res: 1060, record: 8000 }
+{ req: 1153, res: 1070, record: 8000 }
+{ req: 1153, res: 1080, record: 8020 }
+{ req: 1153, res: 1090, record: 8040 }
+{ req: 1153, res: 1100, record: 8040 }
+{ req: 1153, res: 1110, record: 8040 }
+{ req: 1153, res: 1120, record: 8040 }
+{ req: 1153, res: 1130, record: 8060 }
+{ req: 1153, res: 1140, record: 8060 }
+{ req: 1153, res: 1150, record: 8060 }
+{ req: 1256, res: 1160, record: 8080 }
+{ req: 1256, res: 1170, record: 8080 }
+{ req: 1256, res: 1180, record: 8080 }
+{ req: 1256, res: 1190, record: 8080 }
+{ req: 1256, res: 1200, record: 8080 }
+{ req: 1256, res: 1210, record: 8080 }
+{ req: 1256, res: 1220, record: 8080 }
+{ req: 1256, res: 1230, record: 8080 }
+{ req: 1256, res: 1240, record: 8080 }
+{ req: 1256, res: 1250, record: 8080 }
+{ req: 1356, res: 1260, record: 8080 }
+{ req: 1356, res: 1270, record: 8080 }
+{ req: 1356, res: 1280, record: 8080 }
+{ req: 1356, res: 1290, record: 8080 }
+{ req: 1356, res: 1300, record: 8080 }
+{ req: 1356, res: 1310, record: 8080 }
+{ req: 1356, res: 1320, record: 8100 }
+{ req: 1356, res: 1330, record: 8140 }
+{ req: 1356, res: 1340, record: 8140 }
+{ req: 1356, res: 1350, record: 8140 }
+{ req: 1456, res: 1360, record: 8140 }
+{ req: 1456, res: 1370, record: 8140 }
+{ req: 1456, res: 1380, record: 8160 }
+{ req: 1456, res: 1390, record: 8160 }
+{ req: 1456, res: 1400, record: 8160 }
+{ req: 1456, res: 1410, record: 8160 }
+{ req: 1456, res: 1420, record: 8160 }
+{ req: 1456, res: 1430, record: 8160 }
+{ req: 1456, res: 1440, record: 8160 }
+{ req: 1456, res: 1450, record: 8160 }
+{ req: 1556, res: 1460, record: 8180 }
+{ req: 1556, res: 1470, record: 8180 }
+{ req: 1556, res: 1480, record: 8200 }
+{ req: 1556, res: 1490, record: 8200 }
+{ req: 1556, res: 1500, record: 8200 }
+{ req: 1556, res: 1510, record: 8200 }
+{ req: 1556, res: 1520, record: 8200 }
+{ req: 1556, res: 1530, record: 8200 }
+{ req: 1556, res: 1540, record: 8200 }
+{ req: 1556, res: 1550, record: 8200 }
+{ req: 1586, res: 1560, record: 8200 }
+{ req: 1586, res: 1570, record: 8200 }
+{ req: 1586, res: 1580, record: 8200 }
+{ req: 1586, res: 1586, record: 8240 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬───────────────┐
+│              (index)               │    Values     │
+├────────────────────────────────────┼───────────────┤
+│            total_delta             │ -136097163899 │
+│           foreign_delta            │ -136097163900 │
+│         proprietary_delta          │ -12341500000  │
+│       local_individual_delta       │ 150358985901  │
+│     local_institutional_delta      │  -1920322000  │
+│      foreign_individual_delta      │  5170251100   │
+│    foreign_institutional_delta     │ -141267415000 │
+│         total_buy_matched          │ 1207895677850 │
+│         total_sell_matched         │ 1343992841749 │
+│        foreign_buy_matched         │  46575041000  │
+│        foreign_sell_matched        │ 182672204900  │
+│      proprietary_buy_matched       │  3770150000   │
+│      proprietary_sell_matched      │  16111650000  │
+│    local_individual_buy_matched    │ 1101457412850 │
+│   local_individual_sell_matched    │ 951098426949  │
+│  local_institutional_buy_matched   │  9518033000   │
+│  local_institutional_sell_matched  │  11438355000  │
+│   foreign_individual_buy_matched   │  5486616000   │
+│  foreign_individual_sell_matched   │   316364900   │
+│ foreign_institutional_buy_matched  │  41088425000  │
+│ foreign_institutional_sell_matched │ 182355840000  │
+└────────────────────────────────────┴───────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 175, res: 80, record: 1600 }
+{ req: 175, res: 90, record: 1800 }
+{ req: 196, res: 100, record: 2000 }
+{ req: 202, res: 110, record: 2200 }
+{ req: 202, res: 120, record: 2400 }
+{ req: 202, res: 130, record: 2600 }
+{ req: 202, res: 140, record: 2800 }
+{ req: 202, res: 150, record: 3000 }
+{ req: 202, res: 160, record: 3200 }
+{ req: 202, res: 170, record: 3400 }
+{ req: 202, res: 180, record: 3600 }
+{ req: 202, res: 190, record: 3800 }
+{ req: 202, res: 200, record: 4000 }
+{ req: 302, res: 210, record: 4200 }
+{ req: 310, res: 220, record: 4400 }
+{ req: 310, res: 230, record: 4600 }
+{ req: 310, res: 240, record: 4800 }
+{ req: 310, res: 250, record: 5000 }
+{ req: 310, res: 260, record: 5200 }
+{ req: 310, res: 270, record: 5400 }
+{ req: 310, res: 280, record: 5600 }
+{ req: 310, res: 290, record: 5800 }
+{ req: 310, res: 300, record: 6000 }
+{ req: 310, res: 310, record: 6200 }
+{ req: 413, res: 320, record: 6400 }
+{ req: 413, res: 330, record: 6600 }
+{ req: 413, res: 340, record: 6740 }
+{ req: 413, res: 350, record: 6880 }
+{ req: 413, res: 360, record: 6920 }
+{ req: 413, res: 370, record: 7080 }
+{ req: 413, res: 380, record: 7280 }
+{ req: 413, res: 390, record: 7480 }
+{ req: 413, res: 400, record: 7680 }
+{ req: 413, res: 410, record: 7880 }
+{ req: 513, res: 420, record: 7880 }
+{ req: 513, res: 430, record: 7880 }
+{ req: 513, res: 440, record: 7880 }
+{ req: 513, res: 450, record: 7880 }
+{ req: 513, res: 460, record: 7880 }
+{ req: 513, res: 470, record: 7880 }
+{ req: 513, res: 480, record: 7880 }
+{ req: 513, res: 490, record: 7880 }
+{ req: 513, res: 500, record: 7880 }
+{ req: 513, res: 510, record: 7880 }
+{ req: 613, res: 520, record: 7880 }
+{ req: 613, res: 530, record: 7880 }
+{ req: 613, res: 540, record: 7880 }
+{ req: 613, res: 550, record: 7880 }
+{ req: 613, res: 560, record: 7880 }
+{ req: 613, res: 570, record: 7880 }
+{ req: 613, res: 580, record: 7880 }
+{ req: 613, res: 590, record: 7880 }
+{ req: 613, res: 600, record: 7880 }
+{ req: 613, res: 610, record: 7880 }
+{ req: 713, res: 620, record: 7880 }
+{ req: 722, res: 630, record: 7880 }
+{ req: 722, res: 640, record: 7880 }
+{ req: 722, res: 650, record: 7880 }
+{ req: 722, res: 660, record: 7880 }
+{ req: 722, res: 670, record: 7880 }
+{ req: 722, res: 680, record: 7880 }
+{ req: 722, res: 690, record: 7880 }
+{ req: 722, res: 700, record: 7880 }
+{ req: 722, res: 710, record: 7880 }
+{ req: 722, res: 720, record: 7880 }
+{ req: 822, res: 730, record: 7880 }
+{ req: 822, res: 740, record: 7880 }
+{ req: 822, res: 750, record: 7880 }
+{ req: 822, res: 760, record: 7880 }
+{ req: 822, res: 770, record: 7900 }
+{ req: 822, res: 780, record: 7900 }
+{ req: 822, res: 790, record: 7900 }
+{ req: 822, res: 800, record: 7900 }
+{ req: 822, res: 810, record: 7900 }
+{ req: 822, res: 820, record: 7900 }
+{ req: 922, res: 830, record: 7900 }
+{ req: 922, res: 840, record: 7900 }
+{ req: 922, res: 850, record: 7900 }
+{ req: 922, res: 860, record: 7900 }
+{ req: 922, res: 870, record: 7900 }
+{ req: 922, res: 880, record: 7900 }
+{ req: 922, res: 890, record: 7900 }
+{ req: 922, res: 900, record: 7900 }
+{ req: 922, res: 910, record: 7900 }
+{ req: 922, res: 920, record: 7900 }
+{ req: 1022, res: 930, record: 7900 }
+{ req: 1022, res: 940, record: 7900 }
+{ req: 1022, res: 950, record: 7900 }
+{ req: 1022, res: 960, record: 7900 }
+{ req: 1022, res: 970, record: 7900 }
+{ req: 1022, res: 980, record: 7920 }
+{ req: 1022, res: 990, record: 7940 }
+{ req: 1022, res: 1000, record: 7940 }
+{ req: 1022, res: 1010, record: 7960 }
+{ req: 1022, res: 1020, record: 7960 }
+{ req: 1122, res: 1030, record: 7960 }
+{ req: 1122, res: 1040, record: 7960 }
+{ req: 1140, res: 1050, record: 8000 }
+{ req: 1140, res: 1060, record: 8000 }
+{ req: 1140, res: 1070, record: 8000 }
+{ req: 1140, res: 1080, record: 8000 }
+{ req: 1140, res: 1090, record: 8040 }
+{ req: 1140, res: 1100, record: 8040 }
+{ req: 1140, res: 1110, record: 8040 }
+{ req: 1140, res: 1120, record: 8060 }
+{ req: 1140, res: 1130, record: 8060 }
+{ req: 1140, res: 1140, record: 8060 }
+{ req: 1240, res: 1150, record: 8060 }
+{ req: 1240, res: 1160, record: 8080 }
+{ req: 1240, res: 1170, record: 8080 }
+{ req: 1240, res: 1180, record: 8080 }
+{ req: 1240, res: 1190, record: 8080 }
+{ req: 1240, res: 1200, record: 8080 }
+{ req: 1240, res: 1210, record: 8080 }
+{ req: 1240, res: 1220, record: 8080 }
+{ req: 1240, res: 1230, record: 8080 }
+{ req: 1240, res: 1240, record: 8080 }
+{ req: 1340, res: 1250, record: 8080 }
+{ req: 1340, res: 1260, record: 8080 }
+{ req: 1340, res: 1270, record: 8080 }
+{ req: 1340, res: 1280, record: 8080 }
+{ req: 1340, res: 1290, record: 8080 }
+{ req: 1340, res: 1300, record: 8080 }
+{ req: 1340, res: 1310, record: 8080 }
+{ req: 1340, res: 1320, record: 8080 }
+{ req: 1340, res: 1330, record: 8120 }
+{ req: 1340, res: 1340, record: 8140 }
+{ req: 1440, res: 1350, record: 8140 }
+{ req: 1440, res: 1360, record: 8140 }
+{ req: 1440, res: 1370, record: 8160 }
+{ req: 1440, res: 1380, record: 8160 }
+{ req: 1440, res: 1390, record: 8160 }
+{ req: 1440, res: 1400, record: 8160 }
+{ req: 1440, res: 1410, record: 8160 }
+{ req: 1440, res: 1420, record: 8160 }
+{ req: 1440, res: 1430, record: 8160 }
+{ req: 1440, res: 1440, record: 8180 }
+{ req: 1540, res: 1450, record: 8180 }
+{ req: 1540, res: 1460, record: 8180 }
+{ req: 1540, res: 1470, record: 8180 }
+{ req: 1540, res: 1480, record: 8200 }
+{ req: 1540, res: 1490, record: 8200 }
+{ req: 1540, res: 1500, record: 8200 }
+{ req: 1540, res: 1510, record: 8200 }
+{ req: 1540, res: 1520, record: 8200 }
+{ req: 1540, res: 1530, record: 8200 }
+{ req: 1540, res: 1540, record: 8200 }
+{ req: 1586, res: 1550, record: 8200 }
+{ req: 1586, res: 1560, record: 8200 }
+{ req: 1586, res: 1570, record: 8200 }
+{ req: 1586, res: 1580, record: 8200 }
+{ req: 1586, res: 1586, record: 8240 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬───────────────┐
+│              (index)               │    Values     │
+├────────────────────────────────────┼───────────────┤
+│            total_delta             │ -136097163899 │
+│           foreign_delta            │ -136097163900 │
+│         proprietary_delta          │ -12341500000  │
+│       local_individual_delta       │ 150358985901  │
+│     local_institutional_delta      │  -1920322000  │
+│      foreign_individual_delta      │  5170251100   │
+│    foreign_institutional_delta     │ -141267415000 │
+│         total_buy_matched          │ 1207895677850 │
+│         total_sell_matched         │ 1343992841749 │
+│        foreign_buy_matched         │  46575041000  │
+│        foreign_sell_matched        │ 182672204900  │
+│      proprietary_buy_matched       │  3770150000   │
+│      proprietary_sell_matched      │  16111650000  │
+│    local_individual_buy_matched    │ 1101457412850 │
+│   local_individual_sell_matched    │ 951098426949  │
+│  local_institutional_buy_matched   │  9518033000   │
+│  local_institutional_sell_matched  │  11438355000  │
+│   foreign_individual_buy_matched   │  5486616000   │
+│  foreign_individual_sell_matched   │   316364900   │
+│ foreign_institutional_buy_matched  │  41088425000  │
+│ foreign_institutional_sell_matched │ 182355840000  │
+└────────────────────────────────────┴───────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 177, res: 80, record: 1600 }
+{ req: 177, res: 90, record: 1800 }
+{ req: 196, res: 100, record: 2000 }
+{ req: 207, res: 110, record: 2200 }
+{ req: 207, res: 120, record: 2400 }
+{ req: 207, res: 130, record: 2600 }
+{ req: 207, res: 140, record: 2800 }
+{ req: 207, res: 150, record: 3000 }
+{ req: 207, res: 160, record: 3200 }
+{ req: 207, res: 170, record: 3400 }
+{ req: 207, res: 180, record: 3600 }
+{ req: 207, res: 190, record: 3800 }
+{ req: 207, res: 200, record: 4000 }
+{ req: 308, res: 210, record: 4200 }
+{ req: 308, res: 220, record: 4400 }
+{ req: 308, res: 230, record: 4600 }
+{ req: 308, res: 240, record: 4800 }
+{ req: 308, res: 250, record: 5000 }
+{ req: 308, res: 260, record: 5200 }
+{ req: 308, res: 270, record: 5400 }
+{ req: 308, res: 280, record: 5600 }
+{ req: 308, res: 290, record: 5800 }
+{ req: 308, res: 300, record: 6000 }
+{ req: 408, res: 310, record: 6200 }
+{ req: 412, res: 320, record: 6400 }
+{ req: 428, res: 330, record: 6600 }
+{ req: 428, res: 340, record: 6740 }
+{ req: 428, res: 350, record: 6840 }
+{ req: 428, res: 360, record: 6940 }
+{ req: 428, res: 370, record: 7120 }
+{ req: 428, res: 380, record: 7320 }
+{ req: 428, res: 390, record: 7520 }
+{ req: 428, res: 400, record: 7680 }
+{ req: 428, res: 410, record: 7840 }
+{ req: 512, res: 420, record: 7880 }
+{ req: 528, res: 430, record: 7880 }
+{ req: 528, res: 440, record: 7880 }
+{ req: 528, res: 450, record: 7880 }
+{ req: 528, res: 460, record: 7880 }
+{ req: 528, res: 470, record: 7880 }
+{ req: 528, res: 480, record: 7880 }
+{ req: 528, res: 490, record: 7880 }
+{ req: 528, res: 500, record: 7880 }
+{ req: 528, res: 510, record: 7880 }
+{ req: 528, res: 520, record: 7880 }
+{ req: 628, res: 530, record: 7880 }
+{ req: 628, res: 540, record: 7880 }
+{ req: 628, res: 550, record: 7880 }
+{ req: 628, res: 560, record: 7880 }
+{ req: 628, res: 570, record: 7880 }
+{ req: 628, res: 580, record: 7880 }
+{ req: 628, res: 590, record: 7880 }
+{ req: 628, res: 600, record: 7880 }
+{ req: 628, res: 610, record: 7880 }
+{ req: 628, res: 620, record: 7880 }
+{ req: 728, res: 630, record: 7880 }
+{ req: 728, res: 640, record: 7880 }
+{ req: 728, res: 650, record: 7880 }
+{ req: 728, res: 660, record: 7880 }
+{ req: 728, res: 670, record: 7880 }
+{ req: 728, res: 680, record: 7880 }
+{ req: 728, res: 690, record: 7880 }
+{ req: 728, res: 700, record: 7880 }
+{ req: 728, res: 710, record: 7880 }
+{ req: 728, res: 720, record: 7880 }
+{ req: 828, res: 730, record: 7880 }
+{ req: 828, res: 740, record: 7880 }
+{ req: 828, res: 750, record: 7900 }
+{ req: 828, res: 760, record: 7900 }
+{ req: 828, res: 770, record: 7900 }
+{ req: 828, res: 780, record: 7900 }
+{ req: 828, res: 790, record: 7900 }
+{ req: 828, res: 800, record: 7900 }
+{ req: 828, res: 810, record: 7900 }
+{ req: 828, res: 820, record: 7900 }
+{ req: 928, res: 830, record: 7900 }
+{ req: 928, res: 840, record: 7900 }
+{ req: 928, res: 850, record: 7900 }
+{ req: 928, res: 860, record: 7900 }
+{ req: 928, res: 870, record: 7900 }
+{ req: 928, res: 880, record: 7900 }
+{ req: 928, res: 890, record: 7900 }
+{ req: 928, res: 900, record: 7900 }
+{ req: 928, res: 910, record: 7900 }
+{ req: 928, res: 920, record: 7900 }
+{ req: 1028, res: 930, record: 7900 }
+{ req: 1028, res: 940, record: 7900 }
+{ req: 1028, res: 950, record: 7900 }
+{ req: 1028, res: 960, record: 7900 }
+{ req: 1028, res: 970, record: 7900 }
+{ req: 1028, res: 980, record: 7900 }
+{ req: 1028, res: 990, record: 7920 }
+{ req: 1028, res: 1000, record: 7940 }
+{ req: 1028, res: 1010, record: 7940 }
+{ req: 1028, res: 1020, record: 7940 }
+{ req: 1128, res: 1030, record: 7960 }
+{ req: 1128, res: 1040, record: 7960 }
+{ req: 1128, res: 1050, record: 7980 }
+{ req: 1128, res: 1060, record: 8000 }
+{ req: 1128, res: 1070, record: 8000 }
+{ req: 1128, res: 1080, record: 8020 }
+{ req: 1128, res: 1090, record: 8020 }
+{ req: 1128, res: 1100, record: 8040 }
+{ req: 1128, res: 1110, record: 8040 }
+{ req: 1128, res: 1120, record: 8040 }
+{ req: 1228, res: 1130, record: 8060 }
+{ req: 1228, res: 1140, record: 8060 }
+{ req: 1228, res: 1150, record: 8060 }
+{ req: 1228, res: 1160, record: 8080 }
+{ req: 1228, res: 1170, record: 8080 }
+{ req: 1228, res: 1180, record: 8080 }
+{ req: 1228, res: 1190, record: 8080 }
+{ req: 1228, res: 1200, record: 8080 }
+{ req: 1228, res: 1210, record: 8080 }
+{ req: 1228, res: 1220, record: 8080 }
+{ req: 1328, res: 1230, record: 8080 }
+{ req: 1328, res: 1240, record: 8080 }
+{ req: 1328, res: 1250, record: 8080 }
+{ req: 1328, res: 1260, record: 8080 }
+{ req: 1328, res: 1270, record: 8080 }
+{ req: 1328, res: 1280, record: 8080 }
+{ req: 1328, res: 1290, record: 8080 }
+{ req: 1328, res: 1300, record: 8100 }
+{ req: 1328, res: 1310, record: 8120 }
+{ req: 1328, res: 1320, record: 8120 }
+{ req: 1428, res: 1330, record: 8140 }
+{ req: 1428, res: 1340, record: 8140 }
+{ req: 1428, res: 1350, record: 8140 }
+{ req: 1428, res: 1360, record: 8140 }
+{ req: 1428, res: 1370, record: 8160 }
+{ req: 1428, res: 1380, record: 8160 }
+{ req: 1428, res: 1390, record: 8160 }
+{ req: 1428, res: 1400, record: 8160 }
+{ req: 1428, res: 1410, record: 8160 }
+{ req: 1428, res: 1420, record: 8160 }
+{ req: 1528, res: 1430, record: 8180 }
+{ req: 1528, res: 1440, record: 8180 }
+{ req: 1528, res: 1450, record: 8180 }
+{ req: 1528, res: 1460, record: 8180 }
+{ req: 1528, res: 1470, record: 8180 }
+{ req: 1528, res: 1480, record: 8200 }
+{ req: 1528, res: 1490, record: 8200 }
+{ req: 1528, res: 1500, record: 8200 }
+{ req: 1528, res: 1510, record: 8200 }
+{ req: 1528, res: 1520, record: 8200 }
+{ req: 1586, res: 1530, record: 8200 }
+{ req: 1586, res: 1540, record: 8200 }
+{ req: 1586, res: 1550, record: 8200 }
+{ req: 1586, res: 1560, record: 8200 }
+{ req: 1586, res: 1570, record: 8200 }
+{ req: 1586, res: 1580, record: 8200 }
+{ req: 1586, res: 1586, record: 8240 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬───────────────┐
+│              (index)               │    Values     │
+├────────────────────────────────────┼───────────────┤
+│            total_delta             │ -136097163899 │
+│           foreign_delta            │ -136097163900 │
+│         proprietary_delta          │ -12341500000  │
+│       local_individual_delta       │ 150358985901  │
+│     local_institutional_delta      │  -1920322000  │
+│      foreign_individual_delta      │  5170251100   │
+│    foreign_institutional_delta     │ -141267415000 │
+│         total_buy_matched          │ 1207895677850 │
+│         total_sell_matched         │ 1343992841749 │
+│        foreign_buy_matched         │  46575041000  │
+│        foreign_sell_matched        │ 182672204900  │
+│      proprietary_buy_matched       │  3770150000   │
+│      proprietary_sell_matched      │  16111650000  │
+│    local_individual_buy_matched    │ 1101457412850 │
+│   local_individual_sell_matched    │ 951098426949  │
+│  local_institutional_buy_matched   │  9518033000   │
+│  local_institutional_sell_matched  │  11438355000  │
+│   foreign_individual_buy_matched   │  5486616000   │
+│  foreign_individual_sell_matched   │   316364900   │
+│ foreign_institutional_buy_matched  │  41088425000  │
+│ foreign_institutional_sell_matched │ 182355840000  │
+└────────────────────────────────────┴───────────────┘
+1587
+1587
+Fetching 1586
+{ req: 100, res: 10, record: 200 }
+{ req: 100, res: 20, record: 400 }
+{ req: 100, res: 30, record: 600 }
+{ req: 100, res: 40, record: 800 }
+{ req: 100, res: 50, record: 1000 }
+{ req: 100, res: 60, record: 1200 }
+{ req: 100, res: 70, record: 1400 }
+{ req: 171, res: 80, record: 1600 }
+{ req: 171, res: 90, record: 1800 }
+{ req: 171, res: 100, record: 2000 }
+{ req: 200, res: 110, record: 2200 }
+{ req: 200, res: 120, record: 2400 }
+{ req: 200, res: 130, record: 2600 }
+{ req: 200, res: 140, record: 2800 }
+{ req: 200, res: 150, record: 3000 }
+{ req: 200, res: 160, record: 3200 }
+{ req: 200, res: 170, record: 3400 }
+{ req: 270, res: 180, record: 3600 }
+{ req: 270, res: 190, record: 3800 }
+{ req: 270, res: 200, record: 4000 }
+{ req: 300, res: 210, record: 4200 }
+{ req: 300, res: 220, record: 4400 }
+{ req: 322, res: 230, record: 4600 }
+{ req: 322, res: 240, record: 4800 }
+{ req: 322, res: 250, record: 5000 }
+{ req: 322, res: 260, record: 5200 }
+{ req: 322, res: 270, record: 5400 }
+{ req: 322, res: 280, record: 5600 }
+{ req: 322, res: 290, record: 5800 }
+{ req: 322, res: 300, record: 6000 }
+{ req: 322, res: 310, record: 6200 }
+{ req: 322, res: 320, record: 6400 }
+{ req: 427, res: 330, record: 6600 }
+{ req: 427, res: 340, record: 6800 }
+{ req: 427, res: 350, record: 7000 }
+{ req: 427, res: 360, record: 7120 }
+{ req: 427, res: 370, record: 7180 }
+{ req: 427, res: 380, record: 7240 }
+{ req: 427, res: 390, record: 7260 }
+{ req: 427, res: 400, record: 7440 }
+{ req: 427, res: 410, record: 7640 }
+{ req: 427, res: 420, record: 7840 }
+{ req: 527, res: 430, record: 7880 }
+{ req: 527, res: 440, record: 7880 }
+{ req: 527, res: 450, record: 7880 }
+{ req: 527, res: 460, record: 7880 }
+{ req: 527, res: 470, record: 7880 }
+{ req: 527, res: 480, record: 7880 }
+{ req: 527, res: 490, record: 7880 }
+{ req: 527, res: 500, record: 7880 }
+{ req: 527, res: 510, record: 7880 }
+{ req: 527, res: 520, record: 7880 }
+{ req: 627, res: 530, record: 7880 }
+{ req: 627, res: 540, record: 7880 }
+{ req: 627, res: 550, record: 7880 }
+{ req: 627, res: 560, record: 7880 }
+{ req: 627, res: 570, record: 7880 }
+{ req: 627, res: 580, record: 7880 }
+{ req: 627, res: 590, record: 7880 }
+{ req: 627, res: 600, record: 7880 }
+{ req: 627, res: 610, record: 7880 }
+{ req: 627, res: 620, record: 7880 }
+{ req: 727, res: 630, record: 7880 }
+{ req: 727, res: 640, record: 7880 }
+{ req: 727, res: 650, record: 7880 }
+{ req: 727, res: 660, record: 7880 }
+{ req: 727, res: 670, record: 7880 }
+{ req: 727, res: 680, record: 7880 }
+{ req: 727, res: 690, record: 7880 }
+{ req: 727, res: 700, record: 7880 }
+{ req: 727, res: 710, record: 7880 }
+{ req: 727, res: 720, record: 7880 }
+{ req: 827, res: 730, record: 7880 }
+{ req: 827, res: 740, record: 7880 }
+{ req: 827, res: 750, record: 7900 }
+{ req: 827, res: 760, record: 7900 }
+{ req: 827, res: 770, record: 7900 }
+{ req: 827, res: 780, record: 7900 }
+{ req: 827, res: 790, record: 7900 }
+{ req: 827, res: 800, record: 7900 }
+{ req: 827, res: 810, record: 7900 }
+{ req: 827, res: 820, record: 7900 }
+{ req: 927, res: 830, record: 7900 }
+{ req: 934, res: 840, record: 7900 }
+{ req: 934, res: 850, record: 7900 }
+{ req: 934, res: 860, record: 7900 }
+{ req: 934, res: 870, record: 7900 }
+{ req: 934, res: 880, record: 7900 }
+{ req: 934, res: 890, record: 7900 }
+{ req: 934, res: 900, record: 7900 }
+{ req: 934, res: 910, record: 7900 }
+{ req: 934, res: 920, record: 7900 }
+{ req: 934, res: 930, record: 7900 }
+{ req: 1034, res: 940, record: 7900 }
+{ req: 1034, res: 950, record: 7900 }
+{ req: 1034, res: 960, record: 7900 }
+{ req: 1034, res: 970, record: 7900 }
+{ req: 1034, res: 980, record: 7900 }
+{ req: 1034, res: 990, record: 7920 }
+{ req: 1034, res: 1000, record: 7920 }
+{ req: 1034, res: 1010, record: 7920 }
+{ req: 1034, res: 1020, record: 7920 }
+{ req: 1034, res: 1030, record: 7940 }
+{ req: 1134, res: 1040, record: 7960 }
+{ req: 1148, res: 1050, record: 7960 }
+{ req: 1148, res: 1060, record: 7980 }
+{ req: 1148, res: 1070, record: 8020 }
+{ req: 1148, res: 1080, record: 8020 }
+{ req: 1148, res: 1090, record: 8040 }
+{ req: 1148, res: 1100, record: 8040 }
+{ req: 1148, res: 1110, record: 8040 }
+{ req: 1148, res: 1120, record: 8040 }
+{ req: 1148, res: 1130, record: 8060 }
+{ req: 1148, res: 1140, record: 8060 }
+{ req: 1248, res: 1150, record: 8080 }
+{ req: 1248, res: 1160, record: 8080 }
+{ req: 1248, res: 1170, record: 8080 }
+{ req: 1248, res: 1180, record: 8080 }
+{ req: 1248, res: 1190, record: 8080 }
+{ req: 1248, res: 1200, record: 8080 }
+{ req: 1248, res: 1210, record: 8080 }
+{ req: 1248, res: 1220, record: 8080 }
+{ req: 1248, res: 1230, record: 8080 }
+{ req: 1248, res: 1240, record: 8080 }
+{ req: 1348, res: 1250, record: 8080 }
+{ req: 1348, res: 1260, record: 8080 }
+{ req: 1348, res: 1270, record: 8080 }
+{ req: 1348, res: 1280, record: 8080 }
+{ req: 1348, res: 1290, record: 8080 }
+{ req: 1348, res: 1300, record: 8080 }
+{ req: 1348, res: 1310, record: 8080 }
+{ req: 1348, res: 1320, record: 8120 }
+{ req: 1348, res: 1330, record: 8120 }
+{ req: 1348, res: 1340, record: 8120 }
+{ req: 1448, res: 1350, record: 8140 }
+{ req: 1448, res: 1360, record: 8140 }
+{ req: 1448, res: 1370, record: 8140 }
+{ req: 1448, res: 1380, record: 8160 }
+{ req: 1448, res: 1390, record: 8160 }
+{ req: 1448, res: 1400, record: 8160 }
+{ req: 1448, res: 1410, record: 8160 }
+{ req: 1448, res: 1420, record: 8160 }
+{ req: 1448, res: 1430, record: 8160 }
+{ req: 1448, res: 1440, record: 8160 }
+{ req: 1548, res: 1450, record: 8180 }
+{ req: 1548, res: 1460, record: 8180 }
+{ req: 1548, res: 1470, record: 8180 }
+{ req: 1548, res: 1480, record: 8200 }
+{ req: 1548, res: 1490, record: 8200 }
+{ req: 1548, res: 1500, record: 8200 }
+{ req: 1548, res: 1510, record: 8200 }
+{ req: 1548, res: 1520, record: 8200 }
+{ req: 1548, res: 1530, record: 8200 }
+{ req: 1548, res: 1540, record: 8200 }
+{ req: 1586, res: 1550, record: 8200 }
+{ req: 1586, res: 1560, record: 8200 }
+{ req: 1586, res: 1570, record: 8200 }
+{ req: 1586, res: 1580, record: 8200 }
+{ req: 1586, res: 1586, record: 8240 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+└─────────┴────────────────────────────────┘
+┌────────────────────────────────────┬───────────────┐
+│              (index)               │    Values     │
+├────────────────────────────────────┼───────────────┤
+│            total_delta             │ -136097163899 │
+│           foreign_delta            │ -136097163900 │
+│         proprietary_delta          │ -12341500000  │
+│       local_individual_delta       │ 150358985901  │
+│     local_institutional_delta      │  -1920322000  │
+│      foreign_individual_delta      │  5170251100   │
+│    foreign_institutional_delta     │ -141267415000 │
+│         total_buy_matched          │ 1207895677850 │
+│         total_sell_matched         │ 1343992841749 │
+│        foreign_buy_matched         │  46575041000  │
+│        foreign_sell_matched        │ 182672204900  │
+│      proprietary_buy_matched       │  3770150000   │
+│      proprietary_sell_matched      │  16111650000  │
+│    local_individual_buy_matched    │ 1101457412850 │
+│   local_individual_sell_matched    │ 951098426949  │
+│  local_institutional_buy_matched   │  9518033000   │
+│  local_institutional_sell_matched  │  11438355000  │
+│   foreign_individual_buy_matched   │  5486616000   │
+│  foreign_individual_sell_matched   │   316364900   │
+│ foreign_institutional_buy_matched  │  41088425000  │
+│ foreign_institutional_sell_matched │ 182355840000  │
+└────────────────────────────────────┴───────────────┘
