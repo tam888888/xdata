@@ -2,7 +2,6 @@
 **ssiData
 **his
 **/data3*.txt
-dist/dist/his/investorData20240305.json
 dist/websocket/data320240301.txt
 dist/websocket/data320240223.txt
 dist/websocket/data320240220.txt
@@ -19,6 +18,7 @@ dist/websocket/data320240205.txt
 dist/websocket/data320240219.txt
 dist/websocket/data320240222.txt
 dist/websocket/data320240129.txt
+dist/websocket/data320240306.txt
 dist/websocket/data320240216.txt
 dist/websocket/data320240206.txt
 dist/websocket/data320240227.txt
