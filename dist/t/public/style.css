@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+/* .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+} */
+
+.sidebar {
+    width: 250px;
+    background-color: rgb(18, 153, 79);
+    color: white;
+    padding: 20px;
+    transition: transform 0.3s;
+    /* Thêm transition để tạo hiệu ứng mượt mà */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    border: 1px solid #f01f1f;
+    padding: 12px;
+    padding-right: 0px;
+    margin: 0;
+    transition: background-color 0.3s;
+    border-radius: 8px; 
+    background-color: rgb(62, 150, 69)
+}
+
+.sidebar ul li ul li {
+
+    margin-bottom: 0px;
+    border: 1px solid #f01f1f;
+    padding: 12px;
+    margin: 10;
+    transition: background-color 0.3s;
+    border-radius: 8px; 
+    background-color: rgb(62, 150, 69)
+}
+
+.sidebar li:hover {
+    background-color: #555;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a:hover {
+    color: #ffcc00;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* Lớp hidden để ẩn sidebar */
+.hidden {
+    transform: translateX(-250px);
+    /* Dịch chuyển sidebar ra ngoài màn hình */
+}
+
+/* Nút hoặc biểu tượng để hiện sidebar */
+#toggleSidebar {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}

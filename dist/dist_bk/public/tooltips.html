@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Tooltip Container */
+        .tooltipContainer {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #007bff;
+            /* Đường viền màu xanh */
+            border-radius: 10px;
+            /* Bo tròn */
+            padding: 10px;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #007bff;
+            /* Đường viền màu xanh */
+            border-radius: 10px;
+            /* Bo tròn */
+            padding: 10px;
+        }
+
+        /* Tooltip Header */
+        .tooltip .header {
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Tooltip Content */
+        .tooltip .content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0%;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        /* Change background color on hover */
+        .tooltip:hover .content {
+            display: flex;
+        }
+
+        /* Change background color of header on hover */
+        .tooltip:hover .header {
+            color: #8a2be2;
+            /* Màu tím */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tooltipContainer">
+        <!-- Tooltip -->
+        <div class="tooltip">
+            <div class="header">Tooltip Header</div>
+            <div class="content">
+                <p>Tooltip content goes here.</p>
+            </div>
+        </div>
+
+        <!-- List with tooltips -->
+        <ul>
+            <li class="tooltip">
+                <div class="header">Item 1</div>
+                <div class="content">
+                    <p>Item 1 content goes here.</p>
+                </div>
+            </li>
+            <li class="tooltip">
+                <div class="header">Item 2</div>
+                <div class="content">
+                    <p>Item 2 content goes here.</p>
+                </div>
+            </li>
+            <!-- Add more list items as needed -->
+        </ul>
+    </div>
+
+
+</body>
+
+</html>

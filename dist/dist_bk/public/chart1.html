@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Chart Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.0/css/jquery.dataTables.css">
+    <!-- <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet" type="text/css"> -->
+    <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.socket.io/socket.io-4.0.1.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+    <style>
+        div.dataTables_wrapper div.dataTables_info {
+            padding-top: 0px;
+        }
+
+        div.dataTables_wrapper div.dataTables_info {
+            font-size: 6px;
+            /* Set font size for information text (e.g., "Showing 1 to 10 of 100 entries") */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <style>
+        /* CSS for limiting the number of rows and adding a vertical scroll */
+        #timelineContainer {
+            max-height: 600px;
+            /* Set the maximum height for the table */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+    </style>
+    <style>
+        /* CSS for enabling both horizontal and vertical scrolling for the entire page */
+        body,
+        html {
+            overflow: scroll;
+            /* Enable both horizontal and vertical scrolling for the entire page */
+        }
+    </style>
+    <style>
+        /* #chartcontainer {
+            text-align: center;
+        }
+
+        #vnindex,#busd {
+            display: inline;
+        } */
+        #chartcontainer {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <div id="chartcontainer" style="width: 100%; margin: 0 auto; height: 500px;">
+        <div id="vnindex" style="width: 45%; margin: 0 auto; height: 500px;">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div id="busd" style="width: 45%; margin: 0 auto; height: 500px;">
+            <canvas id="line-chart"></canvas>
+        </div>
+    </div>
+    <table>
+        <caption style="font-size: x-large;">VNINDEX Thống kê cung cầu</caption>
+        <thead id="statsHead">
+            <tr>
+                <th>VNINDEX</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Vol Đặt Mua</th>
+                <th>Val Đặt Mua</th>
+                <th>Vol Đặt Bán</th>
+                <th>Val Đặt Bán</th>
+                <th>BU Vol</th>
+                <th>BU Val</th>
+                <th>SD Vol</th>
+                <th>SD Val</th>
+                <th>UK Vol</th>
+                <th>UK Val</th>
+                <th>BUSD Vol</th>
+                <th>BUSD Val</th>
+                <th>Min BUSD Val</th>
+                <th>Max BUSD Val</th>
+            </tr>
+        </thead>
+        <tbody id="statsBody">
+            <!-- Table 2 data will be populated here -->
+        </tbody>
+    </table>
+
+    <table id="myTable" class="display">
+        <thead id="headTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tfoot id="footTable">
+            <tr>
+                <th>Thống kê</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <!-- Dữ liệu sẽ được thêm ở đây -->
+        </tbody>
+
+    </table>
+    <div id="timelineContainer">
+
+
+        <table>
+            <caption style="font-size: x-large;">VNINDEX thống kê chi tiết theo phút</caption>
+            <thead>
+                <tr>
+                    <th>Thời gian</th>
+                    <th>VNINDEX</th>
+                    <th>T</th>
+                    <th>Vol KoXĐ</th>
+                    <th>Val KoXĐ</th>
+                    <th>Vol MuaCĐ</th>
+                    <th>Val MuaCĐ</th>
+                    <th>Vol BánCĐ</th>
+                    <th>Val BánCĐ</th>
+                    <th>Vol Mua-Bán</th>
+                    <th>Val Mua-Bán</th>
+                    <th>Vol Đặt Mua</th>
+                    <th>Val Đặt Mua</th>
+                    <th>Vol Đặt Bán</th>
+                    <th>Val Đặt Bán</th>
+                </tr>
+            </thead>
+            <tbody id="timelineBody">
+                <!-- Table 1 data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Table 2 -->
+
+
+    <script>
+        const zoomOptions = {
+            // pan: {
+            //     enabled: true,
+            //     mode: 'xy',
+            //     modifierKey: 'ctrl',
+            // },
+            pan: {
+                enabled: true,
+                onPanStart({ chart, point }) {
+                    const area = chart.chartArea;
+                    const w25 = area.width * 0.25;
+                    const h25 = area.height * 0.25;
+                    if (point.x < area.left + w25 || point.x > area.right - w25
+                        || point.y < area.top + h25 || point.y > area.bottom - h25) {
+                        return false; // abort
+                    }
+                },
+                mode: 'xy',
+            },
+            zoom: {
+                mode: 'xy',
+                drag: {
+                    enabled: true,
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.3)'
+                }
+            }
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'VNINDEX',
+                    data: [],
+                    borderColor: 'purple',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        suggestedMin: 2000,  // Bắt đầu từ 999
+                    }
+                }, plugins: {
+                    zoom: zoomOptions,
+                }
+            }
+        });
+
+        const ctxLineChart = document.getElementById('line-chart').getContext('2d');
+        const data = {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+            datasets: [
+                {
+                    label: 'Tổng',
+                    borderColor: 'blue',
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    hidden: true // Ẩn đường này mặc định
+                },
+                {
+                    label: 'MuaCĐ',
+                    borderColor: 'green',
+                    data: [28, 48, 40, 19, 86, 27],
+                    fill: false,
+                },
+                {
+                    label: 'BánCĐ',
+                    borderColor: 'red',
+                    data: [45, 68, 58, 33, 72, 47],
+                    fill: false,
+                },
+            ],
+        };
+        const config = {
+            type: 'line', // Đây là loại biểu đồ đường (line chart)
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999
+                    },
+                },
+                plugins: {
+                    zoom: zoomOptions,
+                }
+            },
+
+        };
+        var myChart = new Chart(ctxLineChart, config);
+
+        // Connect to the WebSocket server
+        var socket = io();
+
+        socket.on('updateData', function (data) {
+            // Populate Table 1
+            if (data.timeline) {
+                chart.data.labels = data.timeline.data.map(e => e[0])
+                chart.data.datasets[0].data = data.timeline.data.map(e => e[1])
+                chart.update();
+
+                myChart.data.labels = data.timeline.data.map(e => e[0])
+                myChart.data.datasets[0].data = data.timeline.data.map(e => e[4] + e[6] + e[8])
+                myChart.data.datasets[1].data = data.timeline.data.map(e => e[6])
+                myChart.data.datasets[2].data = data.timeline.data.map(e => e[8])
+                myChart.update();
+
+                data.timeline.data.sort((a, b) => { return b[2] - a[2] })
+                var timelineBody = document.getElementById('timelineBody');
+                timelineBody.innerHTML = '';
+                for (var i = 0; i < data.timeline.data.length; i++) {
+                    var row = document.createElement('tr');
+                    for (var j = 0; j < data.timeline.labels.length; j++) {
+                        var cell = document.createElement('td');
+
+                        cell.textContent = j <= 2 ? data.timeline.data[i][j] : numeral(data.timeline.data[i][j]).format('0,0');
+                        row.appendChild(cell);
+                    }
+                    timelineBody.appendChild(row);
+                }
+
+
+                statsHead = document.getElementById('headTable');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                let label1 = ['Thời gian', 'VNINDEX', 'T', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán', 'Vol Đặt Mua', 'Val Đặt Mua', 'Vol Đặt Bán', 'Val Đặt Bán']
+                for (var i = 0; i < label1.length; i++) {
+                    var th = document.createElement('th');
+                    th.textContent = label1[i];
+                    theadRow.appendChild(th);
+                }
+
+                statsHead = document.getElementById('footTable');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                let start = 3;
+                // console.table(data.timeline.data[0])
+                let timeX = moment(data.timeline.data[0][0], 'HH:mm').format("x")
+
+
+
+                let delta = Date.now() - timeX;
+                // console.log("timeX",timeX,delta/1000/60)
+                let tpsa = []
+                if (delta < 60 * 1000 && delta > 0) {
+                    let lasta = data.timeline.data[0]
+                    // console.table(lasta)
+                    for (let i = start; i <= lasta.length - 1; i++) {
+                        tpsa[i] = lasta[i] * 60 * 1000 / (delta)
+                    }
+                    tpsa[1] = (lasta[3] + lasta[5] + lasta[7]) * 60 * 1000 / (delta)
+                    tpsa[2] = (lasta[4] + lasta[6] + lasta[8]) * 60 * 1000 / (delta)
+                }
+
+
+                let sum = data.timeline.data.reduce((a, b) => {
+                    let ret = []
+                    for (let i = start; i <= a.length - 1; i++) {
+                        ret[i] = a[i] + b[i]
+                    }
+                    return ret;
+                }, Array(11).fill(0, 3))
+
+                sum[1] = sum[3] + sum[5] + sum[7]
+                sum[2] = sum[4] + sum[6] + sum[8]
+
+                label1 = ['Thống kê', 'Tổng Vol', 'Tổng Val', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán']
+                for (var i = 0; i < label1.length; i++) {
+                    var th = document.createElement('th');
+                    if (i < 1) {
+                        th.textContent = label1[i];
+                    } else {
+                        // th.textContent = label1[i] + '/Phút\n' + Math.floor(sum[i]/data.timeline.data.length*100)/100;
+                        th.textContent = label1[i] + '/Phút\n' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '\nT:' + numeral(sum[i]).format('0,0')
+                            + (tpsa[i] ? '\nctps: ' + numeral(tpsa[i]).format('0,0') : '');
+                    }
+                    theadRow.appendChild(th);
+
+                }
+                if ($.fn.DataTable.isDataTable('#myTable')) {
+                    $('#myTable').DataTable().destroy();
+
+                }
+                let datanew = data.timeline.data.map(e => {
+                    let ne = {};
+                    data.timeline.labels.forEach((l, i) => {
+                        ne[l] = i <= 2 ? e[i] : numeral(e[i]).format('0,0');
+                    });
+                    return ne
+                })
+                $('#myTable').DataTable(
+                    {
+                        // paging: true,
+                        searching: true,
+                        data: datanew,
+                        destroy: true,
+                        columns: [
+                            ...data.timeline.labels.map(e => { return { data: e, orderable: true } })
+                        ],
+                        order: [[2, 'desc']]
+
+                    }
+                );
+                // var table = $('#myTable').DataTable()
+
+
+                // table.rows.add(datanew).draw(true)                
+            }
+
+            // Populate Table 2
+            if (data.stats) {
+                var statsBody = document.getElementById('statsBody');
+                var statsHead = document.getElementById('statsHead');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                for (var i = 0; i < data.stats.labels.length; i++) {
+                    var th = document.createElement('th');
+                    th.textContent = data.stats.labels[i];
+                    theadRow.appendChild(th);
+                }
+                statsBody.innerHTML = '';
+
+                var row = document.createElement('tr');
+                for (var j = 0; j < data.stats.labels.length; j++) {
+                    var cell = document.createElement('td');
+                    cell.textContent = j <= 2 ? data.stats.data[j] : numeral(data.stats.data[j]).format('0,0');
+                    row.appendChild(cell);
+                }
+                statsBody.appendChild(row);
+
+
+
+
+            }
+        });
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Use jQuery to load the sidebar from sidebar.html
+        $(document).ready(function () {
+            $('#sidebarContainer').load('sidebar.html');
+        });
+    </script>     -->
+</body>
+
+</html>

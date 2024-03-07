@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Three.js -- Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        /* body {
+            font-family: Monospace;
+            font-weight: bold;
+            background-color: #ccccff;
+            margin: 0px;
+            overflow: hidden;
+        } */
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        #c {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/Detector.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/threex.keyboardstate/master/build/threex.keyboardstate.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/threex.fullscreen/master/threex.fullscreen.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/threex.windowresize/master/threex.windowresize.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script> -->
+
+
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/",
+            "domevents": "https://unpkg.com/threex-domevents@1.0.0/threex.domevents.js"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+        import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+    </script>
+
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.8.1/dist/three-spritetext.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>
+            It should now render with a resolution that matches the display size of the canvas.
+            To make the point about letting CSS handle the resizing let's take our code and put it in a separate .js
+            file.
+            Here then are a few more examples where we let CSS choose the size and notice we had to change zero code for
+            them to work.
+
+            Let's put our cubes in the middle of a paragraph of text.
+        </p>
+        <!-- <script type="module" src="threeresponsive.js"></script> -->
+    </div>
+
+    <!-- <div id="message"></div> -->
+
+    <!-- Load Three.js and other scripts from CDN -->
+
+    <canvas id="c"></canvas>
+
+    <script>
+        let textSprite, popupPlane;
+        let camera;
+        var cubeNew;
+        var renderer;
+        var scene;
+        var mapColor = {}
+        var interactiveObject = []
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+        import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+        // import initializeDomEvents from 'domevents';
+        // XXX.initializeDomEvents(THREE, THREEx)
+        var last = 0;
+        // Show the popup
+        function showPopup() {
+            console.log('showPopup')
+            popupPlane.visible = true;
+            last = Date.now()
+        }
+
+
+        // Close the popup
+        function closePopup(event) {
+
+            if (event.target === renderer.domElement) {
+                if (popupPlane.visible && (Date.now() - last > 1000)) {
+                    console.log('Close')
+                    popupPlane.visible = false;
+                }
+
+
+            }
+        }
+        function main() {
+            const canvas = document.querySelector('#c');
+            renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+
+            const fov = 75;
+            const aspect = 2;  // the canvas default
+            const near = 0.1;
+            const far = 500;
+            camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+            camera.position.z = 2;
+
+            scene = new THREE.Scene();
+
+            const boxWidth = 1;
+            const boxHeight = 1;
+            const boxDepth = 1;
+            const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+            // const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+            const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
+            const cube = new THREE.Mesh(geometry, material);
+            mapColor[cube.uuid] = { ...cube.material.color };
+            interactiveObject.push(cube)
+            scene.add(cube);
+
+            function makeInstance(geometry, color, x) {
+                const material = new THREE.MeshPhongMaterial({ color });
+
+                const cube = new THREE.Mesh(geometry, material);
+                scene.add(cube);
+
+                cube.position.x = x;
+
+                return cube;
+            }
+            const cubes = [
+                makeInstance(geometry, 0x44aa88, -4),
+                makeInstance(geometry, 0x8844aa, -2),
+                makeInstance(geometry, 0xaa8844, 2),
+            ];
+
+            cubes.forEach(e => {
+                mapColor[e.uuid] = { ...e.material.color };
+                interactiveObject.push(e)
+            })
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+            controls.dampingFactor = 0.25;
+            controls.screenSpacePanning = true;
+            controls.maxPolarAngle = Math.PI * 2;
+            controls.enableRotate = true;
+            controls.enableZoom = true;
+
+            renderer.render(scene, camera);
+
+            const color = 0xFFFFFF;
+            const intensity = 3;
+            const light = new THREE.DirectionalLight(color, intensity);
+            light.position.set(-1, 2, 4);
+            scene.add(light);
+
+            var N = 5
+            // Create axes helper
+            const axesHelper = new THREE.AxesHelper(N); // Set the size of the axes
+
+            // Create text labels for units
+            const labelX = createLabel("X", "red");
+            const labelY = createLabel("Y", "green");
+            const labelZ = createLabel("Z", "blue");
+
+            // Position the labels
+            labelX.position.x = 5.5;
+            labelY.position.y = 5.5;
+            labelZ.position.z = 5.5;
+
+            // Add axes and labels to the scene
+            scene.add(axesHelper, labelX, labelY, labelZ);
+
+            camera.position.z = 10;
+
+            function createLabel(text, color) {
+                const canvas = document.createElement("canvas");
+                const context = canvas.getContext("2d");
+                const size = 256;
+
+                canvas.width = size;
+                canvas.height = size;
+
+                context.font = "Bold 40px Arial";
+                context.fillStyle = color;
+                context.fillText(text, size / 4, size / 2);
+
+                const texture = new THREE.CanvasTexture(canvas);
+                const material = new THREE.SpriteMaterial({ map: texture });
+                const sprite = new THREE.Sprite(material);
+
+                sprite.scale.set(0.5, 0.25, 1);
+
+                return sprite;
+            }
+
+            const maxNumericValue = N;
+
+            // Create text labels for numeric units
+            for (let i = 1; i <= maxNumericValue; i++) {
+                addNumericLabel(i.toString(), "red", new THREE.Vector3(i, 0, 0));
+                addNumericLabel(i.toString(), "green", new THREE.Vector3(0, i, 0));
+                addNumericLabel(i.toString(), "blue", new THREE.Vector3(0, 0, i));
+            }
+
+            function addNumericLabel(text, color, position) {
+                const canvas = document.createElement("canvas");
+                const context = canvas.getContext("2d");
+                const size = 256;
+
+                canvas.width = size;
+                canvas.height = size;
+
+                context.font = "Bold 40px Arial";
+                context.fillStyle = color;
+                context.fillText(text, size / 4, size / 2);
+
+                const texture = new THREE.CanvasTexture(canvas);
+                const material = new THREE.SpriteMaterial({ map: texture });
+                const sprite = new THREE.Sprite(material);
+
+                sprite.position.copy(position);
+                sprite.scale.set(0.5, 0.25, 1);
+
+                scene.add(sprite);
+            }
+
+
+
+
+            // Create a PlaneGeometry
+            const planeGeometry = new THREE.PlaneGeometry(5, 10);
+            const planeMaterial = new THREE.MeshBasicMaterial({
+                side: THREE.DoubleSide,
+            });
+            const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+            plane.position.set(5, 0, 5)
+            scene.add(plane);
+
+            // Create a video element
+            const video = document.createElement("video");
+            video.src = "test.mp4";
+            video.crossOrigin = "anonymous"; // Add this line if your video is hosted on a different domain
+            video.loop = true;
+            video.muted = true; // Mute to prevent feedback noise
+            video.play();
+
+            // Create a texture from the video
+            const videoTexture = new THREE.VideoTexture(video);
+            videoTexture.minFilter = THREE.LinearFilter;
+            videoTexture.magFilter = THREE.LinearFilter;
+
+            // Apply the video texture to the plane material
+            planeMaterial.map = videoTexture;
+
+
+
+
+            // Create 3D text geometry
+            // const textGeometry = new THREE.TextGeometry("Hello, Three.js!", {
+            //     font: new THREE.Font(),
+            //     size: 1,
+            //     height: 0.1,
+            //     curveSegments: 12,
+            //     bevelEnabled: true,
+            //     bevelThickness: 0.03,
+            //     bevelSize: 0.02,
+            //     bevelOffset: 0,
+            //     bevelSegments: 5,
+            // });
+
+            // // Material for the text
+            // const materialBasic = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
+            // // Create mesh with the text geometry and material
+            // const textMesh = new THREE.Mesh(textGeometry, materialBasic);
+
+            // // Position the text
+            // textMesh.position.x = -2;
+            // textMesh.position.y = 1;
+            // textMesh.position.z = -2;
+
+            // // Add the text mesh to the scene
+            // scene.add(textMesh);
+
+
+
+            //https://gero3.github.io/facetype.js/
+            const loader = new FontLoader();
+            loader.load('timefont.json', (font) => {
+                const text = 'three.js';
+                const geometry = new TextGeometry(text, {
+                    font: font,
+                    size: 3,
+                    height: 0.2,
+                    curveSegments: 12,
+                    bevelEnabled: true,
+                    bevelThickness: 0.15,
+                    bevelSize: 0.3,
+                    bevelSegments: 5,
+                });
+
+                const materialBasic = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+
+                // Create mesh with the text geometry and material
+                const textMesh = new THREE.Mesh(geometry, materialBasic);
+
+                // Position the text
+                textMesh.position.x = -15;
+                textMesh.position.y = 1;
+                textMesh.position.z = -2;
+                const scaleFactor = 3;
+                textMesh.scale.set(textMesh.scale.x / scaleFactor, textMesh.scale.y / scaleFactor, textMesh.scale.z / scaleFactor);
+                textMesh.position.set(-2, 1, -2);
+                // Add the text mesh to the scene
+                scene.add(textMesh);
+            });
+
+
+            // Sprite Text
+            // const spriteText = "Click me!";
+            // const spriteTextParams = {
+            //     align: "center",
+            //     font: "30px Arial",
+            //     fillStyle: "#FFFFFF",
+            //     antialias: true,
+            // };
+            textSprite = new SpriteText('My text');
+            const scaleFactor = 5;
+            textSprite.scale.set(textSprite.scale.x / scaleFactor, textSprite.scale.y / scaleFactor, textSprite.scale.z / scaleFactor);
+            textSprite.position.set(-2, 1, -2);
+            scene.add(textSprite);
+
+            // Popup Image
+            const texture = new THREE.TextureLoader().load("dinor.jpg");
+            const materialImage = new THREE.MeshPhongMaterial({ map: texture });
+            const geometryPlane = new THREE.PlaneGeometry(6, 6); // Adjust size as needed
+            popupPlane = new THREE.Mesh(geometryPlane, materialImage);
+            popupPlane.visible = false;
+            scene.add(popupPlane);
+
+            // Event listener for sprite text click
+            textSprite.addEventListener("click", showPopup);
+
+
+            const geometryCube = new THREE.BoxGeometry();
+            const materialCube = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+            cubeNew = new THREE.Mesh(geometryCube, materialCube);
+            cubeNew.position.set(-5, 5, 0);
+            scene.add(cubeNew);
+            mapColor[cubeNew.uuid] = { ...cubeNew.material.color };
+            interactiveObject.push(cubeNew)
+
+            // Event listener for click on the cube
+            cubeNew.addEventListener("click", showPopup);
+
+
+            // Event listener for closing the popup
+            window.addEventListener("click", closePopup);
+
+
+            function resizeRendererToDisplaySize(renderer) {
+                const canvas = renderer.domElement;
+                const pixelRatio = window.devicePixelRatio;
+                const width = canvas.clientWidth * pixelRatio | 0;
+                const height = canvas.clientHeight * pixelRatio | 0;
+                const needResize = canvas.width !== width || canvas.height !== height;
+                if (needResize) {
+                    renderer.setSize(width, height, false);
+                }
+                return needResize;
+            }
+            function render(time) {
+                time *= 0.001;  // convert time to seconds
+                if (resizeRendererToDisplaySize(renderer)) {
+                    const canvas = renderer.domElement;
+                    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                    camera.updateProjectionMatrix();
+                }
+                // const canvas = renderer.domElement;
+                // camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                // camera.updateProjectionMatrix();
+
+                cubes.forEach((cube, ndx) => {
+                    const speed = 1 + ndx * .1;
+                    const rot = time * speed;
+                    cube.rotation.x = rot;
+                    cube.rotation.y = rot;
+                });
+                cube.rotation.x = time;
+                cube.rotation.y = time;
+
+                renderer.render(scene, camera);
+
+                requestAnimationFrame(render);
+            }
+            requestAnimationFrame(render);
+        }
+
+        main()
+
+
+        // Handle mouse click on the document
+        document.addEventListener("click", onDocumentClick);
+
+        function onDocumentClick(event) {
+            // Raycasting to determine if the click intersects with the cube
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+
+            // Calculate normalized device coordinates (NDC)
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            console.log(mouse.x, mouse.y)
+            // Update the picking ray with the camera and mouse position
+            raycaster.setFromCamera(mouse, camera);
+
+            // Check for intersections with the cube
+            const intersects = raycaster.intersectObject(cubeNew);
+            console.log("onDocumentClick ", intersects)
+            if (intersects.length > 0) {
+                // Cube was clicked
+                showPopup();
+            }
+        }
+
+
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+
+        function onPointerMove(event) {
+
+            // calculate pointer position in normalized device coordinates
+            // (-1 to +1) for both components
+
+            pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+            pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
+            // console.log(pointer)
+
+            render2()
+        }
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function render2() {
+
+            // update the picking ray with the camera and pointer position
+            raycaster.setFromCamera(pointer, camera);
+
+            // calculate objects intersecting the picking ray
+            const intersects = raycaster.intersectObjects(interactiveObject);
+            // console.log(intersects, interactiveObject)
+
+            // for (let i = 0; i < intersects.length; i++) {
+
+            //     intersects[i].object.material.color.set(getRandomColor());
+
+            // }
+
+            if (intersects.length > 0) {
+                // var old = intersects[0].object.material.color
+                var obj = intersects[0].object;
+                var color = getRandomColor();
+                obj.material.color.set(color);
+                setTimeout(() => {
+                    console.log('Retur color', obj.uuid, mapColor[obj.uuid], ' new ', color)
+                    // console.table(mapColor)                    
+                    obj.material.color.set(mapColor[obj.uuid]);
+                    // renderer.render(scene, camera);
+                }, 2000)
+            }
+
+            // renderer.render(scene, camera);
+
+        }
+
+        window.addEventListener('pointermove', onPointerMove);
+
+        // window.requestAnimationFrame(render);
+    </script>
+
+    <p>
+        It should now render with a resolution that matches the display size of the canvas.
+        To make the point about letting CSS handle the resizing let's take our code and put it in a separate .js file.
+        Here then are a few more examples where we let CSS choose the size and notice we had to change zero code for
+        them to work.
+
+        Let's put our cubes in the middle of a paragraph of text.
+    </p>
+
+</body>
+
+</html>

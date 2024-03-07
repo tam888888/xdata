@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sector Chart</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/keytable/2.11.0/js/dataTables.keyTable.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/scroller/2.3.0/css/scroller.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/keytable/2.11.0/css/keyTable.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="tooltipster.bundle.min.css">
+    <script type="text/javascript" charset="utf8"
+        src="https://github.com/tam888888/stockData/releases/download/1.0.0/tooltipster.bundle.min.js"></script>
+
+    <style>
+        div.dataTables_wrapper div.dataTables_info {
+            padding-top: 0px;
+        }
+
+        div.dataTables_wrapper div.dataTables_info {
+            font-size: 6px;
+            /* Set font size for information text (e.g., "Showing 1 to 10 of 100 entries") */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <style>
+        /* CSS for limiting the number of rows and adding a vertical scroll */
+        #timelineContainer {
+            max-height: 600px;
+            /* Set the maximum height for the table */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+    </style>
+    <style>
+        /* CSS for enabling both horizontal and vertical scrolling for the entire page */
+        body,
+        html {
+            overflow: scroll;
+            /* Enable both horizontal and vertical scrolling for the entire page */
+        }
+    </style>
+    <style>
+        /* #chartcontainer {
+            text-align: center;
+        }
+
+        #vnindex,#busd {
+            display: inline;
+        } */
+        #chartcontainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        #combineDiv {
+            display: flex;
+            /* flex-wrap: wrap; */
+            /* Cho phép các ô chuyển hàng khi không đủ không gian */
+            /* justify-content: center; */
+        }
+
+        .hidden-element {
+            display: none;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 700px);
+            /* 3 cột trong mỗi hàng */
+            grid-gap: 10px;
+            /* Khoảng cách giữa các ô */
+            /* grid-auto-rows: 300px; */
+        }
+
+        .grid-item {
+            /* Định dạng cho mỗi ô trong grid */
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 700px;
+            /* Chiều rộng của mỗi ô */
+            height: 700px;
+            /* Chiều cao của mỗi ô */
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Cho phép các ô chuyển hàng khi không đủ không gian */
+            justify-content: center;
+        }
+
+        .flex-item3 {
+            flex: 0 0 calc(33.33% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-item2 {
+            flex: 0 0 calc(50% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-item1 {
+            flex: 0 0 calc(100% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-itemOne {
+            flex: 0 0 calc(80% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .custom-link {
+            text-decoration: none !important;
+        }
+
+        /* .tooltip {
+            position: absolute;
+            z-index: 1;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        } */
+
+        .tooltipContainer {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            border: 2px solid #007bff;
+            /* Đường viền màu xanh */
+            border-radius: 10px;
+            /* Bo tròn */
+            padding: 0px;
+            background-color: FloralWhite;
+        }
+
+        .tooltipHeader {
+            position: relative;
+            display: inline-block;
+            border: 2px solid #007bff;
+            /* Đường viền màu xanh */
+            border-radius: 10px;
+            /* Bo tròn */
+            padding: 10px;
+        }
+
+        .custom-theme {
+            background-color: #8a2be2;
+            /* Purple background color */
+            color: #fff;
+            /* White text color */
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        .my-custom-theme {
+            border-radius: none;
+            border: none;
+            background: rgba(0, 0, 0, 0);
+            color: #000;
+            border-color: rgba(0, 0, 0, 0);
+        }
+
+        /* Use this next selector to style things like font-size and line-height: */
+        .my-custom-theme .tooltipster-content {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 8px 10px;
+            background: lightyellow;
+            color: #111010;
+            border-radius: none;
+            border: none;
+        }
+
+        .scrollable-div {
+            width: 100%;
+            /* Set the width as needed */
+            height: 700px;
+            /* Set the height as needed */
+            overflow: auto;
+            /* Enable scrolling */
+            border: 1px solid #ccc;
+            /* Optional: Add a border for better visibility */
+        }
+
+
+        .container {
+            position: relative;
+            height: 100vh;
+            /* Chiều cao của màn hình */
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 10px;
+            /* Khoảng cách từ bottom là 10px */
+            right: 10px;
+            /* Khoảng cách từ right là 10px */
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover,
+        .button.key-pressed {
+            background-color: #ce1f76;
+        }
+
+        .underlined-red {
+            text-decoration: underline;
+            /* color: red; */
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <div id="combineDiv" class="flex-container">
+    </div>
+    <!-- <div class="tooltip" id="tooltipContainer"></div> -->
+    <div class="container">
+        <div class="button-container">
+            <!-- <div id="statusZoom">Status</div> -->
+        </div>
+        <div class="button-container">
+            <div id="statusZoom">Status</div>
+            <!-- <button class="button" onclick="vnindex()">VNINDEX</button> -->
+            <input type="date" class="button" id="queryDateInput">
+            <button class="button" onclick="vnindex()"><span class="underlined-red">V</span>NINDEX</button>
+
+            <button class="button" onclick="resetChart()"><span class="underlined-red">R</span>eset Zoom</button>
+            <button class="button" onclick="togglePan()">Toggle <span class="underlined-red">P</span>an</button>
+            <button class="button" onclick="toggleZoom()">Toggle <span class="underlined-red">Z</span>oom</button>
+            <button class="button" id="chartTypeBtn" onclick="changeChart()">(<span class="underlined-red">C</span>)
+                Chart</button>
+        </div>
+    </div>
+    <script>
+
+        function getNowDate() {
+            let fd = new Date();
+            return fd.getFullYear()
+                + "" + (fd.getMonth() + 1 < 10 ? "0" + (fd.getMonth() + 1) : fd.getMonth() + 1)
+                + "" + (fd.getDate() < 10 ? "0" + fd.getDate() : fd.getDate());
+        }
+
+        let vf = (v) => {
+            if (v) return v;
+            return 0
+        }
+        const url = new URL(window.location.href);
+        const queryParams = url.searchParams;
+        var interval = queryParams.get('interval');
+        if (!interval) interval = 5
+        var sortby = queryParams.get('sortby');
+        if (!sortby) {
+            sortby = 'pct'
+        }
+        var valMin = queryParams.get('valMin');
+        if (!valMin) {
+            valMin = 10000000000;
+        } else {
+            valMin = +valMin
+        }
+
+        var chartType = queryParams.get('chart');
+        if (!chartType) {
+            chartType = 'line';
+        }
+
+        var tick = queryParams.get('tick');
+        if (!tick) {
+            tick = 5;
+        } else {
+            tick = +tick;
+        }
+
+
+
+        var querydate = queryParams.get('querydate');
+        if (!querydate) querydate = getNowDate()
+
+        if (chartType.toLowerCase() != 'bar') {
+            chartTypeBtn.innerHTML = '(<span class="underlined-red">C</span>) Bar';
+        }
+
+        var numberdate = queryParams.get('numberdate');
+        if (!numberdate) numberdate = 30
+
+        // statsHead = document.getElementById('footTable');
+        // statsHead.innerHTML = ''
+        // var theadRow = document.createElement('tr');
+        // statsHead.appendChild(theadRow);
+
+        var percent = queryParams.get('percent');
+        let combineDivContainer = document.getElementById('combineDiv')
+        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        let flex = "flex-item2"
+        if (width < 1024) {
+            flex = "flex-item1"
+        } else if (width > 1024 && width <= 1920) {
+            flex = "flex-item2"
+        } else {
+            flex = "flex-item3"
+        }
+        flex = "flex-item1"
+        if (combineDivContainer) {
+            let innerHTML = '';
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectors' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorsVal' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorsbusd' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorsbusdaccum' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorstotal' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorstotalaccum' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorstotalsdaccum' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            innerHTML += '<div class="' + flex + '"><canvas id="' + 'stackedsectorstotalbuaccum' + 'Chart" style="width: 100%; margin: 0 auto;"></canvas></div>'
+            combineDivContainer.innerHTML = innerHTML;
+        }
+
+
+
+        const zoomOptions = {
+            pan: {
+                enabled: true,
+                mode: 'xy',
+                // scaleMode: 'y',
+                modifierKey: 'ctrl',
+
+                onPan: function () {
+                    console.log("PAN");
+                }
+
+            },
+            zoom: {
+                mode: 'xy',
+                wheel: {
+                    enabled: true,
+                },
+                pinch: {
+                    enabled: true
+                },
+                drag: {
+                    enabled: true,
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.3)'
+                },
+                onZoomComplete({ chart }) {
+                    // chart.update('none');
+                },
+                // scaleMode: 'y',
+                onZoom: function () {
+                    console.log("zoom");
+                }
+            }
+        };
+        let labelValue;
+        let labelValue2;
+        function createChart(symbol, name, plugins) {
+            //combineChart
+            const ctxCombineChart = document.getElementById(symbol + 'Chart').getContext('2d');
+            var lineTension = 0.2
+            const combineData = {
+                labels: ['A', 'B', 'C'],
+                datasets: [
+                    {
+                        label: 'Mã trần',
+                        lineTension: lineTension,
+                        xAxisID: 'xlabels',
+                        yAxisID: 'y-axis-vnindex',
+                        data: [1, 2],//Array(2).fill().map(() => Math.floor(Math.random() * 100)),
+                        borderColor: 'Magenta',
+                        backgroundColor: 'Magenta',
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường                        
+                        stack: 'Stack 0',
+
+                    },
+                    {
+                        label: 'Mã tăng',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-vnindex',
+                        borderColor: 'green',
+                        backgroundColor: 'green', // Red
+                        data: [3, 4],
+                        fill: false,
+                        // hidden: true, // Ẩn đường này mặc định
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường  
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Mã đứng giá',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-vnindex',
+                        borderColor: 'gold',
+                        backgroundColor: 'gold', // Blue
+                        data: [5, 6],
+                        fill: false,
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường                        
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Mã giảm',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-vnindex',
+                        borderColor: 'red',
+                        backgroundColor: 'red', // Blue
+                        data: [7, 8],
+                        fill: false,
+                        pointRadius: 1, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 1, // Kích thước của đường                    
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Mã sàn',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-vnindex',
+                        borderColor: 'cyan',
+                        backgroundColor: 'cyan', // Blue
+                        data: [9, 10],
+                        fill: false,
+                        pointRadius: 1, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 1, // Kích thước của đường                        
+                        stack: 'Stack 0',
+                    }
+                ],
+            };
+            const combineConfig = {
+                type: chartType, // Đây là loại biểu đồ đường (line chart)
+                data: combineData,
+                plugins: plugins,
+                options: {
+                    spanGaps: true,
+                    indexAxis: 'x',
+                    legend: {
+                        position: 'right',
+                    },
+                    scales: {
+                        // x: {
+                        //     position: 'right',
+                        //     stacked: true,
+                        // },
+                        // y: {
+                        //     stacked: true
+                        // },
+                        'xlabels': {
+                            // stacked: true,
+                            position: 'top',
+                            title: {
+                                display: true,
+                                text: name,
+                                font: {
+                                    size: 24,          // Kích thước phông chữ
+                                    weight: 'bold',  // In đậm                                
+                                }
+                            },
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value;
+                                    // if (symbol === 'stackedsectorsVal')
+                                    //     return numeral(value / 1000000000).format('0,0.00')
+                                    // else return value
+                                }
+                            }
+                        },
+                        'y-axis-vnindex': {
+                            // stacked: true,
+                            // position: 'right',
+                            title: {
+                                display: true,
+                                text: name + "(Triệu)",
+                                font: {
+                                    size: 24,          // Kích thước phông chữ
+                                    weight: 'bold',  // In đậm                                
+                                }
+                            },
+                            beginAtZero: false,
+                            suggestedMin: 1000000000000,  // Bắt đầu từ 999
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return numeral(+value / 1000000).format('0,0.00')
+                                }
+                            }
+                        },
+                        'VNINDEX': {
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: "VNINDEX",
+                                font: {
+                                    size: 24,          // Kích thước phông chữ
+                                    weight: 'bold',  // In đậm                                
+                                }
+                            },
+                            beginAtZero: false,
+                            suggestedMin: 2000,
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return value;
+                                }
+                            }
+                        },
+
+                    },
+                    plugins: {
+                        zoom: zoomOptions,
+                        datalabels: {
+                            align: symbol === 'stackedsectorsVal' ? 'end' : 'center',
+                            anchor: symbol === 'stackedsectorsVal' ? 'end' : 'center',
+                            // offset: 4,
+                            color: symbol === 'stackedsectorsVal' ? 'blue' : 'white',
+                            font: {
+                                size: 8 // Set the font size for the text labels
+                            },
+                            formatter: function (value, context) {
+                                return ''
+                                // if (symbol === 'stackedsectorsVal' || ) {
+                                //     if (context.dataset.label === 'Mã sàn') {
+                                //         if (labelValue) {
+                                //             return labelValue2[context.dataIndex] + '(%) ' + numeral(labelValue[context.dataIndex]).format('0,0');
+                                //         }
+                                //         else
+                                //             return value
+                                //     }
+                                //     else {
+                                //         return ''
+                                //     }
+                                // }
+                                // if (!percent) return value;
+                                // if (value === 0) { return '' }
+                                // if (value < 5) { return value }
+                                // return value + "%"; // Display the value as the text label
+                            }
+                        }
+                    },
+                },
+
+            };
+            var combineChart = new Chart(ctxCombineChart, combineConfig);
+            return combineChart;
+        }
+
+
+        var combineChart = createChart('stackedsectors', 'Bán Chủ Động', [ChartDataLabels]);
+        var combineChartVal = createChart('stackedsectorsVal', 'Mua Chủ Động', [ChartDataLabels]);
+        var combineChartBuSD = createChart('stackedsectorsbusd', 'Mua Bán', [ChartDataLabels]);
+        var combineChartTotal = createChart('stackedsectorstotal', 'Tổng', [ChartDataLabels]);
+        var combineChartTotalAccum = createChart('stackedsectorstotalaccum', 'Tổng Tích Lũy', [ChartDataLabels]);
+        var combineChartBuSDAccum = createChart('stackedsectorsbusdaccum', 'Tích Lũy Mua Bán', [ChartDataLabels]);
+        var combineChartSDAccum = createChart('stackedsectorstotalsdaccum', 'Tích Lũy Bán', [ChartDataLabels]);
+        var combineChartBUAccum = createChart('stackedsectorstotalbuaccum', 'Tích Lũy Mua', [ChartDataLabels]);
+        let fields = ["sector", "time", "all", "allBig"
+            , "tran", "tang", "thamchieu", "giam", "san",
+        ]
+
+        $.fn.dataTable.ext.errMode = 'none';
+
+        // $('#myTable').DataTable(
+        //     {
+        //         fixedHeader: {
+        //             // header: true,
+        //             // footer: true
+        //         },
+        //         fixedColumns: {
+        //             left: 1,
+        //             right: 1
+        //         },
+        //         columnDefs: [
+
+        //             { targets: [1, 2, 3], "width": "2%" },
+        //             {
+        //                 targets: [2, 3],
+        //                 render: function (data, type, row, meta) {
+        //                     var dataout = ''
+        //                     if (type === 'display') {
+        //                         var color = 'blue'
+        //                         // console.log(row)
+        //                         var symbols = []
+        //                         if (meta.col == 3) {
+        //                             symbols = row['allBigO']
+        //                         } else {
+        //                             symbols = row['allO']
+        //                         }
+        //                         var x = Object.values(symbols).sort((a, b) => { return b.pct - a.pct })
+        //                         dataout += '<span style="color: ' + color + ';" class="tooltip2"    data-tooltip=\'' + JSON.stringify(x) + '\'>' + data + '</span>';
+        //                     }
+        //                     return data + ' ' + dataout;
+        //                 }
+        //             },
+        //             {
+        //                 targets: [4, 5, 6, 7, 8],
+        //                 render: function (data, type, row, meta) {
+        //                     let a = Object.values(data).sort((a, b) => {
+        //                         switch (sortby) {
+        //                             case 'tong':
+        //                                 return (vf(b.bu_val) + vf(b.sd_val) + vf(b.unknown_val)) - (vf(a.bu_val) + vf(a.sd_val) + vf(a.unknown_val))
+        //                                 break
+        //                             default:
+        //                                 return b[sortby] - a[sortby]
+        //                         }
+
+        //                     })
+        //                     count = 0;
+        //                     var dataout = ''
+        //                     if (type === 'display') {
+        //                         a.forEach(s => {
+        //                             count++;
+        //                             var color = 'blue'
+        //                             color = count % 2 === 0 ? 'blue' : 'green';
+        //                             dataout += '<a href="timeline?symbols=' + encodeURIComponent(s.symbol) + '"  target="_blank" class="custom-link"> <span style="color: ' + color + ';" class="tooltip"    data-tooltip=\'' + JSON.stringify(s) + '\'>(' + s.symbol + ':' + s.pct + ')</span> </a>';
+        //                             // dataout += '<a href="timeline?symbols=' + encodeURIComponent(s.symbol) + '"  target="_blank" class="custom-link"> <span style="color: ' + color + ';" class="tooltip"    data-tooltipster=\'' + JSON.stringify(s) + '\'>(' + s.symbol + ':' + s.pct + ')</span> </a>';
+        //                             // dataout += '<a href="timeline?symbols=' + encodeURIComponent(s.symbol) + '"  target="_blank" class="custom-link"> <span style="color: ' + color + ';" class="tooltip"   data-tooltip="' + s.bu_val + '<br/>' + s.sd_val + '">(' + s.symbol + ':' + s.pct + ')</span> </a>';
+        //                             // dataout += '<a href="timeline?symbols=' + encodeURIComponent(s.symbol) + '"  target="_blank" class="custom-link"> <span style="color: ' + color + ';" data-html="true" class="tooltip"  title="' + s.bu_val + '<br/>' + s.sd_val + '">(' + s.symbol + ':' + s.pct + ')</span> </a>';
+        //                         })
+
+        //                     }
+        //                     return dataout;
+        //                 }
+        //             },
+        //         ],
+        //         columns: [
+        //             ...fields.map(e => { return { data: e, orderable: true } })
+        //         ],
+        //         rowCallback: function (row, data, index) {
+        //             // if ((data['pct'] < 0)) {
+        //             //     // $(row).css('background-color', 'red');                
+        //             //     $('td:eq(5)', row).css('background-color', 'red');
+        //             // }
+        //             // else if ((data['pct'] > 0)) {
+        //             //     // $(row).css('background-color', 'green');
+        //             //     $('td:eq(5)', row).css('background-color', 'limegreen');
+        //             // } else {
+        //             //     // $(row).css('background-color', 'yellow');
+        //             //     $('td:eq(5)', row).css('background-color', 'yellow');
+        //             // }
+        //         },
+        //         order: [[2, 'desc']],
+        //         processing: true,
+        //         ordering: true,
+        //         scroller: true,
+        //         // scrollY: 200,
+        //         searching: true,
+        //         // serverSide: true,
+        //         lengthMenu: [30, 50, 100, 200, 500, 2000],
+        //         dom: 'lBfrtip',
+        //         buttons: [
+        //             'copy',
+        //             'excel', 'pdf',
+        //             'colvis'
+        //         ]
+
+        //     }
+        // );
+
+
+        var sectorCodeList;
+        var mapSectorCode = {};
+        $.ajax({
+            url: `/api/getsectorcodelist`,
+            method: 'GET',
+            success: function (response) {
+                sectorCodeList = response;
+                sectorCodeList.forEach(e => {
+                    mapSectorCode[e.industryCode] = e.vietnameseName;
+                })
+            },
+            error: function (error) {
+                console.error('Error fetching updated data:', error);
+            }
+        });
+
+
+        let timeout = 0;
+        let lastMd5 = ''
+        let lastAJAX = 0
+
+        let res;
+        let resa;
+
+        // Hàm để sinh một màu ngẫu nhiên
+        function randomColor() {
+            // Mảng các ký tự hex
+            var hex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+            // Biến để lưu màu
+            var color = "#";
+            // Lặp 6 lần để tạo 6 ký tự hex
+            for (var i = 0; i < 6; i++) {
+                // Chọn một ký tự ngẫu nhiên từ mảng hex và nối vào biến color
+                color += hex[Math.floor(Math.random() * 16)];
+            }
+            // Trả về màu
+            return color;
+        }
+
+        // Hàm để kiểm tra hai màu có phân biệt khá rõ ràng hay không 
+        function distinctColor(color1, color2) {
+            // Chuyển đổi màu từ dạng hex sang dạng RGB
+            var r1 = parseInt(color1.slice(1, 3), 16);
+            var g1 = parseInt(color1.slice(3, 5), 16);
+            var b1 = parseInt(color1.slice(5, 7), 16);
+            var r2 = parseInt(color2.slice(1, 3), 16);
+            var g2 = parseInt(color2.slice(3, 5), 16);
+            var b2 = parseInt(color2.slice(5, 7), 16);
+            // Tính toán độ tương phản giữa hai màu theo công thức sau:
+            // https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+            var l1 = 0.2126 * Math.pow(r1 / 255, 2.2) + 0.7152 * Math.pow(g1 / 255, 2.2) + 0.0722 * Math.pow(b1 / 255, 2.2);
+            var l2 = 0.2126 * Math.pow(r2 / 255, 2.2) + 0.7152 * Math.pow(g2 / 255, 2.2) + 0.0722 * Math.pow(b2 / 255, 2.2);
+            var contrast = l1 > l2 ? (l1 + 0.05) / (l2 + 0.05) : (l2 + 0.05) / (l1 + 0.05);
+            console.log(contrast)
+            // Nếu độ tương phản lớn hơn hoặc bằng 3, thì hai màu phân biệt khá rõ ràng
+            return contrast >= 1;
+        }
+
+        // Hàm để sinh một mảng 26 màu phân biệt khá rõ ràng 
+        function distinctColorArray() {
+            // Mảng để lưu các màu
+            var colors = [];
+            // Lặp cho đến khi mảng có đủ 26 màu
+            while (colors.length < 26) {
+                // Sinh một màu ngẫu nhiên
+                var color = randomColor();
+                // Kiểm tra xem màu này có phân biệt khá rõ ràng với tất cả các màu trong mảng hay không
+                var distinct = true;
+                for (var i = 0; i < colors.length; i++) {
+                    if (!distinctColor(color, colors[i])) {
+                        // Nếu có một màu không phân biệt khá rõ ràng, thì đặt biến distinct là false và thoát khỏi vòng lặp
+                        distinct = false;
+                        break;
+                    }
+                }
+                // Nếu biến distinct là true, thì thêm màu này vào mảng
+                if (distinct) {
+                    colors.push(color);
+                    console.log(color)
+                }
+            }
+            // Trả về mảng
+            return colors;
+        }
+
+        // Gọi hàm để sinh mảng và in ra kết quả var 
+        // colors = distinctColorArray();
+
+        var colors = [
+            "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet",
+            "Pink", "Coral", "Teal", "Cyan", "Lavender", "Maroon", "Olive",
+            "Navy", "Mint", "Gold", "Silver", "GreenYellow", "Magenta", "Plum", "Slate",
+            "Brick", "Sage", "Azure", "Ruby"
+        ];
+
+        // var colors = [
+        //     "Crimson", "Tangerine", "Daffodil", "Emerald", "Cerulean", "Royal", "Amethyst",
+        //     "Bubblegum", "Salmon", "Turquoise", "Aqua", "Periwinkle", "Burgundy", "Olive",
+        //     "Midnight", "Spearmint", "Goldenrod", "Platinum", "Blush", "Apricot", "Lilac", "Graphite",
+        //     "Terracotta", "Moss", "Sky", "Scarlet"
+        // ];
+
+
+
+
+        // function generateColors() {
+        //     var colors = [];
+        //     var baseHue = Math.random() * 360; // Chọn ngẫu nhiên một màu cơ bản
+
+        //     for (var i = 0; i < 26; i++) {
+        //         var hue = (baseHue + i * (360 / 26)) % 360; // Tăng giá trị hue dựa trên màu cơ bản
+        //         var saturation = 70 + Math.random() * 30; // Độ bão hòa màu từ 70-100
+        //         var lightness = 50 + Math.random() * 10; // Độ sáng từ 50-60
+
+        //         var color = hslToHex(hue, saturation, lightness); // Sử dụng hàm chuyển đổi sang hex
+
+        //         colors.push(color);
+        //     }
+
+        //     return colors;
+        // }
+
+        // function hslToHex(h, s, l) {
+        //     h /= 360;
+        //     s /= 100;
+        //     l /= 100;
+
+        //     var r, g, b;
+
+        //     if (s === 0) {
+        //         r = g = b = l;
+        //     } else {
+        //         function hue2rgb(p, q, t) {
+        //             if (t < 0) t += 1;
+        //             if (t > 1) t -= 1;
+        //             if (t < 1 / 6) return p + (q - p) * 6 * t;
+        //             if (t < 1 / 2) return q;
+        //             if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+        //             return p;
+        //         }
+
+        //         var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        //         var p = 2 * l - q;
+
+        //         r = hue2rgb(p, q, h + 1 / 3);
+        //         g = hue2rgb(p, q, h);
+        //         b = hue2rgb(p, q, h - 1 / 3);
+        //     }
+
+        //     return rgbToHex(Math.round(r * 255), Math.round(g * 255), Math.round(b * 255));
+        // }
+
+        // function rgbToHex(r, g, b) {
+        //     return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        // }
+
+        // function componentToHex(c) {
+        //     var hex = c.toString(16);
+        //     return hex.length == 1 ? '0' + hex : hex;
+        // }
+
+        // // Sử dụng hàm generateColors để lấy mảng 26 màu hex
+        // var colors = generateColors();
+
+
+
+        console.log(colors);
+
+        function status() {
+            var z = zoomOptions.zoom.wheel.enabled || zoomOptions.zoom.pinch.enabled || zoomOptions.zoom.drag.enabled
+            var f = (z) => {
+                return z ? 'enabled' : 'disabled'
+            }
+            statusZoom.innerHTML = "Status Zoom " + f(z) + " Pan " + f(zoomOptions.pan.enabled)
+        }
+
+        var charts = [combineChartVal,
+            combineChart,
+            combineChartBuSD,
+            combineChartTotal,
+            combineChartTotalAccum,
+            combineChartBuSDAccum,
+            combineChartSDAccum,
+            combineChartBUAccum
+        ]
+
+
+        var vnindexDataIndex = 0;
+        var order = ["ALL", "VNINDEX", "LARGE", "8300", "8600", "8700", "MIDDLE", "SMALL", "HNX", "2700", "1700", "2300", "3500", "1300", "5300", "UPCOM", "0500", "9500", "7500", "3700", "3300", "5700", "6500", "4500", "8500", "5500"]
+        var order2 = ["8300", "8600", "8700", "2700", "1700", "2300", "3500", "1300", "5300", "0500", "9500", "7500", "3700", "3300", "5700", "6500", "4500", "8500", "5500"]
+        var lb ;
+        function updateDataTable() {
+            if (Date.now() - lastAJAX <= timeout) {
+                return;
+            }
+
+            $.ajax({
+                url: querydate ? '/api/sector?querydate=' + querydate +'&numberdate='+ numberdate: `/api/sector`,
+                method: 'GET',
+                success: function (response) {
+
+                    if (response.length == 0) {
+                        return;
+                    }
+                    if (!response.VNINDEX) response.VNINDEX = {}
+                    res = {}
+                    resa = {}
+                    // res = response;
+                    order.forEach(s => {
+                        res[s] = response[s]
+                    })
+                    // console.table(response)
+                    let c = (x) => {
+                        return x ? x : 0
+                    }
+                    let sum = (x) => {
+                        x.total_vol = c(x.sd_vol) + c(x.bu_vol) + c(x.unknown_vol)
+                        x.total_val = c(x.sd_val) + c(x.bu_val) + c(x.unknown_val)
+                    }
+
+                    let labels = Object.keys(res.ALL).filter(x => x != 'dataacum')
+
+                    for (let [k, v] of Object.entries(res)) {
+                        let total_accum_vol = 0, total_accum_val = 0;
+                        let total_accum_sd_val = 0, total_accum_bu_val = 0;
+                        // for (let [k, x] of Object.entries(v).filter(e => e[0] != 'dataacum')) {
+                        //     sum(x)
+                        //     total_accum_vol += x.total_vol;
+                        //     total_accum_val += x.total_val;
+                        //     total_accum_sd_val += c(x.sd_val)
+                        //     total_accum_bu_val += c(x.bu_val)
+                        //     x.total_accum_vol = total_accum_vol;
+                        //     x.total_accum_val = total_accum_val;
+                        //     x.total_accum_sd_val = total_accum_sd_val
+                        //     x.total_accum_bu_val = total_accum_bu_val
+
+                        // }
+
+                        if (!v) v = {}
+
+                        if (!resa[k]) resa[k] = {}
+                        let va = resa[k]
+
+                        labels.forEach(l => {
+                            let ll = l;
+                            if (querydate === 'a') {
+                                ll = Math.floor(+l / tick / 60) * tick * 60
+                                if (!va[ll]) {
+                                    va[ll] = {
+                                        "unknown_vol": 0,
+                                        "unknown_val": 0,
+                                        "sd_vol": 0,
+                                        "sd_val": 0,
+                                        "bu_vol": 0,
+                                        "bu_val": 0,
+                                        "bid_vol": 0,
+                                        "bid_val": 0,
+                                        "ask_vol": 0,
+                                        "ask_val": 0,
+                                    }
+                                }
+                            }
+                            if (!v[l]) {
+                                v[l] = {
+                                    "unknown_vol": 0,
+                                    "unknown_val": 0,
+                                    "sd_vol": 0,
+                                    "sd_val": 0,
+                                    "bu_vol": 0,
+                                    "bu_val": 0,
+                                    "bid_vol": 0,
+                                    "bid_val": 0,
+                                    "ask_vol": 0,
+                                    "ask_val": 0,
+                                }
+                            }
+
+                            var x = v[l]
+                            sum(x)
+
+                            total_accum_vol += x.total_vol;
+                            total_accum_val += x.total_val;
+                            total_accum_sd_val += c(x.sd_val)
+                            total_accum_bu_val += c(x.bu_val)
+                            x.total_accum_vol = total_accum_vol;
+                            x.total_accum_val = total_accum_val;
+                            x.total_accum_sd_val = total_accum_sd_val
+                            x.total_accum_bu_val = total_accum_bu_val
+
+                            if (querydate === 'a') {
+                                var add = (a, b) => {
+                                    Object.keys(a).forEach(k => {
+                                        if (k.includes('bid') || k.includes('ask')) {
+                                            a[k] = b[k]
+                                        }
+                                        else {
+                                            a[k] += b[k]
+                                        }
+                                    })
+                                }
+
+                                add(va[ll], v[l])
+                                var x1 = va[ll]
+                                sum(x1)
+                                x1.total_accum_vol = total_accum_vol;
+                                x1.total_accum_val = total_accum_val;
+                                x1.total_accum_sd_val = total_accum_sd_val
+                                x1.total_accum_bu_val = total_accum_bu_val
+                            }
+
+                        })
+                    }
+
+                    for (let [k, v] of Object.entries(res)) {
+
+                        for (let x of Object.entries(v)) {
+                            // sum(x)
+                            // total_accum_vol += x.total_vol;
+                            // total_accum_val += x.total_val;
+                            x[1].pct_sd_val = x[1].sd_val / res.ALL[x[0]].sd_val * 100;
+                            x[1].pct_bu_val = x[1].bu_val / res.ALL[x[0]].bu_val * 100;
+                        }
+                    }
+
+                    var labels1;
+                    if (querydate === 'a') {
+                        // labels1 = labels.map(l => moment(+l - 7 * 60 * 60, 'X').format('DD:HH:mm'))
+                        labels1 = labels.map(l => moment(Math.floor((+l - 7 * 60 * 60) / tick / 60) * tick * 60, 'X').format('MM:DD:HH:mm'))
+                        labels1 = [...new Set(labels1)]
+                    } else {
+                        labels1 = labels;
+                    }
+
+
+                    charts.forEach(c => {
+                        c.data.labels = labels1
+                    })
+                    var lineTension = 0.2
+                    let ds = 0;
+                    var chartData = Object.entries(res).filter(e => {
+                        return mapSectorCode[e[0]] != undefined
+                    });
+                    var number = changeChart.length - 1;
+
+                    var dataIndex = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX);
+                    if (querydate === 'a') {
+                        let t= Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e=>{return [Math.floor((+e[0]) / tick / 60) * tick * 60,e[1].VNINDEX]});
+                        let set = new Set();
+                        let di = []
+                        for(let i=t.length-1;i>=0;i--){
+                            if(!set.has(t[i][0])){
+                                di.push(t[i][1])
+                                set.add(t[i][0])
+                            }
+                            
+                        }
+
+
+                        dataIndex = di.reverse()
+                        // console.log(dataIndex,t)
+                    }
+                    chartData = []
+                    order2.forEach(s => {
+                        if (querydate === 'a') {
+                            chartData.push([s, resa[s]])
+                        } else {
+                            chartData.push([s, response[s]])
+                        }
+                    })
+                    chartData.forEach(e => {
+                        var dataset = {
+                            label: mapSectorCode[e[0]] ? mapSectorCode[e[0]] : e[0],
+                            lineTension: lineTension,
+                            xAxisID: 'xlabels',
+                            yAxisID: 'y-axis-vnindex',
+                            data: [1, 2],//Array(2).fill().map(() => Math.floor(Math.random() * 100)),
+                            borderColor: colors[ds],
+                            backgroundColor: colors[ds],
+                            pointRadius: 0.5, // Kích thước đánh dấu
+                            pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                            borderWidth: 2, // Kích thước của đường
+                            stack: 'Stack 0',
+                        }
+                        // var data = Object.entries(e[1]).filter((e, v) => e[0] != 'dataacum');
+                        var data = Object.entries(e[1]).filter((e, v) => e[0] != 'dataacum');
+
+                        charts.forEach(c => {
+                            if (!c.data.datasets[ds] || c.data.datasets[ds].label != mapSectorCode[e[0]])
+                                c.data.datasets[ds] = Object.assign({}, dataset);
+                        })
+
+                        lb = labels;
+                        if (querydate === 'a') {
+                            lb = labels.map(e => Math.floor(+e / tick / 60) * tick * 60)
+                            lb = [...new Set(lb)]
+                        }
+                        
+
+                        combineChart.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.sd_val)
+                        combineChartVal.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.bu_val)
+                        combineChartTotal.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.total_val)
+                        combineChartTotalAccum.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.total_accum_val)
+                        combineChartBuSDAccum.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => { return (e.total_accum_bu_val - e.total_accum_sd_val) })
+                        combineChartBuSD.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.bu_val - e.sd_val)
+                        combineChartSDAccum.data.datasets[ds].data = lb.map(l => e[1][l]).map((e, v) => e.total_accum_sd_val)
+                        combineChartBUAccum.data.datasets[ds++].data = lb.map(l => e[1][l]).map((e, v) => e.total_accum_bu_val)
+
+                        // combineChart.data.datasets[ds].data = data.map((e, v) => e[1].sd_val)
+                        // combineChartVal.data.datasets[ds].data = data.map((e, v) => e[1].bu_val)
+                        // combineChartTotal.data.datasets[ds].data = data.map((e, v) => e[1].total_val)
+                        // combineChartTotalAccum.data.datasets[ds].data = data.map((e, v) => e[1].total_accum_val)
+                        // combineChartBuSDAccum.data.datasets[ds].data = data.map((e, v) => { return (e[1].total_accum_bu_val - e[1].total_accum_sd_val) })
+                        // combineChartBuSD.data.datasets[ds].data = data.map((e, v) => e[1].bu_val - e[1].sd_val)
+                        // combineChartSDAccum.data.datasets[ds].data = data.map((e, v) => e[1].total_accum_sd_val)
+                        // combineChartBUAccum.data.datasets[ds++].data = data.map((e, v) => e[1].total_accum_bu_val)
+                    })
+
+                    var dataset = {
+                        type: 'line',
+                        label: 'VNINDEX',
+                        lineTension: lineTension,
+                        xAxisID: 'xlabels',
+                        yAxisID: 'VNINDEX',
+                        data: [1, 2],
+                        borderColor: colors[ds],
+                        backgroundColor: colors[ds],
+                        pointRadius: 0.5, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường
+                        stack: 'Stack 0',
+                    }
+
+                    charts.forEach(c => {
+
+                        var hideIndex;
+                        if (c.data.datasets[ds]) hideIndex = c.data.datasets[ds].hidden
+                        if (!c.data.datasets[ds] || c.data.datasets[ds].label != 'VNINDEX')
+                            c.data.datasets[ds] = Object.assign({}, dataset);
+                        c.data.datasets[ds].data = dataIndex;
+                        if (hideIndex) c.data.datasets[ds].hidden = hideIndex;
+                        c.update()
+                    })
+                    vnindexDataIndex = ds;
+                    lastAJAX = Date.now()
+                },
+                error: function (error) {
+                    console.error('Error fetching updated data:', error);
+                }
+            });
+        }
+        // Update DataTable every 5 seconds (adjust as needed)
+        updateDataTable();//first
+        setInterval(updateDataTable, interval * 1000);
+
+        $(document).ready(function () {
+            $('#mytable').DataTable();
+            $('.tooltip').tooltipster();
+        });
+
+
+
+        function resetChart() {
+            charts.forEach(c => {
+                c.resetZoom()
+                c.update();
+            })
+            status()
+        }
+
+        function toggleZoom() {
+            console.log("Toggle Zoom")
+            zoomOptions.zoom.wheel.enabled = !zoomOptions.zoom.wheel.enabled;
+            zoomOptions.zoom.pinch.enabled = !zoomOptions.zoom.pinch.enabled;
+            zoomOptions.zoom.drag.enabled = !zoomOptions.zoom.drag.enabled;
+
+            charts.forEach(c => {
+                if (c) {
+                    c.update();
+                }
+            })
+            status()
+
+        }
+
+        function togglePan() {
+            console.log("Toggle Pan")
+            zoomOptions.pan.enabled = !zoomOptions.pan.enabled;
+            charts.forEach(c => {
+                if (c) {
+                    c.update();
+                }
+            })
+            status()
+        }
+
+        function changeChart() {
+            if (chartType.toLowerCase() != 'bar') {
+                chartType = 'bar';
+                chartTypeBtn.innerHTML = '(<span class="underlined-red">C</span>) Line';
+            } else {
+                chartType = 'line';
+                chartTypeBtn.innerHTML = '(<span class="underlined-red">C</span>) Bar';
+            }
+            charts.forEach(c => {
+                if (c) {
+                    c.config.type = chartType;
+                    c.update();
+
+                }
+            })
+
+        }
+
+        function vnindex() {
+            charts.forEach(c => {
+                if (c) {
+                    c.data.datasets[vnindexDataIndex].hidden = !c.data.datasets[vnindexDataIndex].hidden
+                    c.update();
+                }
+            })
+        }
+
+        function hide() {
+            if (combineDiv.style.display !== 'none')
+                combineDiv.style.display = 'none'
+            else
+                combineDiv.style.display = ''
+        }
+
+        var keyIsPressed = false;
+
+        document.addEventListener('keydown', function (event) {
+            if (!keyIsPressed) {
+                keyIsPressed = true;
+                switch (event.key.toUpperCase()) {
+                    case 'C':
+                        chartTypeBtn.classList.add('key-pressed');
+                        setInterval(() => {
+                            chartTypeBtn.classList.remove('key-pressed');
+                        }, 2000)
+                        changeChart();
+                        break;
+                    case 'R':
+                        resetChart();
+                        break;
+                    case 'Z':
+                        toggleZoom();
+                        break;
+                    case 'P':
+                        togglePan();
+                        break;
+                    case 'V':
+                        vnindex();
+                        break;
+                    case 'S':
+                        savePageAsPDF();
+                        break;
+                    case 'H':
+                        hide();
+                        break;
+                    case 'B':
+                        back()
+                        break;
+                    case 'N':
+                        next()
+                        break;
+                }
+                keyIsPressed = false;
+            }
+        });
+
+        status()
+        function back() {
+            if (!selectedDate) selectedDate = moment().format('YYYYMMDD')
+            selectedDate = getPreviousDay(selectedDate)
+            queryDateInput.value = moment(selectedDate, 'YYYYMMDD').format('YYYY-MM-DD')
+            handleDateChange(selectedDate);
+        }
+
+        function next() {
+            if (!selectedDate) selectedDate = moment().format('YYYYMMDD')
+            selectedDate = getNextDay(selectedDate)
+            queryDateInput.value = moment(selectedDate, 'YYYYMMDD').format('YYYY-MM-DD')
+            handleDateChange(selectedDate);
+        }
+
+
+        function getPreviousDay(currentDay) {
+            var d = moment(currentDay, 'YYYYMMDD');
+            if (d.isoWeekday() === 1) {
+                return d.subtract(3, 'days').format('YYYYMMDD')
+            }
+            if (d.isoWeekday() === 7) {
+                return d.subtract(2, 'days').format('YYYYMMDD')
+            }
+            if (d.isoWeekday() >= 2 && d.isoWeekday() <= 6) {
+                return d.subtract(1, 'days').format('YYYYMMDD')
+            }
+        }
+        function getNextDay(currentDay) {
+            var d = moment(currentDay, 'YYYYMMDD');
+            if (d.isoWeekday() === 5) {
+                return d.add(3, 'days').format('YYYYMMDD')
+            }
+            if (d.isoWeekday() === 6) {
+                return d.add(2, 'days').format('YYYYMMDD')
+            }
+            if (d.isoWeekday() >= 1 && d.isoWeekday() <= 4 || d.isoWeekday() == 7) {
+                return d.add(1, 'days').format('YYYYMMDD')
+            }
+        }
+
+        var selectedDate;
+
+        queryDateInput.addEventListener('change', function (event) {
+            selectedDate = event.target.value;
+            console.log('Selected Date:', selectedDate);
+            selectedDate = moment(selectedDate, 'YYYY-MM-DD').format("YYYYMMDD")
+            // Gọi hàm xử lý sự kiện khi ngày thay đổi
+            handleDateChange(selectedDate);
+        });
+
+        function handleDateChange(selectedDate) {
+            querydate = selectedDate;
+            updateDataTable()
+        }
+
+        function savePageAsPDF() {
+            // Lấy toàn bộ nội dung của trang
+            const content = document.body;
+
+            // Cài đặt các tùy chọn cho quá trình chuyển đổi sang PDF
+            const options = {
+                margin: 10,
+                filename: 'myWebPage.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a1', orientation: 'landscape' }
+            };
+
+            // Sử dụng html2pdf để chuyển đổi và lưu trang web thành file PDF
+            html2pdf(content, options);
+        }
+
+    </script>
+</body>
+
+</html>

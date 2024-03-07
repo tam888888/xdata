@@ -1,0 +1,6 @@
+{"errors":{"type":"sub","message":"Topic is invalid","client_payload":"{\"type\":\"sub\",\"topic\":\"serverName\"}"}}
+{"errors":{"type":"sub","message":"Topic is invalid","client_payload":"{\"type\":\"sub\",\"topic\":\"systemStatusChanged\"}"}}
+Subscribed matchedVolByPriceV2
+{"type":"ack"}
+Subscribed leTableAddV2
+Subscribed stockRealtimeByListV2
