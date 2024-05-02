@@ -22,8 +22,8 @@
         integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
         crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <style>
         table {
@@ -317,8 +317,8 @@
                 );
             } else {
                 var table = $('#symbolTable').DataTable()
-                if (table.row('#'+ne.symbol)[0].length > 0) {
-                    let row = table.row('#'+ne.symbol);
+                if (table.row('#' + ne.symbol)[0].length > 0) {
+                    let row = table.row('#' + ne.symbol);
                     // console.log(indexMaps[ne.symbol], indexMaps)
                     // dataSymbol[indexMaps[ne.symbol]] = { ...ne }
                     // console.table(ne)
@@ -326,7 +326,7 @@
                     row.data(ne)
                     // console.log(ne)
                     // row.invalidate().draw(false)
-                }else{
+                } else {
                     // console.table(Object.values(ne))
                     table.row.add(ne); //.draw(false)                    
                     // table.draw(false)

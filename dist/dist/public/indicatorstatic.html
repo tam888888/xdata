@@ -19,7 +19,7 @@
     <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.1/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
@@ -38,8 +38,8 @@
         integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
         crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <style>
         table {
@@ -202,7 +202,7 @@
             <!-- Dữ liệu sẽ được thêm ở đây -->
         </tbody>
 
-    </table>   
+    </table>
     <script>
         $.fn.dataTable.ext.errMode = 'none';
         const url = new URL(window.location.href);
@@ -340,7 +340,7 @@
                         }
                     }],
 
-                "rowCallback": function (row, data, index) {                    
+                "rowCallback": function (row, data, index) {
                     if ((data[5] < 0)) {
                         // $(row).css('background-color', 'red');                
                         $('td:eq(5)', row).css('background-color', 'red');
@@ -367,12 +367,12 @@
                     'excel', 'pdf',
                     // 'print', 
                     // 'colvis'
-                ]                
+                ]
             }
         );
 
 
-        
+
 
         let lastSymbolChangeTable = null;
         let lastChange = 0;
@@ -467,7 +467,7 @@
 
                         })
 
-                        table.rows.add(data).draw()                                             
+                        table.rows.add(data).draw()
 
                         lastAJAX = Date.now()
                         if (lastMd5 == response.md5) {
