@@ -1,4 +1,4 @@
-dist/dist/his/investorData20240523.json
+dist/dist/his/investorData20240524.json
 dist/dist_bk/his/investorData20240307.json
 dist/websocket/data320240517.txt
 dist/websocket/data320240424.txt
@@ -20,6 +20,7 @@ dist/websocket/data320240502.txt
 dist/websocket/data320240506.txt
 dist/websocket/data320240417.txt
 dist/websocket/data320240520.txt
+dist/websocket/data320240524.txt
 dist/websocket/data320240516.txt
 dist/websocket/data320240318.7z
 dist/websocket/data320240507.txt
