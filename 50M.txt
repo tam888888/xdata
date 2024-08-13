@@ -7,6 +7,7 @@ dist/websocket/data320240617.txt
 dist/websocket/data320240517.txt
 dist/websocket/data320240424.txt
 dist/websocket/data320240729.txt
+dist/websocket/data320240813.txt
 dist/websocket/data320240604.txt
 dist/websocket/data320240425.txt
 dist/websocket/data320240514.txt
