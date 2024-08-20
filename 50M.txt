@@ -2,6 +2,7 @@ dist/dist_bk/his/investorData20240307.json
 dist/websocket/data320240815.txt
 dist/websocket/data320240816.txt
 dist/websocket/data320240819.txt
+dist/websocket/data320240820.txt
 dist/websocket/data320240318.7z
 dist/t/dist.tar.gz
 .git/objects/cb/abae8c3fd4a497455005a5887cdaf31bf014b6
