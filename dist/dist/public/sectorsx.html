@@ -964,7 +964,8 @@
                         x.total_val = c(x.sd_val) + c(x.bu_val) + c(x.unknown_val)
                     }
 
-                    let labels = Object.keys(res.ALL).filter(x => x != 'dataacum')
+                    // let labels = Object.keys(res.ALL).filter(x => x != 'dataacum')
+                    let labels = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').filter(e => e[1].VNINDEX>0).map(e=>e[0]);
 
                     for (let [k, v] of Object.entries(res)) {
                         let total_accum_vol = 0, total_accum_val = 0;
@@ -1088,9 +1089,9 @@
                     });
                     var number = changeChart.length - 1;
 
-                    var dataIndex = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX);
+                    var dataIndex = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX).filter(e=>e>0);
                     if (querydate === 'a') {
-                        let t = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => { return [Math.floor((+e[0]) / tick / 60) * tick * 60, e[1].VNINDEX] });
+                        let t = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum' && e[1].VNINDEX> 0).map(e => { return [Math.floor((+e[0]) / tick / 60) * tick * 60, e[1].VNINDEX] });
                         let set = new Set();
                         let di = []
                         for (let i = t.length - 1; i >= 0; i--) {

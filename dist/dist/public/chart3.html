@@ -549,23 +549,24 @@
         socket.on('updateData', function (data) {
             // Populate Table 1
             if (data.timeline) {
-                chart.data.labels = data.timeline.data.map(e => e[0])
-                chart.data.datasets[0].data = data.timeline.data.map(e => e[1])
+                var d=data.timeline.data.filter(e=>e[1] >0); 
+                chart.data.labels = d.map(e => e[0])
+                chart.data.datasets[0].data = d.map(e => e[1])
                 chart.update();
 
-                myChart.data.labels = data.timeline.data.map(e => e[0])
-                myChart.data.datasets[0].data = data.timeline.data.map(e => e[4] + e[6] + e[8])
-                myChart.data.datasets[1].data = data.timeline.data.map(e => e[6])
-                myChart.data.datasets[2].data = data.timeline.data.map(e => e[8])
+                myChart.data.labels = d.map(e => e[0])
+                myChart.data.datasets[0].data = d.map(e => e[4] + e[6] + e[8])
+                myChart.data.datasets[1].data = d.map(e => e[6])
+                myChart.data.datasets[2].data = d.map(e => e[8])
                 myChart.update();
 
-                combineChart.data.labels = data.timeline.data.map(e => e[0])
-                combineChart.data.datasets[0].data = data.timeline.data.map(e => e[1])
-                combineChart.data.datasets[1].data = data.timeline.data.map(e => e[4] + e[6] + e[8])
-                combineChart.data.datasets[2].data = data.timeline.data.map(e => e[6])
-                combineChart.data.datasets[3].data = data.timeline.data.map(e => e[8])
-                combineChart.data.datasets[4].data = data.timeline.data.map(e => e[12])
-                combineChart.data.datasets[5].data = data.timeline.data.map(e => e[14])
+                combineChart.data.labels = d.map(e => e[0])
+                combineChart.data.datasets[0].data = d.map(e => e[1])
+                combineChart.data.datasets[1].data = d.map(e => e[4] + e[6] + e[8])
+                combineChart.data.datasets[2].data = d.map(e => e[6])
+                combineChart.data.datasets[3].data = d.map(e => e[8])
+                combineChart.data.datasets[4].data = d.map(e => e[12])
+                combineChart.data.datasets[5].data = d.map(e => e[14])
                 if (lastDataVN30F)
                     combineChart.data.datasets[6].data = lastDataVN30F
                 combineChart.update();

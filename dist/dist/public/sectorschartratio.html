@@ -949,8 +949,10 @@
                         x.total_vol = c(x.sd_vol) + c(x.bu_vol) + c(x.unknown_vol)
                         x.total_val = c(x.sd_val) + c(x.bu_val) + c(x.unknown_val)
                     }
-
-                    let labels = Object.keys(res.ALL).filter(x => x != 'dataacum')
+                    //Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX);
+                    // Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').filter(e => e[1].VNINDEX>0).map(e=>e[0]);
+                    // let labels = Object.keys(res.ALL).filter(x => x != 'dataacum')
+                    let labels = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').filter(e => e[1].VNINDEX>0).map(e=>e[0]);
 
                     for (let [k, v] of Object.entries(res)) {
                         let total_accum_vol = 0, total_accum_val = 0;
@@ -1030,7 +1032,7 @@
                     });
                     var number = changeChart.length - 1;
 
-                    var dataIndex = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX);
+                    var dataIndex = Object.entries(res.ALL).filter((e, v) => e[0] != 'dataacum').map(e => e[1].VNINDEX).filter(e=>e>0);
 
                     chartData = []
                     order2.forEach(s => {
