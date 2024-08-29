@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skybox Example</title>
+    <link rel="stylesheet" type="text/css" href="mi.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/",
+                "domevents": "https://unpkg.com/threex-domevents@1.0.0/threex.domevents.js"
+            }
+        }
+        </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import Stats from 'three/addons/libs/stats.module.js';
+        import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+        const gltfloader = new GLTFLoader()
+        window.gltfloader = gltfloader;
+        async function gltf() {
+            return gltfloader;
+        }
+        window.gltf = gltf;
+        window.panel = new GUI({ width: 310 });
+        window.Stats = new Stats();
+    </script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .mi-anchor {
+            position: absolute;
+            background-image: -webkit-radial-gradient(transparent 50%, #fff, #fff);
+            background-image: -moz-radial-gradient(transparent 50%, #fff, #fff);
+            background-image: radial-gradient(transparent 50%, #fff, #fff);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            /* content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%            */
+
+            -webkit-transform: scaleY(.26);
+            -moz-transform: scaleY(.26);
+            -ms-transform: scaleY(.26);
+            -o-transform: scaleY(.26);
+            transform: scaleY(.26);
+            /* width: 13.6rem;           */
+        }
+
+        .mi-anchor2 {
+            position: absolute;
+            /* background-color: blue;          */
+        }
+
+        .mi-anchor :hover {
+            position: absolute;
+            background-color: red;
+            /* Thêm màu nền xanh dương cho anchor */
+        }
+
+        .mi-anchor2 :hover {
+            position: absolute;
+            background-color: red;
+            /* Thêm màu nền xanh dương cho anchor */
+        }
+
+        .spotsX[data-v-3ac5dc64] {
+            border: 1rem solid #fff;
+            border-radius: 50%;
+            /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2); */
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+            height: 13.6rem;
+            opacity: .6;
+            padding: 1rem;
+            -webkit-transform: scaleY(.26);
+            -moz-transform: scaleY(.26);
+            -ms-transform: scaleY(.26);
+            -o-transform: scaleY(.26);
+            transform: scaleY(.26);
+            width: 13.6rem
+        }
+
+        .spotsX[data-v-3ac5dc64]:after {
+            background-image: -webkit-radial-gradient(transparent 50%, #fff, #fff);
+            background-image: -moz-radial-gradient(transparent 50%, #fff, #fff);
+            background-image: radial-gradient(transparent 50%, #fff, #fff);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%
+        }
+
+        .spotsX[data-v-3ac5dc64]:before {
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            -webkit-transform: scale(1.3, 3);
+            -moz-transform: scale(1.3, 3);
+            -ms-transform: scale(1.3, 3);
+            -o-transform: scale(1.3, 3);
+            transform: scale(1.3, 3);
+            z-index: 10
+        }
+
+        .spotsX[data-v-3ac5dc64]:hover {
+            opacity: 1
+        }
+
+        .custom-dialog {
+            border-color: darkmagenta;
+            border-radius: 10px;
+            border-width: 5px;
+
+            width: 200%;
+            /* height: 100%; */
+            /* Add any additional styles you want to inherit from modal-dialog */
+        }
+
+        .custom-fade {
+            width: 100%;
+            height: 100%;
+            margin-left: 15%;
+            /* margin-right: 10%; */
+            /* Add any additional styles you want to inherit from modal-dialog */
+        }
+
+        @media (max-width: 2048px) {
+            .custom-fade {
+                margin-left: 0;
+                /* Set margin-left to 0% for mobile */
+                margin-right: 0;
+                /* Set margin-right to 0% for mobile */
+            }
+        }
+
+        .headerCheck {
+            font-weight: bold;
+            color: chartreuse;
+            background-color: blueviolet;
+        }
+
+        .custom-header {
+            font-weight: bold;
+            color: chartreuse;
+            background-color: blueviolet;
+        }
+
+        .seperator {
+            width: 100%;
+            font-weight: bold;
+            color: chartreuse;
+            background-color: darkorchid;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            width: 30%;
+            height: 25%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            /* Đặt z-index lớn hơn để đảm bảo nằm trên canvas */
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- <div style="display: none;">
+        <div class="modal fade custom-fade" id="settingsModal" tabindex="-1" role="dialog"
+            aria-labelledby="settingsModalLabel" aria-hidden="true">
+            <div class="modal-dialog custom-fade" role="document">
+                <div class="modal-content custom-dialog">
+                    <div class="modal-header custom-header">
+                        <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Thiết lập các thuộc tính sẽ được hiển thị.</p>
+                        <div id="indicatorCheckboxes">
+                            <div class="headerCheck">Thuộc tính cơ bản</div>
+                            <div id="basic" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">MACD</div>
+                            <div id="macd" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">Bollinger Bands</div>
+                            <div id="bb" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">Price</div>
+                            <div id="price" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">Volume</div>
+                            <div id="vol" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">Value</div>
+                            <div id="val" class="d-flex flex-wrap flex-row"></div>
+                            <div class="headerCheck">Other</div>
+                            <div id="other" class="d-flex flex-wrap flex-row"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalButton">&times;</span>
+            <p>This is your modal content.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/jsm/loaders/SVGLoader.js"></script> -->
+    <script async>
+
+        // var svgLoader = new SVGLoader()
+        // Hàm trả về một Promise
+        function waitForVariable(variableName) {
+            return new Promise((resolve) => {
+                // Kiểm tra xem biến đã được tạo hay chưa
+                function checkVariable() {
+                    if (typeof window[variableName] !== 'undefined') {
+                        resolve(window[variableName]);
+                    } else {
+                        // Kiểm tra lại sau một khoảng thời gian nhất định
+                        setTimeout(checkVariable, 100);
+                    }
+                }
+
+                // Bắt đầu kiểm tra biến
+                checkVariable();
+            });
+        }
+
+
+
+        var modal = document.getElementById('myModal');
+        var closeModalButton = document.getElementById('closeModalButton');
+        closeModalButton.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        // Set up the scene
+        const scene = new THREE.Scene();
+
+        // Create a camera
+        const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000000);
+        // camera.position.z = 100;
+        // camera.position.x = 1;
+
+        camera.position.set(0, 0, 2); // Đặt camera ở trung tâm (0, 0, 0) và dịch xuống theo trục Z
+        // camera.lookAt(100, 100, 100);  // Chỉ định điểm nhìn của camera là trung tâm (0, 0, 0)
+        // camera.position.set(window.innerWidth, window.innerWidth, window.innerWidth); // Đặt camera ở vị trí (0, 0, 100) - gần py
+        // camera.lookAt(0, 0, 0); // Hướng camera về trung tâm (0, 0, 0)
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+        // Create a renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+
+        function createSkybox(folder) {
+            const loader = new THREE.CubeTextureLoader();
+            const texture = loader.load([
+                folder + 'px.jpg', folder + 'nx.jpg',
+                folder + 'py.jpg', folder + 'ny.jpg',
+                folder + 'pz.jpg', folder + 'nz.jpg'
+            ]);
+
+            const skyboxGeometry = new THREE.BoxGeometry(500, 500, 500);
+            const skyboxMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
+
+            return new THREE.Mesh(skyboxGeometry, skyboxMaterial);
+        }
+
+        // Create a skybox
+        const loader2 = new THREE.CubeTextureLoader();
+        const texture = loader2.load([
+            'images/living-scene/House_0_Spot_0/3d/px.webp', 'images/living-scene/House_0_Spot_0/3d/nx.webp',
+            'images/living-scene/House_0_Spot_0/3d/py.webp', 'images/living-scene/House_0_Spot_0/3d/ny.webp',
+            'images/living-scene/House_0_Spot_0/3d/pz.webp', 'images/living-scene/House_0_Spot_0/3d/nz.webp'
+        ]);
+        // const skyboxGeometry = new THREE.BoxGeometry(2048, 2048, 2048); // Adjust the size as needed
+        // const skyboxMaterial = new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
+        // const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
+        // // scene.background = texture;
+        // scene.add(skybox);
+
+
+        let model, skeleton, mixer, clock, stats;
+
+        const crossFadeControls = [];
+
+        let idleAction, walkAction, runAction;
+        let idleWeight, walkWeight, runWeight;
+        let actions, settings;
+
+        let singleStepMode = false;
+        let sizeOfNextStep = 0;
+
+        clock = new THREE.Clock();
+
+        // Sử dụng hàm waitForVariable để chờ cho biến "gtfloader" được tạo
+        waitForVariable('gltfloader').then((gltfloader) => {
+            console.log('gltfloader đã được tạo:', gltfloader);
+            // Thực hiện các công việc khác sau khi biến đã được tạo
+
+            gltfloader.load('Soldier.glb', function (gltf) {
+
+                model = gltf.scene;
+                scene.add(model);
+
+                model.position.set(0,0,0)
+                model.traverse(function (object) {
+
+                    if (object.isMesh) object.castShadow = true;
+
+                });
+
+                //
+
+                skeleton = new THREE.SkeletonHelper(model);
+                skeleton.visible = false;
+                scene.add(skeleton);
+
+                //
+
+                createPanel();
+
+
+                //
+
+                const animations = gltf.animations;
+
+                mixer = new THREE.AnimationMixer(model);
+
+                idleAction = mixer.clipAction(animations[0]);
+                walkAction = mixer.clipAction(animations[3]);
+                runAction = mixer.clipAction(animations[1]);
+
+                actions = [idleAction, walkAction, runAction];
+
+                activateAllActions();
+
+                // animate();
+
+            });
+        });
+
+        stats = window.Stats;
+
+        var materialArray = [];
+        const loader = new THREE.TextureLoader();
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/px.webp'), side: THREE.BackSide }));
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/nx.webp'), side: THREE.BackSide }));
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/py.webp'), side: THREE.BackSide }));
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/ny.webp'), side: THREE.BackSide }));
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/pz.webp'), side: THREE.BackSide }));
+        materialArray.push(new THREE.MeshBasicMaterial({ map: loader.load('images/living-scene/House_0_Spot_0/3d/nz.webp'), side: THREE.BackSide }));
+
+        var skyboxGeom = new THREE.BoxGeometry(500000, 500000, 500000);
+        var skybox = new THREE.Mesh(skyboxGeom, new THREE.MeshFaceMaterial(materialArray));
+        skybox.flipSided = true;
+        skybox.position.set(0, 0, 0);
+        // skybox.scale.x = -1;
+        scene.add(skybox);
+        // scene.background = texture;
+
+
+
+        // Tạo cube geometry
+        const geometry = new THREE.BoxGeometry(5000, 5000, 5000);
+
+        // Tạo vật liệu trong suốt
+        const transparentMaterial = new THREE.MeshBasicMaterial({
+            color: 0x00ff00, // Màu của cube
+            transparent: true, // Cho phép trong suốt
+            opacity: 1 // Độ đục, giá trị từ 0 (hoàn toàn trong suốt) đến 1 (không trong suốt)
+        });
+
+        // Tạo mesh với geometry và vật liệu
+        const transparentCube = new THREE.Mesh(geometry, transparentMaterial);
+        // transparentCube.position.set(250000, 0, 250000);
+        // Thêm mesh vào scene
+        scene.add(transparentCube);
+
+        const axesHelper = new THREE.AxesHelper(250000); // 10 is the size of the axes
+        // axesHelper.setColors(new THREE.Color(0xff0000), new THREE.Color(0x00ff00), new THREE.Color(0x0000ff));
+        var colors = axesHelper.geometry.attributes.color;
+        colors.setXYZ(0, 1, 0, 0); // index, R, G, B
+        colors.setXYZ(1, 1, 0, 0); // red
+        colors.setXYZ(2, 0, 1, 0);
+        colors.setXYZ(3, 0, 1, 0); // green
+        colors.setXYZ(4, 0, 0, 1);
+        colors.setXYZ(5, 0, 0, 1); // blue
+        scene.add(axesHelper);
+
+        // Add OrbitControls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        // controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+        controls.dampingFactor = 0.25;
+        controls.screenSpacePanning = false;
+        controls.maxPolarAngle = Math.PI / 1.2;
+        // controls.enableRotate = true;
+        controls.enableZoom = true;
+        // controls.autoRotate = true; // Bật chế độ quay tự động
+        // controls.autoRotateSpeed = 0.5; //
+
+        controls.target.set(0, 0, 0)
+        // Animation loop
+
+        var anchorContainer2 = document.createElement('div');
+        anchorContainer2.className = 'mi-anchor2';
+
+
+        document.body.appendChild(anchorContainer2);
+
+        var xx = document.createElement('div');
+        // xx.className = 'anchor-content-horizontal left spots-content';
+        xx.textContent = "DIV2"
+        xx.setAttribute("data-v-1643efc3", "");
+        anchorContainer2.appendChild(xx);
+
+        xx.addEventListener('click', function () {
+            // alert('Div clicked!');
+            // $('#settingsModal').modal('show');
+            modal.style.display = 'block';
+            const zeroPos = new THREE.Vector3(-0.75, 0.5, 0);
+            // updateAnchorPositionAndScale2(zeroPos, modal)
+            // updateAnchorVisibility(zeroPos, modal)
+        });
+
+        var beforeElement = document.createElement('div');
+        beforeElement.classList.add('name');
+        beforeElement.classList.add('spotsX');
+        beforeElement.setAttribute("data-v-3ac5dc64", "")
+
+        // Thêm pseudo-element ::before vào phần tử cha
+        xx.insertBefore(beforeElement, xx.firstChild);
+
+        var tivi = document.createElement('div');
+        tivi.className = 'mi-anchor';
+
+
+        xx = document.createElement('div');
+        // xx.className = 'anchor-content-horizontal left spots-content';
+        xx.textContent = "Tivi Sony"
+        tivi.appendChild(xx);
+        document.body.appendChild(tivi);
+
+
+        var light = document.createElement('div');
+        light.className = 'mi-anchor';
+
+
+        xx = document.createElement('div');
+        // xx.className = 'anchor-content-horizontal left spots-content';
+        xx.textContent = "Light"
+        light.appendChild(xx);
+        document.body.appendChild(light);
+
+        // Tạo anchor container
+        var anchorContainer = document.createElement('div');
+        anchorContainer.className = 'mi-anchor';
+        anchorContainer.id = 'Spot_2';
+        // anchorContainer.style.left = '418px';
+        // anchorContainer.style.top = '638px';
+        // anchorContainer.style.transform = 'scale(0.953864)';
+        document.body.appendChild(anchorContainer);
+
+        // Tạo anchor content
+        var anchorContent = document.createElement('div');
+        anchorContent.className = 'anchor-content-horizontal left spots-content';
+        anchorContainer.appendChild(anchorContent);
+
+        // Tạo phần tử name bên trong anchor content
+        var nameElement = document.createElement('div');
+        nameElement.className = 'name spotsXX';
+        nameElement.textContent = "ABCDEF---"
+        anchorContent.appendChild(nameElement);
+        const anchorPosition = new THREE.Vector3(60000, -60000, -250000);
+        const anchorPosition2 = new THREE.Vector3(-60000, -60000, -250000);
+        const tiviPos = new THREE.Vector3(250000, 0, 70000);
+        const lightPos = new THREE.Vector3(250000, 250000, 0);
+        transparentCube.position.set(0, -5, 0)
+        // Cập nhật vị trí và tỉ lệ thu phóng của anchor theo camera
+
+        function updateAnchorPositionAndScale2(vector, div) {
+
+            // Chuyển đổi tọa độ thực thành tọa độ màn hình
+            const screenPosition = vector.clone();
+            // console.log(screenPosition)
+            screenPosition.project(camera);
+
+            const widthHalf = window.innerWidth / 2;
+            const heightHalf = window.innerHeight / 2;
+            const offsetX = screenPosition.x * widthHalf + widthHalf;
+            const offsetY = -screenPosition.y * heightHalf + heightHalf;
+
+            // Cập nhật vị trí của anchor container
+            div.style.left = offsetX + 'px';
+            div.style.top = offsetY + 'px';
+
+            // Cập nhật tỉ lệ thu phóng dựa trên khoảng cách từ camera
+            const distance = camera.position.distanceTo(anchorPosition);
+            const scale = 250000 / distance;
+
+            // Áp dụng transform scale cho anchor container
+            div.style.transform = 'scale(' + scale + ')';
+
+
+            // const lookAtMatrix = new THREE.Matrix4();
+            // const upVector = new THREE.Vector3(0, 1, 0); // Chọn trục y làm trục "lên"
+            // lookAtMatrix.lookAt(vector, camera.position, upVector);
+
+            // const rotation = new THREE.Euler();
+            // rotation.setFromRotationMatrix(lookAtMatrix);
+
+            // // Áp dụng transform rotate cho anchor container
+            // div.style.transform += ' rotate(' + rotation.z + 'rad)';
+        }
+
+        function updateAnchorVisibility(vector, div) {
+            // Lấy hướng nhìn của camera
+            const cameraDirection = new THREE.Vector3();
+            camera.getWorldDirection(cameraDirection);
+
+            // Lấy vị trí của anchor trong không gian thế giới
+            const anchorWorldPosition = vector.clone();
+
+            // Tính vector từ camera đến anchor
+            const vectorToAnchor = anchorWorldPosition.sub(camera.position);
+
+            // Tính góc giữa hướng nhìn của camera và vector đến anchor
+            const angle = cameraDirection.angleTo(vectorToAnchor);
+
+            // Nếu góc lớn hơn một ngưỡng (ví dụ: 90 độ), ẩn anchor
+            // if (THREE.MathUtils.radToDeg(angle) > 90) {
+            if (angle > Math.PI / 2) {
+                div.style.display = 'none'; // Ẩn anchor
+            } else {
+                div.style.display = 'block'; // Hiển thị anchor
+            }
+        }
+
+        function updateAnchorPositionAndScale() {
+            // var screenPosition = new THREE.Vector3();
+            // camera.getWorldPosition(screenPosition);
+            // screenPosition.project(camera);
+
+            // var widthHalf = window.innerWidth / 2;
+            // var heightHalf = window.innerHeight / 2;
+            // var offsetX = screenPosition.x * widthHalf + widthHalf;
+            // var offsetY = -screenPosition.y * heightHalf + heightHalf;
+
+            // // Cập nhật vị trí của anchor container
+            // anchorContainer.style.left = offsetX + 'px';
+            // anchorContainer.style.top = offsetY + 'px';
+
+            // // Cập nhật tỉ lệ thu phóng dựa trên khoảng cách từ camera
+            // var distance = camera.position.distanceTo(new THREE.Vector3(0, 0, 0));
+            // var scale = 1 / distance;
+
+            // // Áp dụng transform scale cho anchor container
+            // anchorContainer.style.transform = 'scale(' + scale + ')';
+
+            // Chuyển đổi tọa độ thực thành tọa độ màn hình
+            const screenPosition = anchorPosition.clone();
+            // console.log(screenPosition)
+            screenPosition.project(camera);
+
+            const widthHalf = window.innerWidth / 2;
+            const heightHalf = window.innerHeight / 2;
+            const offsetX = screenPosition.x * widthHalf + widthHalf;
+            const offsetY = -screenPosition.y * heightHalf + heightHalf;
+
+            // Cập nhật vị trí của anchor container
+            anchorContainer.style.left = offsetX + 'px';
+            anchorContainer.style.top = offsetY + 'px';
+
+            // Cập nhật tỉ lệ thu phóng dựa trên khoảng cách từ camera
+            const distance = camera.position.distanceTo(anchorPosition);
+            const scale = 250000 / distance;
+
+            // Áp dụng transform scale cho anchor container
+            anchorContainer.style.transform = 'scale(' + scale + ')';
+        }
+
+        // Lắng nghe sự kiện change của OrbitControls để cập nhật anchor
+        controls.addEventListener('change', updateAnchorPositionAndScale);
+
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update controls
+            controls.update();
+
+            // const zoomScale = camera.position.length() / 100000; // Adjust the divisor as needed
+            // skybox.scale.set(zoomScale, zoomScale, zoomScale);
+
+
+
+            // Render the scene
+            renderer.render(scene, camera);
+            updateAnchorPositionAndScale();
+            updateAnchorPositionAndScale2(anchorPosition2, anchorContainer2)
+            updateAnchorPositionAndScale2(tiviPos, tivi)
+            updateAnchorPositionAndScale2(lightPos, light)
+
+            updateAnchorVisibility(tiviPos, tivi)
+            updateAnchorVisibility(anchorPosition2, anchorContainer2)
+            updateAnchorVisibility(anchorPosition, anchorContainer)
+            updateAnchorVisibility(lightPos, light)
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start the animation loop
+        animate();
+
+
+
+        function createPanel() {
+
+            const panel = window.panel;
+
+            const folder1 = panel.addFolder('Visibility');
+            const folder2 = panel.addFolder('Activation/Deactivation');
+            const folder3 = panel.addFolder('Pausing/Stepping');
+            const folder4 = panel.addFolder('Crossfading');
+            const folder5 = panel.addFolder('Blend Weights');
+            const folder6 = panel.addFolder('General Speed');
+
+            settings = {
+                'show model': true,
+                'show skeleton': false,
+                'deactivate all': deactivateAllActions,
+                'activate all': activateAllActions,
+                'pause/continue': pauseContinue,
+                'make single step': toSingleStepMode,
+                'modify step size': 0.05,
+                'from walk to idle': function () {
+
+                    prepareCrossFade(walkAction, idleAction, 1.0);
+
+                },
+                'from idle to walk': function () {
+
+                    prepareCrossFade(idleAction, walkAction, 0.5);
+
+                },
+                'from walk to run': function () {
+
+                    prepareCrossFade(walkAction, runAction, 2.5);
+
+                },
+                'from run to walk': function () {
+
+                    prepareCrossFade(runAction, walkAction, 5.0);
+
+                },
+                'use default duration': true,
+                'set custom duration': 3.5,
+                'modify idle weight': 0.0,
+                'modify walk weight': 1.0,
+                'modify run weight': 0.0,
+                'modify time scale': 1.0
+            };
+
+            folder1.add(settings, 'show model').onChange(showModel);
+            folder1.add(settings, 'show skeleton').onChange(showSkeleton);
+            folder2.add(settings, 'deactivate all');
+            folder2.add(settings, 'activate all');
+            folder3.add(settings, 'pause/continue');
+            folder3.add(settings, 'make single step');
+            folder3.add(settings, 'modify step size', 0.01, 0.1, 0.001);
+            crossFadeControls.push(folder4.add(settings, 'from walk to idle'));
+            crossFadeControls.push(folder4.add(settings, 'from idle to walk'));
+            crossFadeControls.push(folder4.add(settings, 'from walk to run'));
+            crossFadeControls.push(folder4.add(settings, 'from run to walk'));
+            folder4.add(settings, 'use default duration');
+            folder4.add(settings, 'set custom duration', 0, 10, 0.01);
+            folder5.add(settings, 'modify idle weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+
+                setWeight(idleAction, weight);
+
+            });
+            folder5.add(settings, 'modify walk weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+
+                setWeight(walkAction, weight);
+
+            });
+            folder5.add(settings, 'modify run weight', 0.0, 1.0, 0.01).listen().onChange(function (weight) {
+
+                setWeight(runAction, weight);
+
+            });
+            folder6.add(settings, 'modify time scale', 0.0, 1.5, 0.01).onChange(modifyTimeScale);
+
+            folder1.open();
+            folder2.open();
+            folder3.open();
+            folder4.open();
+            folder5.open();
+            folder6.open();
+
+        }
+
+
+        function showModel(visibility) {
+
+            model.visible = visibility;
+
+        }
+
+
+        function showSkeleton(visibility) {
+
+            skeleton.visible = visibility;
+
+        }
+
+
+        function modifyTimeScale(speed) {
+
+            mixer.timeScale = speed;
+
+        }
+
+
+        function deactivateAllActions() {
+
+            actions.forEach(function (action) {
+
+                action.stop();
+
+            });
+
+        }
+
+        function activateAllActions() {
+
+            setWeight(idleAction, settings['modify idle weight']);
+            setWeight(walkAction, settings['modify walk weight']);
+            setWeight(runAction, settings['modify run weight']);
+
+            actions.forEach(function (action) {
+
+                action.play();
+
+            });
+
+        }
+
+        function pauseContinue() {
+
+            if (singleStepMode) {
+
+                singleStepMode = false;
+                unPauseAllActions();
+
+            } else {
+
+                if (idleAction.paused) {
+
+                    unPauseAllActions();
+
+                } else {
+
+                    pauseAllActions();
+
+                }
+
+            }
+
+        }
+
+        function pauseAllActions() {
+
+            actions.forEach(function (action) {
+
+                action.paused = true;
+
+            });
+
+        }
+
+        function unPauseAllActions() {
+
+            actions.forEach(function (action) {
+
+                action.paused = false;
+
+            });
+
+        }
+
+        function toSingleStepMode() {
+
+            unPauseAllActions();
+
+            singleStepMode = true;
+            sizeOfNextStep = settings['modify step size'];
+
+        }
+
+        function prepareCrossFade(startAction, endAction, defaultDuration) {
+
+            // Switch default / custom crossfade duration (according to the user's choice)
+
+            const duration = setCrossFadeDuration(defaultDuration);
+
+            // Make sure that we don't go on in singleStepMode, and that all actions are unpaused
+
+            singleStepMode = false;
+            unPauseAllActions();
+
+            // If the current action is 'idle' (duration 4 sec), execute the crossfade immediately;
+            // else wait until the current action has finished its current loop
+
+            if (startAction === idleAction) {
+
+                executeCrossFade(startAction, endAction, duration);
+
+            } else {
+
+                synchronizeCrossFade(startAction, endAction, duration);
+
+            }
+
+        }
+
+        function setCrossFadeDuration(defaultDuration) {
+
+            // Switch default crossfade duration <-> custom crossfade duration
+
+            if (settings['use default duration']) {
+
+                return defaultDuration;
+
+            } else {
+
+                return settings['set custom duration'];
+
+            }
+
+        }
+
+        function synchronizeCrossFade(startAction, endAction, duration) {
+
+            mixer.addEventListener('loop', onLoopFinished);
+
+            function onLoopFinished(event) {
+
+                if (event.action === startAction) {
+
+                    mixer.removeEventListener('loop', onLoopFinished);
+
+                    executeCrossFade(startAction, endAction, duration);
+
+                }
+
+            }
+
+        }
+
+        function executeCrossFade(startAction, endAction, duration) {
+
+            // Not only the start action, but also the end action must get a weight of 1 before fading
+            // (concerning the start action this is already guaranteed in this place)
+
+            setWeight(endAction, 1);
+            endAction.time = 0;
+
+            // Crossfade with warping - you can also try without warping by setting the third parameter to false
+
+            startAction.crossFadeTo(endAction, duration, true);
+
+        }
+
+        // This function is needed, since animationAction.crossFadeTo() disables its start action and sets
+        // the start action's timeScale to ((start animation's duration) / (end animation's duration))
+
+        function setWeight(action, weight) {
+
+            action.enabled = true;
+            action.setEffectiveTimeScale(1);
+            action.setEffectiveWeight(weight);
+
+        }
+
+        // Called by the render loop
+
+        function updateWeightSliders() {
+
+            settings['modify idle weight'] = idleWeight;
+            settings['modify walk weight'] = walkWeight;
+            settings['modify run weight'] = runWeight;
+
+        }
+
+        // Called by the render loop
+
+        function updateCrossFadeControls() {
+
+            if (idleWeight === 1 && walkWeight === 0 && runWeight === 0) {
+
+                crossFadeControls[0].disable();
+                crossFadeControls[1].enable();
+                crossFadeControls[2].disable();
+                crossFadeControls[3].disable();
+
+            }
+
+            if (idleWeight === 0 && walkWeight === 1 && runWeight === 0) {
+
+                crossFadeControls[0].enable();
+                crossFadeControls[1].disable();
+                crossFadeControls[2].enable();
+                crossFadeControls[3].disable();
+
+            }
+
+            if (idleWeight === 0 && walkWeight === 0 && runWeight === 1) {
+
+                crossFadeControls[0].disable();
+                crossFadeControls[1].disable();
+                crossFadeControls[2].disable();
+                crossFadeControls[3].enable();
+
+            }
+
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+    </script>
+</body>
+
+</html>

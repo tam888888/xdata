@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FoamTree Quick Start</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="visualization" style="width: 80%; height: 900px"></div>
+
+    <script src="./carrotsearch.foamtree.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            var foamtree = new CarrotSearchFoamTree({
+                id: "visualization",
+                dataObject: {
+                    "groups": [
+                        {
+                            "label": "Technology",
+                            "groups": [
+                                {
+                                    "label": "AAPL\n1.2",
+                                    "weight": 50,
+                                    "volume": 1200000,
+                                    "percent": 1.2
+                                },
+                                {
+                                    "label": "MSFT",
+                                    "weight": 40,
+                                    "volume": 1100000,
+                                    "percent": -0.5
+                                }
+                                ,
+                                {
+                                    "label": "MSFT",
+                                    "weight": 40,
+                                    "volume": 1100000,
+                                    "percent": -0.5
+                                }
+                                ,
+                                {
+                                    "label": "MSFT",
+                                    "weight": 40,
+                                    "volume": 1100000,
+                                    "percent": -0.5
+                                }
+                                ,
+                                {
+                                    "label": "MSFT",
+                                    "weight": 40,
+                                    "volume": 1100000,
+                                    "percent": -0.5
+                                }
+                                ,
+                                {
+                                    "label": "MSFT",
+                                    "weight": 40,
+                                    "volume": 1100000,
+                                    "percent": -0.5
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Healthcare",
+                            "groups": [
+                                {
+                                    "label": "JNJ",
+                                    "weight": 30,
+                                    "volume": 800000,
+                                    "percent": 0.8
+                                },
+                                {
+                                    "label": "PFE",
+                                    "weight": 25,
+                                    "volume": 900000,
+                                    "percent": -1.1
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Gas",
+                            "groups": [
+                                {
+                                    "label": "JNJ",
+                                    "weight": 30,
+                                    "volume": 800000,
+                                    "percent": 0.8
+                                },
+                                {
+                                    "label": "PFE",
+                                    "weight": 25,
+                                    "volume": 900000,
+                                    "percent": -1.1
+                                }
+                            ]
+                        }
+                    ]
+                },
+                relaxationInitializer: "ordered",
+                stacking: "flattened",
+                descriptionGroupType: "floating",
+                groupLabelFontFamily: "Oxygen",
+                attributionPosition: 45,
+
+            });
+
+            // foamtree.set({
+            //     relaxationInitializer: "ordered",
+            //     stacking: "flattened",
+            //     descriptionGroupType: "floating",
+            //     groupLabelFontFamily: "Oxygen",
+            //     attributionPosition: 45
+            // });
+        });
+    </script>
+</body>
+
+</html>
