@@ -11,3 +11,14 @@ export PATH
 /usr/bin/git commit -m "add"
 /bin/sleep 5
 /usr/bin/git push
+
+# Danh sách các file theo định dạng 'data3YYYYMMDD.txt'
+files=$(ls data3*.txt | sort)
+
+# Giữ lại 2 file cuối cùng
+files_to_delete=$(echo "$files" | head -n -2)
+
+# Xóa những file cũ
+for file in $files_to_delete; do
+    rm "$file"
+done
