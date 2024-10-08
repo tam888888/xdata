@@ -1,3 +1,4 @@
+dist/dist/his/investorData20241008.json
 dist/dist_bk/his/investorData20240307.json
 dist/websocket/data320240318.7z
 dist/websocket/data320241007.txt
