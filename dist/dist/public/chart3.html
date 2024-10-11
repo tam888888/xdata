@@ -11,6 +11,30 @@
     <!-- <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet" type="text/css"> -->
     <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/scroller/2.3.0/js/dataTables.scroller.min.js"></script> -->
+    <script src="https://cdn.datatables.net/keytable/2.11.0/js/dataTables.keyTable.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/scroller/2.3.0/css/scroller.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/keytable/2.11.0/css/keyTable.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
 
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
         integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
@@ -18,7 +42,7 @@
     <!-- <script src="https://cdn.socket.io/socket.io-4.0.1.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script> -->
-    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>    
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
     <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
@@ -268,10 +292,10 @@
                             if (combineChart) {
                                 combineChart.data.datasets[6].label = e.symbol
                                 let lb = {}
-                                combineChart.data.labels.forEach(l=>{
-                                    lb[l]=l
+                                combineChart.data.labels.forEach(l => {
+                                    lb[l] = l
                                 })
-                                lastDataVN30F = e.data.filter(e=>lb[e.time]).map(e => e.price)
+                                lastDataVN30F = e.data.filter(e => lb[e.time]).map(e => e.price)
                                 combineChart.data.datasets[6].data = lastDataVN30F
                                 lastVN30FIdx = e.data[0].priceref
                                 combineChart.update();
@@ -456,11 +480,11 @@
 
         const footer = (tooltipItems) => {
             // console.log(tooltipItems)            
-            if(!tooltipItems[0].dataset.label.startsWith('VN30F')){return;}
-            if(lastDataVN30F){
+            if (!tooltipItems[0].dataset.label.startsWith('VN30F')) { return; }
+            if (lastDataVN30F) {
                 // console.log(tooltipItems[0])
                 // console.log(lastDataVN30F)
-                return 'Delta: ' + Math.floor((tooltipItems[0].parsed.y-lastVN30FIdx)*100)/100
+                return 'Delta: ' + Math.floor((tooltipItems[0].parsed.y - lastVN30FIdx) * 100) / 100
             }
             // let sum = 0;
             // tooltipItems.forEach(function (tooltipItem) {
@@ -549,7 +573,7 @@
         socket.on('updateData', function (data) {
             // Populate Table 1
             if (data.timeline) {
-                var d=data.timeline.data.filter(e=>e[1] >0); 
+                var d = data.timeline.data.filter(e => e[1] > 0);
                 chart.data.labels = d.map(e => e[0])
                 chart.data.datasets[0].data = d.map(e => e[1])
                 chart.update();
@@ -649,7 +673,12 @@
                     theadRow.appendChild(th);
 
                 }
+                let pageLength = 10;
+                let page = 0;
                 if ($.fn.DataTable.isDataTable('#myTable')) {
+                    console.log($('#myTable').DataTable().settings().init().pageLength)
+                    pageLength =  $('#myTable').DataTable().page.len();
+                    page =  $('#myTable').DataTable().page();
                     $('#myTable').DataTable().destroy();
 
                 }
@@ -660,7 +689,7 @@
                     });
                     return ne
                 })
-                $('#myTable').DataTable(
+                let table=$('#myTable').DataTable(
                     {
                         // paging: true,
                         searching: true,
@@ -669,12 +698,25 @@
                         columns: [
                             ...data.timeline.labels.map(e => { return { data: e, orderable: true } })
                         ],
-                        order: [[2, 'desc']]
+                        order: [[2, 'desc']],
+                        processing: true,
+                        ordering: true,
+                        scroller: true,
+                        // scrollY: 200,                        
+                        // serverSide: true,
+                        lengthMenu: [10, 25, 50, 100, 200, 500, 2000],
+                        pageLength:pageLength,                        
+                        dom: 'lBfrtip',
+                        buttons: [
+                            'copy',
+                            'excel', 'pdf',
+                            'colvis'
+                        ]
 
                     }
                 );
                 // var table = $('#myTable').DataTable()
-
+                table.page(page).draw(false);
 
                 // table.rows.add(datanew).draw(true)                
             }

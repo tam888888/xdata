@@ -355,6 +355,9 @@
         let data;
         $(document).ready(function () {
             // Function to update DataTable
+            var pageIndex = 0;
+            var pageIndex2 = 0;
+
             function updateDataTable() {
                 if (Date.now() - lastAJAX <= timeout) {
                     return;
@@ -365,6 +368,7 @@
                     method: 'GET',
                     success: function (response) {
                         var table = $('#symbolTable').DataTable();
+                        pageIndex =  table.page();
                         table.clear();
                         data = response.data.map(e => {
                             let t = e[10] + e[12] + e[14]
@@ -381,7 +385,8 @@
                             })
                         })
 
-                        table.rows.add(data).draw()
+                        table.rows.add(data).page(pageIndex).draw()                        
+                        table.page(pageIndex).draw(false);
                         let key = Math.floor(Date.now() / 1000 / interval);
                         if (!lastChangeMap[key]) {
                             lastChangeMap[key] = response.data;
@@ -400,6 +405,7 @@
                             let lastSymbolChangeTable = keepArray[0].data
 
                             var table = $('#symbolChangeTable').DataTable();
+                            pageIndex2 =  table.page();
                             table.clear();
                             let c1 = {}
                             lastSymbolChangeTable.forEach(e => {
@@ -430,8 +436,9 @@
                                 c2[e[0]] = a
 
                                 // if (e[0] == 'DXG') console.table({ 'a': a, 'e1': e1, 'e': e })
-                            })
-                            table.rows.add(Object.values(c2)).draw()
+                            })                            
+                            table.rows.add(Object.values(c2)).page(pageIndex2).draw()
+                            table.page(pageIndex2).draw(false)
                         }
 
                         lastAJAX = Date.now()

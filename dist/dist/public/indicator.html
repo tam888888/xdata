@@ -550,7 +550,8 @@
             });
 
 
-
+            var pageIndex = 0;
+            var pageIndex2 = 0;
 
             function updateDataTable() {
                 if (Date.now() - lastAJAX <= timeout) {
@@ -561,7 +562,11 @@
                     url: querydate ? '/api/getsymbolsdata2?querydate=' + querydate : '/api/getsymbolsdata2', // Endpoint to get updated data
                     method: 'GET',
                     success: function (response) {
+                        
                         var table = $('#symbolTable').DataTable();
+                        pageIndex =  table.page();
+                        // console.log("pageIndex ", pageIndex)
+                        // console.log("Clear")
                         table.clear();
                         data = response.data.map(e => {
                             let t = e[10] + e[12] + e[14]
@@ -620,8 +625,10 @@
                             })
 
                         })
-
-                        table.rows.add(data).draw()
+                        
+                        table.rows.add(data).page(pageIndex).draw()
+                        // console.log("Set pageIndex ", pageIndex)
+                        table.page(pageIndex).draw(false);
                         let key = Math.floor(Date.now() / 1000 / interval);
                         if (!lastChangeMap[key]) {
                             lastChangeMap[key] = response.data;
@@ -640,6 +647,7 @@
                             let lastSymbolChangeTable = keepArray[0].data
 
                             var table = $('#symbolChangeTable').DataTable();
+                            pageIndex2 =  table.page();
                             table.clear();
                             let c1 = {}
                             lastSymbolChangeTable.forEach(e => {
@@ -671,7 +679,8 @@
 
                                 // if (e[0] == 'DXG') console.table({ 'a': a, 'e1': e1, 'e': e })
                             })
-                            table.rows.add(Object.values(c2)).draw()
+                            table.rows.add(Object.values(c2)).page(pageIndex2).draw()
+                            table.page(pageIndex2).draw(false)
                         }
 
                         lastAJAX = Date.now()
@@ -696,6 +705,7 @@
 
             // Update DataTable every 5 seconds (adjust as needed)
             setInterval(updateDataTable, 1000);
+            // updateDataTable()
         });
 
 
