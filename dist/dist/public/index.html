@@ -1248,6 +1248,24 @@
             if (v) return v
             else return 0
         }
+        let pp4t = ['foreign_buy_matched',
+            'foreign_sell_matched',
+            'foreign_buy',
+            'foreign_sell',
+            'proprietary_buy_matched',
+            'proprietary_sell_matched',
+            'proprietary_buy',
+            'proprietary_sell',
+            'local_individual_buy_matched',
+            'local_individual_sell_matched',
+            'local_individual_buy',
+            'local_individual_sell',
+            'local_institutional_buy_matched',
+            'local_institutional_sell_matched',
+            'local_institutional_buy',
+            'local_institutional_sell']
+
+
 
         let processInvestor = (investorData) => {
             investorDataNew = investorData.map(e => {
@@ -1257,14 +1275,31 @@
                 let total_sell_matched = 0;
                 let total_buy_matched = 0;
                 Object.keys(e).forEach(k => {
+                    if (!pp4t.includes(k)
+                    ) { return; }
                     if (k.includes('matched')) {
                         if (k.includes('buy')) { total_buy_matched += vf(e[k]) } else { total_sell_matched += vf(e[k]) }
+                        // console.log(k)
                     } else {
                         if (k.includes('buy') || k.includes('sell'))
                             if (k.includes('buy')) { total_buy += vf(e[k]) } else { total_sell += vf(e[k]) }
                     }
 
                 })
+                // if (e["code"] == "MSN") {
+                //     function formatDateToYYYYMMDD(date) {
+                //         const year = date.getFullYear();
+                //         const month = String(date.getMonth() + 1).padStart(2, '0'); // Tháng trong JS bắt đầu từ 0
+                //         const day = String(date.getDate()).padStart(2, '0');
+                //         return `${year}${month}${day}`;
+                //     }
+                //     d = new Date(e.trading_date * 1000 + 7 * 60 * 60 * 1000)
+
+                //     if (formatDateToYYYYMMDD(d).includes("20241010")) {
+                //         console.table(e)
+                //     }
+                // }
+
                 let local_individual_buy
                 let ne = {
                     date: new Date(e.trading_date * 1000 + 7 * 60 * 60 * 1000),
