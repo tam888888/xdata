@@ -1,6 +1,4 @@
-dist/dist/his/investorData20241018.json
 dist/dist_bk/his/investorData20240307.json
-dist/websocket/data320241017.txt
 dist/websocket/data320240318.7z
 dist/websocket/data320241018.txt
 dist/t/dist.tar.gz
