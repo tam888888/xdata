@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VNINDEX Chart</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.0/css/jquery.dataTables.css">
+    <!-- <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet" type="text/css"> -->
+    <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/scroller/2.3.0/js/dataTables.scroller.min.js"></script> -->
+    <script src="https://cdn.datatables.net/keytable/2.11.0/js/dataTables.keyTable.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/scroller/2.3.0/css/scroller.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/keytable/2.11.0/css/keyTable.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.socket.io/socket.io-4.0.1.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script> -->
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
+    <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+    <style>
+        div.dataTables_wrapper div.dataTables_info {
+            padding-top: 0px;
+        }
+
+        div.dataTables_wrapper div.dataTables_info {
+            font-size: 6px;
+            /* Set font size for information text (e.g., "Showing 1 to 10 of 100 entries") */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <style>
+        /* CSS for limiting the number of rows and adding a vertical scroll */
+        #timelineContainer {
+            max-height: 600px;
+            /* Set the maximum height for the table */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+    </style>
+    <style>
+        /* CSS for enabling both horizontal and vertical scrolling for the entire page */
+        body,
+        html {
+            overflow: scroll;
+            /* Enable both horizontal and vertical scrolling for the entire page */
+        }
+    </style>
+    <style>
+        /* #chartcontainer {
+            text-align: center;
+        }
+
+        #vnindex,#busd {
+            display: inline;
+        } */
+        #chartcontainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* #combineDiv {
+            display: flex;
+            justify-content: center;
+        } */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Cho phép các ô chuyển hàng khi không đủ không gian */
+            justify-content: center;
+        }
+
+        .flex-item3 {
+            flex: 0 0 calc(33.33% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-item2 {
+            flex: 0 0 calc(38% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-item1 {
+            flex: 0 0 calc(100% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+
+        .flex-itemOne {
+            flex: 0 0 calc(80% - 20px);
+            /* 33.33% chiều rộng mỗi ô, trừ đi khoảng cách giữa các ô */
+            box-sizing: border-box;
+            /* Đảm bảo padding và border không làm tăng kích thước thực tế của ô */
+            margin: 10px;
+            /* Khoảng cách giữa các ô */
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <div id="chartcontainer" class="flex-container">
+        <div id="vnindex" class="flex-item2">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div id="busd" class="flex-item2">
+            <canvas id="line-chart"></canvas>
+        </div>
+    </div>
+    <div id="combineDiv" class="flex-container">
+        <div class="flex-itemOne"><canvas id="combineChart"></canvas></div>
+    </div>
+    <table>
+        <caption style="font-size: x-large;">VNINDEX Thống kê cung cầu</caption>
+        <thead id="statsHead">
+            <tr>
+                <th>VNINDEX</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Vol Đặt Mua</th>
+                <th>Val Đặt Mua</th>
+                <th>Vol Đặt Bán</th>
+                <th>Val Đặt Bán</th>
+                <th>BU Vol</th>
+                <th>BU Val</th>
+                <th>SD Vol</th>
+                <th>SD Val</th>
+                <th>UK Vol</th>
+                <th>UK Val</th>
+                <th>BUSD Vol</th>
+                <th>BUSD Val</th>
+                <th>Min BUSD Val</th>
+                <th>Max BUSD Val</th>
+            </tr>
+        </thead>
+        <tbody id="statsBody">
+            <!-- Table 2 data will be populated here -->
+        </tbody>
+    </table>
+
+    <table id="myTable" class="display">
+        <thead id="headTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tfoot id="footTable">
+            <tr>
+                <th>Thống kê</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <!-- Dữ liệu sẽ được thêm ở đây -->
+        </tbody>
+
+    </table>
+    <div id="timelineContainer">
+
+
+        <table>
+            <caption style="font-size: x-large;">VNINDEX thống kê chi tiết theo phút</caption>
+            <thead>
+                <tr>
+                    <th>Thời gian</th>
+                    <th>VNINDEX</th>
+                    <th>T</th>
+                    <th>Vol KoXĐ</th>
+                    <th>Val KoXĐ</th>
+                    <th>Vol MuaCĐ</th>
+                    <th>Val MuaCĐ</th>
+                    <th>Vol BánCĐ</th>
+                    <th>Val BánCĐ</th>
+                    <th>Vol Mua-Bán</th>
+                    <th>Val Mua-Bán</th>
+                    <th>Vol Đặt Mua</th>
+                    <th>Val Đặt Mua</th>
+                    <th>Vol Đặt Bán</th>
+                    <th>Val Đặt Bán</th>
+                </tr>
+            </thead>
+            <tbody id="timelineBody">
+                <!-- Table 1 data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Table 2 -->
+    <script>
+        function formatDateToYYMM(date) {
+            const year = date.getFullYear().toString().slice(-2);
+            const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
+            return year + month;
+        }
+
+        function getNextMonth(date) {
+            const currentDate = new Date(date);
+            let currentMonth = currentDate.getMonth();
+            let nextMonth = currentMonth + 1;
+            if (nextMonth > 11) {
+                nextMonth = 0; // January
+                currentDate.setFullYear(currentDate.getFullYear() + 1); // Move to the next year
+            }
+            // Set the date to the first day of the next month
+            currentDate.setMonth(nextMonth, 1);
+            return currentDate;
+        }
+
+        function getPairVN30Feature() {
+            return [formatDateToYYMM(new Date()),
+            formatDateToYYMM(getNextMonth(new Date())),
+            formatDateToYYMM(getNextMonth(getNextMonth(new Date()))),].map(e => 'VN30F' + e)
+        }
+
+        var VN30F = getPairVN30Feature().join()
+        var lastDataVN30F;
+        var lastVN30FIdx;
+        var lastHandle = 0;
+
+        function getsymboldetail() {
+            $.ajax({
+                url: 'api/symboldetail?symbols=' + VN30F, // Endpoint to get updated data
+                method: 'GET',
+                success: function (response) {
+                    // console.table(response)
+                    // response.forEach(e => {
+                    //     activeSymbols[e.symbol] = e
+                    // })
+                    response.data.every(e => {
+                        if (e.data.length > 0) {
+                            if (combineChart) {
+                                combineChart.data.datasets[6].label = e.symbol
+                                let lb = {}
+                                combineChart.data.labels.forEach(l => {
+                                    lb[l] = l
+                                })
+                                lastDataVN30F = e.data.filter(e => lb[e.time]).map(e => e.price)
+                                combineChart.data.datasets[6].data = lastDataVN30F
+                                lastVN30FIdx = e.data[0].priceref
+                                combineChart.update();
+                            }
+                        }
+                        return e.data.length == 0
+                    })
+                }
+            })
+        }
+
+
+
+
+        setInterval(getsymboldetail, 1000)
+
+        function getvnindexdata() {
+            if (Date.now() - lastHandle >= 2000) {
+                // console.log("Call api vnindexdata ", Date.now())
+                $.ajax({
+                    url: 'api/vnindexdata', // Endpoint to get updated data
+                    method: 'GET',
+                    success: function (response) {
+                        handlevnidata(response.data)
+                    }
+                })
+            }
+        }
+        setInterval(getvnindexdata, 2000)
+    </script>
+
+
+    <script>
+        const zoomOptions = {
+            // pan: {
+            //     enabled: true,
+            //     mode: 'xy',
+            //     modifierKey: 'ctrl',
+            // },
+            pan: {
+                enabled: true,
+                onPanStart({ chart, point }) {
+                    const area = chart.chartArea;
+                    const w25 = area.width * 0.25;
+                    const h25 = area.height * 0.25;
+                    if (point.x < area.left + w25 || point.x > area.right - w25
+                        || point.y < area.top + h25 || point.y > area.bottom - h25) {
+                        return false; // abort
+                    }
+                },
+                mode: 'xy',
+            },
+            zoom: {
+                mode: 'xy',
+                drag: {
+                    enabled: true,
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(54, 162, 235, 0.3)'
+                }
+            }
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'VNINDEX',
+                    data: [],
+                    borderColor: 'Magenta',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        suggestedMin: 2000,  // Bắt đầu từ 999
+                    }
+                }, plugins: {
+                    zoom: zoomOptions,
+                }
+            }
+        });
+
+        const ctxLineChart = document.getElementById('line-chart').getContext('2d');
+        const data = {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+            datasets: [
+                {
+                    label: 'Tổng',
+                    borderColor: 'blue',
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    hidden: true // Ẩn đường này mặc định
+                },
+                {
+                    label: 'MuaCĐ',
+                    borderColor: 'green',
+                    data: [28, 48, 40, 19, 86, 27],
+                    fill: false,
+                },
+                {
+                    label: 'BánCĐ',
+                    borderColor: 'red',
+                    data: [45, 68, 58, 33, 72, 47],
+                    fill: false,
+                },
+            ],
+        };
+        const config = {
+            type: 'line', // Đây là loại biểu đồ đường (line chart)
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999
+                    },
+                },
+                plugins: {
+                    zoom: zoomOptions,
+                }
+            },
+
+        };
+        var myChart = new Chart(ctxLineChart, config);
+
+        //combineChart
+        const ctxCombineChart = document.getElementById('combineChart').getContext('2d');
+        var lineTension = 0.2
+        const combineData = {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00'],
+            datasets: [
+                {
+                    label: 'VNINDEX',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-vnindex',
+                    data: [],
+                    borderColor: 'Magenta',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                },
+                {
+                    label: 'Tổng',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-value',
+                    borderColor: 'blue',
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    hidden: true // Ẩn đường này mặc định
+                },
+                {
+                    label: 'MuaCĐ',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-value',
+                    borderColor: 'green',
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'BánCĐ',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-value',
+                    borderColor: 'red',
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'Đặt Mua',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-dvalue',
+                    borderColor: 'Olive',
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'Đặt Bán',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-dvalue',
+                    borderColor: 'brown',
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'VN30F1M',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-vnindex',
+                    data: [],
+                    borderColor: 'purple',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                },
+            ],
+        };
+
+        const footer = (tooltipItems) => {
+            // console.log(tooltipItems)            
+            if (!tooltipItems[0].dataset.label.startsWith('VN30F')) { return; }
+            if (lastDataVN30F) {
+                // console.log(tooltipItems[0])
+                // console.log(lastDataVN30F)
+                return 'Delta: ' + Math.floor((tooltipItems[0].parsed.y - lastVN30FIdx) * 100) / 100
+            }
+            // let sum = 0;
+            // tooltipItems.forEach(function (tooltipItem) {
+            //     sum += tooltipItem.parsed.y;
+            // });
+            // return 'Sum: ' + sum;
+        };
+
+        const combineConfig = {
+            type: 'line', // Đây là loại biểu đồ đường (line chart)
+            data: combineData,
+            options: {
+                scales: {
+                    // x: {
+                    //     beginAtZero: true,
+                    // },
+                    // y: {
+                    //     beginAtZero: false,
+                    //     suggestedMin: 1000000000000,  // Bắt đầu từ 999
+                    // },
+                    'y-axis-vnindex': {
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'VNINDEX',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                    },
+                    'y-axis-value': {
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Mua Bán Khớp Lệnh',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999                        
+                    },
+                    'y-axis-dvalue': {
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Đặt Mua Bán',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999                        
+                    },
+                },
+                plugins: {
+                    zoom: zoomOptions,
+                    tooltip: {
+                        callbacks: {
+                            footer: footer,
+                        }
+                    }
+                },
+
+                // interaction: {
+                //     intersect: false,
+                //     mode: 'index',
+                // },
+                // onHover: (event, chartElement) => {
+                //     if (chartElement.length > 0) {
+                //         // The mouse is hovering over a data point
+                //         console.log(chartElement[0]);
+                //     }
+                // },
+            },
+
+        };
+        var combineChart = new Chart(ctxCombineChart, combineConfig);
+
+        // Connect to the WebSocket server
+        var socket = io();
+
+        var handlevnidata = function (data) {         
+            // Populate Table 1
+            if (data.timeline) {
+                lastHandle = Date.now()
+                var d = data.timeline.data.filter(e => e[1] > 0);
+                chart.data.labels = d.map(e => e[0])
+                chart.data.datasets[0].data = d.map(e => e[1])
+                chart.update();
+
+                myChart.data.labels = d.map(e => e[0])
+                myChart.data.datasets[0].data = d.map(e => e[4] + e[6] + e[8])
+                myChart.data.datasets[1].data = d.map(e => e[6])
+                myChart.data.datasets[2].data = d.map(e => e[8])
+                myChart.update();
+
+                combineChart.data.labels = d.map(e => e[0])
+                combineChart.data.datasets[0].data = d.map(e => e[1])
+                combineChart.data.datasets[1].data = d.map(e => e[4] + e[6] + e[8])
+                combineChart.data.datasets[2].data = d.map(e => e[6])
+                combineChart.data.datasets[3].data = d.map(e => e[8])
+                combineChart.data.datasets[4].data = d.map(e => e[12])
+                combineChart.data.datasets[5].data = d.map(e => e[14])
+                if (lastDataVN30F)
+                    combineChart.data.datasets[6].data = lastDataVN30F
+                combineChart.update();
+
+                data.timeline.data.sort((a, b) => { return b[2] - a[2] })
+                var timelineBody = document.getElementById('timelineBody');
+                timelineBody.innerHTML = '';
+                for (var i = 0; i < data.timeline.data.length; i++) {
+                    var row = document.createElement('tr');
+                    for (var j = 0; j < data.timeline.labels.length; j++) {
+                        var cell = document.createElement('td');
+
+                        cell.textContent = j <= 2 ? data.timeline.data[i][j] : numeral(data.timeline.data[i][j]).format('0,0');
+                        row.appendChild(cell);
+                    }
+                    timelineBody.appendChild(row);
+                }
+
+
+                statsHead = document.getElementById('headTable');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                let label1 = ['Thời gian', 'VNINDEX', 'T', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán', 'Vol Đặt Mua', 'Val Đặt Mua', 'Vol Đặt Bán', 'Val Đặt Bán']
+                for (var i = 0; i < label1.length; i++) {
+                    var th = document.createElement('th');
+                    th.textContent = label1[i];
+                    theadRow.appendChild(th);
+                }
+
+                statsHead = document.getElementById('footTable');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                let start = 3;
+                // console.table(data.timeline.data[0])
+                let timeX = moment(data.timeline.data[0][0], 'HH:mm').format("x")
+
+
+
+                let delta = Date.now() - timeX;
+                // delta = 30 * 1000
+                // console.log("timeX",timeX,delta/1000/60)
+                let tpsa = []
+                if (delta < 60 * 1000 && delta > 0) {
+                    let lasta = data.timeline.data[0]
+                    // console.table(lasta)
+                    for (let i = start; i <= lasta.length - 1; i++) {
+                        tpsa[i] = lasta[i] * 60 * 1000 / (delta)
+                    }
+                    tpsa[1] = (lasta[3] + lasta[5] + lasta[7]) * 60 * 1000 / (delta)
+                    tpsa[2] = (lasta[4] + lasta[6] + lasta[8]) * 60 * 1000 / (delta)
+                }
+
+
+                let sum = data.timeline.data.reduce((a, b) => {
+                    let ret = []
+                    for (let i = start; i <= a.length - 1; i++) {
+                        ret[i] = a[i] + b[i]
+                    }
+                    return ret;
+                }, Array(11).fill(0, 3))
+
+                sum[1] = sum[3] + sum[5] + sum[7]
+                sum[2] = sum[4] + sum[6] + sum[8]
+
+
+                label1 = ['Thống kê', 'Tổng Vol', 'Tổng Val', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán']
+                for (var i = 0; i < label1.length; i++) {
+                    var th = document.createElement('th');
+                    if (i < 1) {
+                        th.textContent = label1[i];
+                    } else {
+                        // th.textContent = label1[i] + '/Phút\n' + Math.floor(sum[i]/data.timeline.data.length*100)/100;
+                        // th.textContent = label1[i] + '/Phút\n' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '\nT:' + numeral(sum[i]).format('0,0')
+                        //     + (tpsa[i] ? '\nctps: ' + numeral(tpsa[i]).format('0,0') : '');
+                        th.innerHTML = '<div>' + label1[i] + '/Phút</div>\n<div>' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '</div>\n<div>Tổng số</div>\n<div>'
+                            + numeral(sum[i]).format('0,0') + '</div>\n' + (tpsa[i] ? '<div>Tốc độ(now)</div>\n<div>' + numeral(tpsa[i]).format('0,0') + '</div>' : '')
+                    }
+                    theadRow.appendChild(th);
+
+                }
+                let pageLength = 10;
+                let page = 0;
+                if ($.fn.DataTable.isDataTable('#myTable')) {
+                    // console.log($('#myTable').DataTable().settings().init().pageLength)
+                    pageLength = $('#myTable').DataTable().page.len();
+                    page = $('#myTable').DataTable().page();
+                    $('#myTable').DataTable().destroy();
+
+                }
+                let datanew = data.timeline.data.map(e => {
+                    let ne = {};
+                    data.timeline.labels.forEach((l, i) => {
+                        ne[l] = i <= 2 ? e[i] : numeral(e[i]).format('0,0');
+                    });
+                    return ne
+                })
+                let table = $('#myTable').DataTable(
+                    {
+                        // paging: true,
+                        searching: true,
+                        data: datanew,
+                        destroy: true,
+                        columns: [
+                            ...data.timeline.labels.map(e => { return { data: e, orderable: true } })
+                        ],
+                        order: [[2, 'desc']],
+                        processing: true,
+                        ordering: true,
+                        scroller: true,
+                        // scrollY: 200,                        
+                        // serverSide: true,
+                        lengthMenu: [10, 25, 50, 100, 200, 500, 2000],
+                        pageLength: pageLength,
+                        dom: 'lBfrtip',
+                        buttons: [
+                            'copy',
+                            'excel', 'pdf',
+                            'colvis'
+                        ]
+
+                    }
+                );
+                // var table = $('#myTable').DataTable()
+                table.page(page).draw(false);
+
+                // table.rows.add(datanew).draw(true)                
+            }
+
+            // Populate Table 2
+            if (data.stats) {
+                var statsBody = document.getElementById('statsBody');
+                var statsHead = document.getElementById('statsHead');
+                statsHead.innerHTML = ''
+                var theadRow = document.createElement('tr');
+                statsHead.appendChild(theadRow);
+                for (var i = 0; i < data.stats.labels.length; i++) {
+                    var th = document.createElement('th');
+                    th.textContent = data.stats.labels[i];
+                    theadRow.appendChild(th);
+                }
+                statsBody.innerHTML = '';
+
+                var row = document.createElement('tr');
+                for (var j = 0; j < data.stats.labels.length; j++) {
+                    var cell = document.createElement('td');
+                    cell.textContent = j <= 2 ? data.stats.data[j] : numeral(data.stats.data[j]).format('0,0');
+                    row.appendChild(cell);
+                }
+                statsBody.appendChild(row);
+
+
+
+
+            }
+        }
+
+        socket.on('updateData', handlevnidata);
+
+
+        document.addEventListener('keydown', function (event) {
+            // Check if the pressed key is the one you want (e.g., 'Enter' key with keyCode 13)
+            if (event.key.toUpperCase() === 'R') {
+                chart.resetZoom();
+                myChart.resetZoom();
+                combineChart.resetZoom();
+                combineChart.update();
+                myChart.update();
+                chart.update()
+            }
+        });
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Use jQuery to load the sidebar from sidebar.html
+        $(document).ready(function () {
+            $('#sidebarContainer').load('sidebar.html');
+        });
+    </script>     -->
+</body>
+
+</html>
