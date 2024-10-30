@@ -315,7 +315,7 @@
         setInterval(getsymboldetail, 1000)
 
         function getvnindexdata() {
-            if (Date.now() - lastHandle >= 2000) {
+            if (Date.now() - lastHandle >= 1000) {
                 // console.log("Call api vnindexdata ", Date.now())
                 $.ajax({
                     url: 'api/vnindexdata', // Endpoint to get updated data
@@ -326,7 +326,7 @@
                 })
             }
         }
-        setInterval(getvnindexdata, 2000)
+        setInterval(getvnindexdata, 1000)
     </script>
 
 
@@ -587,7 +587,7 @@
         var combineChart = new Chart(ctxCombineChart, combineConfig);
 
         // Connect to the WebSocket server
-        var socket = io();
+        var socket = io({transports: ["websocket"]});
 
         var handlevnidata = function (data) {         
             // Populate Table 1
