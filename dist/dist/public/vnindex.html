@@ -275,6 +275,12 @@
             formatDateToYYMM(getNextMonth(getNextMonth(new Date()))),].map(e => 'VN30F' + e)
         }
 
+
+        const url = new URL(window.location.href);
+        const queryParams = url.searchParams;
+        var querydate = queryParams.get('querydate');
+        // if (!querydate) querydate = getNowDate()
+
         var VN30F = getPairVN30Feature().join()
         var lastDataVN30F;
         var lastVN30FIdx;
@@ -315,10 +321,11 @@
         setInterval(getsymboldetail, 1000)
 
         function getvnindexdata() {
-            if (Date.now() - lastHandle >= 1000) {
+            if (Date.now() - lastHandle >= 2000) {
                 // console.log("Call api vnindexdata ", Date.now())
                 $.ajax({
-                    url: 'api/vnindexdata', // Endpoint to get updated data
+                    // url: 'api/vnindexdata', // Endpoint to get updated data
+                    url: querydate ? 'api/vnindexdata?querydate=' + querydate : 'api/vnindexdata',
                     method: 'GET',
                     success: function (response) {
                         handlevnidata(response.data)
@@ -326,7 +333,7 @@
                 })
             }
         }
-        setInterval(getvnindexdata, 1000)
+        setInterval(getvnindexdata, 2000)
     </script>
 
 
@@ -589,7 +596,7 @@
         // Connect to the WebSocket server
         var socket = io({transports: ["websocket"]});
 
-        var handlevnidata = function (data) {         
+        var handlevnidata = function (data) {
             // Populate Table 1
             if (data.timeline) {
                 lastHandle = Date.now()

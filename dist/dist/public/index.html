@@ -353,6 +353,11 @@
             <li><a href="/chart3" target="_blank">VNINDEX</a></li>
             <li><a href="/vnindex" target="_blank">Vnindex New</a></li>
             <li>
+                <a href="#" class="parent-menu">Vnindex Days</a>
+                <ul id="menuvnindex" class="submenu">
+                </ul>
+            </li>
+            <li>
                 <a href="#" class="parent-menu">BySellSymbols</a>
                 <ul class="submenu">
                     <li><a href='/indicator?interval=60&filter=and(ge(16,200000),ct(0,"DIG","DXG","NVL","KBC","NLG","VIX","VCI"))'
@@ -648,6 +653,36 @@
         </div>
     </div>
     <script>
+        function getBeforeDate(d) {
+            let today = new Date();
+            today.setDate(today.getDate() - d); // Lùi lại 1 ngày
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1; // Tháng trong JavaScript bắt đầu từ 0
+            let date = today.getDate();
+
+            // Kiểm tra xem có phải Thứ Bảy hoặc Chủ Nhật không
+            let dayOfWeek = today.getDay(); // 0: Chủ Nhật, 6: Thứ Bảy
+            let weekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+            return {
+                format:
+                    year +
+                    "" +
+                    (month < 10 ? "0" + month : month) +
+                    "" +
+                    (date < 10 ? "0" + date : date),
+                weekend: weekend,
+            };
+
+            // return (
+            //     year +
+            //     "" +
+            //     (month < 10 ? "0" + month : month) +
+            //     "" +
+            //     (date < 10 ? "0" + date : date)
+            // );
+        }
+
         function cbpre() {
             $('#noti').text('')
         }
@@ -1523,6 +1558,13 @@
             $(".parent-menu").click(function () {
                 $(this).next(".submenu").slideToggle();
             });
+            for (let d = 1; d < 30; d++) {
+                let querydate = getBeforeDate(d);
+                if(querydate.weekend) continue;
+                let menuItem = `<li><a href="/vnindex?querydate=${querydate.format}" target="_blank">Vnindex ${querydate.format}</a></li>`;
+                $("#menuvnindex").append(menuItem);
+            }            
+
         });
 
         document.addEventListener('DOMContentLoaded', function () {
