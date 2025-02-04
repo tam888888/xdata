@@ -38,6 +38,7 @@
     <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chart.js"></script>
     <script src="https://github.com/tam888888/stockData/releases/download/1.0.0/chartjs-plugin-zoom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <style>
         div.dataTables_wrapper div.dataTables_info {
             padding-top: 0px;
@@ -512,6 +513,15 @@
                         }
                     },
                     {
+                        targets: 2,
+                        render: function (data, type, row, meta) {
+                            if (type === 'display') {                                
+                                data = moment(data, 'X').format("YY/MM/DD")
+                            }
+                            return data;
+                        }
+                    },
+                    {
                         targets: [3, 4],
                         render: function (data, type, row, meta) {
                             if (type === 'display') {
@@ -607,6 +617,16 @@
                         render: function (data, type, row, meta) {
                             if (type === 'display') {
                                 data = numeral(data).format('0,0');
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        targets: 2,
+                        render: function (data, type, row, meta) {
+                            if (type === 'display') {
+                                if(data)                                
+                                    data = moment(data, 'X').format("YY/MM/DD")
                             }
                             return data;
                         }
