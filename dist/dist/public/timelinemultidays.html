@@ -367,8 +367,10 @@
                     },
                     {
                         label: 'MuaCĐ',
+                        type: 'bar',
                         lineTension: lineTension,
                         yAxisID: 'y-axis-value',
+                        backgroundColor: 'green', // Màu cột
                         borderColor: 'green',
                         data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
                         fill: false,
@@ -379,8 +381,10 @@
                     },
                     {
                         label: 'BánCĐ',
+                        type: 'bar',
                         lineTension: lineTension,
                         yAxisID: 'y-axis-value',
+                        backgroundColor: 'red', // Màu cột
                         borderColor: 'red',
                         data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
                         fill: false,
@@ -391,6 +395,7 @@
                     },
                     {
                         label: 'Đặt Mua',
+                        // type: 'scatter',                         
                         lineTension: lineTension,
                         yAxisID: 'y-axis-dvalue',
                         borderColor: 'Olive',
@@ -403,6 +408,7 @@
                     },
                     {
                         label: 'Đặt Bán',
+                        // type: 'scatter',                         
                         lineTension: lineTension,
                         yAxisID: 'y-axis-dvalue',
                         borderColor: 'brown',
@@ -412,6 +418,90 @@
                         pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
                         borderWidth: 2, // Kích thước của đường
                         hidden: (!eordersell || eordersell == 'true') ? false : true
+                    },
+                    {
+                        label: 'CSMuaCĐ',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-csvalue',
+                        backgroundColor: 'green', // Màu cột
+                        borderColor: 'green',
+                        data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                        fill: false,
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường
+                        hidden: (!ebuy || ebuy == 'true') ? false : true
+                    },
+                    {
+                        label: 'CSBánCĐ',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-csvalue',
+                        backgroundColor: 'red', // Màu cột
+                        borderColor: 'red',
+                        data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                        fill: false,
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường
+                        hidden: (!esell || esell == 'true') ? false : true
+                    },
+                    {
+                        label: 'MVMuaCĐ',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-value',
+                        backgroundColor: 'green', // Màu cột
+                        borderColor: 'green',
+                        data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                        fill: false,
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường
+                        hidden: (!ebuy || ebuy == 'true') ? false : true
+                    },
+                    {
+                        label: 'MVBánCĐ',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-value',
+                        backgroundColor: 'red', // Màu cột
+                        borderColor: 'red',
+                        data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                        fill: false,
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường
+                        hidden: (!esell || esell == 'true') ? false : true
+                    },
+                    {
+                        label: 'CSTổng',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-csvalue',
+                        borderColor: 'blue',
+                        backgroundColor: 'blue', // Màu cột
+                        data: [65, 59, 80, 81, 56, 55],
+                        fill: false,
+                        hidden: false, // Ẩn đường này mặc định
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường                        
+                    },
+                    {
+                        label: 'M-B',
+                        type: 'line',
+                        lineTension: lineTension,
+                        yAxisID: 'y-axis-csvalue',
+                        borderColor: 'black',
+                        backgroundColor: 'black', // Màu cột
+                        data: [65, 59, 80, 81, 56, 55],
+                        fill: false,
+                        hidden: true, // Ẩn đường này mặc định
+                        pointRadius: 2, // Kích thước đánh dấu
+                        pointHoverRadius: 6, // Kích thước đánh dấu khi di chuột qua   
+                        borderWidth: 2, // Kích thước của đường                        
                     },
                 ],
             };
@@ -445,7 +535,7 @@
                             suggestedMin: 1000000000000,  // Bắt đầu từ 999 
                             ticks: {
                                 callback: function (value, index, values) {
-                                    return numeral(+value / 1000000000).format('0,0.00')
+                                    return numeral(+value / 1000000000).format('0,0.0')
                                 }
                             }
                         },
@@ -463,7 +553,25 @@
                             suggestedMin: 1000000000000,  // Bắt đầu từ 999  
                             ticks: {
                                 callback: function (value, index, values) {
-                                    return numeral(+value / 1000000000).format('0,0.00')
+                                    return numeral(+value / 1000000000).format('0,0.0')
+                                }
+                            }
+                        },
+                        'y-axis-csvalue': {
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'CS Mua Bán(Tỉ)',
+                                font: {
+                                    size: 18,          // Kích thước phông chữ
+                                    weight: 'bold',  // In đậm                                
+                                }
+                            },
+                            beginAtZero: false,
+                            suggestedMin: 1000000000000,  // Bắt đầu từ 999  
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    return numeral(+value / 1000000000).format('0,0.0')
                                 }
                             }
                         },
@@ -515,7 +623,7 @@
                     {
                         targets: 2,
                         render: function (data, type, row, meta) {
-                            if (type === 'display') {                                
+                            if (type === 'display') {
                                 data = moment(data, 'X').format("YY/MM/DD")
                             }
                             return data;
@@ -625,7 +733,7 @@
                         targets: 2,
                         render: function (data, type, row, meta) {
                             if (type === 'display') {
-                                if(data)                                
+                                if (data)
                                     data = moment(data, 'X').format("YY/MM/DD")
                             }
                             return data;
@@ -672,7 +780,22 @@
 
             }
         );
-
+        function c(v) {
+            return v ? v : 0
+        }
+        function cumulativeSum(data) {
+            let sum = 0;
+            return data.map(value => sum += value ? value : 0);
+        }
+        function movingAverage(data, windowSize) {
+            let result = [];
+            for (let i = 0; i < data.length; i++) {
+                const window = data.slice(Math.max(i - windowSize + 1, 0), i + 1);
+                const avg = window.reduce((sum, value) => value ? sum + value : sum, 0) / window.length;
+                result.push(avg);
+            }
+            return result;
+        }
         async function updateChart(combineChart, data) {
             combineChart.data.labels = data.data.map(e => e.time)
             combineChart.data.datasets[0].data = data.data.map(e => e.price)
@@ -687,6 +810,18 @@
             combineChart.data.datasets[3].data = data.data.map(e => e.sd_val)
             combineChart.data.datasets[4].data = data.data.map(e => e.bid_val)
             combineChart.data.datasets[5].data = data.data.map(e => e.ask_val)
+            combineChart.data.datasets[6].data = cumulativeSum(data.data.map(e => e.bu_val))
+            combineChart.data.datasets[7].data = cumulativeSum(data.data.map(e => e.sd_val))
+            combineChart.data.datasets[8].data = movingAverage(data.data.map(e => e.bu_val), 5)
+            combineChart.data.datasets[9].data = movingAverage(data.data.map(e => e.sd_val), 5)
+            combineChart.data.datasets[10].data = cumulativeSum(data.data.map(e => {
+                let t = 0;
+                [e.bu_val, e.sd_val, e.unknown_val].forEach(ee => {
+                    if (ee) t += ee;
+                })
+                return t;
+            }))
+            combineChart.data.datasets[11].data = cumulativeSum(data.data.map(e => c(e.bu_val) - c(e.sd_val)))
             combineChart.update();
         }
 
@@ -772,6 +907,16 @@
 
         $(document).ready(function () {
 
+        });
+
+        document.addEventListener('keydown', function (event) {
+            // Check if the pressed key is the one you want (e.g., 'Enter' key with keyCode 13)
+            if (event.key.toUpperCase() === 'R') {
+                for (let [k, v] of Object.entries(mapChart)) {
+                    v.resetZoom();
+                    v.update()
+                }
+            }
         });
 
 

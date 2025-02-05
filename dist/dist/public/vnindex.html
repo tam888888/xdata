@@ -288,7 +288,7 @@
 
         function getsymboldetail() {
             $.ajax({
-                url: 'api/symboldetail?symbols=' + VN30F, // Endpoint to get updated data
+                url: querydate ? 'api/symboldetail?symbols=' + VN30F + '&querydate=' + querydate : 'api/symboldetail?symbols=' + VN30F, // Endpoint to get updated data
                 method: 'GET',
                 success: function (response) {
                     // console.table(response)
@@ -405,13 +405,17 @@
                 },
                 {
                     label: 'MuaCĐ',
+                    type: 'bar',
                     borderColor: 'green',
+                    backgroundColor: 'green', // Màu cột
                     data: [28, 48, 40, 19, 86, 27],
                     fill: false,
                 },
                 {
                     label: 'BánCĐ',
+                    type: 'bar',
                     borderColor: 'red',
+                    backgroundColor: 'red', // Màu cột
                     data: [45, 68, 58, 33, 72, 47],
                     fill: false,
                 },
@@ -463,17 +467,21 @@
                 },
                 {
                     label: 'MuaCĐ',
+                    type: 'bar',
                     lineTension: lineTension,
                     yAxisID: 'y-axis-value',
                     borderColor: 'green',
+                    backgroundColor: 'green', // Màu cột
                     data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
                     fill: false,
                 },
                 {
                     label: 'BánCĐ',
+                    type: 'bar',
                     lineTension: lineTension,
                     yAxisID: 'y-axis-value',
                     borderColor: 'red',
+                    backgroundColor: 'red', // Màu cột
                     data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
                     fill: false,
                 },
@@ -496,10 +504,69 @@
                 {
                     label: 'VN30F1M',
                     lineTension: lineTension,
-                    yAxisID: 'y-axis-vnindex',
+                    yAxisID: 'y-axis-vn30findex',
                     data: [],
                     borderColor: 'purple',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)'
+                },
+                {
+                    label: 'CSTổng',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-csvalue',
+                    borderColor: 'blue',
+                    data: [65, 59, 80, 81, 56, 55],
+                    fill: false,
+                    hidden: false // Ẩn đường này mặc định
+                },
+                {
+                    label: 'CSMuaCĐ',
+                    type: 'line',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-csvalue',
+                    borderColor: 'green',
+                    backgroundColor: 'green', // Màu cột
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'CSBánCĐ',
+                    type: 'line',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-csvalue',
+                    borderColor: 'red',
+                    backgroundColor: 'red', // Màu cột
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'MVMuaCĐ',
+                    type: 'line',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-value',
+                    borderColor: 'green',
+                    backgroundColor: 'green', // Màu cột
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'MVBánCĐ',
+                    type: 'line',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-value',
+                    borderColor: 'red',
+                    backgroundColor: 'red', // Màu cột
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
+                },
+                {
+                    label: 'Diff',
+                    type: 'line',
+                    lineTension: lineTension,
+                    yAxisID: 'y-axis-diffvalue',
+                    borderColor: 'Black',
+                    backgroundColor: 'Black', // Màu cột
+                    data: Array(6).fill().map(() => Math.floor(Math.random() * 100)),
+                    fill: false,
                 },
             ],
         };
@@ -542,6 +609,17 @@
                             }
                         },
                     },
+                    'y-axis-vn30findex': {
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'VN30F',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                    },
                     'y-axis-value': {
                         position: 'right',
                         title: {
@@ -553,7 +631,12 @@
                             }
                         },
                         beginAtZero: false,
-                        suggestedMin: 1000000000000,  // Bắt đầu từ 999                        
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999    
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return numeral(+value / 1000000000).format('0,0.0')
+                            }
+                        }
                     },
                     'y-axis-dvalue': {
                         position: 'right',
@@ -566,7 +649,48 @@
                             }
                         },
                         beginAtZero: false,
-                        suggestedMin: 1000000000000,  // Bắt đầu từ 999                        
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999 
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return numeral(+value / 1000000000).format('0,0.0')
+                            }
+                        }
+                    },
+                    'y-axis-csvalue': {
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'CumSum',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999 
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return numeral(+value / 1000000000).format('0,0.0')
+                            }
+                        }
+                    },
+                    'y-axis-diffvalue': {
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'DIFF',
+                            font: {
+                                size: 24,          // Kích thước phông chữ
+                                weight: 'bold',  // In đậm                                
+                            }
+                        },
+                        beginAtZero: false,
+                        suggestedMin: 1000000000000,  // Bắt đầu từ 999 
+                        ticks: {
+                            callback: function (value, index, values) {
+                                return numeral(+value / 1000000000).format('0,0.0')
+                            }
+                        }
                     },
                 },
                 plugins: {
@@ -594,8 +718,20 @@
         var combineChart = new Chart(ctxCombineChart, combineConfig);
 
         // Connect to the WebSocket server
-        var socket = io({transports: ["websocket"]});
-
+        var socket = io({ transports: ["websocket"] });
+        function cumulativeSum(data) {
+            let sum = 0;
+            return data.map(value => sum += value ? value : 0);
+        }
+        function movingAverage(data, windowSize) {
+            let result = [];
+            for (let i = 0; i < data.length; i++) {
+                const window = data.slice(Math.max(i - windowSize + 1, 0), i + 1);
+                const avg = window.reduce((sum, value) => value ? sum + value : sum, 0) / window.length;
+                result.push(avg);
+            }
+            return result;
+        }
         var handlevnidata = function (data) {
             // Populate Table 1
             if (data.timeline) {
@@ -620,6 +756,12 @@
                 combineChart.data.datasets[5].data = d.map(e => e[14])
                 if (lastDataVN30F)
                     combineChart.data.datasets[6].data = lastDataVN30F
+                combineChart.data.datasets[7].data = cumulativeSum(d.map(e => e[4] + e[6] + e[8]))
+                combineChart.data.datasets[8].data = cumulativeSum(d.map(e => e[6]))
+                combineChart.data.datasets[9].data = cumulativeSum(d.map(e => e[8]))
+                combineChart.data.datasets[10].data = movingAverage(d.map(e => e[6]), 5)
+                combineChart.data.datasets[11].data = movingAverage(d.map(e => e[8]), 5)
+                combineChart.data.datasets[12].data = cumulativeSum(d.map(e => e[6] - e[8]))
                 combineChart.update();
 
                 data.timeline.data.sort((a, b) => { return b[2] - a[2] })
