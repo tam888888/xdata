@@ -15,6 +15,7 @@
     "chartjs-plugin-zoom": "^2.0.1",
     "datatables.net": "^1.13.6",
     "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
     "numeral": "^2.0.6",
     "orc": "^0.0.17",
     "parquetjs": "^0.11.2",
