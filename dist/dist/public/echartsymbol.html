@@ -57,6 +57,62 @@
 
         var lpos = queryParams.get('lpos');
         if (!lpos) lpos = 'inside'
+
+        function s2b(str) {
+            return str.toLowerCase() === 'true';
+        }
+
+        var opct = queryParams.get('opct');
+        if (!opct) opct = false
+        else opct = s2b(opct)
+
+        var obusd = queryParams.get('obusd');
+        if (!obusd) obusd = true
+        else obusd = s2b(obusd)
+
+
+        var obu_val = queryParams.get('obu_val');
+        if (!obu_val) obu_val = false
+        else obu_val = s2b(obu_val)
+
+
+        var ototal_val = queryParams.get('ototal_val');
+        if (!ototal_val) ototal_val = false
+        else ototal_val = s2b(ototal_val)
+
+        var osd_val = queryParams.get('osd_val');
+        if (!osd_val) osd_val = false
+        else osd_val = s2b(osd_val)
+
+        var oabusd = queryParams.get('oabusd');
+        if (!oabusd) oabusd = false
+        else oabusd = s2b(oabusd)
+
+
+        var oabu_val = queryParams.get('oabu_val');
+        if (!oabu_val) oabu_val = false
+        else oabu_val = s2b(oabu_val)
+
+
+        var oatotal_val = queryParams.get('oatotal_val');
+        if (!oatotal_val) oatotal_val = false
+        else oatotal_val = s2b(oatotal_val)
+
+        var oasd_val = queryParams.get('oasd_val');
+        if (!oasd_val) oasd_val = false
+        else oasd_val = s2b(oasd_val)
+
+        var uxl = queryParams.get('uxl');
+        if (!uxl) uxl = 0
+        else uxl = +uxl
+
+        var symbols = queryParams.get('symbols');
+        let symbolsa = []
+        if (symbols) {
+            symbolsa = symbols.split(',')
+        }
+
+
         // if (!querydate) querydate = getNowDate()
 
         var dom = document.getElementById('timelineChart');
@@ -117,7 +173,7 @@
         var URL2 = querydate ? 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries2?querydate=' + querydate : 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries'
 
         // var ROOT_PATH = 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries'
-        var ROOT_PATH = URL;
+        var ROOT_PATH = uxl == 0 ? URL : URL2;
         var option;
 
         var adata = [];
@@ -127,24 +183,48 @@
         }
 
         // setInterval(() => {
+        var fd = ['busd', 'total_val', 'bu_val', 'sd_val']
         $.get(ROOT_PATH, function (data) {
             console.log("Load data")
             myChart.hideLoading();
+            Object.values(data).forEach(e => {
+                var sum = { bu_val: 0, sd_val: 0, busd: 0, total_val: 0 }
+                var last = null;
+                Object.entries(e).filter(e => e[0] != 'dataacum').forEach(e => {
+                    fd.forEach(f => {
+                        if (f === 'total_val')
+                            e[1][f] = (val(e[1]['bu_val']) + val(e[1]['sd_val']) + val(e[1]['unknown_val']))
+                        if (f === 'busd')
+                            e[1][f] = (val(e[1]['bu_val']) - val(e[1]['sd_val']))
+                        sum[f] += val(e[1][f])
+                        e[1]['a' + f] = sum[f]
+                    })
+                    if (last) {
+                        e[1]['delta'] = val(e[1]['pct']) - val(last['pct'])
+                    }
+                    last = e[1];
+                })
+            })
             Object.values(data).forEach(e => { adata.push(...Object.entries(e).filter(e => e[0] != 'dataacum').map(e => e[1]).map(e => { e['time_symbol'] = e['time'] + "_" + e['symbol']; return e })) })
 
-            adata = adata.map(e => {
-                return {
-                    ...e,
-                    total_val: (val(e['bu_val']) + val(e['sd_val']) + val(e['unknown_val']))
-                    , busd: (val(e['bu_val']) - val(e['sd_val']))
-                }
-            })
+            // adata = adata.map(e => {
+            //     return {
+            //         ...e,
+            //         total_val: (val(e['bu_val']) + val(e['sd_val']) + val(e['unknown_val']))
+            //         , busd: (val(e['bu_val']) - val(e['sd_val']))
+            //     }
+            // })
             adata.sort((a, b) => {
                 if (a['T'] !== b['T']) {
                     return a['T'] - b['T']; // Sắp xếp theo T trước
                 }
                 return a['symbol'].localeCompare(b['symbol']); // Nếu T giống nhau, sắp xếp theo symbol
             });
+            var adataf = null;
+            if (symbolsa.length > 0) {
+                adataf = adata.filter(e => { return symbolsa.includes(e['symbol']) })
+            }
+
             myChart.setOption(
                 (option = {
                     tooltip: {
@@ -152,30 +232,53 @@
                         triggerOn: 'mousemove',
                         formatter: function (data) {
                             // Truy cập vào dữ liệu cần hiển thị trong tooltip
-                            var price = data.data['price'];
-                            var priceref = data.data['priceref'];
-                            var ceiling = data.data['ceiling'];
-                            var floor = data.data['floor'];
-                            var change = data.data['change'];
-                            var pct = data.data['pct'];
                             var x = data.data;
-                            var total_val = val(x['bu_val']) + val(x['sd_val']) + val(x['unknown_val'])
-                            var total = val(x['bu_vol']) + val(x['sd_vol']) + val(x['unknown_vol'])
-                            total_val = numeral(total_val).format('0,0')
-                            total = numeral(total).format('0,0')
+                            var price = x['price'];
+                            var priceref = x['priceref'];
+                            var ceiling = x['ceiling'];
+                            var floor = x['floor'];
+                            var change = x['change'];
+                            var pct = x['pct'];
+                            var symbol = x['symbol'];
+
+                            // Các giá trị khác
+                            var total_val = val(x['bu_val']) + val(x['sd_val']) + val(x['unknown_val']);
+                            var total_vol = val(x['bu_vol']) + val(x['sd_vol']) + val(x['unknown_vol']);
+
+                            // Định dạng số cho giá trị
+                            total_val = numeral(total_val).format('0,0');
+                            total_vol = numeral(total_vol).format('0,0');
+
                             // Tạo chuỗi tooltip theo định dạng yêu cầu
                             return `
-                                    <div><strong>Symbol:</strong> ${data.data['symbol']}</div>
+                                    <div><strong>Symbol:</strong> ${symbol}</div>
                                     <div><strong>Val:</strong> ${total_val}</div>
-                                    <div><strong>Vol:</strong> ${total}</div>
+                                    <div><strong>Vol:</strong> ${total_vol}</div>
                                     <div><strong>Price:</strong> ${price}</div>
                                     <div><strong>Price Reference:</strong> ${priceref}</div>
                                     <div><strong>Change:</strong> ${change}</div>
                                     <div><strong>Percentage:</strong> ${pct}%</div>
+                                    <div><strong>Delta:</strong> ${numeral(x['delta']).format('0,0.00')}</div>
                                     <div><strong>Ceiling:</strong> ${ceiling}</div>
                                     <div><strong>Floor:</strong> ${floor}</div>
+                                    <div><strong>Open:</strong> ${x['open']}</div>
+                                    <div><strong>Close:</strong> ${x['close']}</div>
+                                    <div><strong>High:</strong> ${x['high']}</div>
+                                    <div><strong>Low:</strong> ${x['low']}</div>
+                                    <div><strong>Bid Vol:</strong> ${numeral(x['bid_vol']).format('0,0')}</div>
+                                    <div><strong>Bid Val:</strong> ${numeral(x['bid_val']).format('0,0')}</div>
+                                    <div><strong>Ask Vol:</strong> ${numeral(x['ask_vol']).format('0,0')}</div>
+                                    <div><strong>Ask Val:</strong> ${numeral(x['ask_val']).format('0,0')}</div>
+                                    <div><strong>Busd Vol:</strong> ${numeral(x['busd_vol']).format('0,0')}</div>
+                                    <div><strong>Busd Val:</strong> ${numeral(x['busd_val']).format('0,0')}</div>
+                                    <div><strong>Total Val:</strong> ${numeral(x['total_val']).format('0,0')}</div>
+                                    <div><strong>Atotal Val:</strong> ${numeral(x['atotal_val']).format('0,0')}</div>
+                                    <div><strong>Abusd:</strong> ${numeral(x['abusd']).format('0,0')}</div>
+                                    <div><strong>Abu Val:</strong> ${numeral(x['abu_val']).format('0,0')}</div>
+                                    <div><strong>Asd Val:</strong> ${numeral(x['asd_val']).format('0,0')}</div>
                                 `;
                         }
+
                     },
                     toolbox: {
                         feature: {
@@ -186,18 +289,44 @@
                         }
                     },
                     legend: {
-                        data: ['pct', 'busd', 'bu_val', 'total_val', 'sd_val'],
+                        data: ['pct', 'busd', 'total_val', 'bu_val', 'sd_val', 'abusd', 'atotal_val', 'abu_val', 'asd_val'],
                         selected: {
-                            pct: true,  // This will hide the 'pct' legend by default
-                            busd: false,
-                            bu_val: false,
-                            total_val: true,
-                            sd_val: false
+                            pct: opct,  // This will hide the 'pct' legend by default
+                            busd: obusd,
+                            bu_val: obu_val,
+                            total_val: ototal_val,
+                            sd_val: osd_val,
+                            abusd: oabusd,
+                            abu_val: oabu_val,
+                            atotal_val: oatotal_val,
+                            asd_val: oasd_val
+                        },
+                        formatter: function (name) {
+                            if (name === 'pct') {
+                                return '%Thay Đổi';
+                            } else if (name === 'busd') {
+                                return 'Mua-Bán';
+                            } else if (name === 'total_val') {
+                                return 'Tổng Giá Trị';
+                            } else if (name === 'bu_val') {
+                                return 'MuaCĐ';
+                            } else if (name === 'sd_val') {
+                                return 'BánCĐ';
+                            } else if (name === 'abusd') {
+                                return 'AcumMua-Bán';
+                            } else if (name === 'atotal_val') {
+                                return 'AcumTổng Giá Trị';
+                            } else if (name === 'abu_val') {
+                                return 'AcumMuaCĐ';
+                            } else if (name === 'asd_val') {
+                                return 'AcumBánCĐ';
+                            }
+                            return name; // trả về tên gốc nếu không có điều kiện nào được thỏa mãn
                         }
                     },
                     dataset: {
-                        dimensions: [xaxis, 'pct', 'busd', 'total_val', 'bu_val', 'sd_val'],
-                        source: adata,
+                        dimensions: [xaxis, 'pct', 'busd', 'total_val', 'bu_val', 'sd_val', 'abusd', 'atotal_val', 'abu_val', 'asd_val'],
+                        source: adataf ? adataf : adata,
                     },
                     xAxis: { type: 'category', top: '80%' },
                     yAxis: [{ label: 'Value' }, { label: 'Percent' }],
@@ -241,6 +370,81 @@
                     //         end: 100
                     //     }
                     // ],
+                    series: Array(9).fill(null).map((_, index) => ({
+                        type: 'scatter',
+                        symbolSize: function (data) {
+                            // console.log(data)
+                            var size = Math.sqrt((val(data['bu_val']) + val(data['sd_val']) + val(data['unknown_val'])) / 1e8);
+                            if (size <= 2) size = 2
+                            return size;  // Điều chỉnh kích thước điểm
+                        },
+                        symbol: function (value, params) {
+                            const delta = value['delta'];
+                            if (!delta || delta == 0) return 'circle';
+                            if (delta > 0) return 'triangle'; // Tăng giá
+                            if (delta < 0) return 'triangle'; // Giảm giá
+                            return 'circle'; // Giữ giá
+                        },
+                        symbolRotate: function (value, params) {
+                            const delta = value['delta'];
+                            if (delta < 0) return 180; // Giảm giá
+                            return 0; // Giữ giá
+                        },
+                        yAxisIndex: index === 0 ? 1 : 0,
+                        large: true, // Enable large-scale optimization
+                        largeThreshold: 200000,
+                        // progressive: 5000, // Progressive rendering (vẽ từng phần)
+                        itemStyle: {
+                            color: function (data) {
+                                var price = data.data['price'];
+                                var priceref = data.data['priceref'];
+                                var ceiling = data.data['ceiling'];
+                                var floor = data.data['floor'];
+
+                                // Nếu price bằng ceiling thì chọn màu tím
+                                if (price == ceiling) {
+                                    return 'purple'; // Màu tím nếu giá bằng với ceiling
+                                }
+                                // Nếu price bằng floor thì chọn màu xanh lơ
+                                else if (price == floor) {
+                                    return 'lightblue'; // Màu xanh lơ nếu giá bằng với floor
+                                }
+                                // Nếu không thì chọn màu xanh nếu price >= priceref, ngược lại đỏ
+                                else {
+                                    return price >= priceref ? (price > priceref ? 'rgb(0, 255, 0)' : 'rgb(255, 215, 0)') : 'rgb(255, 0, 0)';
+                                }
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: lpos,
+                            formatter: function (data) {
+                                // console.log(data)
+                                // Kiểm tra pct để chỉ hiển thị nhãn nếu pct > 3 hoặc pct < -3
+                                var x = data.data;
+                                return `${x['symbol']}`;
+                                var total = val(x['bu_val']) + val(x['sd_val']) + val(x['unknown_val'])
+                                // if (
+                                //     (total >= 1e8 && (x['pct'] > 2 || x['pct'] < -3))
+                                //     || (total >= 1e9 && (x['pct'] > 0.7 || x['pct'] < -3))
+                                //     // || (x['pct'] > 6 || x['pct'] < -6)
+                                // ) {
+                                //     return `${x['symbol']}`; // Hiển thị pct của symbol
+                                // }
+                                // return ''; // Không hiển thị gì nếu pct không thoả mãn điều kiện
+                                return `${x['symbol']}`;
+                            },
+                            fontSize: 8,  // Điều chỉnh font size ở đây
+                            // fontWeight: 'bold',
+                            color: '#333',
+                        },
+                        labelLayout: {
+                            moveOverlap: 'hide',  // Shift the label if there is overlap
+                            hideOverlap: true,
+                            // minDistance: 10,       // Minimum distance between the label and other points
+                        },
+                    })),
+                    /**
                     series: [
                         {
                             type: 'scatter',
@@ -545,6 +749,7 @@
                         },
 
                     ]
+                    **/
 
                 })
             );

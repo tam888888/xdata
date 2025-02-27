@@ -447,12 +447,56 @@
             <li>
                 <a href="#" class="parent-menu">Top Transactions</a>
                 <ul class="submenu">
-                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top" target="_blank">ToDay Time</a></li>
-                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top" target="_blank">ToDay Time Symbol</a></li>
-                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=inside&querydate=20250224" target="_blank">20250224 Time</a></li>
-                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=inside&querydate=20250224" target="_blank">20250224 Time Symbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&opct=true" target="_blank">Thay Đổi
+                            Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=true" target="_blank">Mua Bán Now</a>
+                    </li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&obu_val=true" target="_blank">Mua
+                            Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&osd_val=true" target="_blank">Bán
+                            Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&ototal_val=true"
+                            target="_blank">Tổng Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&oabusd=true" target="_blank">Tích
+                            luỹ Mua Bán Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&oabu_val=true" target="_blank">Tích
+                            luỹ Mua Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&oasd_val=true" target="_blank">Tích
+                            luỹ Bán Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&oatotal_val=true"
+                            target="_blank">Tích Luỹ Tổng Now</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=false&opct=true" target="_blank">Thay Đổi
+                            NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=true" target="_blank">Mua Bán
+                            NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&obu_val=true"
+                            target="_blank">Mua NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&osd_val=true"
+                            target="_blank">Bán NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&ototal_val=true"
+                            target="_blank">Tổng NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&oabusd=true"
+                            target="_blank">Tích luỹ Mua Bán NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&oabu_val=true"
+                            target="_blank">Tích luỹ Mua NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&oasd_val=true"
+                            target="_blank">Tích luỹ Bán NowSymbol</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top&obusd=false&oatotal_val=true"
+                            target="_blank">Tích Luỹ Tổng NowSymbol</a></li>
+
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=top" target="_blank">ToDay Time Symbol</a>
+                    </li>
+                    <li><a href="/echartsymbol.html?&xaxis=time&lpos=inside&querydate=20250224" target="_blank">20250224
+                            Time</a></li>
+                    <li><a href="/echartsymbol.html?&xaxis=time_symbol&lpos=inside&querydate=20250224"
+                            target="_blank">20250224 Time Symbol</a></li>
                 </ul>
-            </li>            
+            </li>
+            <li>
+                <a href="#" class="parent-menu">Transactions Days</a>
+                <ul id="menuTop" class="submenu">
+                </ul>
+            </li>
             <!-- <li><a href="/sectors?interval=300" target="_blank">BuySellSectors</a></li>
             <li><a href="/sectorschart?percent=x&interval=5&minVal=5000000000" target="_blank">Sector Chart With
                     Percent</a></li>
@@ -805,7 +849,7 @@
             updateDataTable()
         }
 
-        async function clearCache() {            
+        async function clearCache() {
             var a = await getAll()
             if (a) {
                 a.forEach(e => { del(e.id) })
@@ -1616,6 +1660,12 @@
                 $("#menuvnindex").append(menuItem);
             }
 
+            for (let d = 1; d < 30; d++) {
+                let querydate = getBeforeDate(d);
+                if (querydate.weekend) continue;
+                let menuItem = `<li><a href="/echartsymbol.html?&xaxis=time&lpos=top&obusd=true&querydate=${querydate.format}" target="_blank">Mua Bán ${querydate.format}</a></li>`;
+                $("#menuTop").append(menuItem);
+            }
         });
 
         document.addEventListener('DOMContentLoaded', function () {
