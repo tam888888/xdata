@@ -120,6 +120,7 @@
             symbolsa = symbols.split(',')
         }
 
+        var recently = queryParams.get('recently');
 
         var dom = document.getElementById('timelineChart');
         var myChart = echarts.init(dom, null, {
@@ -127,8 +128,8 @@
             // useDirtyRect: false
         });
 
-        var URL = querydate ? '/api/getsymboldataseries2?querydate=' + querydate : '/api/getsymboldataseries'
-        var URL2 = querydate ? 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries2?querydate=' + querydate : 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries'
+        var URL = querydate ? '/api/getsymboldataseries3?querydate=' + querydate : '/api/getsymboldataseries3'
+        var URL2 = querydate ? 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries3?querydate=' + querydate : 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/getsymboldataseries3'
 
         var ROOT_PATH = uxl == 0 ? URL : URL2;
 
@@ -150,9 +151,31 @@
         var p = (base) => {
             // if (base.base) console.log("Call base")
             // else console.log("Call interval")
+            var ROOT_PATH_NOW = ROOT_PATH;
+            if (!base.base)
+                if (recently) ROOT_PATH_NOW = ROOT_PATH + "&recently=" + recently
+
 
             var fd = ['busd', 'total_val', 'bu_val', 'sd_val']
-            $.get(ROOT_PATH, function (data) {
+            $.get(ROOT_PATH_NOW, function (data) {
+                if (base.base)
+                    base.last = data;
+                else {
+                    if (recently) {
+                        Object.entries(data).forEach(e => {
+                            if (base.last[e[0]]) {
+                                Object.entries(e[1]).forEach(ee => {
+                                    base.last[e[0]][ee[0]] = ee[1]
+                                })
+                            } else {
+                                base.last[e[0]] = e[1]
+                            }
+                        })
+                    } else {
+                        base.last = data;
+                    }
+
+                }
                 console.log("Load data")
                 myChart.hideLoading();
 
@@ -160,7 +183,7 @@
                     var min = amin;
                     var max = amax;
                     countmap = {}
-                    Object.values(data).forEach(e => {
+                    Object.values(base.last).forEach(e => {
                         var sum = { bu_val: 0, sd_val: 0, busd: 0, total_val: 0 }
                         var last = null;
                         Object.entries(e).filter(e => e[0] != 'dataacum').forEach(e => {
@@ -198,7 +221,7 @@
                         })
                     })
                     adata.length = 0
-                    Object.values(data).forEach(e => {
+                    Object.values(base.last).forEach(e => {
                         adata.push(...Object.entries(e).filter(e => e[0] != 'dataacum').map(e => e[1]).map(e => {
                             e['CT'] = countmap[e['time']].T
                             e['CG'] = countmap[e['time']].G
