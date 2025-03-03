@@ -153,7 +153,7 @@
             // else console.log("Call interval")
             var ROOT_PATH_NOW = ROOT_PATH;
             if (!base.base)
-                if (recently) ROOT_PATH_NOW = ROOT_PATH + "&recently=" + recently
+                if (recently) ROOT_PATH_NOW = ROOT_PATH.includes('?') ? ROOT_PATH + "&recently=" + recently : ROOT_PATH + "?recently=" + recently
 
 
             var fd = ['busd', 'total_val', 'bu_val', 'sd_val']
