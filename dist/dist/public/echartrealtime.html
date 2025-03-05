@@ -303,6 +303,19 @@
                                     <div><strong>Asd Val:</strong> ${numeral(x['asd_val']).format('0,0')}</div>
                                     <div><strong>VNINDEX:</strong> ${x['VNINDEX']}</div>
                                 `;
+                                    },
+                                    // position: function (pos, params, dom, rect, size) {
+                                    //     // tooltip will be fixed on the right if mouse hovering on the left,
+                                    //     // and on the left if hovering on the right.
+                                    //     var obj = { top: 60 };
+                                    //     obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 50;
+                                    //     return obj;
+                                    // }
+
+                                    position: function (pos, params, dom, rect, size) {
+                                        var obj = { top: 10 }; // Luôn đặt tooltip theo tọa độ y của chuột
+                                        obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] =  size.viewSize[0]/2  - 200; // Canh trái/phải
+                                        return obj;
                                     }
 
                                 },
@@ -363,6 +376,60 @@
                                 { name: 'VNINDEX', position: 'right', offset: 80, start: 1300, end: 1320, min: min - 5, max: max + 5 },
                                 { name: 'Count', position: 'left', offset: 120 },
                                 ],
+                                // visualMap: [
+                                //     {
+                                //         left: 'right',
+                                //         top: '10%',
+                                //         dimension: 1,
+                                //         min: -14,
+                                //         max: 14,
+                                //         itemWidth: 30,
+                                //         itemHeight: 120,
+                                //         calculable: true,
+                                //         precision: 0.1,
+                                //         text: ['% Tăng Giảm'],
+                                //         textGap: 30,
+                                //         inRange: {
+                                //             // symbolSize: [10, 70]
+                                //         },
+                                //         outOfRange: {
+                                //             // symbolSize: [10, 70],
+                                //             // color: ['rgba(255,255,255,0.4)']
+                                //         },
+                                //         controller: {
+                                //             inRange: {
+                                //                 color: ['#c23531']
+                                //             },
+                                //             outOfRange: {
+                                //                 color: ['#999']
+                                //             }
+                                //         }
+                                //     },
+                                //     {
+                                //         left: 'right',
+                                //         bottom: '5%',
+                                //         dimension: 3,
+                                //         min: 0,
+                                //         max: 1e10,
+                                //         itemHeight: 120,
+                                //         text: ['Mua-Bán'],
+                                //         textGap: 30,
+                                //         inRange: {
+                                //             colorLightness: [0.9, 0.5]
+                                //         },
+                                //         outOfRange: {
+                                //             color: ['rgba(255,255,255,0.4)']
+                                //         },
+                                //         controller: {
+                                //             inRange: {
+                                //                 color: ['#c23531']
+                                //             },
+                                //             outOfRange: {
+                                //                 color: ['#999']
+                                //             }
+                                //         }
+                                //     }
+                                // ],
                                 // dataZoom: [
                                 //     {
                                 //         type: 'inside',
@@ -405,6 +472,12 @@
                                         left: '0%',  // Đặt vị trí bên phải
                                         start: 0,
                                         end: 100
+                                    },
+                                    {
+                                        orient: 'vertical',
+                                        width: 20,
+                                        right: 10,
+                                        yAxisIndex: [1]
                                     }
                                 ],
                                 series: [...Array(9).fill(null).map((_, index) => ({
@@ -466,7 +539,7 @@
                                     labelLayout: {
                                         moveOverlap: 'hide',  // Shift the label if there is overlap
                                         hideOverlap: true,
-                                        // minDistance: 10,       // Minimum distance between the label and other points
+                                        minDistance: 100,       // Minimum distance between the label and other points
                                     },
                                 })), {
                                     type: 'line',
