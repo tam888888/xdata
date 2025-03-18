@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://echarts.apache.org/en/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <title>Timelines Symbols</title>
+    <style>
+        /* Thêm CSS để tạo biểu đồ rộng toàn màn hình */
+        #timelineChart {
+            width: 100%;
+            /* Trừ đi 40px từ padding */
+            height: 900px;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #chart-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="timelineChart"></div>
+
+    <script>
+        function getNowDate() {
+            let fd = new Date();
+            return fd.getFullYear()
+                + "" + (fd.getMonth() + 1 < 10 ? "0" + (fd.getMonth() + 1) : fd.getMonth() + 1)
+                + "" + (fd.getDate() < 10 ? "0" + fd.getDate() : fd.getDate());
+        }
+
+        const url = new URL(window.location.href);
+        const queryParams = url.searchParams;
+        var interval = queryParams.get('interval');
+        if (interval) interval = +interval
+        var querydate = queryParams.get('querydate');
+        var xaxis = queryParams.get('xaxis');
+        if (!xaxis) xaxis = 'time_symbol'
+
+        var lpos = queryParams.get('lpos');
+        if (!lpos) lpos = 'inside'
+
+        function s2b(str) {
+            console.log(str)
+            return str.toLowerCase() == 'true';
+        }
+
+        var op = ['priceChangePercent', 'busd', 'total_val', 'deltabuyForeignValue', 'deltasellForeignQtty', 'abusd', 'atotal_val', 'buyForeignValue', 'sellForeignValue', 'VNINDEX', 'CT', 'CG', 'CTC']
+
+        var select = {}
+
+        op.forEach(oop => {
+            var oopp = queryParams.get('o' + oop);
+            if (!oopp) {
+                oopp = false;
+                if (oop == 'busd') oopp = true;
+                if (oop == 'VNINDEX') oopp = true;
+
+            }
+            else {
+                oopp = s2b(oopp)
+            }
+
+            select[oop] = oopp;
+        })
+
+
+
+        var uxl = queryParams.get('uxl');
+        if (!uxl) uxl = 0
+        else uxl = +uxl
+
+        var symbols = queryParams.get('symbols');
+        let symbolsa = []
+        if (symbols) {
+            symbolsa = symbols.split(',')
+        }
+
+        var recently = queryParams.get('recently');
+
+        var dom = document.getElementById('timelineChart');
+        var myChart = echarts.init(dom, null, {
+            renderer: 'webgl',
+            // useDirtyRect: false
+        });
+
+        var URL1 = querydate ? '/api/realtime?querydate=' + querydate : '/api/realtime'
+        var URL2 = querydate ? 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/realtime?querydate=' + querydate : 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/realtime'
+
+        var ROOT_PATH = uxl == 0 ? URL1 : URL2;
+
+        var VNI0 = querydate ? 'api/vnindexdata?querydate=' + querydate : 'api/vnindexdata'
+        var VNI1 = querydate ? 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/vnindexdata?querydate=' + querydate : 'https://3001-tam888888-abc-j2wdppywozw.ws-us118.gitpod.io/proxy/api/vnindexdata'
+
+        var VNI_PATH = uxl == 0 ? VNI0 : VNI1;
+        var option;
+
+        var adata = [];
+        var vnidata = null;
+
+        var val = (e) => {
+            return !e ? 0 : e
+        }
+        var vnimap = {}
+        var countmap = {}
+        var base = { base: true };
+        var p = (base) => {
+            // if (base.base) console.log("Call base")
+            // else console.log("Call interval")
+            var ROOT_PATH_NOW = ROOT_PATH;
+            var pp = 'pp=stockSymbol,priceChangePercent,deltasellForeignValue,deltabuyForeignValue,deltabuyForeignQtty,deltasellForeignQtty,buyForeignValue,sellForeignValue,buyForeignQtty,sellForeignQtty,matchedPrice,refPrice,lastTradedTime,ceiling,floor'
+            if (!base.base) {
+                if (recently)
+                    ROOT_PATH_NOW = ROOT_PATH.includes('?') ? ROOT_PATH + "&recently=" + recently + '&' + pp + (symbols ? '&symbols=' + symbols : '')
+                        : ROOT_PATH + "?recently=" + recently + '&' + pp + (symbols ? '&symbols=' + symbols : '')
+            }
+            else {
+                ROOT_PATH_NOW = ROOT_PATH_NOW.includes('?') ? ROOT_PATH_NOW + '&' + pp + (symbols ? '&symbols=' + symbols : '') : ROOT_PATH_NOW + "?" + pp + (symbols ? '&symbols=' + symbols : '')
+            }
+
+            // ROOT_PATH_NOW  = ROOT_PATH_NOW+"?" + pp + '&symbols=' + symbols
+            var fd = ['busd', 'total_val']
+            // console.log("load ", ROOT_PATH_NOW)
+            $.get(ROOT_PATH_NOW, function (data) {
+                if (base.base)
+                    base.last = data;
+                else {
+                    if (recently) {
+                        Object.entries(data).forEach(e => {
+                            if (base.last[e[0]]) {
+                                Object.entries(e[1]).forEach(ee => {
+                                    base.last[e[0]][ee[0]] = ee[1]
+                                })
+                            } else {
+                                base.last[e[0]] = e[1]
+                            }
+                        })
+                    } else {
+                        base.last = data;
+                    }
+
+                }
+                console.log("Load data")
+                myChart.hideLoading();
+
+                fprice = (o) => {
+                    if (o['matchedPrice']) return o['matchedPrice']
+                    if (o['lastMatchedPrice']) return o['lastMatchedPrice']
+                    if (o['avgPrice']) return o['avgPrice']
+                    if (o['refPrice']) return o['refPrice']
+                }
+
+                ff = (amin, amax) => {
+                    var min = amin;
+                    var max = amax;
+                    countmap = {}
+                    Object.values(base.last).forEach(e => {
+                        var sum = { busd: 0, total_val: 0 }
+                        var last = null;
+                        Object.entries(e).filter(e => e[0] != 'dataacum').forEach(e => {
+                            var e1 = e[1]
+                            e1['time'] = e[0]
+
+                            if (e1['buyForeignQtty'] > 0) {
+                                if (!e1['buyForeignValue']) e1['buyForeignValue'] = e1['buyForeignQtty'] * fprice(e1)
+                            }
+
+                            if (e1['sellForeignQtty'] > 0) {
+                                if (!e1['sellForeignValue']) e1['sellForeignValue'] = e1['sellForeignQtty'] * fprice(e1)
+                            }
+
+
+                            if (e1['deltabuyForeignQtty'] > 0) {
+                                if (!e1['deltabuyForeignValue']) e1['deltabuyForeignValue'] = e1['deltabuyForeignQtty'] * fprice(e1)
+                            }
+                            // console.log(e1['deltabuyForeignQtty'],e1['deltabuyForeignValue'])
+
+                            if (e1['deltasellForeignQtty'] > 0) {
+                                if (!e1['deltasellForeignValue']) e1['deltasellForeignValue'] = e1['deltasellForeignQtty'] * fprice(e1)
+                            }
+
+
+
+                            fd.forEach(f => {
+                                if (f === 'total_val')
+                                    e[1][f] = (val(e[1]['deltabuyForeignValue']) + val(e[1]['deltasellForeignValue']))
+                                if (f === 'busd')
+                                    e[1][f] = (val(e[1]['deltabuyForeignValue']) - val(e[1]['deltasellForeignValue']))
+                                sum[f] += val(e[1][f])
+                                e[1]['a' + f] = sum[f]
+                            })
+
+
+
+                            if (!countmap[e[0]]) countmap[e[0]] = { T: 0, G: 0, TC: 0 }
+                            if (e[1]['priceChangePercent'] > 0) countmap[e[0]].T += 1
+                            else if (e[1]['priceChangePercent'] < 0) countmap[e[0]].G += 1;
+                            else countmap[e[0]].TC += 1;
+                            countmap[e[0]]
+                            if (vnimap[e[0]] > 0) {
+                                e[1]['VNINDEX'] = vnimap[e[0]]
+                                if (min > e[1]['VNINDEX']) min = e[1]['VNINDEX']
+                            }
+                            else {
+                                if (e[1]['VNINDEX'] == 0 || e[1]['VNINDEX'] == null || e[1]['VNINDEX'] == undefined) {
+                                    e[1]['VNINDEX'] = null;
+                                }
+                                else {
+                                    if (min > e[1]['VNINDEX']) min = e[1]['VNINDEX']
+                                    if (max < e[1]['VNINDEX']) max = e[1]['VNINDEX']
+                                }
+                            }
+                            // console.log(vnimap[e[0]])
+                            if (last) {
+                                e[1]['delta'] = val(e[1]['priceChangePercent']) - val(last['priceChangePercent'])
+                            }
+                            last = e[1];
+                        })
+                    })
+                    adata.length = 0
+                    Object.values(base.last).forEach(e => {
+                        adata.push(...Object.entries(e).filter(e => e[0] != 'dataacum').map(e => e[1]).map(e => {
+
+                            if (countmap[e['time']]) {
+                                e['CT'] = countmap[e['time']].T
+                                e['CG'] = countmap[e['time']].G
+                                e['CTC'] = countmap[e['time']].TC
+                                e['time_symbol'] = e['time'] + "_" + e['stockSymbol'];
+                            }
+                            return e
+                        }))
+                    })
+                    adata = adata.filter(e => !e['stockSymbol'].startsWith('VN30'))
+
+                    adata.sort((a, b) => {
+                        if (a['lastTradedTime'] !== b['lastTradedTime']) {
+                            return a['lastTradedTime'] - b['lastTradedTime']; // Sắp xếp theo T trước
+                        }
+                        return a['stockSymbol'].localeCompare(b['stockSymbol']); // Nếu T giống nhau, sắp xếp theo symbol
+                    });
+                    var adataf = null;
+                    if (symbolsa.length > 0) {
+                        adataf = adata.filter(e => { return symbolsa.includes(e['stockSymbol']) })
+                    }
+                    if (base.base) {
+                        base.base = false;
+                        myChart.setOption(
+                            (option = {
+                                tooltip: {
+                                    trigger: 'item',
+                                    triggerOn: 'mousemove',
+                                    formatter: function (data) {
+                                        var x = data.data;
+
+                                        // Danh sách các trường cần hiển thị
+                                        var fields = [
+                                            'stockSymbol', 'buyForeignQtty', 'sellForeignQtty', 'matchedPrice',
+                                            'ceiling', 'floor', 'refPrice', 'priceChangePercent', 'time', 'buyForeignValue',
+                                            'sellForeignValue', 'busd', 'abusd', 'total_val', 'atotal_val', 'VNINDEX', 'delta'
+                                            , 'deltabuyForeignValue', 'deltasellForeignValue',
+                                        ];
+
+                                        // Duyệt qua các trường và tạo nội dung hiển thị
+                                        var content = fields.map(field => {
+                                            if (x[field] !== undefined) {
+                                                let value = x[field];
+
+                                                // Định dạng số nếu là kiểu dữ liệu số lớn
+                                                if (typeof value === 'number' && field !== 'delta' && field !== 'priceChangePercent') {
+                                                    value = numeral(value).format('0,0');
+                                                }
+                                                if (field == 'delta' || field == 'priceChangePercent') {
+                                                    value = numeral(value).format('0,0.00');
+                                                }
+
+                                                return `<div><strong>${field}:</strong> ${value}</div>`;
+                                            }
+                                            return '';
+                                        }).join('');
+
+                                        return content;
+                                    },
+
+                                    position: function (pos, params, dom, rect, size) {
+                                        var obj = { top: 10 }; // Luôn đặt tooltip theo tọa độ y của chuột
+                                        obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = size.viewSize[0] / 2 - 200; // Canh trái/phải
+                                        return obj;
+                                    }
+
+                                },
+                                toolbox: {
+                                    feature: {
+                                        dataZoom: {},
+                                        brush: {
+                                            type: ['rect', 'polygon', 'clear']
+                                        }
+                                    }
+                                },
+                                legend: {
+                                    data: ['priceChangePercent', 'busd', 'total_val', 'deltabuyForeignValue', 'deltasellForeignQtty', 'abusd', 'atotal_val', 'buyForeignValue', 'sellForeignValue', 'VNINDEX', 'CT', 'CG', 'CTC'],
+
+                                    selected: select,
+                                    formatter: function (name) {
+                                        if (name === 'priceChangePercent') {
+                                            return '%Thay Đổi';
+                                        } else if (name === 'busd') {
+                                            return 'Mua-Bán';
+                                        } else if (name === 'total_val') {
+                                            return 'Tổng Giá Trị';
+                                        } else if (name === 'deltabuyForeignValue') {
+                                            return 'Mua';
+                                        } else if (name === 'deltasellForeignQtty') {
+                                            return 'Bán';
+                                        } else if (name === 'abusd') {
+                                            return 'AcumMua-Bán';
+                                        } else if (name === 'atotal_val') {
+                                            return 'AcumTổng Giá Trị';
+                                        } else if (name === 'buyForeignValue') {
+                                            return 'AcumMua';
+                                        } else if (name === 'sellForeignValue') {
+                                            return 'AcumBán';
+                                        }
+                                        return name; // trả về tên gốc nếu không có điều kiện nào được thỏa mãn
+                                    }
+                                },
+                                dataset: {
+                                    dimensions: [xaxis, 'priceChangePercent', 'busd', 'total_val', 'deltabuyForeignValue', 'deltasellForeignQtty', 'abusd', 'atotal_val', 'buyForeignValue', 'sellForeignValue', 'VNINDEX', 'CT', 'CG', 'CTC'],
+                                    source: adataf ? adataf : adata,
+                                },
+                                xAxis: { type: 'category', top: '80%' },
+                                yAxis: [{ name: 'Gía trị' },
+                                { name: '%(Thay Đổi)', position: 'right', offset: 0, min: -15, max: 15 },
+                                { name: 'VNINDEX', position: 'right', offset: 80, start: 1300, end: 1320, min: min - 5, max: max + 5 },
+                                { name: 'Count', position: 'left', offset: 120 },
+                                ],
+                                dataZoom: [
+                                    {
+                                        type: 'inside',
+                                        xAxisIndex: 0,  // Zoom theo trục X                
+                                        start: 85,
+                                        end: 100
+                                    },
+                                    {
+                                        type: 'inside',
+                                        yAxisIndex: 0,  // Zoom theo trục X                
+                                        start: 0,
+                                        end: 100
+                                    },
+                                    {
+                                        show: true,
+                                        type: 'slider',
+                                        xAxisIndex: 0,  // Thanh zoom ngang
+                                        top: '90%',
+                                        start: 85,
+                                        end: 100
+                                    },
+                                    {
+                                        show: true,
+                                        type: 'slider',
+                                        yAxisIndex: 0,  // Thanh zoom dọc
+                                        left: '0%',  // Đặt vị trí bên phải
+                                        start: 0,
+                                        end: 100
+                                    },
+                                    {
+                                        orient: 'vertical',
+                                        width: 20,
+                                        right: 10,
+                                        yAxisIndex: [1]
+                                    }
+                                ],
+                                series: [...Array(9).fill(null).map((_, index) => ({
+                                    type: 'scatter',
+                                    symbolSize: function (data) {
+                                        // console.log(data)
+                                        var size = Math.sqrt((val(data['deltabuyForeignValue']) + val(data['deltasellForeignQtty']) + val(data['unknown_val'])) / 1e8) * 5;
+                                        if (size >= 50) size = 30 + Math.sqrt(size)
+                                        if (size <= 2) size = 2
+                                        return size;  // Điều chỉnh kích thước điểm
+                                    },
+                                    symbol: function (value, params) {
+                                        const delta = value['delta'];
+                                        if (!delta || delta == 0) return 'circle';
+                                        if (delta > 0) return 'triangle'; // Tăng giá
+                                        if (delta < 0) return 'triangle'; // Giảm giá
+                                        return 'circle'; // Giữ giá
+                                    },
+                                    symbolRotate: function (value, params) {
+                                        const delta = value['delta'];
+                                        if (delta < 0) return 180; // Giảm giá
+                                        return 0; // Giữ giá
+                                    },
+                                    yAxisIndex: index === 0 ? 1 : 0,
+                                    large: true, // Enable large-scale optimization
+                                    largeThreshold: 200000,
+                                    // progressive: 5000, // Progressive rendering (vẽ từng phần)
+                                    itemStyle: {
+                                        color: function (data) {
+                                            var price = data.data['matchedPrice'];
+                                            var priceref = data.data['refPrice'];
+                                            var ceiling = data.data['ceiling'];
+                                            var floor = data.data['floor'];
+
+                                            // Nếu price bằng ceiling thì chọn màu tím
+                                            if (price == ceiling) {
+                                                return 'purple'; // Màu tím nếu giá bằng với ceiling
+                                            }
+                                            // Nếu price bằng floor thì chọn màu xanh lơ
+                                            else if (price == floor) {
+                                                return 'lightblue'; // Màu xanh lơ nếu giá bằng với floor
+                                            }
+                                            // Nếu không thì chọn màu xanh nếu price >= priceref, ngược lại đỏ
+                                            else {
+                                                return price >= priceref ? (price > priceref ? 'rgb(0, 255, 0)' : 'rgb(255, 215, 0)') : 'rgb(255, 0, 0)';
+                                            }
+                                        }
+                                    },
+                                    label: {
+                                        show: true,
+                                        position: lpos,
+                                        formatter: function (data) {
+                                            var x = data.data;
+                                            if (x['stockSymbol'].startsWith('VN30F')) return 'F' + x['stockSymbol'].slice(x['stockSymbol'].length - 2)
+                                            return `${x['stockSymbol']}`;
+                                        },
+                                        fontSize: 8,  // Điều chỉnh font size ở đây
+                                        // fontWeight: 'bold',
+                                        color: '#333',
+                                    },
+                                    labelLayout: {
+                                        moveOverlap: 'hide',  // Shift the label if there is overlap
+                                        hideOverlap: true,
+                                        minDistance: 100,       // Minimum distance between the label and other points
+                                    },
+                                })), {
+                                    type: 'line',
+                                    yAxisIndex: 2,
+                                    large: true, // Enable large-scale optimization
+                                    largeThreshold: 200000,
+                                },
+                                {
+                                    type: 'line',
+                                    yAxisIndex: 3,
+                                    large: true, // Enable large-scale optimization
+                                    largeThreshold: 200000,
+                                    color: 'green',
+                                },
+                                {
+                                    type: 'line',
+                                    yAxisIndex: 3,
+                                    large: true, // Enable large-scale optimization
+                                    largeThreshold: 200000,
+                                    color: 'red',
+                                }, {
+                                    type: 'line',
+                                    yAxisIndex: 3,
+                                    large: true, // Enable large-scale optimization
+                                    largeThreshold: 200000,
+                                    color: 'gold',
+                                }
+                                ],
+                            })
+                        );
+                    } else {
+                        // console.log("Update")
+                        op = myChart.getOption();  // Lấy dữ liệu hiện tại
+                        if (op) {
+                            op.dataset[0].source = adataf ? adataf : adata;
+                            op.yAxis[2].min = min - 2;
+                            op.yAxis[2].max = max + 2;
+                            // console.log("min", min, "max", max)
+                            myChart.setOption(op, false);  // Cập nhật lại biểu đồ
+                        }
+
+                    }
+                }
+
+                $.ajax({
+                    url: VNI_PATH,
+                    method: 'GET',
+                    success: function (vni) {
+                        vnidata = vni
+                        var vniadata = []
+                        var min = 10000
+                        var max = 0
+                        if (vnidata.data) {
+                            vnidata.data.timeline.data.forEach(e => {
+                                if (e[1] > 0) {
+                                    vnimap[e[0]] = e[1]
+                                    if (e[1] > max) max = e[1]
+                                    if (e[1] < min) min = e[1]
+                                }
+                            })
+                        }
+                        // console.log("minff", min, "maxff", max)
+                        ff(min, max);
+                    },
+                    error: function (xhr, status, error) {  // Sử dụng error thay cho fail
+                        ff(10000, 0);
+                        // console.log('Lỗi:', status, error);
+                        // console.log('Mã lỗi HTTP:', xhr.status);  // Kiểm tra mã lỗi HTTP
+                    }
+                })
+
+            });
+        }
+        p(base)
+
+        if (interval > 2000) {
+            setInterval(() => {
+                p(base)
+            }, interval)
+        }
+
+        myChart.on('dataZoom', function (params) {
+            var start = params.batch ? params.batch[0].start : params.start;
+            var end = params.batch ? params.batch[0].end : params.end;
+
+            var zoomRange = end - start;
+            var showLabel = zoomRange <= 10;  // Nếu zoom nhỏ hơn 10% thì hiển thị nhãn
+
+            // myChart.setOption({
+            //     series: [{
+            //         label: {
+            //             show: showLabel
+            //         }
+            //     }, {
+            //         label: {
+            //             show: showLabel
+            //         }
+            //     }, {
+            //         label: {
+            //             show: showLabel
+            //         }
+            //     }, {
+            //         label: {
+            //             show: showLabel
+            //         }
+            //     }]
+            // });
+        });
+
+        // if (option && typeof option === 'object') {
+        //     myChart.setOption(option);
+        // }
+
+        window.addEventListener('resize', myChart.resize);
+
+
+    </script>
+</body>
+
+</html>

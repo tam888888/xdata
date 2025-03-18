@@ -20,6 +20,7 @@
     "numeral": "^2.0.6",
     "orc": "^0.0.17",
     "parquetjs": "^0.11.2",
+    "protobufjs": "^7.4.0",
     "socket.io": "^4.7.2",
     "technicalindicators": "^3.1.0"
   },

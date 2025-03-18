@@ -574,6 +574,32 @@
                 <ul id="menuTopNew" class="submenu">
                 </ul>
             </li>
+            <li>
+                <a href="#" class="parent-menu">Anh Tây</a>
+                <ul class="submenu">
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true" target="_blank">Mua Bán Now</a>
+                    </li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=30000"
+                            target="_blank">Mua Bán Now Interval 30</a>
+                    </li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=30000&recently=5"
+                            target="_blank">Mua Bán Now Inter 30 Recently</a>
+                    </li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=3000&recently=5"
+                            target="_blank">Mua Bán Now Inter 3 Recently</a>
+                    </li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=false&oabusd=true&interval=30000&recently=5"
+                            target="_blank">Tích
+                            luỹ Mua Bán Now 3</a></li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time_symbol&lpos=top&obusd=false&oabusd=true&interval=3000&recently=5"
+                            target="_blank">Tích luỹ Mua Bán NowSymbol Recently 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="parent-menu">Anh Tây Nhiều Ngày</a>
+                <ul id="menuTay" class="submenu">
+                </ul>
+            </li>
             <!-- <li><a href="/sectors?interval=300" target="_blank">BuySellSectors</a></li>
             <li><a href="/sectorschart?percent=x&interval=5&minVal=5000000000" target="_blank">Sector Chart With
                     Percent</a></li>
@@ -1749,6 +1775,13 @@
                 let menuItem = `<li><a href="/echartrealtime.html?&xaxis=time&lpos=top&obusd=true&querydate=${querydate.format}" target="_blank">Mua Bán ${querydate.format}</a></li>`;
                 $("#menuTopNew").append(menuItem);
             }
+
+            for (let d = 1; d < 30; d++) {
+                let querydate = getBeforeDate(d);
+                if (querydate.weekend) continue;
+                let menuItem = `<li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&querydate=${querydate.format}" target="_blank">Mua Bán ${querydate.format}</a></li>`;
+                $("#menuTay").append(menuItem);
+            }            
         });
 
         document.addEventListener('DOMContentLoaded', function () {
