@@ -585,14 +585,18 @@
                     <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=30000&recently=5"
                             target="_blank">Mua Bán Now Inter 30 Recently</a>
                     </li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=3000&recently=5&vn30f=false"
+                            target="_blank">Mua Bán Now Inter 3 Recently VN30F</a>
+                    </li>
                     <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&interval=3000&recently=5"
                             target="_blank">Mua Bán Now Inter 3 Recently</a>
                     </li>
                     <li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=false&oabusd=true&interval=30000&recently=5"
-                            target="_blank">Tích
-                            luỹ Mua Bán Now 3</a></li>
+                            target="_blank">Tích luỹ Mua Bán Now 3</a></li>
                     <li><a href="/foreignrealtime.html?&xaxis=time_symbol&lpos=top&obusd=false&oabusd=true&interval=3000&recently=5"
                             target="_blank">Tích luỹ Mua Bán NowSymbol Recently 3</a></li>
+                    <li><a href="/foreignrealtime.html?&xaxis=time_symbol&lpos=top&obusd=false&oabusd=true&interval=3000&recently=5&vn30f=false"
+                            target="_blank">Tích luỹ Mua Bán NowSymbol Recently 3 VN30F</a></li>
                 </ul>
             </li>
             <li>
@@ -1781,7 +1785,7 @@
                 if (querydate.weekend) continue;
                 let menuItem = `<li><a href="/foreignrealtime.html?&xaxis=time&lpos=top&obusd=true&querydate=${querydate.format}" target="_blank">Mua Bán ${querydate.format}</a></li>`;
                 $("#menuTay").append(menuItem);
-            }            
+            }
         });
 
         document.addEventListener('DOMContentLoaded', function () {

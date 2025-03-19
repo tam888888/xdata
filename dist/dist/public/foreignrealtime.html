@@ -81,6 +81,12 @@
         })
 
 
+        var vn30f = queryParams.get('vn30f');
+        if (!vn30f) {
+            vn30f = true;
+        }else{
+            vn30f = s2b(vn30f)
+        }
 
         var uxl = queryParams.get('uxl');
         if (!uxl) uxl = 0
@@ -246,7 +252,10 @@
                             return e
                         }))
                     })
-                    adata = adata.filter(e => !e['stockSymbol'].startsWith('VN30'))
+                    if(vn30f){
+                        adata = adata.filter(e => !e['stockSymbol'].startsWith('VN30'))
+                    }
+                        
 
                     adata.sort((a, b) => {
                         if (a['lastTradedTime'] !== b['lastTradedTime']) {
@@ -389,8 +398,8 @@
                                     type: 'scatter',
                                     symbolSize: function (data) {
                                         // console.log(data)
-                                        var size = Math.sqrt((val(data['deltabuyForeignValue']) + val(data['deltasellForeignQtty']) + val(data['unknown_val'])) / 1e8) * 5;
-                                        if (size >= 50) size = 30 + Math.sqrt(size)
+                                        var size = Math.sqrt((val(data['deltabuyForeignValue']) + val(data['deltasellForeignQtty']) + val(data['unknown_val'])) / 1e8) * 2;
+                                        // if (size >= 10) size = 10 + Math.sqrt(size)
                                         if (size <= 2) size = 2
                                         return size;  // Điều chỉnh kích thước điểm
                                     },
