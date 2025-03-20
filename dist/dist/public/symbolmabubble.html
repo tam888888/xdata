@@ -994,7 +994,7 @@
                     var minRealR = 100000000;
 
 
-                    data = res.map(e => {
+                    data = res.filter(e=>mapIndicator[e.symbol]).map(e => {
                         try {
                             sum(e);
                             var indicator = mapIndicator[e.symbol]
