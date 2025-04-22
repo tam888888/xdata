@@ -4,4 +4,4 @@ PATH=$NODE_HOME/bin:$PATH
 export PATH
 FORCE=T /home/hungsex/.nvm/versions/node/v16.20.2/bin/node investor.js >> /home/hungsex/server/dist/dist/cron.log 2>&1;
 unset FORCE; 
-/home/hungsex/.nvm/versions/node/v16.20.2/bin/pm2 restart 1
+/home/hungsex/.nvm/versions/node/v16.20.2/bin/pm2 restart app
