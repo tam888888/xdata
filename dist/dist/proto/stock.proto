@@ -98,6 +98,10 @@ message StockRealtimeData {
     int64 ptMinQtty = 93;
     int64 ptTotalTradedQtty = 94;
     int64 ptTotalTradedValue = 95;
-    int64 lastTradedTime = 96;
-    int64 ptTotalTradedQty = 97;
+    int64 f1 = 96;
+    int64 f2 = 97;
+    int64 f3 = 98;
+    double f4 = 99;
+    int64 f5 = 100;
+    int64 lastTradedTime = 101;
 }
