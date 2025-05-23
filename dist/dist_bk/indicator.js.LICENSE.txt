@@ -1,5 +1,0 @@
-/*! (c) 2020 Andrea Giammarchi */
-
-/*! sheetjs (C) 2013-present SheetJS -- http://sheetjs.com */
-
-/*! xlsx.js (C) 2013-present SheetJS -- http://sheetjs.com */
