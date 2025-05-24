@@ -1,0 +1,24 @@
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [websocket](ids: [ 15 ])
+[PM2] [websocket](15) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 16 │ app                    │ default     │ 1.0.0   │ fork    │ 95442    │ 5h     │ 227  │ online    │ 0%       │ 1.5gb    │ hungtv   │ disabled │
+│ 4  │ cloudflared            │ default     │ N/A     │ fork    │ 2942     │ 48D    │ 0    │ online    │ 0%       │ 22.8mb   │ hungtv   │ disabled │
+│ 2  │ http8888               │ default     │ N/A     │ fork    │ 2908     │ 48D    │ 0    │ online    │ 0%       │ 0b       │ hungtv   │ disabled │
+│ 3  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2922     │ 48D    │ 0    │ online    │ 0%       │ 22.2mb   │ hungtv   │ disabled │
+│ 15 │ websocket              │ default     │ N/A     │ fork    │ 97493    │ 0s     │ 49   │ online    │ 0%       │ 5.8mb    │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [app](ids: [ 16 ])
+[PM2] [app](16) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 16 │ app                    │ default     │ 1.0.0   │ fork    │ 97519    │ 0s     │ 228  │ online    │ 0%       │ 5.8mb    │ hungtv   │ disabled │
+│ 4  │ cloudflared            │ default     │ N/A     │ fork    │ 2942     │ 48D    │ 0    │ online    │ 1.7%     │ 22.8mb   │ hungtv   │ disabled │
+│ 2  │ http8888               │ default     │ N/A     │ fork    │ 2908     │ 48D    │ 0    │ online    │ 0%       │ 0b       │ hungtv   │ disabled │
+│ 3  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2922     │ 48D    │ 0    │ online    │ 0%       │ 22.2mb   │ hungtv   │ disabled │
+│ 15 │ websocket              │ default     │ N/A     │ fork    │ 97493    │ 5m     │ 49   │ online    │ 0%       │ 31.8mb   │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
