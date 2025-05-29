@@ -16772,3 +16772,3385 @@ combineDataR all 10047
 │ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 13h    │ 0    │ online    │ 0%       │ 25.0mb   │ hungtv   │ disabled │
 │ 0  │ websocket              │ default     │ N/A     │ fork    │ 4720     │ 0s     │ 0    │ online    │ 0%       │ 8.1mb    │ hungtv   │ disabled │
 └────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [websocket](ids: [ 0 ])
+[PM2] [websocket](0) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 4239     │ 5h     │ 4    │ online    │ 0%       │ 2.2gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 16h    │ 0    │ online    │ 0%       │ 29.5mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 16h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 16h    │ 0    │ online    │ 0%       │ 25.0mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 5175     │ 0s     │ 1    │ online    │ 0%       │ 7.3mb    │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [app](ids: [ 1 ])
+[PM2] [app](1) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 5200     │ 0s     │ 5    │ online    │ 0%       │ 5.8mb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 16h    │ 0    │ online    │ 2.1%     │ 29.5mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 16h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 16h    │ 0    │ online    │ 0%       │ 25.0mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 5175     │ 5m     │ 1    │ online    │ 0%       │ 34.6mb   │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 39, res: 10, record: 13424 }
+{ req: 46, res: 20, record: 35395 }
+{ req: 58, res: 30, record: 60302 }
+{ req: 69, res: 40, record: 83153 }
+{ req: 77, res: 50, record: 108045 }
+{ req: 87, res: 60, record: 131414 }
+{ req: 98, res: 70, record: 154835 }
+{ req: 109, res: 80, record: 179417 }
+{ req: 119, res: 90, record: 202831 }
+{ req: 126, res: 100, record: 227416 }
+{ req: 137, res: 110, record: 248583 }
+{ req: 148, res: 120, record: 272439 }
+{ req: 159, res: 130, record: 296158 }
+{ req: 169, res: 140, record: 319412 }
+{ req: 179, res: 150, record: 341929 }
+{ req: 188, res: 160, record: 363031 }
+{ req: 199, res: 170, record: 386262 }
+{ req: 209, res: 180, record: 409078 }
+{ req: 218, res: 190, record: 433363 }
+{ req: 229, res: 200, record: 454428 }
+{ req: 238, res: 210, record: 475899 }
+{ req: 248, res: 220, record: 500321 }
+{ req: 258, res: 230, record: 524205 }
+{ req: 267, res: 240, record: 546891 }
+{ req: 279, res: 250, record: 569747 }
+{ req: 289, res: 260, record: 594496 }
+{ req: 298, res: 270, record: 618078 }
+{ req: 308, res: 280, record: 640465 }
+{ req: 319, res: 290, record: 663501 }
+{ req: 329, res: 300, record: 687588 }
+{ req: 339, res: 310, record: 710326 }
+{ req: 349, res: 320, record: 732488 }
+{ req: 359, res: 330, record: 755032 }
+{ req: 368, res: 340, record: 776584 }
+{ req: 379, res: 350, record: 801025 }
+{ req: 387, res: 360, record: 824175 }
+{ req: 398, res: 370, record: 847543 }
+{ req: 408, res: 380, record: 871120 }
+{ req: 419, res: 390, record: 893863 }
+{ req: 426, res: 400, record: 914889 }
+{ req: 438, res: 410, record: 939223 }
+{ req: 448, res: 420, record: 963113 }
+{ req: 458, res: 430, record: 986593 }
+{ req: 469, res: 440, record: 1010831 }
+{ req: 477, res: 450, record: 1033148 }
+{ req: 489, res: 460, record: 1056167 }
+{ req: 499, res: 470, record: 1076113 }
+{ req: 508, res: 480, record: 1098915 }
+{ req: 518, res: 490, record: 1123504 }
+{ req: 529, res: 500, record: 1147870 }
+{ req: 538, res: 510, record: 1168725 }
+{ req: 548, res: 520, record: 1193425 }
+{ req: 556, res: 530, record: 1217222 }
+{ req: 568, res: 540, record: 1241301 }
+{ req: 579, res: 550, record: 1265420 }
+{ req: 589, res: 560, record: 1286326 }
+{ req: 598, res: 570, record: 1309313 }
+{ req: 609, res: 580, record: 1330602 }
+{ req: 618, res: 590, record: 1355241 }
+{ req: 629, res: 600, record: 1378728 }
+{ req: 639, res: 610, record: 1403728 }
+{ req: 648, res: 620, record: 1427807 }
+{ req: 659, res: 630, record: 1452807 }
+{ req: 668, res: 640, record: 1476630 }
+{ req: 678, res: 650, record: 1498634 }
+{ req: 689, res: 660, record: 1521970 }
+{ req: 697, res: 670, record: 1544844 }
+{ req: 708, res: 680, record: 1569488 }
+{ req: 718, res: 690, record: 1593206 }
+{ req: 729, res: 700, record: 1617294 }
+{ req: 736, res: 710, record: 1637711 }
+{ req: 748, res: 720, record: 1659773 }
+{ req: 759, res: 730, record: 1681522 }
+{ req: 769, res: 740, record: 1703236 }
+{ req: 776, res: 750, record: 1723453 }
+{ req: 787, res: 760, record: 1741336 }
+{ req: 796, res: 770, record: 1760735 }
+{ req: 808, res: 780, record: 1782227 }
+{ req: 818, res: 790, record: 1801795 }
+{ req: 829, res: 800, record: 1822032 }
+{ req: 836, res: 810, record: 1839131 }
+{ req: 847, res: 820, record: 1859659 }
+{ req: 859, res: 830, record: 1881155 }
+{ req: 866, res: 840, record: 1899163 }
+{ req: 879, res: 850, record: 1918170 }
+{ req: 887, res: 860, record: 1936633 }
+{ req: 899, res: 870, record: 1957181 }
+{ req: 908, res: 880, record: 1978001 }
+{ req: 919, res: 890, record: 1996447 }
+{ req: 928, res: 900, record: 2017179 }
+{ req: 938, res: 910, record: 2037533 }
+{ req: 946, res: 920, record: 2058723 }
+{ req: 959, res: 930, record: 2078122 }
+{ req: 967, res: 940, record: 2096174 }
+{ req: 976, res: 950, record: 2113650 }
+{ req: 988, res: 960, record: 2133822 }
+{ req: 997, res: 970, record: 2152657 }
+{ req: 1009, res: 980, record: 2166408 }
+{ req: 1019, res: 990, record: 2187020 }
+{ req: 1027, res: 1000, record: 2209126 }
+{ req: 1039, res: 1010, record: 2228026 }
+{ req: 1049, res: 1020, record: 2248799 }
+{ req: 1059, res: 1030, record: 2268864 }
+{ req: 1068, res: 1040, record: 2291985 }
+{ req: 1079, res: 1050, record: 2312832 }
+{ req: 1089, res: 1060, record: 2333815 }
+{ req: 1097, res: 1070, record: 2354441 }
+{ req: 1109, res: 1080, record: 2374231 }
+{ req: 1116, res: 1090, record: 2398391 }
+{ req: 1129, res: 1100, record: 2419284 }
+{ req: 1137, res: 1110, record: 2440571 }
+{ req: 1149, res: 1120, record: 2461906 }
+{ req: 1157, res: 1130, record: 2480821 }
+{ req: 1169, res: 1140, record: 2498598 }
+{ req: 1179, res: 1150, record: 2518879 }
+{ req: 1188, res: 1160, record: 2540437 }
+{ req: 1199, res: 1170, record: 2560280 }
+{ req: 1209, res: 1180, record: 2580549 }
+{ req: 1219, res: 1190, record: 2601853 }
+{ req: 1229, res: 1200, record: 2623441 }
+{ req: 1235, res: 1210, record: 2642205 }
+{ req: 1249, res: 1220, record: 2659437 }
+{ req: 1256, res: 1230, record: 2678411 }
+{ req: 1269, res: 1240, record: 2697393 }
+{ req: 1277, res: 1250, record: 2720430 }
+{ req: 1289, res: 1260, record: 2739371 }
+{ req: 1296, res: 1270, record: 2760846 }
+{ req: 1309, res: 1280, record: 2783983 }
+{ req: 1317, res: 1290, record: 2805084 }
+{ req: 1328, res: 1300, record: 2828423 }
+{ req: 1339, res: 1310, record: 2851842 }
+{ req: 1349, res: 1320, record: 2873809 }
+{ req: 1359, res: 1330, record: 2894911 }
+{ req: 1369, res: 1340, record: 2917310 }
+{ req: 1379, res: 1350, record: 2940960 }
+{ req: 1387, res: 1360, record: 2962701 }
+{ req: 1399, res: 1370, record: 2982272 }
+{ req: 1409, res: 1380, record: 3002679 }
+{ req: 1419, res: 1390, record: 3022384 }
+{ req: 1428, res: 1400, record: 3042546 }
+{ req: 1438, res: 1410, record: 3060769 }
+{ req: 1446, res: 1420, record: 3080468 }
+{ req: 1458, res: 1430, record: 3101740 }
+{ req: 1465, res: 1440, record: 3122588 }
+{ req: 1479, res: 1450, record: 3142209 }
+{ req: 1488, res: 1460, record: 3163933 }
+{ req: 1499, res: 1470, record: 3183418 }
+{ req: 1509, res: 1480, record: 3205828 }
+{ req: 1518, res: 1490, record: 3227247 }
+{ req: 1528, res: 1500, record: 3250686 }
+{ req: 1537, res: 1510, record: 3270191 }
+{ req: 1549, res: 1520, record: 3291268 }
+{ req: 1557, res: 1530, record: 3314356 }
+{ req: 1569, res: 1540, record: 3337832 }
+{ req: 1578, res: 1550, record: 3354049 }
+{ req: 1586, res: 1560, record: 3373108 }
+{ req: 1586, res: 1570, record: 3392204 }
+{ req: 1586, res: 1580, record: 3413482 }
+{ req: 1586, res: 1586, record: 3428334 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 37, res: 10, record: 19800 }
+{ req: 49, res: 20, record: 44260 }
+{ req: 56, res: 30, record: 65226 }
+{ req: 68, res: 40, record: 84523 }
+{ req: 79, res: 50, record: 108173 }
+{ req: 88, res: 60, record: 131414 }
+{ req: 98, res: 70, record: 154949 }
+{ req: 108, res: 80, record: 179417 }
+{ req: 116, res: 90, record: 202416 }
+{ req: 128, res: 100, record: 227416 }
+{ req: 139, res: 110, record: 249093 }
+{ req: 147, res: 120, record: 271979 }
+{ req: 156, res: 130, record: 296158 }
+{ req: 169, res: 140, record: 319412 }
+{ req: 179, res: 150, record: 341060 }
+{ req: 188, res: 160, record: 363031 }
+{ req: 197, res: 170, record: 384721 }
+{ req: 209, res: 180, record: 409078 }
+{ req: 218, res: 190, record: 433363 }
+{ req: 228, res: 200, record: 455427 }
+{ req: 239, res: 210, record: 476745 }
+{ req: 249, res: 220, record: 499918 }
+{ req: 258, res: 230, record: 523832 }
+{ req: 269, res: 240, record: 546329 }
+{ req: 278, res: 250, record: 570148 }
+{ req: 289, res: 260, record: 594496 }
+{ req: 298, res: 270, record: 618078 }
+{ req: 307, res: 280, record: 640465 }
+{ req: 318, res: 290, record: 663501 }
+{ req: 329, res: 300, record: 687588 }
+{ req: 337, res: 310, record: 710326 }
+{ req: 347, res: 320, record: 731660 }
+{ req: 359, res: 330, record: 755032 }
+{ req: 369, res: 340, record: 776584 }
+{ req: 378, res: 350, record: 801025 }
+{ req: 389, res: 360, record: 824175 }
+{ req: 399, res: 370, record: 848211 }
+{ req: 408, res: 380, record: 871346 }
+{ req: 418, res: 390, record: 893864 }
+{ req: 429, res: 400, record: 916892 }
+{ req: 437, res: 410, record: 939223 }
+{ req: 449, res: 420, record: 963113 }
+{ req: 459, res: 430, record: 986636 }
+{ req: 469, res: 440, record: 1010865 }
+{ req: 479, res: 450, record: 1033148 }
+{ req: 489, res: 460, record: 1056167 }
+{ req: 499, res: 470, record: 1076113 }
+{ req: 509, res: 480, record: 1098915 }
+{ req: 519, res: 490, record: 1123504 }
+{ req: 529, res: 500, record: 1146276 }
+{ req: 539, res: 510, record: 1168725 }
+{ req: 548, res: 520, record: 1193425 }
+{ req: 559, res: 530, record: 1217222 }
+{ req: 568, res: 540, record: 1241509 }
+{ req: 577, res: 550, record: 1263625 }
+{ req: 588, res: 560, record: 1286326 }
+{ req: 599, res: 570, record: 1309313 }
+{ req: 605, res: 580, record: 1330602 }
+{ req: 619, res: 590, record: 1355241 }
+{ req: 626, res: 600, record: 1378728 }
+{ req: 639, res: 610, record: 1403728 }
+{ req: 648, res: 620, record: 1428728 }
+{ req: 658, res: 630, record: 1452807 }
+{ req: 668, res: 640, record: 1475688 }
+{ req: 678, res: 650, record: 1498634 }
+{ req: 689, res: 660, record: 1521557 }
+{ req: 697, res: 670, record: 1545348 }
+{ req: 708, res: 680, record: 1569488 }
+{ req: 718, res: 690, record: 1593206 }
+{ req: 728, res: 700, record: 1618206 }
+{ req: 739, res: 710, record: 1637711 }
+{ req: 747, res: 720, record: 1658918 }
+{ req: 759, res: 730, record: 1681522 }
+{ req: 765, res: 740, record: 1702552 }
+{ req: 777, res: 750, record: 1724465 }
+{ req: 789, res: 760, record: 1742195 }
+{ req: 796, res: 770, record: 1760715 }
+{ req: 809, res: 780, record: 1782162 }
+{ req: 818, res: 790, record: 1801136 }
+{ req: 829, res: 800, record: 1822032 }
+{ req: 837, res: 810, record: 1839131 }
+{ req: 846, res: 820, record: 1860058 }
+{ req: 857, res: 830, record: 1879740 }
+{ req: 866, res: 840, record: 1899158 }
+{ req: 877, res: 850, record: 1918170 }
+{ req: 887, res: 860, record: 1936692 }
+{ req: 896, res: 870, record: 1956000 }
+{ req: 905, res: 880, record: 1977663 }
+{ req: 918, res: 890, record: 1997291 }
+{ req: 924, res: 900, record: 2015010 }
+{ req: 939, res: 910, record: 2037533 }
+{ req: 947, res: 920, record: 2059931 }
+{ req: 959, res: 930, record: 2076232 }
+{ req: 966, res: 940, record: 2095012 }
+{ req: 975, res: 950, record: 2113156 }
+{ req: 989, res: 960, record: 2133325 }
+{ req: 997, res: 970, record: 2152660 }
+{ req: 1007, res: 980, record: 2166212 }
+{ req: 1019, res: 990, record: 2187413 }
+{ req: 1027, res: 1000, record: 2208566 }
+{ req: 1039, res: 1010, record: 2228378 }
+{ req: 1048, res: 1020, record: 2248672 }
+{ req: 1059, res: 1030, record: 2269468 }
+{ req: 1068, res: 1040, record: 2292421 }
+{ req: 1077, res: 1050, record: 2312832 }
+{ req: 1086, res: 1060, record: 2333859 }
+{ req: 1098, res: 1070, record: 2354795 }
+{ req: 1109, res: 1080, record: 2375103 }
+{ req: 1116, res: 1090, record: 2397927 }
+{ req: 1126, res: 1100, record: 2419874 }
+{ req: 1137, res: 1110, record: 2441738 }
+{ req: 1149, res: 1120, record: 2463337 }
+{ req: 1156, res: 1130, record: 2480854 }
+{ req: 1167, res: 1140, record: 2498598 }
+{ req: 1178, res: 1150, record: 2519791 }
+{ req: 1189, res: 1160, record: 2540786 }
+{ req: 1195, res: 1170, record: 2560280 }
+{ req: 1207, res: 1180, record: 2580242 }
+{ req: 1219, res: 1190, record: 2603000 }
+{ req: 1228, res: 1200, record: 2623441 }
+{ req: 1237, res: 1210, record: 2640771 }
+{ req: 1247, res: 1220, record: 2660336 }
+{ req: 1255, res: 1230, record: 2678843 }
+{ req: 1268, res: 1240, record: 2697393 }
+{ req: 1277, res: 1250, record: 2720370 }
+{ req: 1288, res: 1260, record: 2739371 }
+{ req: 1297, res: 1270, record: 2760846 }
+{ req: 1306, res: 1280, record: 2783983 }
+{ req: 1317, res: 1290, record: 2806243 }
+{ req: 1329, res: 1300, record: 2828822 }
+{ req: 1338, res: 1310, record: 2851391 }
+{ req: 1346, res: 1320, record: 2873049 }
+{ req: 1357, res: 1330, record: 2894911 }
+{ req: 1367, res: 1340, record: 2915960 }
+{ req: 1376, res: 1350, record: 2940455 }
+{ req: 1388, res: 1360, record: 2961855 }
+{ req: 1395, res: 1370, record: 2983822 }
+{ req: 1408, res: 1380, record: 3004330 }
+{ req: 1419, res: 1390, record: 3022384 }
+{ req: 1427, res: 1400, record: 3042934 }
+{ req: 1438, res: 1410, record: 3061354 }
+{ req: 1448, res: 1420, record: 3080468 }
+{ req: 1459, res: 1430, record: 3101241 }
+{ req: 1468, res: 1440, record: 3122588 }
+{ req: 1479, res: 1450, record: 3142623 }
+{ req: 1488, res: 1460, record: 3162306 }
+{ req: 1499, res: 1470, record: 3183820 }
+{ req: 1507, res: 1480, record: 3205286 }
+{ req: 1519, res: 1490, record: 3227781 }
+{ req: 1528, res: 1500, record: 3249965 }
+{ req: 1539, res: 1510, record: 3270125 }
+{ req: 1547, res: 1520, record: 3291472 }
+{ req: 1559, res: 1530, record: 3314356 }
+{ req: 1567, res: 1540, record: 3337559 }
+{ req: 1575, res: 1550, record: 3354049 }
+{ req: 1586, res: 1560, record: 3373302 }
+{ req: 1586, res: 1570, record: 3392612 }
+{ req: 1586, res: 1580, record: 3413334 }
+{ req: 1586, res: 1586, record: 3428334 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [app](ids: [ 1 ])
+[PM2] [app](1) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 6319     │ 0s     │ 6    │ online    │ 0%       │ 8.1mb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 23h    │ 0    │ online    │ 3.6%     │ 31.6mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 23h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 23h    │ 0    │ online    │ 0%       │ 27.0mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 5175     │ 7h     │ 1    │ online    │ 0%       │ 44.3mb   │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action stopProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket](0) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 6319     │ 7h     │ 6    │ online    │ 8%       │ 2.3gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 30h    │ 0    │ online    │ 0%       │ 33.5mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 30h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 30h    │ 0    │ online    │ 0%       │ 29.1mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 0        │ 0      │ 1    │ stopped   │ 0%       │ 0b       │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket](0) ✓
+[PM2] Process successfully started
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 6319     │ 7h     │ 6    │ online    │ 0%       │ 2.5gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 30h    │ 0    │ online    │ 0%       │ 33.5mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 30h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 30h    │ 0    │ online    │ 0%       │ 29.1mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 7377     │ 0s     │ 1    │ online    │ 0%       │ 6.4mb    │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+1592
+1592
+Fetching 1590
+{ req: 109, res: 10, record: 200 }
+{ req: 109, res: 20, record: 400 }
+{ req: 109, res: 30, record: 600 }
+{ req: 132, res: 40, record: 800 }
+{ req: 132, res: 50, record: 1000 }
+{ req: 132, res: 60, record: 1200 }
+{ req: 163, res: 70, record: 1400 }
+{ req: 163, res: 80, record: 1600 }
+{ req: 163, res: 90, record: 1800 }
+{ req: 192, res: 100, record: 2000 }
+{ req: 192, res: 110, record: 2200 }
+{ req: 192, res: 120, record: 2400 }
+{ req: 192, res: 130, record: 2600 }
+{ req: 192, res: 140, record: 2800 }
+{ req: 240, res: 150, record: 3000 }
+{ req: 240, res: 160, record: 3200 }
+{ req: 264, res: 170, record: 3400 }
+{ req: 264, res: 180, record: 3600 }
+{ req: 264, res: 190, record: 3800 }
+{ req: 264, res: 200, record: 4000 }
+{ req: 264, res: 210, record: 4200 }
+{ req: 264, res: 220, record: 4400 }
+{ req: 264, res: 230, record: 4600 }
+{ req: 337, res: 240, record: 4800 }
+{ req: 337, res: 250, record: 5000 }
+{ req: 337, res: 260, record: 5200 }
+{ req: 337, res: 270, record: 5400 }
+{ req: 337, res: 280, record: 5600 }
+{ req: 337, res: 290, record: 5800 }
+{ req: 337, res: 300, record: 6000 }
+{ req: 337, res: 310, record: 6200 }
+{ req: 337, res: 320, record: 6400 }
+{ req: 337, res: 330, record: 6600 }
+{ req: 437, res: 340, record: 6740 }
+{ req: 437, res: 350, record: 6740 }
+{ req: 437, res: 360, record: 6740 }
+{ req: 437, res: 370, record: 6740 }
+{ req: 437, res: 380, record: 6740 }
+{ req: 482, res: 390, record: 6900 }
+{ req: 482, res: 400, record: 7100 }
+{ req: 482, res: 410, record: 7240 }
+{ req: 482, res: 420, record: 7240 }
+{ req: 482, res: 430, record: 7440 }
+{ req: 482, res: 440, record: 7640 }
+{ req: 482, res: 450, record: 7840 }
+{ req: 482, res: 460, record: 7840 }
+{ req: 482, res: 470, record: 7840 }
+{ req: 482, res: 480, record: 7840 }
+{ req: 582, res: 490, record: 7840 }
+{ req: 582, res: 500, record: 7840 }
+{ req: 582, res: 510, record: 7840 }
+{ req: 582, res: 520, record: 7840 }
+{ req: 582, res: 530, record: 7840 }
+{ req: 582, res: 540, record: 7840 }
+{ req: 582, res: 550, record: 7840 }
+{ req: 582, res: 560, record: 7840 }
+{ req: 582, res: 570, record: 7840 }
+{ req: 582, res: 580, record: 7840 }
+{ req: 682, res: 590, record: 7840 }
+{ req: 682, res: 600, record: 7840 }
+{ req: 682, res: 610, record: 7840 }
+{ req: 682, res: 620, record: 7840 }
+{ req: 682, res: 630, record: 7840 }
+{ req: 682, res: 640, record: 7840 }
+{ req: 682, res: 650, record: 7840 }
+{ req: 682, res: 660, record: 7840 }
+{ req: 682, res: 670, record: 7840 }
+{ req: 682, res: 680, record: 7840 }
+{ req: 782, res: 690, record: 7840 }
+{ req: 782, res: 700, record: 7840 }
+{ req: 782, res: 710, record: 7840 }
+{ req: 782, res: 720, record: 7840 }
+{ req: 782, res: 730, record: 7840 }
+{ req: 782, res: 740, record: 7840 }
+{ req: 782, res: 750, record: 7840 }
+{ req: 782, res: 760, record: 7840 }
+{ req: 782, res: 770, record: 7840 }
+{ req: 782, res: 780, record: 7840 }
+{ req: 882, res: 790, record: 7880 }
+{ req: 882, res: 800, record: 7880 }
+{ req: 882, res: 810, record: 7880 }
+{ req: 882, res: 820, record: 7880 }
+{ req: 882, res: 830, record: 7880 }
+{ req: 882, res: 840, record: 7880 }
+{ req: 882, res: 850, record: 7880 }
+{ req: 882, res: 860, record: 7880 }
+{ req: 882, res: 870, record: 7880 }
+{ req: 882, res: 880, record: 7880 }
+{ req: 982, res: 890, record: 7911 }
+{ req: 982, res: 900, record: 7911 }
+{ req: 982, res: 910, record: 7911 }
+{ req: 982, res: 920, record: 7911 }
+{ req: 982, res: 930, record: 7911 }
+{ req: 982, res: 940, record: 7911 }
+{ req: 982, res: 950, record: 7911 }
+{ req: 982, res: 960, record: 7911 }
+{ req: 982, res: 970, record: 7911 }
+{ req: 982, res: 980, record: 7911 }
+{ req: 1082, res: 990, record: 7951 }
+{ req: 1082, res: 1000, record: 7951 }
+{ req: 1082, res: 1010, record: 7951 }
+{ req: 1082, res: 1020, record: 7951 }
+{ req: 1082, res: 1030, record: 7951 }
+{ req: 1082, res: 1040, record: 7951 }
+{ req: 1082, res: 1050, record: 7951 }
+{ req: 1082, res: 1060, record: 7951 }
+{ req: 1082, res: 1070, record: 7951 }
+{ req: 1082, res: 1080, record: 8031 }
+{ req: 1182, res: 1090, record: 8071 }
+{ req: 1182, res: 1100, record: 8071 }
+{ req: 1182, res: 1110, record: 8071 }
+{ req: 1182, res: 1120, record: 8071 }
+{ req: 1182, res: 1130, record: 8071 }
+{ req: 1182, res: 1140, record: 8071 }
+{ req: 1182, res: 1150, record: 8071 }
+{ req: 1182, res: 1160, record: 8071 }
+{ req: 1182, res: 1170, record: 8071 }
+{ req: 1182, res: 1180, record: 8071 }
+{ req: 1282, res: 1190, record: 8111 }
+{ req: 1282, res: 1200, record: 8111 }
+{ req: 1282, res: 1210, record: 8111 }
+{ req: 1282, res: 1220, record: 8111 }
+{ req: 1282, res: 1230, record: 8111 }
+{ req: 1282, res: 1240, record: 8111 }
+{ req: 1282, res: 1250, record: 8111 }
+{ req: 1282, res: 1260, record: 8111 }
+{ req: 1282, res: 1270, record: 8111 }
+{ req: 1378, res: 1280, record: 8111 }
+{ req: 1378, res: 1290, record: 8131 }
+{ req: 1378, res: 1300, record: 8131 }
+{ req: 1378, res: 1310, record: 8131 }
+{ req: 1378, res: 1320, record: 8131 }
+{ req: 1378, res: 1330, record: 8131 }
+{ req: 1378, res: 1340, record: 8131 }
+{ req: 1378, res: 1350, record: 8131 }
+{ req: 1378, res: 1360, record: 8131 }
+{ req: 1378, res: 1370, record: 8131 }
+{ req: 1478, res: 1380, record: 8271 }
+{ req: 1478, res: 1390, record: 8271 }
+{ req: 1478, res: 1400, record: 8271 }
+{ req: 1478, res: 1410, record: 8271 }
+{ req: 1478, res: 1420, record: 8271 }
+{ req: 1478, res: 1430, record: 8271 }
+{ req: 1478, res: 1440, record: 8271 }
+{ req: 1478, res: 1450, record: 8271 }
+{ req: 1478, res: 1460, record: 8271 }
+{ req: 1478, res: 1470, record: 8271 }
+{ req: 1578, res: 1480, record: 8351 }
+{ req: 1578, res: 1490, record: 8351 }
+{ req: 1578, res: 1500, record: 8351 }
+{ req: 1578, res: 1510, record: 8351 }
+{ req: 1578, res: 1520, record: 8351 }
+{ req: 1578, res: 1530, record: 8351 }
+{ req: 1578, res: 1540, record: 8351 }
+{ req: 1578, res: 1550, record: 8351 }
+{ req: 1578, res: 1560, record: 8351 }
+{ req: 1578, res: 1570, record: 8351 }
+{ req: 1590, res: 1580, record: 8351 }
+{ req: 1590, res: 1590, record: 8391 }
+{ req: 1590, res: 1590, record: 8391 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+│   87    │  'investorData20240306.json'   │
+│   88    │  'investorData20240307.json'   │
+│   89    │  'investorData20240308.json'   │
+│   90    │  'investorData20240309.json'   │
+│   91    │  'investorData20240310.json'   │
+│   92    │  'investorData20240311.json'   │
+│   93    │  'investorData20240312.json'   │
+│   94    │  'investorData20240313.json'   │
+│   95    │  'investorData20240314.json'   │
+│   96    │  'investorData20240315.json'   │
+│   97    │  'investorData20240316.json'   │
+│   98    │  'investorData20240317.json'   │
+│   99    │  'investorData20240318.json'   │
+│   100   │  'investorData20240319.json'   │
+│   101   │  'investorData20240320.json'   │
+│   102   │  'investorData20240321.json'   │
+│   103   │  'investorData20240322.json'   │
+│   104   │  'investorData20240323.json'   │
+│   105   │  'investorData20240324.json'   │
+│   106   │  'investorData20240325.json'   │
+│   107   │  'investorData20240326.json'   │
+│   108   │  'investorData20240327.json'   │
+│   109   │  'investorData20240328.json'   │
+│   110   │  'investorData20240329.json'   │
+│   111   │  'investorData20240330.json'   │
+│   112   │  'investorData20240331.json'   │
+│   113   │  'investorData20240401.json'   │
+│   114   │  'investorData20240402.json'   │
+│   115   │  'investorData20240403.json'   │
+│   116   │  'investorData20240404.json'   │
+│   117   │  'investorData20240405.json'   │
+│   118   │  'investorData20240406.json'   │
+│   119   │  'investorData20240407.json'   │
+│   120   │  'investorData20240408.json'   │
+│   121   │  'investorData20240409.json'   │
+│   122   │  'investorData20240410.json'   │
+│   123   │  'investorData20240411.json'   │
+│   124   │  'investorData20240412.json'   │
+│   125   │  'investorData20240413.json'   │
+│   126   │  'investorData20240414.json'   │
+│   127   │  'investorData20240415.json'   │
+│   128   │  'investorData20240416.json'   │
+│   129   │  'investorData20240417.json'   │
+│   130   │  'investorData20240418.json'   │
+│   131   │  'investorData20240419.json'   │
+│   132   │  'investorData20240420.json'   │
+│   133   │  'investorData20240421.json'   │
+│   134   │  'investorData20240422.json'   │
+│   135   │  'investorData20240423.json'   │
+│   136   │  'investorData20240424.json'   │
+│   137   │  'investorData20240425.json'   │
+│   138   │  'investorData20240426.json'   │
+│   139   │  'investorData20240427.json'   │
+│   140   │  'investorData20240428.json'   │
+│   141   │  'investorData20240429.json'   │
+│   142   │  'investorData20240430.json'   │
+│   143   │  'investorData20240501.json'   │
+│   144   │  'investorData20240502.json'   │
+│   145   │  'investorData20240503.json'   │
+│   146   │  'investorData20240504.json'   │
+│   147   │  'investorData20240505.json'   │
+│   148   │  'investorData20240506.json'   │
+│   149   │  'investorData20240507.json'   │
+│   150   │  'investorData20240508.json'   │
+│   151   │  'investorData20240509.json'   │
+│   152   │  'investorData20240510.json'   │
+│   153   │  'investorData20240511.json'   │
+│   154   │  'investorData20240512.json'   │
+│   155   │  'investorData20240513.json'   │
+│   156   │  'investorData20240514.json'   │
+│   157   │  'investorData20240515.json'   │
+│   158   │  'investorData20240516.json'   │
+│   159   │  'investorData20240517.json'   │
+│   160   │  'investorData20240518.json'   │
+│   161   │  'investorData20240519.json'   │
+│   162   │  'investorData20240520.json'   │
+│   163   │  'investorData20240521.json'   │
+│   164   │  'investorData20240522.json'   │
+│   165   │  'investorData20240523.json'   │
+│   166   │  'investorData20240524.json'   │
+│   167   │  'investorData20240525.json'   │
+│   168   │  'investorData20240526.json'   │
+│   169   │  'investorData20240527.json'   │
+│   170   │  'investorData20240528.json'   │
+│   171   │  'investorData20240529.json'   │
+│   172   │  'investorData20240530.json'   │
+│   173   │  'investorData20240531.json'   │
+│   174   │  'investorData20240601.json'   │
+│   175   │  'investorData20240602.json'   │
+│   176   │  'investorData20240603.json'   │
+│   177   │  'investorData20240604.json'   │
+│   178   │  'investorData20240605.json'   │
+│   179   │  'investorData20240606.json'   │
+│   180   │  'investorData20240607.json'   │
+│   181   │  'investorData20240608.json'   │
+│   182   │  'investorData20240609.json'   │
+│   183   │  'investorData20240610.json'   │
+│   184   │  'investorData20240611.json'   │
+│   185   │  'investorData20240612.json'   │
+│   186   │  'investorData20240613.json'   │
+│   187   │  'investorData20240614.json'   │
+│   188   │  'investorData20240615.json'   │
+│   189   │  'investorData20240616.json'   │
+│   190   │  'investorData20240617.json'   │
+│   191   │  'investorData20240618.json'   │
+│   192   │  'investorData20240619.json'   │
+│   193   │  'investorData20240620.json'   │
+│   194   │  'investorData20240621.json'   │
+│   195   │  'investorData20240622.json'   │
+│   196   │  'investorData20240623.json'   │
+│   197   │  'investorData20240624.json'   │
+│   198   │  'investorData20240625.json'   │
+│   199   │  'investorData20240626.json'   │
+│   200   │  'investorData20240627.json'   │
+│   201   │  'investorData20240628.json'   │
+│   202   │  'investorData20240629.json'   │
+│   203   │  'investorData20240630.json'   │
+│   204   │  'investorData20240701.json'   │
+│   205   │  'investorData20240702.json'   │
+│   206   │  'investorData20240703.json'   │
+│   207   │  'investorData20240704.json'   │
+│   208   │  'investorData20240705.json'   │
+│   209   │  'investorData20240706.json'   │
+│   210   │  'investorData20240707.json'   │
+│   211   │  'investorData20240708.json'   │
+│   212   │  'investorData20240709.json'   │
+│   213   │  'investorData20240710.json'   │
+│   214   │  'investorData20240711.json'   │
+│   215   │  'investorData20240712.json'   │
+│   216   │  'investorData20240713.json'   │
+│   217   │  'investorData20240714.json'   │
+│   218   │  'investorData20240715.json'   │
+│   219   │  'investorData20240716.json'   │
+│   220   │  'investorData20240717.json'   │
+│   221   │  'investorData20240718.json'   │
+│   222   │  'investorData20240719.json'   │
+│   223   │  'investorData20240720.json'   │
+│   224   │  'investorData20240721.json'   │
+│   225   │  'investorData20240722.json'   │
+│   226   │  'investorData20240723.json'   │
+│   227   │  'investorData20240724.json'   │
+│   228   │  'investorData20240725.json'   │
+│   229   │  'investorData20240726.json'   │
+│   230   │  'investorData20240727.json'   │
+│   231   │  'investorData20240728.json'   │
+│   232   │  'investorData20240729.json'   │
+│   233   │  'investorData20240730.json'   │
+│   234   │  'investorData20240731.json'   │
+│   235   │  'investorData20240801.json'   │
+│   236   │  'investorData20240802.json'   │
+│   237   │  'investorData20240803.json'   │
+│   238   │  'investorData20240804.json'   │
+│   239   │  'investorData20240805.json'   │
+│   240   │  'investorData20240806.json'   │
+│   241   │  'investorData20240807.json'   │
+│   242   │  'investorData20240808.json'   │
+│   243   │  'investorData20240809.json'   │
+│   244   │  'investorData20240810.json'   │
+│   245   │  'investorData20240811.json'   │
+│   246   │  'investorData20240812.json'   │
+│   247   │  'investorData20240813.json'   │
+│   248   │  'investorData20240814.json'   │
+│   249   │  'investorData20240815.json'   │
+│   250   │  'investorData20240816.json'   │
+│   251   │  'investorData20240817.json'   │
+│   252   │  'investorData20240818.json'   │
+│   253   │  'investorData20240819.json'   │
+│   254   │  'investorData20240820.json'   │
+│   255   │  'investorData20240821.json'   │
+│   256   │  'investorData20240822.json'   │
+│   257   │  'investorData20240823.json'   │
+│   258   │  'investorData20240824.json'   │
+│   259   │  'investorData20240825.json'   │
+│   260   │  'investorData20240826.json'   │
+│   261   │  'investorData20240827.json'   │
+│   262   │  'investorData20240828.json'   │
+│   263   │  'investorData20240829.json'   │
+│   264   │  'investorData20240830.json'   │
+│   265   │  'investorData20240831.json'   │
+│   266   │  'investorData20240901.json'   │
+│   267   │  'investorData20240902.json'   │
+│   268   │  'investorData20240903.json'   │
+│   269   │  'investorData20240904.json'   │
+│   270   │  'investorData20240905.json'   │
+│   271   │  'investorData20240906.json'   │
+│   272   │  'investorData20240907.json'   │
+│   273   │  'investorData20240908.json'   │
+│   274   │  'investorData20240909.json'   │
+│   275   │  'investorData20240910.json'   │
+│   276   │  'investorData20240911.json'   │
+│   277   │  'investorData20240912.json'   │
+│   278   │  'investorData20240913.json'   │
+│   279   │  'investorData20240914.json'   │
+│   280   │  'investorData20240915.json'   │
+│   281   │  'investorData20240916.json'   │
+│   282   │  'investorData20240917.json'   │
+│   283   │  'investorData20240918.json'   │
+│   284   │  'investorData20240919.json'   │
+│   285   │  'investorData20240920.json'   │
+│   286   │  'investorData20240921.json'   │
+│   287   │  'investorData20240922.json'   │
+│   288   │  'investorData20240923.json'   │
+│   289   │  'investorData20240924.json'   │
+│   290   │  'investorData20240925.json'   │
+│   291   │  'investorData20240926.json'   │
+│   292   │  'investorData20240927.json'   │
+│   293   │  'investorData20240928.json'   │
+│   294   │  'investorData20240929.json'   │
+│   295   │  'investorData20240930.json'   │
+│   296   │  'investorData20241001.json'   │
+│   297   │  'investorData20241002.json'   │
+│   298   │  'investorData20241003.json'   │
+│   299   │  'investorData20241004.json'   │
+│   300   │  'investorData20241005.json'   │
+│   301   │  'investorData20241006.json'   │
+│   302   │  'investorData20241007.json'   │
+│   303   │  'investorData20241008.json'   │
+│   304   │  'investorData20241009.json'   │
+│   305   │  'investorData20241010.json'   │
+│   306   │  'investorData20241011.json'   │
+│   307   │  'investorData20241012.json'   │
+│   308   │  'investorData20241013.json'   │
+│   309   │  'investorData20241014.json'   │
+│   310   │  'investorData20241015.json'   │
+│   311   │  'investorData20241016.json'   │
+│   312   │  'investorData20241017.json'   │
+│   313   │  'investorData20241018.json'   │
+│   314   │  'investorData20241019.json'   │
+│   315   │  'investorData20241020.json'   │
+│   316   │  'investorData20241021.json'   │
+│   317   │  'investorData20241024.json'   │
+│   318   │  'investorData20241025.json'   │
+│   319   │  'investorData20241026.json'   │
+│   320   │  'investorData20241027.json'   │
+│   321   │  'investorData20241028.json'   │
+│   322   │  'investorData20241029.json'   │
+│   323   │  'investorData20241030.json'   │
+│   324   │  'investorData20241031.json'   │
+│   325   │  'investorData20241101.json'   │
+│   326   │  'investorData20241102.json'   │
+│   327   │  'investorData20241103.json'   │
+│   328   │  'investorData20241104.json'   │
+│   329   │  'investorData20241105.json'   │
+│   330   │  'investorData20241106.json'   │
+│   331   │  'investorData20241107.json'   │
+│   332   │  'investorData20241108.json'   │
+│   333   │  'investorData20241109.json'   │
+│   334   │  'investorData20241110.json'   │
+│   335   │  'investorData20241111.json'   │
+│   336   │  'investorData20241112.json'   │
+│   337   │  'investorData20241113.json'   │
+│   338   │  'investorData20241114.json'   │
+│   339   │  'investorData20241115.json'   │
+│   340   │  'investorData20241116.json'   │
+│   341   │  'investorData20241117.json'   │
+│   342   │  'investorData20241118.json'   │
+│   343   │  'investorData20241119.json'   │
+│   344   │  'investorData20241120.json'   │
+│   345   │  'investorData20241121.json'   │
+│   346   │  'investorData20241122.json'   │
+│   347   │  'investorData20241123.json'   │
+│   348   │  'investorData20241124.json'   │
+│   349   │  'investorData20241125.json'   │
+│   350   │  'investorData20241126.json'   │
+│   351   │  'investorData20241127.json'   │
+│   352   │  'investorData20241128.json'   │
+│   353   │  'investorData20241129.json'   │
+│   354   │  'investorData20241130.json'   │
+│   355   │  'investorData20241201.json'   │
+│   356   │  'investorData20241202.json'   │
+│   357   │  'investorData20241203.json'   │
+│   358   │  'investorData20241204.json'   │
+│   359   │  'investorData20241205.json'   │
+│   360   │  'investorData20241206.json'   │
+│   361   │  'investorData20241207.json'   │
+│   362   │  'investorData20241208.json'   │
+│   363   │  'investorData20241209.json'   │
+│   364   │  'investorData20241210.json'   │
+│   365   │  'investorData20241211.json'   │
+│   366   │  'investorData20241212.json'   │
+│   367   │  'investorData20241213.json'   │
+│   368   │  'investorData20241214.json'   │
+│   369   │  'investorData20241215.json'   │
+│   370   │  'investorData20241216.json'   │
+│   371   │  'investorData20241217.json'   │
+│   372   │  'investorData20241218.json'   │
+│   373   │  'investorData20241219.json'   │
+│   374   │  'investorData20241220.json'   │
+│   375   │  'investorData20241221.json'   │
+│   376   │  'investorData20241222.json'   │
+│   377   │  'investorData20241223.json'   │
+│   378   │  'investorData20241224.json'   │
+│   379   │  'investorData20241225.json'   │
+│   380   │  'investorData20241226.json'   │
+│   381   │  'investorData20241227.json'   │
+│   382   │  'investorData20241228.json'   │
+│   383   │  'investorData20241229.json'   │
+│   384   │  'investorData20241230.json'   │
+│   385   │  'investorData20241231.json'   │
+│   386   │  'investorData20250101.json'   │
+│   387   │  'investorData20250102.json'   │
+│   388   │  'investorData20250103.json'   │
+│   389   │  'investorData20250104.json'   │
+│   390   │  'investorData20250105.json'   │
+│   391   │  'investorData20250106.json'   │
+│   392   │  'investorData20250107.json'   │
+│   393   │  'investorData20250108.json'   │
+│   394   │  'investorData20250109.json'   │
+│   395   │  'investorData20250110.json'   │
+│   396   │  'investorData20250111.json'   │
+│   397   │  'investorData20250112.json'   │
+│   398   │  'investorData20250113.json'   │
+│   399   │  'investorData20250114.json'   │
+│   400   │  'investorData20250115.json'   │
+│   401   │  'investorData20250116.json'   │
+│   402   │  'investorData20250117.json'   │
+│   403   │  'investorData20250118.json'   │
+│   404   │  'investorData20250119.json'   │
+│   405   │  'investorData20250120.json'   │
+│   406   │  'investorData20250121.json'   │
+│   407   │  'investorData20250122.json'   │
+│   408   │  'investorData20250123.json'   │
+│   409   │  'investorData20250124.json'   │
+│   410   │  'investorData20250125.json'   │
+│   411   │  'investorData20250126.json'   │
+│   412   │  'investorData20250127.json'   │
+│   413   │  'investorData20250128.json'   │
+│   414   │  'investorData20250129.json'   │
+│   415   │  'investorData20250130.json'   │
+│   416   │  'investorData20250131.json'   │
+│   417   │  'investorData20250201.json'   │
+│   418   │  'investorData20250202.json'   │
+│   419   │  'investorData20250203.json'   │
+│   420   │  'investorData20250204.json'   │
+│   421   │  'investorData20250205.json'   │
+│   422   │  'investorData20250206.json'   │
+│   423   │  'investorData20250207.json'   │
+│   424   │  'investorData20250208.json'   │
+│   425   │  'investorData20250209.json'   │
+│   426   │  'investorData20250210.json'   │
+│   427   │  'investorData20250211.json'   │
+│   428   │  'investorData20250212.json'   │
+│   429   │  'investorData20250213.json'   │
+│   430   │  'investorData20250214.json'   │
+│   431   │  'investorData20250215.json'   │
+│   432   │  'investorData20250216.json'   │
+│   433   │  'investorData20250217.json'   │
+│   434   │  'investorData20250218.json'   │
+│   435   │  'investorData20250219.json'   │
+│   436   │  'investorData20250220.json'   │
+│   437   │  'investorData20250221.json'   │
+│   438   │  'investorData20250222.json'   │
+│   439   │  'investorData20250223.json'   │
+│   440   │  'investorData20250224.json'   │
+│   441   │  'investorData20250225.json'   │
+│   442   │  'investorData20250226.json'   │
+│   443   │  'investorData20250227.json'   │
+│   444   │  'investorData20250228.json'   │
+│   445   │  'investorData20250301.json'   │
+│   446   │  'investorData20250302.json'   │
+│   447   │  'investorData20250303.json'   │
+│   448   │  'investorData20250304.json'   │
+│   449   │  'investorData20250305.json'   │
+│   450   │  'investorData20250306.json'   │
+│   451   │  'investorData20250307.json'   │
+│   452   │  'investorData20250308.json'   │
+│   453   │  'investorData20250309.json'   │
+│   454   │  'investorData20250310.json'   │
+│   455   │  'investorData20250311.json'   │
+│   456   │  'investorData20250312.json'   │
+│   457   │  'investorData20250313.json'   │
+│   458   │  'investorData20250314.json'   │
+│   459   │  'investorData20250315.json'   │
+│   460   │  'investorData20250316.json'   │
+│   461   │  'investorData20250317.json'   │
+│   462   │  'investorData20250318.json'   │
+│   463   │  'investorData20250319.json'   │
+│   464   │  'investorData20250320.json'   │
+│   465   │  'investorData20250321.json'   │
+│   466   │  'investorData20250322.json'   │
+│   467   │  'investorData20250323.json'   │
+│   468   │  'investorData20250324.json'   │
+│   469   │  'investorData20250325.json'   │
+│   470   │  'investorData20250326.json'   │
+│   471   │  'investorData20250327.json'   │
+│   472   │  'investorData20250328.json'   │
+│   473   │  'investorData20250329.json'   │
+│   474   │  'investorData20250330.json'   │
+│   475   │  'investorData20250331.json'   │
+│   476   │  'investorData20250401.json'   │
+│   477   │  'investorData20250402.json'   │
+│   478   │  'investorData20250403.json'   │
+│   479   │  'investorData20250404.json'   │
+│   480   │  'investorData20250405.json'   │
+│   481   │  'investorData20250406.json'   │
+│   482   │  'investorData20250407.json'   │
+│   483   │  'investorData20250408.json'   │
+│   484   │  'investorData20250409.json'   │
+│   485   │  'investorData20250410.json'   │
+│   486   │  'investorData20250411.json'   │
+│   487   │  'investorData20250412.json'   │
+│   488   │  'investorData20250413.json'   │
+│   489   │  'investorData20250414.json'   │
+│   490   │  'investorData20250415.json'   │
+│   491   │  'investorData20250416.json'   │
+│   492   │  'investorData20250417.json'   │
+│   493   │  'investorData20250418.json'   │
+│   494   │  'investorData20250419.json'   │
+│   495   │  'investorData20250420.json'   │
+│   496   │  'investorData20250421.json'   │
+│   497   │  'investorData20250422.json'   │
+│   498   │  'investorData20250423.json'   │
+│   499   │  'investorData20250424.json'   │
+│   500   │  'investorData20250425.json'   │
+│   501   │  'investorData20250426.json'   │
+│   502   │  'investorData20250427.json'   │
+│   503   │  'investorData20250428.json'   │
+│   504   │  'investorData20250429.json'   │
+│   505   │  'investorData20250430.json'   │
+│   506   │  'investorData20250501.json'   │
+│   507   │  'investorData20250502.json'   │
+│   508   │  'investorData20250503.json'   │
+│   509   │  'investorData20250504.json'   │
+│   510   │  'investorData20250505.json'   │
+│   511   │  'investorData20250506.json'   │
+│   512   │  'investorData20250507.json'   │
+│   513   │  'investorData20250508.json'   │
+│   514   │  'investorData20250509.json'   │
+│   515   │  'investorData20250510.json'   │
+│   516   │  'investorData20250511.json'   │
+│   517   │  'investorData20250512.json'   │
+│   518   │  'investorData20250513.json'   │
+│   519   │  'investorData20250514.json'   │
+│   520   │  'investorData20250515.json'   │
+│   521   │  'investorData20250516.json'   │
+│   522   │  'investorData20250517.json'   │
+│   523   │  'investorData20250518.json'   │
+│   524   │  'investorData20250519.json'   │
+│   525   │  'investorData20250520.json'   │
+│   526   │  'investorData20250521.json'   │
+│   527   │  'investorData20250522.json'   │
+│   528   │  'investorData20250523.json'   │
+│   529   │  'investorData20250524.json'   │
+│   530   │  'investorData20250525.json'   │
+│   531   │  'investorData20250526.json'   │
+│   532   │  'investorData20250527.json'   │
+│   533   │  'investorData20250528.json'   │
+│   534   │  'investorData20250529.json'   │
+└─────────┴────────────────────────────────┘
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250523.json' │
+│    1    │ 'investorData20250524.json' │
+│    2    │ 'investorData20250525.json' │
+│    3    │ 'investorData20250526.json' │
+│    4    │ 'investorData20250527.json' │
+│    5    │ 'investorData20250528.json' │
+│    6    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+combineData all 169197
+combineDataR all 9634
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ -58192522900 │
+│           foreign_delta            │ -58192522900 │
+│         proprietary_delta          │ -8393085000  │
+│       local_individual_delta       │ -4058006600  │
+│     local_institutional_delta      │ 70643614600  │
+│      foreign_individual_delta      │      0       │
+│    foreign_institutional_delta     │ -58192523000 │
+│         total_buy_matched          │ 598232273700 │
+│         total_sell_matched         │ 656424796600 │
+│        foreign_buy_matched         │ 10004057700  │
+│        foreign_sell_matched        │ 68196580600  │
+│      proprietary_buy_matched       │ 11988000000  │
+│      proprietary_sell_matched      │ 20381085000  │
+│    local_individual_buy_matched    │ 215124284250 │
+│   local_individual_sell_matched    │ 219182290850 │
+│  local_institutional_buy_matched   │ 351111874750 │
+│  local_institutional_sell_matched  │ 280468260150 │
+│   foreign_individual_buy_matched   │      0       │
+│  foreign_individual_sell_matched   │      0       │
+│ foreign_institutional_buy_matched  │ 10004057000  │
+│ foreign_institutional_sell_matched │ 68196580000  │
+└────────────────────────────────────┴──────────────┘
+1592
+1592
+Fetching 1590
+{ req: 100, res: 10, record: 200 }
+{ req: 112, res: 20, record: 400 }
+{ req: 112, res: 30, record: 600 }
+{ req: 138, res: 40, record: 800 }
+{ req: 138, res: 50, record: 1000 }
+{ req: 138, res: 60, record: 1200 }
+{ req: 138, res: 70, record: 1400 }
+{ req: 172, res: 80, record: 1600 }
+{ req: 187, res: 90, record: 1800 }
+{ req: 187, res: 100, record: 2000 }
+{ req: 187, res: 110, record: 2200 }
+{ req: 187, res: 120, record: 2400 }
+{ req: 187, res: 130, record: 2600 }
+{ req: 187, res: 140, record: 2800 }
+{ req: 245, res: 150, record: 3000 }
+{ req: 257, res: 160, record: 3200 }
+{ req: 257, res: 170, record: 3400 }
+{ req: 257, res: 180, record: 3600 }
+{ req: 257, res: 190, record: 3800 }
+{ req: 257, res: 200, record: 4000 }
+{ req: 257, res: 210, record: 4200 }
+{ req: 257, res: 220, record: 4400 }
+{ req: 257, res: 230, record: 4600 }
+{ req: 337, res: 240, record: 4800 }
+{ req: 343, res: 250, record: 5000 }
+{ req: 343, res: 260, record: 5200 }
+{ req: 343, res: 270, record: 5400 }
+{ req: 343, res: 280, record: 5600 }
+{ req: 343, res: 290, record: 5800 }
+{ req: 343, res: 300, record: 6000 }
+{ req: 343, res: 310, record: 6200 }
+{ req: 343, res: 320, record: 6400 }
+{ req: 343, res: 330, record: 6600 }
+{ req: 343, res: 340, record: 6800 }
+{ req: 443, res: 350, record: 6860 }
+{ req: 443, res: 360, record: 6860 }
+{ req: 443, res: 370, record: 6860 }
+{ req: 478, res: 380, record: 6900 }
+{ req: 478, res: 390, record: 6960 }
+{ req: 478, res: 400, record: 6980 }
+{ req: 478, res: 410, record: 7180 }
+{ req: 478, res: 420, record: 7280 }
+{ req: 478, res: 430, record: 7280 }
+{ req: 478, res: 440, record: 7280 }
+{ req: 478, res: 450, record: 7280 }
+{ req: 478, res: 460, record: 7480 }
+{ req: 478, res: 470, record: 7680 }
+{ req: 578, res: 480, record: 7840 }
+{ req: 578, res: 490, record: 7840 }
+{ req: 578, res: 500, record: 7840 }
+{ req: 578, res: 510, record: 7840 }
+{ req: 578, res: 520, record: 7840 }
+{ req: 578, res: 530, record: 7840 }
+{ req: 578, res: 540, record: 7840 }
+{ req: 578, res: 550, record: 7840 }
+{ req: 578, res: 560, record: 7840 }
+{ req: 578, res: 570, record: 7840 }
+{ req: 678, res: 580, record: 7840 }
+{ req: 678, res: 590, record: 7840 }
+{ req: 678, res: 600, record: 7840 }
+{ req: 678, res: 610, record: 7840 }
+{ req: 678, res: 620, record: 7840 }
+{ req: 678, res: 630, record: 7840 }
+{ req: 678, res: 640, record: 7840 }
+{ req: 678, res: 650, record: 7840 }
+{ req: 678, res: 660, record: 7840 }
+{ req: 678, res: 670, record: 7840 }
+{ req: 778, res: 680, record: 7840 }
+{ req: 778, res: 690, record: 7840 }
+{ req: 778, res: 700, record: 7840 }
+{ req: 778, res: 710, record: 7840 }
+{ req: 778, res: 720, record: 7840 }
+{ req: 778, res: 730, record: 7840 }
+{ req: 778, res: 740, record: 7840 }
+{ req: 778, res: 750, record: 7840 }
+{ req: 778, res: 760, record: 7840 }
+{ req: 778, res: 770, record: 7840 }
+{ req: 878, res: 780, record: 7880 }
+{ req: 878, res: 790, record: 7880 }
+{ req: 878, res: 800, record: 7880 }
+{ req: 878, res: 810, record: 7880 }
+{ req: 878, res: 820, record: 7880 }
+{ req: 878, res: 830, record: 7880 }
+{ req: 878, res: 840, record: 7880 }
+{ req: 878, res: 850, record: 7880 }
+{ req: 878, res: 860, record: 7880 }
+{ req: 878, res: 870, record: 7880 }
+{ req: 978, res: 880, record: 7911 }
+{ req: 978, res: 890, record: 7911 }
+{ req: 978, res: 900, record: 7911 }
+{ req: 978, res: 910, record: 7911 }
+{ req: 978, res: 920, record: 7911 }
+{ req: 978, res: 930, record: 7911 }
+{ req: 978, res: 940, record: 7911 }
+{ req: 978, res: 950, record: 7911 }
+{ req: 978, res: 960, record: 7911 }
+{ req: 978, res: 970, record: 7911 }
+{ req: 1078, res: 980, record: 7951 }
+{ req: 1078, res: 990, record: 7951 }
+{ req: 1078, res: 1000, record: 7951 }
+{ req: 1078, res: 1010, record: 7951 }
+{ req: 1078, res: 1020, record: 7951 }
+{ req: 1078, res: 1030, record: 7951 }
+{ req: 1078, res: 1040, record: 7951 }
+{ req: 1078, res: 1050, record: 7951 }
+{ req: 1078, res: 1060, record: 7951 }
+{ req: 1078, res: 1070, record: 7951 }
+{ req: 1178, res: 1080, record: 8071 }
+{ req: 1178, res: 1090, record: 8071 }
+{ req: 1178, res: 1100, record: 8071 }
+{ req: 1178, res: 1110, record: 8071 }
+{ req: 1178, res: 1120, record: 8071 }
+{ req: 1178, res: 1130, record: 8071 }
+{ req: 1178, res: 1140, record: 8071 }
+{ req: 1178, res: 1150, record: 8071 }
+{ req: 1178, res: 1160, record: 8071 }
+{ req: 1178, res: 1170, record: 8071 }
+{ req: 1278, res: 1180, record: 8111 }
+{ req: 1278, res: 1190, record: 8111 }
+{ req: 1278, res: 1200, record: 8111 }
+{ req: 1278, res: 1210, record: 8111 }
+{ req: 1278, res: 1220, record: 8111 }
+{ req: 1278, res: 1230, record: 8111 }
+{ req: 1278, res: 1240, record: 8111 }
+{ req: 1278, res: 1250, record: 8111 }
+{ req: 1278, res: 1260, record: 8111 }
+{ req: 1278, res: 1270, record: 8111 }
+{ req: 1377, res: 1280, record: 8131 }
+{ req: 1377, res: 1290, record: 8131 }
+{ req: 1377, res: 1300, record: 8131 }
+{ req: 1377, res: 1310, record: 8131 }
+{ req: 1377, res: 1320, record: 8191 }
+{ req: 1377, res: 1330, record: 8191 }
+{ req: 1377, res: 1340, record: 8191 }
+{ req: 1377, res: 1350, record: 8191 }
+{ req: 1377, res: 1360, record: 8191 }
+{ req: 1377, res: 1370, record: 8191 }
+{ req: 1477, res: 1380, record: 8271 }
+{ req: 1477, res: 1390, record: 8271 }
+{ req: 1477, res: 1400, record: 8271 }
+{ req: 1477, res: 1410, record: 8271 }
+{ req: 1477, res: 1420, record: 8271 }
+{ req: 1477, res: 1430, record: 8271 }
+{ req: 1477, res: 1440, record: 8271 }
+{ req: 1477, res: 1450, record: 8271 }
+{ req: 1477, res: 1460, record: 8271 }
+{ req: 1477, res: 1470, record: 8271 }
+{ req: 1577, res: 1480, record: 8351 }
+{ req: 1577, res: 1490, record: 8351 }
+{ req: 1577, res: 1500, record: 8351 }
+{ req: 1577, res: 1510, record: 8351 }
+{ req: 1577, res: 1520, record: 8351 }
+{ req: 1577, res: 1530, record: 8351 }
+{ req: 1577, res: 1540, record: 8351 }
+{ req: 1577, res: 1550, record: 8351 }
+{ req: 1577, res: 1560, record: 8351 }
+{ req: 1577, res: 1570, record: 8351 }
+{ req: 1590, res: 1580, record: 8351 }
+{ req: 1590, res: 1590, record: 8391 }
+{ req: 1590, res: 1590, record: 8391 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+│   87    │  'investorData20240306.json'   │
+│   88    │  'investorData20240307.json'   │
+│   89    │  'investorData20240308.json'   │
+│   90    │  'investorData20240309.json'   │
+│   91    │  'investorData20240310.json'   │
+│   92    │  'investorData20240311.json'   │
+│   93    │  'investorData20240312.json'   │
+│   94    │  'investorData20240313.json'   │
+│   95    │  'investorData20240314.json'   │
+│   96    │  'investorData20240315.json'   │
+│   97    │  'investorData20240316.json'   │
+│   98    │  'investorData20240317.json'   │
+│   99    │  'investorData20240318.json'   │
+│   100   │  'investorData20240319.json'   │
+│   101   │  'investorData20240320.json'   │
+│   102   │  'investorData20240321.json'   │
+│   103   │  'investorData20240322.json'   │
+│   104   │  'investorData20240323.json'   │
+│   105   │  'investorData20240324.json'   │
+│   106   │  'investorData20240325.json'   │
+│   107   │  'investorData20240326.json'   │
+│   108   │  'investorData20240327.json'   │
+│   109   │  'investorData20240328.json'   │
+│   110   │  'investorData20240329.json'   │
+│   111   │  'investorData20240330.json'   │
+│   112   │  'investorData20240331.json'   │
+│   113   │  'investorData20240401.json'   │
+│   114   │  'investorData20240402.json'   │
+│   115   │  'investorData20240403.json'   │
+│   116   │  'investorData20240404.json'   │
+│   117   │  'investorData20240405.json'   │
+│   118   │  'investorData20240406.json'   │
+│   119   │  'investorData20240407.json'   │
+│   120   │  'investorData20240408.json'   │
+│   121   │  'investorData20240409.json'   │
+│   122   │  'investorData20240410.json'   │
+│   123   │  'investorData20240411.json'   │
+│   124   │  'investorData20240412.json'   │
+│   125   │  'investorData20240413.json'   │
+│   126   │  'investorData20240414.json'   │
+│   127   │  'investorData20240415.json'   │
+│   128   │  'investorData20240416.json'   │
+│   129   │  'investorData20240417.json'   │
+│   130   │  'investorData20240418.json'   │
+│   131   │  'investorData20240419.json'   │
+│   132   │  'investorData20240420.json'   │
+│   133   │  'investorData20240421.json'   │
+│   134   │  'investorData20240422.json'   │
+│   135   │  'investorData20240423.json'   │
+│   136   │  'investorData20240424.json'   │
+│   137   │  'investorData20240425.json'   │
+│   138   │  'investorData20240426.json'   │
+│   139   │  'investorData20240427.json'   │
+│   140   │  'investorData20240428.json'   │
+│   141   │  'investorData20240429.json'   │
+│   142   │  'investorData20240430.json'   │
+│   143   │  'investorData20240501.json'   │
+│   144   │  'investorData20240502.json'   │
+│   145   │  'investorData20240503.json'   │
+│   146   │  'investorData20240504.json'   │
+│   147   │  'investorData20240505.json'   │
+│   148   │  'investorData20240506.json'   │
+│   149   │  'investorData20240507.json'   │
+│   150   │  'investorData20240508.json'   │
+│   151   │  'investorData20240509.json'   │
+│   152   │  'investorData20240510.json'   │
+│   153   │  'investorData20240511.json'   │
+│   154   │  'investorData20240512.json'   │
+│   155   │  'investorData20240513.json'   │
+│   156   │  'investorData20240514.json'   │
+│   157   │  'investorData20240515.json'   │
+│   158   │  'investorData20240516.json'   │
+│   159   │  'investorData20240517.json'   │
+│   160   │  'investorData20240518.json'   │
+│   161   │  'investorData20240519.json'   │
+│   162   │  'investorData20240520.json'   │
+│   163   │  'investorData20240521.json'   │
+│   164   │  'investorData20240522.json'   │
+│   165   │  'investorData20240523.json'   │
+│   166   │  'investorData20240524.json'   │
+│   167   │  'investorData20240525.json'   │
+│   168   │  'investorData20240526.json'   │
+│   169   │  'investorData20240527.json'   │
+│   170   │  'investorData20240528.json'   │
+│   171   │  'investorData20240529.json'   │
+│   172   │  'investorData20240530.json'   │
+│   173   │  'investorData20240531.json'   │
+│   174   │  'investorData20240601.json'   │
+│   175   │  'investorData20240602.json'   │
+│   176   │  'investorData20240603.json'   │
+│   177   │  'investorData20240604.json'   │
+│   178   │  'investorData20240605.json'   │
+│   179   │  'investorData20240606.json'   │
+│   180   │  'investorData20240607.json'   │
+│   181   │  'investorData20240608.json'   │
+│   182   │  'investorData20240609.json'   │
+│   183   │  'investorData20240610.json'   │
+│   184   │  'investorData20240611.json'   │
+│   185   │  'investorData20240612.json'   │
+│   186   │  'investorData20240613.json'   │
+│   187   │  'investorData20240614.json'   │
+│   188   │  'investorData20240615.json'   │
+│   189   │  'investorData20240616.json'   │
+│   190   │  'investorData20240617.json'   │
+│   191   │  'investorData20240618.json'   │
+│   192   │  'investorData20240619.json'   │
+│   193   │  'investorData20240620.json'   │
+│   194   │  'investorData20240621.json'   │
+│   195   │  'investorData20240622.json'   │
+│   196   │  'investorData20240623.json'   │
+│   197   │  'investorData20240624.json'   │
+│   198   │  'investorData20240625.json'   │
+│   199   │  'investorData20240626.json'   │
+│   200   │  'investorData20240627.json'   │
+│   201   │  'investorData20240628.json'   │
+│   202   │  'investorData20240629.json'   │
+│   203   │  'investorData20240630.json'   │
+│   204   │  'investorData20240701.json'   │
+│   205   │  'investorData20240702.json'   │
+│   206   │  'investorData20240703.json'   │
+│   207   │  'investorData20240704.json'   │
+│   208   │  'investorData20240705.json'   │
+│   209   │  'investorData20240706.json'   │
+│   210   │  'investorData20240707.json'   │
+│   211   │  'investorData20240708.json'   │
+│   212   │  'investorData20240709.json'   │
+│   213   │  'investorData20240710.json'   │
+│   214   │  'investorData20240711.json'   │
+│   215   │  'investorData20240712.json'   │
+│   216   │  'investorData20240713.json'   │
+│   217   │  'investorData20240714.json'   │
+│   218   │  'investorData20240715.json'   │
+│   219   │  'investorData20240716.json'   │
+│   220   │  'investorData20240717.json'   │
+│   221   │  'investorData20240718.json'   │
+│   222   │  'investorData20240719.json'   │
+│   223   │  'investorData20240720.json'   │
+│   224   │  'investorData20240721.json'   │
+│   225   │  'investorData20240722.json'   │
+│   226   │  'investorData20240723.json'   │
+│   227   │  'investorData20240724.json'   │
+│   228   │  'investorData20240725.json'   │
+│   229   │  'investorData20240726.json'   │
+│   230   │  'investorData20240727.json'   │
+│   231   │  'investorData20240728.json'   │
+│   232   │  'investorData20240729.json'   │
+│   233   │  'investorData20240730.json'   │
+│   234   │  'investorData20240731.json'   │
+│   235   │  'investorData20240801.json'   │
+│   236   │  'investorData20240802.json'   │
+│   237   │  'investorData20240803.json'   │
+│   238   │  'investorData20240804.json'   │
+│   239   │  'investorData20240805.json'   │
+│   240   │  'investorData20240806.json'   │
+│   241   │  'investorData20240807.json'   │
+│   242   │  'investorData20240808.json'   │
+│   243   │  'investorData20240809.json'   │
+│   244   │  'investorData20240810.json'   │
+│   245   │  'investorData20240811.json'   │
+│   246   │  'investorData20240812.json'   │
+│   247   │  'investorData20240813.json'   │
+│   248   │  'investorData20240814.json'   │
+│   249   │  'investorData20240815.json'   │
+│   250   │  'investorData20240816.json'   │
+│   251   │  'investorData20240817.json'   │
+│   252   │  'investorData20240818.json'   │
+│   253   │  'investorData20240819.json'   │
+│   254   │  'investorData20240820.json'   │
+│   255   │  'investorData20240821.json'   │
+│   256   │  'investorData20240822.json'   │
+│   257   │  'investorData20240823.json'   │
+│   258   │  'investorData20240824.json'   │
+│   259   │  'investorData20240825.json'   │
+│   260   │  'investorData20240826.json'   │
+│   261   │  'investorData20240827.json'   │
+│   262   │  'investorData20240828.json'   │
+│   263   │  'investorData20240829.json'   │
+│   264   │  'investorData20240830.json'   │
+│   265   │  'investorData20240831.json'   │
+│   266   │  'investorData20240901.json'   │
+│   267   │  'investorData20240902.json'   │
+│   268   │  'investorData20240903.json'   │
+│   269   │  'investorData20240904.json'   │
+│   270   │  'investorData20240905.json'   │
+│   271   │  'investorData20240906.json'   │
+│   272   │  'investorData20240907.json'   │
+│   273   │  'investorData20240908.json'   │
+│   274   │  'investorData20240909.json'   │
+│   275   │  'investorData20240910.json'   │
+│   276   │  'investorData20240911.json'   │
+│   277   │  'investorData20240912.json'   │
+│   278   │  'investorData20240913.json'   │
+│   279   │  'investorData20240914.json'   │
+│   280   │  'investorData20240915.json'   │
+│   281   │  'investorData20240916.json'   │
+│   282   │  'investorData20240917.json'   │
+│   283   │  'investorData20240918.json'   │
+│   284   │  'investorData20240919.json'   │
+│   285   │  'investorData20240920.json'   │
+│   286   │  'investorData20240921.json'   │
+│   287   │  'investorData20240922.json'   │
+│   288   │  'investorData20240923.json'   │
+│   289   │  'investorData20240924.json'   │
+│   290   │  'investorData20240925.json'   │
+│   291   │  'investorData20240926.json'   │
+│   292   │  'investorData20240927.json'   │
+│   293   │  'investorData20240928.json'   │
+│   294   │  'investorData20240929.json'   │
+│   295   │  'investorData20240930.json'   │
+│   296   │  'investorData20241001.json'   │
+│   297   │  'investorData20241002.json'   │
+│   298   │  'investorData20241003.json'   │
+│   299   │  'investorData20241004.json'   │
+│   300   │  'investorData20241005.json'   │
+│   301   │  'investorData20241006.json'   │
+│   302   │  'investorData20241007.json'   │
+│   303   │  'investorData20241008.json'   │
+│   304   │  'investorData20241009.json'   │
+│   305   │  'investorData20241010.json'   │
+│   306   │  'investorData20241011.json'   │
+│   307   │  'investorData20241012.json'   │
+│   308   │  'investorData20241013.json'   │
+│   309   │  'investorData20241014.json'   │
+│   310   │  'investorData20241015.json'   │
+│   311   │  'investorData20241016.json'   │
+│   312   │  'investorData20241017.json'   │
+│   313   │  'investorData20241018.json'   │
+│   314   │  'investorData20241019.json'   │
+│   315   │  'investorData20241020.json'   │
+│   316   │  'investorData20241021.json'   │
+│   317   │  'investorData20241024.json'   │
+│   318   │  'investorData20241025.json'   │
+│   319   │  'investorData20241026.json'   │
+│   320   │  'investorData20241027.json'   │
+│   321   │  'investorData20241028.json'   │
+│   322   │  'investorData20241029.json'   │
+│   323   │  'investorData20241030.json'   │
+│   324   │  'investorData20241031.json'   │
+│   325   │  'investorData20241101.json'   │
+│   326   │  'investorData20241102.json'   │
+│   327   │  'investorData20241103.json'   │
+│   328   │  'investorData20241104.json'   │
+│   329   │  'investorData20241105.json'   │
+│   330   │  'investorData20241106.json'   │
+│   331   │  'investorData20241107.json'   │
+│   332   │  'investorData20241108.json'   │
+│   333   │  'investorData20241109.json'   │
+│   334   │  'investorData20241110.json'   │
+│   335   │  'investorData20241111.json'   │
+│   336   │  'investorData20241112.json'   │
+│   337   │  'investorData20241113.json'   │
+│   338   │  'investorData20241114.json'   │
+│   339   │  'investorData20241115.json'   │
+│   340   │  'investorData20241116.json'   │
+│   341   │  'investorData20241117.json'   │
+│   342   │  'investorData20241118.json'   │
+│   343   │  'investorData20241119.json'   │
+│   344   │  'investorData20241120.json'   │
+│   345   │  'investorData20241121.json'   │
+│   346   │  'investorData20241122.json'   │
+│   347   │  'investorData20241123.json'   │
+│   348   │  'investorData20241124.json'   │
+│   349   │  'investorData20241125.json'   │
+│   350   │  'investorData20241126.json'   │
+│   351   │  'investorData20241127.json'   │
+│   352   │  'investorData20241128.json'   │
+│   353   │  'investorData20241129.json'   │
+│   354   │  'investorData20241130.json'   │
+│   355   │  'investorData20241201.json'   │
+│   356   │  'investorData20241202.json'   │
+│   357   │  'investorData20241203.json'   │
+│   358   │  'investorData20241204.json'   │
+│   359   │  'investorData20241205.json'   │
+│   360   │  'investorData20241206.json'   │
+│   361   │  'investorData20241207.json'   │
+│   362   │  'investorData20241208.json'   │
+│   363   │  'investorData20241209.json'   │
+│   364   │  'investorData20241210.json'   │
+│   365   │  'investorData20241211.json'   │
+│   366   │  'investorData20241212.json'   │
+│   367   │  'investorData20241213.json'   │
+│   368   │  'investorData20241214.json'   │
+│   369   │  'investorData20241215.json'   │
+│   370   │  'investorData20241216.json'   │
+│   371   │  'investorData20241217.json'   │
+│   372   │  'investorData20241218.json'   │
+│   373   │  'investorData20241219.json'   │
+│   374   │  'investorData20241220.json'   │
+│   375   │  'investorData20241221.json'   │
+│   376   │  'investorData20241222.json'   │
+│   377   │  'investorData20241223.json'   │
+│   378   │  'investorData20241224.json'   │
+│   379   │  'investorData20241225.json'   │
+│   380   │  'investorData20241226.json'   │
+│   381   │  'investorData20241227.json'   │
+│   382   │  'investorData20241228.json'   │
+│   383   │  'investorData20241229.json'   │
+│   384   │  'investorData20241230.json'   │
+│   385   │  'investorData20241231.json'   │
+│   386   │  'investorData20250101.json'   │
+│   387   │  'investorData20250102.json'   │
+│   388   │  'investorData20250103.json'   │
+│   389   │  'investorData20250104.json'   │
+│   390   │  'investorData20250105.json'   │
+│   391   │  'investorData20250106.json'   │
+│   392   │  'investorData20250107.json'   │
+│   393   │  'investorData20250108.json'   │
+│   394   │  'investorData20250109.json'   │
+│   395   │  'investorData20250110.json'   │
+│   396   │  'investorData20250111.json'   │
+│   397   │  'investorData20250112.json'   │
+│   398   │  'investorData20250113.json'   │
+│   399   │  'investorData20250114.json'   │
+│   400   │  'investorData20250115.json'   │
+│   401   │  'investorData20250116.json'   │
+│   402   │  'investorData20250117.json'   │
+│   403   │  'investorData20250118.json'   │
+│   404   │  'investorData20250119.json'   │
+│   405   │  'investorData20250120.json'   │
+│   406   │  'investorData20250121.json'   │
+│   407   │  'investorData20250122.json'   │
+│   408   │  'investorData20250123.json'   │
+│   409   │  'investorData20250124.json'   │
+│   410   │  'investorData20250125.json'   │
+│   411   │  'investorData20250126.json'   │
+│   412   │  'investorData20250127.json'   │
+│   413   │  'investorData20250128.json'   │
+│   414   │  'investorData20250129.json'   │
+│   415   │  'investorData20250130.json'   │
+│   416   │  'investorData20250131.json'   │
+│   417   │  'investorData20250201.json'   │
+│   418   │  'investorData20250202.json'   │
+│   419   │  'investorData20250203.json'   │
+│   420   │  'investorData20250204.json'   │
+│   421   │  'investorData20250205.json'   │
+│   422   │  'investorData20250206.json'   │
+│   423   │  'investorData20250207.json'   │
+│   424   │  'investorData20250208.json'   │
+│   425   │  'investorData20250209.json'   │
+│   426   │  'investorData20250210.json'   │
+│   427   │  'investorData20250211.json'   │
+│   428   │  'investorData20250212.json'   │
+│   429   │  'investorData20250213.json'   │
+│   430   │  'investorData20250214.json'   │
+│   431   │  'investorData20250215.json'   │
+│   432   │  'investorData20250216.json'   │
+│   433   │  'investorData20250217.json'   │
+│   434   │  'investorData20250218.json'   │
+│   435   │  'investorData20250219.json'   │
+│   436   │  'investorData20250220.json'   │
+│   437   │  'investorData20250221.json'   │
+│   438   │  'investorData20250222.json'   │
+│   439   │  'investorData20250223.json'   │
+│   440   │  'investorData20250224.json'   │
+│   441   │  'investorData20250225.json'   │
+│   442   │  'investorData20250226.json'   │
+│   443   │  'investorData20250227.json'   │
+│   444   │  'investorData20250228.json'   │
+│   445   │  'investorData20250301.json'   │
+│   446   │  'investorData20250302.json'   │
+│   447   │  'investorData20250303.json'   │
+│   448   │  'investorData20250304.json'   │
+│   449   │  'investorData20250305.json'   │
+│   450   │  'investorData20250306.json'   │
+│   451   │  'investorData20250307.json'   │
+│   452   │  'investorData20250308.json'   │
+│   453   │  'investorData20250309.json'   │
+│   454   │  'investorData20250310.json'   │
+│   455   │  'investorData20250311.json'   │
+│   456   │  'investorData20250312.json'   │
+│   457   │  'investorData20250313.json'   │
+│   458   │  'investorData20250314.json'   │
+│   459   │  'investorData20250315.json'   │
+│   460   │  'investorData20250316.json'   │
+│   461   │  'investorData20250317.json'   │
+│   462   │  'investorData20250318.json'   │
+│   463   │  'investorData20250319.json'   │
+│   464   │  'investorData20250320.json'   │
+│   465   │  'investorData20250321.json'   │
+│   466   │  'investorData20250322.json'   │
+│   467   │  'investorData20250323.json'   │
+│   468   │  'investorData20250324.json'   │
+│   469   │  'investorData20250325.json'   │
+│   470   │  'investorData20250326.json'   │
+│   471   │  'investorData20250327.json'   │
+│   472   │  'investorData20250328.json'   │
+│   473   │  'investorData20250329.json'   │
+│   474   │  'investorData20250330.json'   │
+│   475   │  'investorData20250331.json'   │
+│   476   │  'investorData20250401.json'   │
+│   477   │  'investorData20250402.json'   │
+│   478   │  'investorData20250403.json'   │
+│   479   │  'investorData20250404.json'   │
+│   480   │  'investorData20250405.json'   │
+│   481   │  'investorData20250406.json'   │
+│   482   │  'investorData20250407.json'   │
+│   483   │  'investorData20250408.json'   │
+│   484   │  'investorData20250409.json'   │
+│   485   │  'investorData20250410.json'   │
+│   486   │  'investorData20250411.json'   │
+│   487   │  'investorData20250412.json'   │
+│   488   │  'investorData20250413.json'   │
+│   489   │  'investorData20250414.json'   │
+│   490   │  'investorData20250415.json'   │
+│   491   │  'investorData20250416.json'   │
+│   492   │  'investorData20250417.json'   │
+│   493   │  'investorData20250418.json'   │
+│   494   │  'investorData20250419.json'   │
+│   495   │  'investorData20250420.json'   │
+│   496   │  'investorData20250421.json'   │
+│   497   │  'investorData20250422.json'   │
+│   498   │  'investorData20250423.json'   │
+│   499   │  'investorData20250424.json'   │
+│   500   │  'investorData20250425.json'   │
+│   501   │  'investorData20250426.json'   │
+│   502   │  'investorData20250427.json'   │
+│   503   │  'investorData20250428.json'   │
+│   504   │  'investorData20250429.json'   │
+│   505   │  'investorData20250430.json'   │
+│   506   │  'investorData20250501.json'   │
+│   507   │  'investorData20250502.json'   │
+│   508   │  'investorData20250503.json'   │
+│   509   │  'investorData20250504.json'   │
+│   510   │  'investorData20250505.json'   │
+│   511   │  'investorData20250506.json'   │
+│   512   │  'investorData20250507.json'   │
+│   513   │  'investorData20250508.json'   │
+│   514   │  'investorData20250509.json'   │
+│   515   │  'investorData20250510.json'   │
+│   516   │  'investorData20250511.json'   │
+│   517   │  'investorData20250512.json'   │
+│   518   │  'investorData20250513.json'   │
+│   519   │  'investorData20250514.json'   │
+│   520   │  'investorData20250515.json'   │
+│   521   │  'investorData20250516.json'   │
+│   522   │  'investorData20250517.json'   │
+│   523   │  'investorData20250518.json'   │
+│   524   │  'investorData20250519.json'   │
+│   525   │  'investorData20250520.json'   │
+│   526   │  'investorData20250521.json'   │
+│   527   │  'investorData20250522.json'   │
+│   528   │  'investorData20250523.json'   │
+│   529   │  'investorData20250524.json'   │
+│   530   │  'investorData20250525.json'   │
+│   531   │  'investorData20250526.json'   │
+│   532   │  'investorData20250527.json'   │
+│   533   │  'investorData20250528.json'   │
+│   534   │  'investorData20250529.json'   │
+└─────────┴────────────────────────────────┘
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250523.json' │
+│    1    │ 'investorData20250524.json' │
+│    2    │ 'investorData20250525.json' │
+│    3    │ 'investorData20250526.json' │
+│    4    │ 'investorData20250527.json' │
+│    5    │ 'investorData20250528.json' │
+│    6    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+combineData all 169197
+combineDataR all 9634
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ -58192522900 │
+│           foreign_delta            │ -58192522900 │
+│         proprietary_delta          │ -8393085000  │
+│       local_individual_delta       │ -4058006600  │
+│     local_institutional_delta      │ 70643614600  │
+│      foreign_individual_delta      │      0       │
+│    foreign_institutional_delta     │ -58192523000 │
+│         total_buy_matched          │ 598232273700 │
+│         total_sell_matched         │ 656424796600 │
+│        foreign_buy_matched         │ 10004057700  │
+│        foreign_sell_matched        │ 68196580600  │
+│      proprietary_buy_matched       │ 11988000000  │
+│      proprietary_sell_matched      │ 20381085000  │
+│    local_individual_buy_matched    │ 215124284250 │
+│   local_individual_sell_matched    │ 219182290850 │
+│  local_institutional_buy_matched   │ 351111874750 │
+│  local_institutional_sell_matched  │ 280468260150 │
+│   foreign_individual_buy_matched   │      0       │
+│  foreign_individual_sell_matched   │      0       │
+│ foreign_institutional_buy_matched  │ 10004057000  │
+│ foreign_institutional_sell_matched │ 68196580000  │
+└────────────────────────────────────┴──────────────┘
+1592
+1592
+Fetching 1590
+{ req: 100, res: 10, record: 200 }
+{ req: 112, res: 20, record: 400 }
+{ req: 112, res: 30, record: 600 }
+{ req: 137, res: 40, record: 800 }
+{ req: 137, res: 50, record: 1000 }
+{ req: 137, res: 60, record: 1200 }
+{ req: 169, res: 70, record: 1400 }
+{ req: 169, res: 80, record: 1600 }
+{ req: 169, res: 90, record: 1800 }
+{ req: 169, res: 100, record: 2000 }
+{ req: 204, res: 110, record: 2200 }
+{ req: 204, res: 120, record: 2400 }
+{ req: 204, res: 130, record: 2600 }
+{ req: 204, res: 140, record: 2800 }
+{ req: 240, res: 150, record: 3000 }
+{ req: 240, res: 160, record: 3200 }
+{ req: 240, res: 170, record: 3400 }
+{ req: 240, res: 180, record: 3600 }
+{ req: 289, res: 190, record: 3800 }
+{ req: 289, res: 200, record: 4000 }
+{ req: 289, res: 210, record: 4200 }
+{ req: 289, res: 220, record: 4400 }
+{ req: 321, res: 230, record: 4600 }
+{ req: 321, res: 240, record: 4800 }
+{ req: 321, res: 250, record: 5000 }
+{ req: 321, res: 260, record: 5200 }
+{ req: 321, res: 270, record: 5400 }
+{ req: 321, res: 280, record: 5600 }
+{ req: 380, res: 290, record: 5800 }
+{ req: 380, res: 300, record: 6000 }
+{ req: 402, res: 310, record: 6200 }
+{ req: 402, res: 320, record: 6400 }
+{ req: 402, res: 330, record: 6460 }
+{ req: 402, res: 340, record: 6600 }
+{ req: 402, res: 350, record: 6800 }
+{ req: 402, res: 360, record: 7000 }
+{ req: 402, res: 370, record: 7200 }
+{ req: 402, res: 380, record: 7400 }
+{ req: 402, res: 390, record: 7600 }
+{ req: 402, res: 400, record: 7800 }
+{ req: 502, res: 410, record: 7840 }
+{ req: 502, res: 420, record: 7840 }
+{ req: 502, res: 430, record: 7840 }
+{ req: 502, res: 440, record: 7840 }
+{ req: 502, res: 450, record: 7840 }
+{ req: 502, res: 460, record: 7840 }
+{ req: 502, res: 470, record: 7840 }
+{ req: 502, res: 480, record: 7840 }
+{ req: 502, res: 490, record: 7840 }
+{ req: 502, res: 500, record: 7840 }
+{ req: 602, res: 510, record: 7840 }
+{ req: 602, res: 520, record: 7840 }
+{ req: 602, res: 530, record: 7840 }
+{ req: 602, res: 540, record: 7840 }
+{ req: 602, res: 550, record: 7840 }
+{ req: 602, res: 560, record: 7840 }
+{ req: 602, res: 570, record: 7840 }
+{ req: 602, res: 580, record: 7840 }
+{ req: 602, res: 590, record: 7840 }
+{ req: 602, res: 600, record: 7840 }
+{ req: 702, res: 610, record: 7840 }
+{ req: 702, res: 620, record: 7840 }
+{ req: 702, res: 630, record: 7840 }
+{ req: 702, res: 640, record: 7840 }
+{ req: 702, res: 650, record: 7840 }
+{ req: 702, res: 660, record: 7840 }
+{ req: 702, res: 670, record: 7840 }
+{ req: 702, res: 680, record: 7840 }
+{ req: 702, res: 690, record: 7840 }
+{ req: 702, res: 700, record: 7840 }
+{ req: 802, res: 710, record: 7840 }
+{ req: 802, res: 720, record: 7840 }
+{ req: 802, res: 730, record: 7840 }
+{ req: 802, res: 740, record: 7840 }
+{ req: 802, res: 750, record: 7840 }
+{ req: 802, res: 760, record: 7840 }
+{ req: 802, res: 770, record: 7840 }
+{ req: 802, res: 780, record: 7840 }
+{ req: 802, res: 790, record: 7840 }
+{ req: 802, res: 800, record: 7840 }
+{ req: 902, res: 810, record: 7880 }
+{ req: 902, res: 820, record: 7880 }
+{ req: 902, res: 830, record: 7880 }
+{ req: 902, res: 840, record: 7880 }
+{ req: 902, res: 850, record: 7880 }
+{ req: 902, res: 860, record: 7880 }
+{ req: 902, res: 870, record: 7880 }
+{ req: 902, res: 880, record: 7880 }
+{ req: 902, res: 890, record: 7880 }
+{ req: 902, res: 900, record: 7880 }
+{ req: 1002, res: 910, record: 7912 }
+{ req: 1002, res: 920, record: 7912 }
+{ req: 1002, res: 930, record: 7912 }
+{ req: 1002, res: 940, record: 7912 }
+{ req: 1002, res: 950, record: 7912 }
+{ req: 1002, res: 960, record: 7912 }
+{ req: 1002, res: 970, record: 7912 }
+{ req: 1002, res: 980, record: 7912 }
+{ req: 1002, res: 990, record: 7912 }
+{ req: 1002, res: 1000, record: 7952 }
+{ req: 1102, res: 1010, record: 7992 }
+{ req: 1102, res: 1020, record: 7992 }
+{ req: 1102, res: 1030, record: 7992 }
+{ req: 1102, res: 1040, record: 7992 }
+{ req: 1102, res: 1050, record: 7992 }
+{ req: 1102, res: 1060, record: 7992 }
+{ req: 1102, res: 1070, record: 7992 }
+{ req: 1102, res: 1080, record: 7992 }
+{ req: 1102, res: 1090, record: 7992 }
+{ req: 1102, res: 1100, record: 8032 }
+{ req: 1202, res: 1110, record: 8072 }
+{ req: 1202, res: 1120, record: 8072 }
+{ req: 1202, res: 1130, record: 8072 }
+{ req: 1202, res: 1140, record: 8072 }
+{ req: 1202, res: 1150, record: 8072 }
+{ req: 1202, res: 1160, record: 8072 }
+{ req: 1202, res: 1170, record: 8072 }
+{ req: 1202, res: 1180, record: 8072 }
+{ req: 1202, res: 1190, record: 8072 }
+{ req: 1202, res: 1200, record: 8072 }
+{ req: 1302, res: 1210, record: 8112 }
+{ req: 1302, res: 1220, record: 8112 }
+{ req: 1302, res: 1230, record: 8112 }
+{ req: 1302, res: 1240, record: 8112 }
+{ req: 1302, res: 1250, record: 8112 }
+{ req: 1302, res: 1260, record: 8112 }
+{ req: 1302, res: 1270, record: 8112 }
+{ req: 1302, res: 1280, record: 8112 }
+{ req: 1302, res: 1290, record: 8112 }
+{ req: 1302, res: 1300, record: 8152 }
+{ req: 1402, res: 1310, record: 8192 }
+{ req: 1402, res: 1320, record: 8192 }
+{ req: 1402, res: 1330, record: 8192 }
+{ req: 1402, res: 1340, record: 8192 }
+{ req: 1402, res: 1350, record: 8232 }
+{ req: 1402, res: 1360, record: 8232 }
+{ req: 1402, res: 1370, record: 8232 }
+{ req: 1402, res: 1380, record: 8232 }
+{ req: 1402, res: 1390, record: 8232 }
+{ req: 1402, res: 1400, record: 8232 }
+{ req: 1502, res: 1410, record: 8272 }
+{ req: 1502, res: 1420, record: 8272 }
+{ req: 1502, res: 1430, record: 8272 }
+{ req: 1502, res: 1440, record: 8272 }
+{ req: 1502, res: 1450, record: 8272 }
+{ req: 1502, res: 1460, record: 8272 }
+{ req: 1502, res: 1470, record: 8272 }
+{ req: 1502, res: 1480, record: 8272 }
+{ req: 1502, res: 1490, record: 8272 }
+{ req: 1502, res: 1500, record: 8312 }
+{ req: 1590, res: 1510, record: 8352 }
+{ req: 1590, res: 1520, record: 8352 }
+{ req: 1590, res: 1530, record: 8352 }
+{ req: 1590, res: 1540, record: 8352 }
+{ req: 1590, res: 1550, record: 8352 }
+{ req: 1590, res: 1560, record: 8352 }
+{ req: 1590, res: 1570, record: 8352 }
+{ req: 1590, res: 1580, record: 8352 }
+{ req: 1590, res: 1590, record: 8392 }
+{ req: 1590, res: 1590, record: 8392 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+│   87    │  'investorData20240306.json'   │
+│   88    │  'investorData20240307.json'   │
+│   89    │  'investorData20240308.json'   │
+│   90    │  'investorData20240309.json'   │
+│   91    │  'investorData20240310.json'   │
+│   92    │  'investorData20240311.json'   │
+│   93    │  'investorData20240312.json'   │
+│   94    │  'investorData20240313.json'   │
+│   95    │  'investorData20240314.json'   │
+│   96    │  'investorData20240315.json'   │
+│   97    │  'investorData20240316.json'   │
+│   98    │  'investorData20240317.json'   │
+│   99    │  'investorData20240318.json'   │
+│   100   │  'investorData20240319.json'   │
+│   101   │  'investorData20240320.json'   │
+│   102   │  'investorData20240321.json'   │
+│   103   │  'investorData20240322.json'   │
+│   104   │  'investorData20240323.json'   │
+│   105   │  'investorData20240324.json'   │
+│   106   │  'investorData20240325.json'   │
+│   107   │  'investorData20240326.json'   │
+│   108   │  'investorData20240327.json'   │
+│   109   │  'investorData20240328.json'   │
+│   110   │  'investorData20240329.json'   │
+│   111   │  'investorData20240330.json'   │
+│   112   │  'investorData20240331.json'   │
+│   113   │  'investorData20240401.json'   │
+│   114   │  'investorData20240402.json'   │
+│   115   │  'investorData20240403.json'   │
+│   116   │  'investorData20240404.json'   │
+│   117   │  'investorData20240405.json'   │
+│   118   │  'investorData20240406.json'   │
+│   119   │  'investorData20240407.json'   │
+│   120   │  'investorData20240408.json'   │
+│   121   │  'investorData20240409.json'   │
+│   122   │  'investorData20240410.json'   │
+│   123   │  'investorData20240411.json'   │
+│   124   │  'investorData20240412.json'   │
+│   125   │  'investorData20240413.json'   │
+│   126   │  'investorData20240414.json'   │
+│   127   │  'investorData20240415.json'   │
+│   128   │  'investorData20240416.json'   │
+│   129   │  'investorData20240417.json'   │
+│   130   │  'investorData20240418.json'   │
+│   131   │  'investorData20240419.json'   │
+│   132   │  'investorData20240420.json'   │
+│   133   │  'investorData20240421.json'   │
+│   134   │  'investorData20240422.json'   │
+│   135   │  'investorData20240423.json'   │
+│   136   │  'investorData20240424.json'   │
+│   137   │  'investorData20240425.json'   │
+│   138   │  'investorData20240426.json'   │
+│   139   │  'investorData20240427.json'   │
+│   140   │  'investorData20240428.json'   │
+│   141   │  'investorData20240429.json'   │
+│   142   │  'investorData20240430.json'   │
+│   143   │  'investorData20240501.json'   │
+│   144   │  'investorData20240502.json'   │
+│   145   │  'investorData20240503.json'   │
+│   146   │  'investorData20240504.json'   │
+│   147   │  'investorData20240505.json'   │
+│   148   │  'investorData20240506.json'   │
+│   149   │  'investorData20240507.json'   │
+│   150   │  'investorData20240508.json'   │
+│   151   │  'investorData20240509.json'   │
+│   152   │  'investorData20240510.json'   │
+│   153   │  'investorData20240511.json'   │
+│   154   │  'investorData20240512.json'   │
+│   155   │  'investorData20240513.json'   │
+│   156   │  'investorData20240514.json'   │
+│   157   │  'investorData20240515.json'   │
+│   158   │  'investorData20240516.json'   │
+│   159   │  'investorData20240517.json'   │
+│   160   │  'investorData20240518.json'   │
+│   161   │  'investorData20240519.json'   │
+│   162   │  'investorData20240520.json'   │
+│   163   │  'investorData20240521.json'   │
+│   164   │  'investorData20240522.json'   │
+│   165   │  'investorData20240523.json'   │
+│   166   │  'investorData20240524.json'   │
+│   167   │  'investorData20240525.json'   │
+│   168   │  'investorData20240526.json'   │
+│   169   │  'investorData20240527.json'   │
+│   170   │  'investorData20240528.json'   │
+│   171   │  'investorData20240529.json'   │
+│   172   │  'investorData20240530.json'   │
+│   173   │  'investorData20240531.json'   │
+│   174   │  'investorData20240601.json'   │
+│   175   │  'investorData20240602.json'   │
+│   176   │  'investorData20240603.json'   │
+│   177   │  'investorData20240604.json'   │
+│   178   │  'investorData20240605.json'   │
+│   179   │  'investorData20240606.json'   │
+│   180   │  'investorData20240607.json'   │
+│   181   │  'investorData20240608.json'   │
+│   182   │  'investorData20240609.json'   │
+│   183   │  'investorData20240610.json'   │
+│   184   │  'investorData20240611.json'   │
+│   185   │  'investorData20240612.json'   │
+│   186   │  'investorData20240613.json'   │
+│   187   │  'investorData20240614.json'   │
+│   188   │  'investorData20240615.json'   │
+│   189   │  'investorData20240616.json'   │
+│   190   │  'investorData20240617.json'   │
+│   191   │  'investorData20240618.json'   │
+│   192   │  'investorData20240619.json'   │
+│   193   │  'investorData20240620.json'   │
+│   194   │  'investorData20240621.json'   │
+│   195   │  'investorData20240622.json'   │
+│   196   │  'investorData20240623.json'   │
+│   197   │  'investorData20240624.json'   │
+│   198   │  'investorData20240625.json'   │
+│   199   │  'investorData20240626.json'   │
+│   200   │  'investorData20240627.json'   │
+│   201   │  'investorData20240628.json'   │
+│   202   │  'investorData20240629.json'   │
+│   203   │  'investorData20240630.json'   │
+│   204   │  'investorData20240701.json'   │
+│   205   │  'investorData20240702.json'   │
+│   206   │  'investorData20240703.json'   │
+│   207   │  'investorData20240704.json'   │
+│   208   │  'investorData20240705.json'   │
+│   209   │  'investorData20240706.json'   │
+│   210   │  'investorData20240707.json'   │
+│   211   │  'investorData20240708.json'   │
+│   212   │  'investorData20240709.json'   │
+│   213   │  'investorData20240710.json'   │
+│   214   │  'investorData20240711.json'   │
+│   215   │  'investorData20240712.json'   │
+│   216   │  'investorData20240713.json'   │
+│   217   │  'investorData20240714.json'   │
+│   218   │  'investorData20240715.json'   │
+│   219   │  'investorData20240716.json'   │
+│   220   │  'investorData20240717.json'   │
+│   221   │  'investorData20240718.json'   │
+│   222   │  'investorData20240719.json'   │
+│   223   │  'investorData20240720.json'   │
+│   224   │  'investorData20240721.json'   │
+│   225   │  'investorData20240722.json'   │
+│   226   │  'investorData20240723.json'   │
+│   227   │  'investorData20240724.json'   │
+│   228   │  'investorData20240725.json'   │
+│   229   │  'investorData20240726.json'   │
+│   230   │  'investorData20240727.json'   │
+│   231   │  'investorData20240728.json'   │
+│   232   │  'investorData20240729.json'   │
+│   233   │  'investorData20240730.json'   │
+│   234   │  'investorData20240731.json'   │
+│   235   │  'investorData20240801.json'   │
+│   236   │  'investorData20240802.json'   │
+│   237   │  'investorData20240803.json'   │
+│   238   │  'investorData20240804.json'   │
+│   239   │  'investorData20240805.json'   │
+│   240   │  'investorData20240806.json'   │
+│   241   │  'investorData20240807.json'   │
+│   242   │  'investorData20240808.json'   │
+│   243   │  'investorData20240809.json'   │
+│   244   │  'investorData20240810.json'   │
+│   245   │  'investorData20240811.json'   │
+│   246   │  'investorData20240812.json'   │
+│   247   │  'investorData20240813.json'   │
+│   248   │  'investorData20240814.json'   │
+│   249   │  'investorData20240815.json'   │
+│   250   │  'investorData20240816.json'   │
+│   251   │  'investorData20240817.json'   │
+│   252   │  'investorData20240818.json'   │
+│   253   │  'investorData20240819.json'   │
+│   254   │  'investorData20240820.json'   │
+│   255   │  'investorData20240821.json'   │
+│   256   │  'investorData20240822.json'   │
+│   257   │  'investorData20240823.json'   │
+│   258   │  'investorData20240824.json'   │
+│   259   │  'investorData20240825.json'   │
+│   260   │  'investorData20240826.json'   │
+│   261   │  'investorData20240827.json'   │
+│   262   │  'investorData20240828.json'   │
+│   263   │  'investorData20240829.json'   │
+│   264   │  'investorData20240830.json'   │
+│   265   │  'investorData20240831.json'   │
+│   266   │  'investorData20240901.json'   │
+│   267   │  'investorData20240902.json'   │
+│   268   │  'investorData20240903.json'   │
+│   269   │  'investorData20240904.json'   │
+│   270   │  'investorData20240905.json'   │
+│   271   │  'investorData20240906.json'   │
+│   272   │  'investorData20240907.json'   │
+│   273   │  'investorData20240908.json'   │
+│   274   │  'investorData20240909.json'   │
+│   275   │  'investorData20240910.json'   │
+│   276   │  'investorData20240911.json'   │
+│   277   │  'investorData20240912.json'   │
+│   278   │  'investorData20240913.json'   │
+│   279   │  'investorData20240914.json'   │
+│   280   │  'investorData20240915.json'   │
+│   281   │  'investorData20240916.json'   │
+│   282   │  'investorData20240917.json'   │
+│   283   │  'investorData20240918.json'   │
+│   284   │  'investorData20240919.json'   │
+│   285   │  'investorData20240920.json'   │
+│   286   │  'investorData20240921.json'   │
+│   287   │  'investorData20240922.json'   │
+│   288   │  'investorData20240923.json'   │
+│   289   │  'investorData20240924.json'   │
+│   290   │  'investorData20240925.json'   │
+│   291   │  'investorData20240926.json'   │
+│   292   │  'investorData20240927.json'   │
+│   293   │  'investorData20240928.json'   │
+│   294   │  'investorData20240929.json'   │
+│   295   │  'investorData20240930.json'   │
+│   296   │  'investorData20241001.json'   │
+│   297   │  'investorData20241002.json'   │
+│   298   │  'investorData20241003.json'   │
+│   299   │  'investorData20241004.json'   │
+│   300   │  'investorData20241005.json'   │
+│   301   │  'investorData20241006.json'   │
+│   302   │  'investorData20241007.json'   │
+│   303   │  'investorData20241008.json'   │
+│   304   │  'investorData20241009.json'   │
+│   305   │  'investorData20241010.json'   │
+│   306   │  'investorData20241011.json'   │
+│   307   │  'investorData20241012.json'   │
+│   308   │  'investorData20241013.json'   │
+│   309   │  'investorData20241014.json'   │
+│   310   │  'investorData20241015.json'   │
+│   311   │  'investorData20241016.json'   │
+│   312   │  'investorData20241017.json'   │
+│   313   │  'investorData20241018.json'   │
+│   314   │  'investorData20241019.json'   │
+│   315   │  'investorData20241020.json'   │
+│   316   │  'investorData20241021.json'   │
+│   317   │  'investorData20241024.json'   │
+│   318   │  'investorData20241025.json'   │
+│   319   │  'investorData20241026.json'   │
+│   320   │  'investorData20241027.json'   │
+│   321   │  'investorData20241028.json'   │
+│   322   │  'investorData20241029.json'   │
+│   323   │  'investorData20241030.json'   │
+│   324   │  'investorData20241031.json'   │
+│   325   │  'investorData20241101.json'   │
+│   326   │  'investorData20241102.json'   │
+│   327   │  'investorData20241103.json'   │
+│   328   │  'investorData20241104.json'   │
+│   329   │  'investorData20241105.json'   │
+│   330   │  'investorData20241106.json'   │
+│   331   │  'investorData20241107.json'   │
+│   332   │  'investorData20241108.json'   │
+│   333   │  'investorData20241109.json'   │
+│   334   │  'investorData20241110.json'   │
+│   335   │  'investorData20241111.json'   │
+│   336   │  'investorData20241112.json'   │
+│   337   │  'investorData20241113.json'   │
+│   338   │  'investorData20241114.json'   │
+│   339   │  'investorData20241115.json'   │
+│   340   │  'investorData20241116.json'   │
+│   341   │  'investorData20241117.json'   │
+│   342   │  'investorData20241118.json'   │
+│   343   │  'investorData20241119.json'   │
+│   344   │  'investorData20241120.json'   │
+│   345   │  'investorData20241121.json'   │
+│   346   │  'investorData20241122.json'   │
+│   347   │  'investorData20241123.json'   │
+│   348   │  'investorData20241124.json'   │
+│   349   │  'investorData20241125.json'   │
+│   350   │  'investorData20241126.json'   │
+│   351   │  'investorData20241127.json'   │
+│   352   │  'investorData20241128.json'   │
+│   353   │  'investorData20241129.json'   │
+│   354   │  'investorData20241130.json'   │
+│   355   │  'investorData20241201.json'   │
+│   356   │  'investorData20241202.json'   │
+│   357   │  'investorData20241203.json'   │
+│   358   │  'investorData20241204.json'   │
+│   359   │  'investorData20241205.json'   │
+│   360   │  'investorData20241206.json'   │
+│   361   │  'investorData20241207.json'   │
+│   362   │  'investorData20241208.json'   │
+│   363   │  'investorData20241209.json'   │
+│   364   │  'investorData20241210.json'   │
+│   365   │  'investorData20241211.json'   │
+│   366   │  'investorData20241212.json'   │
+│   367   │  'investorData20241213.json'   │
+│   368   │  'investorData20241214.json'   │
+│   369   │  'investorData20241215.json'   │
+│   370   │  'investorData20241216.json'   │
+│   371   │  'investorData20241217.json'   │
+│   372   │  'investorData20241218.json'   │
+│   373   │  'investorData20241219.json'   │
+│   374   │  'investorData20241220.json'   │
+│   375   │  'investorData20241221.json'   │
+│   376   │  'investorData20241222.json'   │
+│   377   │  'investorData20241223.json'   │
+│   378   │  'investorData20241224.json'   │
+│   379   │  'investorData20241225.json'   │
+│   380   │  'investorData20241226.json'   │
+│   381   │  'investorData20241227.json'   │
+│   382   │  'investorData20241228.json'   │
+│   383   │  'investorData20241229.json'   │
+│   384   │  'investorData20241230.json'   │
+│   385   │  'investorData20241231.json'   │
+│   386   │  'investorData20250101.json'   │
+│   387   │  'investorData20250102.json'   │
+│   388   │  'investorData20250103.json'   │
+│   389   │  'investorData20250104.json'   │
+│   390   │  'investorData20250105.json'   │
+│   391   │  'investorData20250106.json'   │
+│   392   │  'investorData20250107.json'   │
+│   393   │  'investorData20250108.json'   │
+│   394   │  'investorData20250109.json'   │
+│   395   │  'investorData20250110.json'   │
+│   396   │  'investorData20250111.json'   │
+│   397   │  'investorData20250112.json'   │
+│   398   │  'investorData20250113.json'   │
+│   399   │  'investorData20250114.json'   │
+│   400   │  'investorData20250115.json'   │
+│   401   │  'investorData20250116.json'   │
+│   402   │  'investorData20250117.json'   │
+│   403   │  'investorData20250118.json'   │
+│   404   │  'investorData20250119.json'   │
+│   405   │  'investorData20250120.json'   │
+│   406   │  'investorData20250121.json'   │
+│   407   │  'investorData20250122.json'   │
+│   408   │  'investorData20250123.json'   │
+│   409   │  'investorData20250124.json'   │
+│   410   │  'investorData20250125.json'   │
+│   411   │  'investorData20250126.json'   │
+│   412   │  'investorData20250127.json'   │
+│   413   │  'investorData20250128.json'   │
+│   414   │  'investorData20250129.json'   │
+│   415   │  'investorData20250130.json'   │
+│   416   │  'investorData20250131.json'   │
+│   417   │  'investorData20250201.json'   │
+│   418   │  'investorData20250202.json'   │
+│   419   │  'investorData20250203.json'   │
+│   420   │  'investorData20250204.json'   │
+│   421   │  'investorData20250205.json'   │
+│   422   │  'investorData20250206.json'   │
+│   423   │  'investorData20250207.json'   │
+│   424   │  'investorData20250208.json'   │
+│   425   │  'investorData20250209.json'   │
+│   426   │  'investorData20250210.json'   │
+│   427   │  'investorData20250211.json'   │
+│   428   │  'investorData20250212.json'   │
+│   429   │  'investorData20250213.json'   │
+│   430   │  'investorData20250214.json'   │
+│   431   │  'investorData20250215.json'   │
+│   432   │  'investorData20250216.json'   │
+│   433   │  'investorData20250217.json'   │
+│   434   │  'investorData20250218.json'   │
+│   435   │  'investorData20250219.json'   │
+│   436   │  'investorData20250220.json'   │
+│   437   │  'investorData20250221.json'   │
+│   438   │  'investorData20250222.json'   │
+│   439   │  'investorData20250223.json'   │
+│   440   │  'investorData20250224.json'   │
+│   441   │  'investorData20250225.json'   │
+│   442   │  'investorData20250226.json'   │
+│   443   │  'investorData20250227.json'   │
+│   444   │  'investorData20250228.json'   │
+│   445   │  'investorData20250301.json'   │
+│   446   │  'investorData20250302.json'   │
+│   447   │  'investorData20250303.json'   │
+│   448   │  'investorData20250304.json'   │
+│   449   │  'investorData20250305.json'   │
+│   450   │  'investorData20250306.json'   │
+│   451   │  'investorData20250307.json'   │
+│   452   │  'investorData20250308.json'   │
+│   453   │  'investorData20250309.json'   │
+│   454   │  'investorData20250310.json'   │
+│   455   │  'investorData20250311.json'   │
+│   456   │  'investorData20250312.json'   │
+│   457   │  'investorData20250313.json'   │
+│   458   │  'investorData20250314.json'   │
+│   459   │  'investorData20250315.json'   │
+│   460   │  'investorData20250316.json'   │
+│   461   │  'investorData20250317.json'   │
+│   462   │  'investorData20250318.json'   │
+│   463   │  'investorData20250319.json'   │
+│   464   │  'investorData20250320.json'   │
+│   465   │  'investorData20250321.json'   │
+│   466   │  'investorData20250322.json'   │
+│   467   │  'investorData20250323.json'   │
+│   468   │  'investorData20250324.json'   │
+│   469   │  'investorData20250325.json'   │
+│   470   │  'investorData20250326.json'   │
+│   471   │  'investorData20250327.json'   │
+│   472   │  'investorData20250328.json'   │
+│   473   │  'investorData20250329.json'   │
+│   474   │  'investorData20250330.json'   │
+│   475   │  'investorData20250331.json'   │
+│   476   │  'investorData20250401.json'   │
+│   477   │  'investorData20250402.json'   │
+│   478   │  'investorData20250403.json'   │
+│   479   │  'investorData20250404.json'   │
+│   480   │  'investorData20250405.json'   │
+│   481   │  'investorData20250406.json'   │
+│   482   │  'investorData20250407.json'   │
+│   483   │  'investorData20250408.json'   │
+│   484   │  'investorData20250409.json'   │
+│   485   │  'investorData20250410.json'   │
+│   486   │  'investorData20250411.json'   │
+│   487   │  'investorData20250412.json'   │
+│   488   │  'investorData20250413.json'   │
+│   489   │  'investorData20250414.json'   │
+│   490   │  'investorData20250415.json'   │
+│   491   │  'investorData20250416.json'   │
+│   492   │  'investorData20250417.json'   │
+│   493   │  'investorData20250418.json'   │
+│   494   │  'investorData20250419.json'   │
+│   495   │  'investorData20250420.json'   │
+│   496   │  'investorData20250421.json'   │
+│   497   │  'investorData20250422.json'   │
+│   498   │  'investorData20250423.json'   │
+│   499   │  'investorData20250424.json'   │
+│   500   │  'investorData20250425.json'   │
+│   501   │  'investorData20250426.json'   │
+│   502   │  'investorData20250427.json'   │
+│   503   │  'investorData20250428.json'   │
+│   504   │  'investorData20250429.json'   │
+│   505   │  'investorData20250430.json'   │
+│   506   │  'investorData20250501.json'   │
+│   507   │  'investorData20250502.json'   │
+│   508   │  'investorData20250503.json'   │
+│   509   │  'investorData20250504.json'   │
+│   510   │  'investorData20250505.json'   │
+│   511   │  'investorData20250506.json'   │
+│   512   │  'investorData20250507.json'   │
+│   513   │  'investorData20250508.json'   │
+│   514   │  'investorData20250509.json'   │
+│   515   │  'investorData20250510.json'   │
+│   516   │  'investorData20250511.json'   │
+│   517   │  'investorData20250512.json'   │
+│   518   │  'investorData20250513.json'   │
+│   519   │  'investorData20250514.json'   │
+│   520   │  'investorData20250515.json'   │
+│   521   │  'investorData20250516.json'   │
+│   522   │  'investorData20250517.json'   │
+│   523   │  'investorData20250518.json'   │
+│   524   │  'investorData20250519.json'   │
+│   525   │  'investorData20250520.json'   │
+│   526   │  'investorData20250521.json'   │
+│   527   │  'investorData20250522.json'   │
+│   528   │  'investorData20250523.json'   │
+│   529   │  'investorData20250524.json'   │
+│   530   │  'investorData20250525.json'   │
+│   531   │  'investorData20250526.json'   │
+│   532   │  'investorData20250527.json'   │
+│   533   │  'investorData20250528.json'   │
+│   534   │  'investorData20250529.json'   │
+└─────────┴────────────────────────────────┘
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250523.json' │
+│    1    │ 'investorData20250524.json' │
+│    2    │ 'investorData20250525.json' │
+│    3    │ 'investorData20250526.json' │
+│    4    │ 'investorData20250527.json' │
+│    5    │ 'investorData20250528.json' │
+│    6    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+combineData all 169613
+combineDataR all 10050
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ -11437320500 │
+│           foreign_delta            │ -11437320500 │
+│         proprietary_delta          │ -51233880000 │
+│       local_individual_delta       │ -24231281750 │
+│     local_institutional_delta      │ 86902481750  │
+│      foreign_individual_delta      │  342100000   │
+│    foreign_institutional_delta     │ -11779420000 │
+│         total_buy_matched          │ 352951332000 │
+│         total_sell_matched         │ 364388652500 │
+│        foreign_buy_matched         │  941085000   │
+│        foreign_sell_matched        │ 12378405500  │
+│      proprietary_buy_matched       │  650100000   │
+│      proprietary_sell_matched      │ 51883980000  │
+│    local_individual_buy_matched    │ 132727748900 │
+│   local_individual_sell_matched    │ 156959030650 │
+│  local_institutional_buy_matched   │ 217691313100 │
+│  local_institutional_sell_matched  │ 130788831350 │
+│   foreign_individual_buy_matched   │  342100000   │
+│  foreign_individual_sell_matched   │      0       │
+│ foreign_institutional_buy_matched  │  598985000   │
+│ foreign_institutional_sell_matched │ 12378405000  │
+└────────────────────────────────────┴──────────────┘
+1592
+1592
+Fetching 1590
+{ req: 101, res: 10, record: 200 }
+{ req: 101, res: 20, record: 400 }
+{ req: 129, res: 30, record: 600 }
+{ req: 129, res: 40, record: 800 }
+{ req: 129, res: 50, record: 1000 }
+{ req: 129, res: 60, record: 1200 }
+{ req: 164, res: 70, record: 1400 }
+{ req: 164, res: 80, record: 1600 }
+{ req: 164, res: 90, record: 1800 }
+{ req: 193, res: 100, record: 2000 }
+{ req: 193, res: 110, record: 2200 }
+{ req: 193, res: 120, record: 2400 }
+{ req: 193, res: 130, record: 2600 }
+{ req: 193, res: 140, record: 2800 }
+{ req: 193, res: 150, record: 3000 }
+{ req: 253, res: 160, record: 3200 }
+{ req: 253, res: 170, record: 3400 }
+{ req: 253, res: 180, record: 3600 }
+{ req: 253, res: 190, record: 3800 }
+{ req: 291, res: 200, record: 4000 }
+{ req: 291, res: 210, record: 4200 }
+{ req: 291, res: 220, record: 4400 }
+{ req: 291, res: 230, record: 4600 }
+{ req: 291, res: 240, record: 4800 }
+{ req: 291, res: 250, record: 5000 }
+{ req: 291, res: 260, record: 5200 }
+{ req: 366, res: 270, record: 5400 }
+{ req: 366, res: 280, record: 5600 }
+{ req: 366, res: 290, record: 5800 }
+{ req: 366, res: 300, record: 6000 }
+{ req: 366, res: 310, record: 6200 }
+{ req: 366, res: 320, record: 6400 }
+{ req: 366, res: 330, record: 6600 }
+{ req: 366, res: 340, record: 6800 }
+{ req: 366, res: 350, record: 7000 }
+{ req: 366, res: 360, record: 7200 }
+{ req: 466, res: 370, record: 7320 }
+{ req: 466, res: 380, record: 7320 }
+{ req: 466, res: 390, record: 7320 }
+{ req: 466, res: 400, record: 7320 }
+{ req: 466, res: 410, record: 7320 }
+{ req: 466, res: 420, record: 7320 }
+{ req: 466, res: 430, record: 7320 }
+{ req: 466, res: 440, record: 7320 }
+{ req: 540, res: 450, record: 7520 }
+{ req: 540, res: 460, record: 7640 }
+{ req: 540, res: 470, record: 7640 }
+{ req: 540, res: 480, record: 7840 }
+{ req: 540, res: 490, record: 7840 }
+{ req: 540, res: 500, record: 7840 }
+{ req: 540, res: 510, record: 7840 }
+{ req: 540, res: 520, record: 7840 }
+{ req: 540, res: 530, record: 7840 }
+{ req: 540, res: 540, record: 7840 }
+{ req: 640, res: 550, record: 7840 }
+{ req: 640, res: 560, record: 7840 }
+{ req: 640, res: 570, record: 7840 }
+{ req: 640, res: 580, record: 7840 }
+{ req: 640, res: 590, record: 7840 }
+{ req: 640, res: 600, record: 7840 }
+{ req: 640, res: 610, record: 7840 }
+{ req: 640, res: 620, record: 7840 }
+{ req: 640, res: 630, record: 7840 }
+{ req: 640, res: 640, record: 7840 }
+{ req: 740, res: 650, record: 7840 }
+{ req: 740, res: 660, record: 7840 }
+{ req: 740, res: 670, record: 7840 }
+{ req: 740, res: 680, record: 7840 }
+{ req: 740, res: 690, record: 7840 }
+{ req: 740, res: 700, record: 7840 }
+{ req: 740, res: 710, record: 7840 }
+{ req: 740, res: 720, record: 7840 }
+{ req: 740, res: 730, record: 7840 }
+{ req: 838, res: 740, record: 7880 }
+{ req: 838, res: 750, record: 7880 }
+{ req: 838, res: 760, record: 7880 }
+{ req: 838, res: 770, record: 7880 }
+{ req: 838, res: 780, record: 7880 }
+{ req: 838, res: 790, record: 7880 }
+{ req: 838, res: 800, record: 7880 }
+{ req: 838, res: 810, record: 7880 }
+{ req: 838, res: 820, record: 7880 }
+{ req: 838, res: 830, record: 7880 }
+{ req: 938, res: 840, record: 7892 }
+{ req: 938, res: 850, record: 7892 }
+{ req: 938, res: 860, record: 7892 }
+{ req: 938, res: 870, record: 7892 }
+{ req: 938, res: 880, record: 7892 }
+{ req: 938, res: 890, record: 7892 }
+{ req: 938, res: 900, record: 7892 }
+{ req: 938, res: 910, record: 7892 }
+{ req: 938, res: 920, record: 7892 }
+{ req: 938, res: 930, record: 7892 }
+{ req: 1038, res: 940, record: 7912 }
+{ req: 1038, res: 950, record: 7912 }
+{ req: 1038, res: 960, record: 7912 }
+{ req: 1038, res: 970, record: 7912 }
+{ req: 1038, res: 980, record: 7912 }
+{ req: 1038, res: 990, record: 7912 }
+{ req: 1038, res: 1000, record: 7912 }
+{ req: 1038, res: 1010, record: 7932 }
+{ req: 1038, res: 1020, record: 7932 }
+{ req: 1038, res: 1030, record: 7932 }
+{ req: 1138, res: 1040, record: 8032 }
+{ req: 1138, res: 1050, record: 8032 }
+{ req: 1138, res: 1060, record: 8032 }
+{ req: 1138, res: 1070, record: 8032 }
+{ req: 1138, res: 1080, record: 8032 }
+{ req: 1138, res: 1090, record: 8032 }
+{ req: 1138, res: 1100, record: 8032 }
+{ req: 1138, res: 1110, record: 8032 }
+{ req: 1138, res: 1120, record: 8032 }
+{ req: 1138, res: 1130, record: 8032 }
+{ req: 1238, res: 1140, record: 8112 }
+{ req: 1238, res: 1150, record: 8112 }
+{ req: 1238, res: 1160, record: 8112 }
+{ req: 1238, res: 1170, record: 8112 }
+{ req: 1238, res: 1180, record: 8112 }
+{ req: 1238, res: 1190, record: 8112 }
+{ req: 1238, res: 1200, record: 8112 }
+{ req: 1238, res: 1210, record: 8112 }
+{ req: 1238, res: 1220, record: 8112 }
+{ req: 1238, res: 1230, record: 8112 }
+{ req: 1338, res: 1240, record: 8112 }
+{ req: 1338, res: 1250, record: 8112 }
+{ req: 1338, res: 1260, record: 8112 }
+{ req: 1338, res: 1270, record: 8112 }
+{ req: 1338, res: 1280, record: 8112 }
+{ req: 1338, res: 1290, record: 8112 }
+{ req: 1338, res: 1300, record: 8112 }
+{ req: 1338, res: 1310, record: 8112 }
+{ req: 1338, res: 1320, record: 8112 }
+{ req: 1338, res: 1330, record: 8112 }
+{ req: 1438, res: 1340, record: 8232 }
+{ req: 1438, res: 1350, record: 8232 }
+{ req: 1438, res: 1360, record: 8232 }
+{ req: 1438, res: 1370, record: 8232 }
+{ req: 1438, res: 1380, record: 8232 }
+{ req: 1438, res: 1390, record: 8232 }
+{ req: 1438, res: 1400, record: 8232 }
+{ req: 1438, res: 1410, record: 8232 }
+{ req: 1438, res: 1420, record: 8232 }
+{ req: 1438, res: 1430, record: 8232 }
+{ req: 1538, res: 1440, record: 8312 }
+{ req: 1538, res: 1450, record: 8312 }
+{ req: 1538, res: 1460, record: 8312 }
+{ req: 1538, res: 1470, record: 8312 }
+{ req: 1538, res: 1480, record: 8312 }
+{ req: 1538, res: 1490, record: 8312 }
+{ req: 1538, res: 1500, record: 8312 }
+{ req: 1538, res: 1510, record: 8312 }
+{ req: 1538, res: 1520, record: 8312 }
+{ req: 1538, res: 1530, record: 8312 }
+{ req: 1590, res: 1540, record: 8352 }
+{ req: 1590, res: 1550, record: 8352 }
+{ req: 1590, res: 1560, record: 8352 }
+{ req: 1590, res: 1570, record: 8352 }
+{ req: 1590, res: 1580, record: 8352 }
+{ req: 1590, res: 1590, record: 8392 }
+{ req: 1590, res: 1590, record: 8392 }
+┌─────────┬────────────────────────────────┐
+│ (index) │             Values             │
+├─────────┼────────────────────────────────┤
+│    0    │    '20231007_investor.json'    │
+│    1    │    '20231026_investor.json'    │
+│    2    │  'investorData20231128.json'   │
+│    3    │ 'investorData20231129.bk.json' │
+│    4    │  'investorData20231129.json'   │
+│    5    │  'investorData20231130.json'   │
+│    6    │  'investorData20231201.json'   │
+│    7    │  'investorData20231202.json'   │
+│    8    │  'investorData20231204.json'   │
+│    9    │  'investorData20231205.json'   │
+│   10    │  'investorData20231206.json'   │
+│   11    │  'investorData20231207.json'   │
+│   12    │  'investorData20231208.json'   │
+│   13    │  'investorData20231209.json'   │
+│   14    │  'investorData20231210.json'   │
+│   15    │  'investorData20231211.json'   │
+│   16    │  'investorData20231212.json'   │
+│   17    │  'investorData20231213.json'   │
+│   18    │  'investorData20231214.json'   │
+│   19    │  'investorData20231215.json'   │
+│   20    │  'investorData20231216.json'   │
+│   21    │  'investorData20231218.json'   │
+│   22    │  'investorData20231219.json'   │
+│   23    │  'investorData20231220.json'   │
+│   24    │  'investorData20231221.json'   │
+│   25    │  'investorData20231222.json'   │
+│   26    │  'investorData20231225.json'   │
+│   27    │  'investorData20231227.json'   │
+│   28    │  'investorData20231228.json'   │
+│   29    │  'investorData20231229.json'   │
+│   30    │  'investorData20240102.json'   │
+│   31    │  'investorData20240103.json'   │
+│   32    │  'investorData20240104.json'   │
+│   33    │  'investorData20240105.json'   │
+│   34    │  'investorData20240108.json'   │
+│   35    │  'investorData20240109.json'   │
+│   36    │  'investorData20240110.json'   │
+│   37    │  'investorData20240111.json'   │
+│   38    │  'investorData20240112.json'   │
+│   39    │  'investorData20240113.json'   │
+│   40    │  'investorData20240114.json'   │
+│   41    │  'investorData20240115.json'   │
+│   42    │  'investorData20240116.json'   │
+│   43    │  'investorData20240117.json'   │
+│   44    │  'investorData20240118.json'   │
+│   45    │  'investorData20240119.json'   │
+│   46    │  'investorData20240122.json'   │
+│   47    │  'investorData20240123.json'   │
+│   48    │  'investorData20240124.json'   │
+│   49    │  'investorData20240125.json'   │
+│   50    │  'investorData20240126.json'   │
+│   51    │  'investorData20240129.json'   │
+│   52    │  'investorData20240131.json'   │
+│   53    │  'investorData20240201.json'   │
+│   54    │  'investorData20240202.json'   │
+│   55    │  'investorData20240203.json'   │
+│   56    │  'investorData20240204.json'   │
+│   57    │  'investorData20240205.json'   │
+│   58    │  'investorData20240206.json'   │
+│   59    │  'investorData20240207.json'   │
+│   60    │  'investorData20240208.json'   │
+│   61    │  'investorData20240209.json'   │
+│   62    │  'investorData20240210.json'   │
+│   63    │  'investorData20240211.json'   │
+│   64    │  'investorData20240212.json'   │
+│   65    │  'investorData20240213.json'   │
+│   66    │  'investorData20240214.json'   │
+│   67    │  'investorData20240215.json'   │
+│   68    │  'investorData20240216.json'   │
+│   69    │  'investorData20240217.json'   │
+│   70    │  'investorData20240218.json'   │
+│   71    │  'investorData20240219.json'   │
+│   72    │  'investorData20240220.json'   │
+│   73    │  'investorData20240221.json'   │
+│   74    │  'investorData20240222.json'   │
+│   75    │  'investorData20240223.json'   │
+│   76    │  'investorData20240224.json'   │
+│   77    │  'investorData20240225.json'   │
+│   78    │  'investorData20240226.json'   │
+│   79    │  'investorData20240227.json'   │
+│   80    │  'investorData20240228.json'   │
+│   81    │  'investorData20240229.json'   │
+│   82    │  'investorData20240301.json'   │
+│   83    │  'investorData20240302.json'   │
+│   84    │  'investorData20240303.json'   │
+│   85    │  'investorData20240304.json'   │
+│   86    │  'investorData20240305.json'   │
+│   87    │  'investorData20240306.json'   │
+│   88    │  'investorData20240307.json'   │
+│   89    │  'investorData20240308.json'   │
+│   90    │  'investorData20240309.json'   │
+│   91    │  'investorData20240310.json'   │
+│   92    │  'investorData20240311.json'   │
+│   93    │  'investorData20240312.json'   │
+│   94    │  'investorData20240313.json'   │
+│   95    │  'investorData20240314.json'   │
+│   96    │  'investorData20240315.json'   │
+│   97    │  'investorData20240316.json'   │
+│   98    │  'investorData20240317.json'   │
+│   99    │  'investorData20240318.json'   │
+│   100   │  'investorData20240319.json'   │
+│   101   │  'investorData20240320.json'   │
+│   102   │  'investorData20240321.json'   │
+│   103   │  'investorData20240322.json'   │
+│   104   │  'investorData20240323.json'   │
+│   105   │  'investorData20240324.json'   │
+│   106   │  'investorData20240325.json'   │
+│   107   │  'investorData20240326.json'   │
+│   108   │  'investorData20240327.json'   │
+│   109   │  'investorData20240328.json'   │
+│   110   │  'investorData20240329.json'   │
+│   111   │  'investorData20240330.json'   │
+│   112   │  'investorData20240331.json'   │
+│   113   │  'investorData20240401.json'   │
+│   114   │  'investorData20240402.json'   │
+│   115   │  'investorData20240403.json'   │
+│   116   │  'investorData20240404.json'   │
+│   117   │  'investorData20240405.json'   │
+│   118   │  'investorData20240406.json'   │
+│   119   │  'investorData20240407.json'   │
+│   120   │  'investorData20240408.json'   │
+│   121   │  'investorData20240409.json'   │
+│   122   │  'investorData20240410.json'   │
+│   123   │  'investorData20240411.json'   │
+│   124   │  'investorData20240412.json'   │
+│   125   │  'investorData20240413.json'   │
+│   126   │  'investorData20240414.json'   │
+│   127   │  'investorData20240415.json'   │
+│   128   │  'investorData20240416.json'   │
+│   129   │  'investorData20240417.json'   │
+│   130   │  'investorData20240418.json'   │
+│   131   │  'investorData20240419.json'   │
+│   132   │  'investorData20240420.json'   │
+│   133   │  'investorData20240421.json'   │
+│   134   │  'investorData20240422.json'   │
+│   135   │  'investorData20240423.json'   │
+│   136   │  'investorData20240424.json'   │
+│   137   │  'investorData20240425.json'   │
+│   138   │  'investorData20240426.json'   │
+│   139   │  'investorData20240427.json'   │
+│   140   │  'investorData20240428.json'   │
+│   141   │  'investorData20240429.json'   │
+│   142   │  'investorData20240430.json'   │
+│   143   │  'investorData20240501.json'   │
+│   144   │  'investorData20240502.json'   │
+│   145   │  'investorData20240503.json'   │
+│   146   │  'investorData20240504.json'   │
+│   147   │  'investorData20240505.json'   │
+│   148   │  'investorData20240506.json'   │
+│   149   │  'investorData20240507.json'   │
+│   150   │  'investorData20240508.json'   │
+│   151   │  'investorData20240509.json'   │
+│   152   │  'investorData20240510.json'   │
+│   153   │  'investorData20240511.json'   │
+│   154   │  'investorData20240512.json'   │
+│   155   │  'investorData20240513.json'   │
+│   156   │  'investorData20240514.json'   │
+│   157   │  'investorData20240515.json'   │
+│   158   │  'investorData20240516.json'   │
+│   159   │  'investorData20240517.json'   │
+│   160   │  'investorData20240518.json'   │
+│   161   │  'investorData20240519.json'   │
+│   162   │  'investorData20240520.json'   │
+│   163   │  'investorData20240521.json'   │
+│   164   │  'investorData20240522.json'   │
+│   165   │  'investorData20240523.json'   │
+│   166   │  'investorData20240524.json'   │
+│   167   │  'investorData20240525.json'   │
+│   168   │  'investorData20240526.json'   │
+│   169   │  'investorData20240527.json'   │
+│   170   │  'investorData20240528.json'   │
+│   171   │  'investorData20240529.json'   │
+│   172   │  'investorData20240530.json'   │
+│   173   │  'investorData20240531.json'   │
+│   174   │  'investorData20240601.json'   │
+│   175   │  'investorData20240602.json'   │
+│   176   │  'investorData20240603.json'   │
+│   177   │  'investorData20240604.json'   │
+│   178   │  'investorData20240605.json'   │
+│   179   │  'investorData20240606.json'   │
+│   180   │  'investorData20240607.json'   │
+│   181   │  'investorData20240608.json'   │
+│   182   │  'investorData20240609.json'   │
+│   183   │  'investorData20240610.json'   │
+│   184   │  'investorData20240611.json'   │
+│   185   │  'investorData20240612.json'   │
+│   186   │  'investorData20240613.json'   │
+│   187   │  'investorData20240614.json'   │
+│   188   │  'investorData20240615.json'   │
+│   189   │  'investorData20240616.json'   │
+│   190   │  'investorData20240617.json'   │
+│   191   │  'investorData20240618.json'   │
+│   192   │  'investorData20240619.json'   │
+│   193   │  'investorData20240620.json'   │
+│   194   │  'investorData20240621.json'   │
+│   195   │  'investorData20240622.json'   │
+│   196   │  'investorData20240623.json'   │
+│   197   │  'investorData20240624.json'   │
+│   198   │  'investorData20240625.json'   │
+│   199   │  'investorData20240626.json'   │
+│   200   │  'investorData20240627.json'   │
+│   201   │  'investorData20240628.json'   │
+│   202   │  'investorData20240629.json'   │
+│   203   │  'investorData20240630.json'   │
+│   204   │  'investorData20240701.json'   │
+│   205   │  'investorData20240702.json'   │
+│   206   │  'investorData20240703.json'   │
+│   207   │  'investorData20240704.json'   │
+│   208   │  'investorData20240705.json'   │
+│   209   │  'investorData20240706.json'   │
+│   210   │  'investorData20240707.json'   │
+│   211   │  'investorData20240708.json'   │
+│   212   │  'investorData20240709.json'   │
+│   213   │  'investorData20240710.json'   │
+│   214   │  'investorData20240711.json'   │
+│   215   │  'investorData20240712.json'   │
+│   216   │  'investorData20240713.json'   │
+│   217   │  'investorData20240714.json'   │
+│   218   │  'investorData20240715.json'   │
+│   219   │  'investorData20240716.json'   │
+│   220   │  'investorData20240717.json'   │
+│   221   │  'investorData20240718.json'   │
+│   222   │  'investorData20240719.json'   │
+│   223   │  'investorData20240720.json'   │
+│   224   │  'investorData20240721.json'   │
+│   225   │  'investorData20240722.json'   │
+│   226   │  'investorData20240723.json'   │
+│   227   │  'investorData20240724.json'   │
+│   228   │  'investorData20240725.json'   │
+│   229   │  'investorData20240726.json'   │
+│   230   │  'investorData20240727.json'   │
+│   231   │  'investorData20240728.json'   │
+│   232   │  'investorData20240729.json'   │
+│   233   │  'investorData20240730.json'   │
+│   234   │  'investorData20240731.json'   │
+│   235   │  'investorData20240801.json'   │
+│   236   │  'investorData20240802.json'   │
+│   237   │  'investorData20240803.json'   │
+│   238   │  'investorData20240804.json'   │
+│   239   │  'investorData20240805.json'   │
+│   240   │  'investorData20240806.json'   │
+│   241   │  'investorData20240807.json'   │
+│   242   │  'investorData20240808.json'   │
+│   243   │  'investorData20240809.json'   │
+│   244   │  'investorData20240810.json'   │
+│   245   │  'investorData20240811.json'   │
+│   246   │  'investorData20240812.json'   │
+│   247   │  'investorData20240813.json'   │
+│   248   │  'investorData20240814.json'   │
+│   249   │  'investorData20240815.json'   │
+│   250   │  'investorData20240816.json'   │
+│   251   │  'investorData20240817.json'   │
+│   252   │  'investorData20240818.json'   │
+│   253   │  'investorData20240819.json'   │
+│   254   │  'investorData20240820.json'   │
+│   255   │  'investorData20240821.json'   │
+│   256   │  'investorData20240822.json'   │
+│   257   │  'investorData20240823.json'   │
+│   258   │  'investorData20240824.json'   │
+│   259   │  'investorData20240825.json'   │
+│   260   │  'investorData20240826.json'   │
+│   261   │  'investorData20240827.json'   │
+│   262   │  'investorData20240828.json'   │
+│   263   │  'investorData20240829.json'   │
+│   264   │  'investorData20240830.json'   │
+│   265   │  'investorData20240831.json'   │
+│   266   │  'investorData20240901.json'   │
+│   267   │  'investorData20240902.json'   │
+│   268   │  'investorData20240903.json'   │
+│   269   │  'investorData20240904.json'   │
+│   270   │  'investorData20240905.json'   │
+│   271   │  'investorData20240906.json'   │
+│   272   │  'investorData20240907.json'   │
+│   273   │  'investorData20240908.json'   │
+│   274   │  'investorData20240909.json'   │
+│   275   │  'investorData20240910.json'   │
+│   276   │  'investorData20240911.json'   │
+│   277   │  'investorData20240912.json'   │
+│   278   │  'investorData20240913.json'   │
+│   279   │  'investorData20240914.json'   │
+│   280   │  'investorData20240915.json'   │
+│   281   │  'investorData20240916.json'   │
+│   282   │  'investorData20240917.json'   │
+│   283   │  'investorData20240918.json'   │
+│   284   │  'investorData20240919.json'   │
+│   285   │  'investorData20240920.json'   │
+│   286   │  'investorData20240921.json'   │
+│   287   │  'investorData20240922.json'   │
+│   288   │  'investorData20240923.json'   │
+│   289   │  'investorData20240924.json'   │
+│   290   │  'investorData20240925.json'   │
+│   291   │  'investorData20240926.json'   │
+│   292   │  'investorData20240927.json'   │
+│   293   │  'investorData20240928.json'   │
+│   294   │  'investorData20240929.json'   │
+│   295   │  'investorData20240930.json'   │
+│   296   │  'investorData20241001.json'   │
+│   297   │  'investorData20241002.json'   │
+│   298   │  'investorData20241003.json'   │
+│   299   │  'investorData20241004.json'   │
+│   300   │  'investorData20241005.json'   │
+│   301   │  'investorData20241006.json'   │
+│   302   │  'investorData20241007.json'   │
+│   303   │  'investorData20241008.json'   │
+│   304   │  'investorData20241009.json'   │
+│   305   │  'investorData20241010.json'   │
+│   306   │  'investorData20241011.json'   │
+│   307   │  'investorData20241012.json'   │
+│   308   │  'investorData20241013.json'   │
+│   309   │  'investorData20241014.json'   │
+│   310   │  'investorData20241015.json'   │
+│   311   │  'investorData20241016.json'   │
+│   312   │  'investorData20241017.json'   │
+│   313   │  'investorData20241018.json'   │
+│   314   │  'investorData20241019.json'   │
+│   315   │  'investorData20241020.json'   │
+│   316   │  'investorData20241021.json'   │
+│   317   │  'investorData20241024.json'   │
+│   318   │  'investorData20241025.json'   │
+│   319   │  'investorData20241026.json'   │
+│   320   │  'investorData20241027.json'   │
+│   321   │  'investorData20241028.json'   │
+│   322   │  'investorData20241029.json'   │
+│   323   │  'investorData20241030.json'   │
+│   324   │  'investorData20241031.json'   │
+│   325   │  'investorData20241101.json'   │
+│   326   │  'investorData20241102.json'   │
+│   327   │  'investorData20241103.json'   │
+│   328   │  'investorData20241104.json'   │
+│   329   │  'investorData20241105.json'   │
+│   330   │  'investorData20241106.json'   │
+│   331   │  'investorData20241107.json'   │
+│   332   │  'investorData20241108.json'   │
+│   333   │  'investorData20241109.json'   │
+│   334   │  'investorData20241110.json'   │
+│   335   │  'investorData20241111.json'   │
+│   336   │  'investorData20241112.json'   │
+│   337   │  'investorData20241113.json'   │
+│   338   │  'investorData20241114.json'   │
+│   339   │  'investorData20241115.json'   │
+│   340   │  'investorData20241116.json'   │
+│   341   │  'investorData20241117.json'   │
+│   342   │  'investorData20241118.json'   │
+│   343   │  'investorData20241119.json'   │
+│   344   │  'investorData20241120.json'   │
+│   345   │  'investorData20241121.json'   │
+│   346   │  'investorData20241122.json'   │
+│   347   │  'investorData20241123.json'   │
+│   348   │  'investorData20241124.json'   │
+│   349   │  'investorData20241125.json'   │
+│   350   │  'investorData20241126.json'   │
+│   351   │  'investorData20241127.json'   │
+│   352   │  'investorData20241128.json'   │
+│   353   │  'investorData20241129.json'   │
+│   354   │  'investorData20241130.json'   │
+│   355   │  'investorData20241201.json'   │
+│   356   │  'investorData20241202.json'   │
+│   357   │  'investorData20241203.json'   │
+│   358   │  'investorData20241204.json'   │
+│   359   │  'investorData20241205.json'   │
+│   360   │  'investorData20241206.json'   │
+│   361   │  'investorData20241207.json'   │
+│   362   │  'investorData20241208.json'   │
+│   363   │  'investorData20241209.json'   │
+│   364   │  'investorData20241210.json'   │
+│   365   │  'investorData20241211.json'   │
+│   366   │  'investorData20241212.json'   │
+│   367   │  'investorData20241213.json'   │
+│   368   │  'investorData20241214.json'   │
+│   369   │  'investorData20241215.json'   │
+│   370   │  'investorData20241216.json'   │
+│   371   │  'investorData20241217.json'   │
+│   372   │  'investorData20241218.json'   │
+│   373   │  'investorData20241219.json'   │
+│   374   │  'investorData20241220.json'   │
+│   375   │  'investorData20241221.json'   │
+│   376   │  'investorData20241222.json'   │
+│   377   │  'investorData20241223.json'   │
+│   378   │  'investorData20241224.json'   │
+│   379   │  'investorData20241225.json'   │
+│   380   │  'investorData20241226.json'   │
+│   381   │  'investorData20241227.json'   │
+│   382   │  'investorData20241228.json'   │
+│   383   │  'investorData20241229.json'   │
+│   384   │  'investorData20241230.json'   │
+│   385   │  'investorData20241231.json'   │
+│   386   │  'investorData20250101.json'   │
+│   387   │  'investorData20250102.json'   │
+│   388   │  'investorData20250103.json'   │
+│   389   │  'investorData20250104.json'   │
+│   390   │  'investorData20250105.json'   │
+│   391   │  'investorData20250106.json'   │
+│   392   │  'investorData20250107.json'   │
+│   393   │  'investorData20250108.json'   │
+│   394   │  'investorData20250109.json'   │
+│   395   │  'investorData20250110.json'   │
+│   396   │  'investorData20250111.json'   │
+│   397   │  'investorData20250112.json'   │
+│   398   │  'investorData20250113.json'   │
+│   399   │  'investorData20250114.json'   │
+│   400   │  'investorData20250115.json'   │
+│   401   │  'investorData20250116.json'   │
+│   402   │  'investorData20250117.json'   │
+│   403   │  'investorData20250118.json'   │
+│   404   │  'investorData20250119.json'   │
+│   405   │  'investorData20250120.json'   │
+│   406   │  'investorData20250121.json'   │
+│   407   │  'investorData20250122.json'   │
+│   408   │  'investorData20250123.json'   │
+│   409   │  'investorData20250124.json'   │
+│   410   │  'investorData20250125.json'   │
+│   411   │  'investorData20250126.json'   │
+│   412   │  'investorData20250127.json'   │
+│   413   │  'investorData20250128.json'   │
+│   414   │  'investorData20250129.json'   │
+│   415   │  'investorData20250130.json'   │
+│   416   │  'investorData20250131.json'   │
+│   417   │  'investorData20250201.json'   │
+│   418   │  'investorData20250202.json'   │
+│   419   │  'investorData20250203.json'   │
+│   420   │  'investorData20250204.json'   │
+│   421   │  'investorData20250205.json'   │
+│   422   │  'investorData20250206.json'   │
+│   423   │  'investorData20250207.json'   │
+│   424   │  'investorData20250208.json'   │
+│   425   │  'investorData20250209.json'   │
+│   426   │  'investorData20250210.json'   │
+│   427   │  'investorData20250211.json'   │
+│   428   │  'investorData20250212.json'   │
+│   429   │  'investorData20250213.json'   │
+│   430   │  'investorData20250214.json'   │
+│   431   │  'investorData20250215.json'   │
+│   432   │  'investorData20250216.json'   │
+│   433   │  'investorData20250217.json'   │
+│   434   │  'investorData20250218.json'   │
+│   435   │  'investorData20250219.json'   │
+│   436   │  'investorData20250220.json'   │
+│   437   │  'investorData20250221.json'   │
+│   438   │  'investorData20250222.json'   │
+│   439   │  'investorData20250223.json'   │
+│   440   │  'investorData20250224.json'   │
+│   441   │  'investorData20250225.json'   │
+│   442   │  'investorData20250226.json'   │
+│   443   │  'investorData20250227.json'   │
+│   444   │  'investorData20250228.json'   │
+│   445   │  'investorData20250301.json'   │
+│   446   │  'investorData20250302.json'   │
+│   447   │  'investorData20250303.json'   │
+│   448   │  'investorData20250304.json'   │
+│   449   │  'investorData20250305.json'   │
+│   450   │  'investorData20250306.json'   │
+│   451   │  'investorData20250307.json'   │
+│   452   │  'investorData20250308.json'   │
+│   453   │  'investorData20250309.json'   │
+│   454   │  'investorData20250310.json'   │
+│   455   │  'investorData20250311.json'   │
+│   456   │  'investorData20250312.json'   │
+│   457   │  'investorData20250313.json'   │
+│   458   │  'investorData20250314.json'   │
+│   459   │  'investorData20250315.json'   │
+│   460   │  'investorData20250316.json'   │
+│   461   │  'investorData20250317.json'   │
+│   462   │  'investorData20250318.json'   │
+│   463   │  'investorData20250319.json'   │
+│   464   │  'investorData20250320.json'   │
+│   465   │  'investorData20250321.json'   │
+│   466   │  'investorData20250322.json'   │
+│   467   │  'investorData20250323.json'   │
+│   468   │  'investorData20250324.json'   │
+│   469   │  'investorData20250325.json'   │
+│   470   │  'investorData20250326.json'   │
+│   471   │  'investorData20250327.json'   │
+│   472   │  'investorData20250328.json'   │
+│   473   │  'investorData20250329.json'   │
+│   474   │  'investorData20250330.json'   │
+│   475   │  'investorData20250331.json'   │
+│   476   │  'investorData20250401.json'   │
+│   477   │  'investorData20250402.json'   │
+│   478   │  'investorData20250403.json'   │
+│   479   │  'investorData20250404.json'   │
+│   480   │  'investorData20250405.json'   │
+│   481   │  'investorData20250406.json'   │
+│   482   │  'investorData20250407.json'   │
+│   483   │  'investorData20250408.json'   │
+│   484   │  'investorData20250409.json'   │
+│   485   │  'investorData20250410.json'   │
+│   486   │  'investorData20250411.json'   │
+│   487   │  'investorData20250412.json'   │
+│   488   │  'investorData20250413.json'   │
+│   489   │  'investorData20250414.json'   │
+│   490   │  'investorData20250415.json'   │
+│   491   │  'investorData20250416.json'   │
+│   492   │  'investorData20250417.json'   │
+│   493   │  'investorData20250418.json'   │
+│   494   │  'investorData20250419.json'   │
+│   495   │  'investorData20250420.json'   │
+│   496   │  'investorData20250421.json'   │
+│   497   │  'investorData20250422.json'   │
+│   498   │  'investorData20250423.json'   │
+│   499   │  'investorData20250424.json'   │
+│   500   │  'investorData20250425.json'   │
+│   501   │  'investorData20250426.json'   │
+│   502   │  'investorData20250427.json'   │
+│   503   │  'investorData20250428.json'   │
+│   504   │  'investorData20250429.json'   │
+│   505   │  'investorData20250430.json'   │
+│   506   │  'investorData20250501.json'   │
+│   507   │  'investorData20250502.json'   │
+│   508   │  'investorData20250503.json'   │
+│   509   │  'investorData20250504.json'   │
+│   510   │  'investorData20250505.json'   │
+│   511   │  'investorData20250506.json'   │
+│   512   │  'investorData20250507.json'   │
+│   513   │  'investorData20250508.json'   │
+│   514   │  'investorData20250509.json'   │
+│   515   │  'investorData20250510.json'   │
+│   516   │  'investorData20250511.json'   │
+│   517   │  'investorData20250512.json'   │
+│   518   │  'investorData20250513.json'   │
+│   519   │  'investorData20250514.json'   │
+│   520   │  'investorData20250515.json'   │
+│   521   │  'investorData20250516.json'   │
+│   522   │  'investorData20250517.json'   │
+│   523   │  'investorData20250518.json'   │
+│   524   │  'investorData20250519.json'   │
+│   525   │  'investorData20250520.json'   │
+│   526   │  'investorData20250521.json'   │
+│   527   │  'investorData20250522.json'   │
+│   528   │  'investorData20250523.json'   │
+│   529   │  'investorData20250524.json'   │
+│   530   │  'investorData20250525.json'   │
+│   531   │  'investorData20250526.json'   │
+│   532   │  'investorData20250527.json'   │
+│   533   │  'investorData20250528.json'   │
+│   534   │  'investorData20250529.json'   │
+└─────────┴────────────────────────────────┘
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250523.json' │
+│    1    │ 'investorData20250524.json' │
+│    2    │ 'investorData20250525.json' │
+│    3    │ 'investorData20250526.json' │
+│    4    │ 'investorData20250527.json' │
+│    5    │ 'investorData20250528.json' │
+│    6    │ 'investorData20250529.json' │
+└─────────┴─────────────────────────────┘
+combineData all 169613
+combineDataR all 10050
+┌────────────────────────────────────┬──────────────┐
+│              (index)               │    Values    │
+├────────────────────────────────────┼──────────────┤
+│            total_delta             │ -11437320500 │
+│           foreign_delta            │ -11437320500 │
+│         proprietary_delta          │ -51233880000 │
+│       local_individual_delta       │ -24231281750 │
+│     local_institutional_delta      │ 86902481750  │
+│      foreign_individual_delta      │  342100000   │
+│    foreign_institutional_delta     │ -11779420000 │
+│         total_buy_matched          │ 352951332000 │
+│         total_sell_matched         │ 364388652500 │
+│        foreign_buy_matched         │  941085000   │
+│        foreign_sell_matched        │ 12378405500  │
+│      proprietary_buy_matched       │  650100000   │
+│      proprietary_sell_matched      │ 51883980000  │
+│    local_individual_buy_matched    │ 132727748900 │
+│   local_individual_sell_matched    │ 156959030650 │
+│  local_institutional_buy_matched   │ 217691313100 │
+│  local_institutional_sell_matched  │ 130788831350 │
+│   foreign_individual_buy_matched   │  342100000   │
+│  foreign_individual_sell_matched   │      0       │
+│ foreign_institutional_buy_matched  │  598985000   │
+│ foreign_institutional_sell_matched │ 12378405000  │
+└────────────────────────────────────┴──────────────┘
+[PM2] Applying action stopProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket](0) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 8142     │ 2h     │ 10   │ online    │ 0%       │ 2.3gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 37h    │ 0    │ online    │ 0%       │ 29.2mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 37h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 37h    │ 0    │ online    │ 0%       │ 24.7mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 0        │ 0      │ 1    │ stopped   │ 0%       │ 0b       │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Applying action restartProcessId on app [0](ids: [ '0' ])
+[PM2] [websocket](0) ✓
+[PM2] Process successfully started
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 8142     │ 2h     │ 10   │ online    │ 0%       │ 2.3gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 37h    │ 0    │ online    │ 0%       │ 29.2mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 37h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 37h    │ 0    │ online    │ 0%       │ 24.7mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 8594     │ 0s     │ 1    │ online    │ 0%       │ 8.1mb    │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
