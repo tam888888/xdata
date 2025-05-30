@@ -1,0 +1,18 @@
+tunnel: 8a93dded-a136-41e7-a128-f6097f0824dc  # Replace with the tunnel ID from step 2
+credentials-file: /home/hungtv/.cloudflared/8a93dded-a136-41e7-a128-f6097f0824dc.json
+
+ingress:
+  - hostname: stock.stoknet.org
+    service: http://localhost:8080
+  - hostname: file.stoknet.org
+    service: http://localhost:8888    
+  - hostname: ssh.stoknet.org
+    service: ssh://localhost:22
+  - hostname: gg.stoknet.org
+    service: http://localhost:9091
+  - hostname: paper.stoknet.org
+    service: http://localhost:3000
+  - hostname: code.stoknet.org
+    service: http://localhost:3080
+  - service: http_status:404
+

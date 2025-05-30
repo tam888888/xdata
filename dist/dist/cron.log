@@ -20154,3 +20154,379 @@ combineDataR all 10050
 │ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 37h    │ 0    │ online    │ 0%       │ 24.7mb   │ hungtv   │ disabled │
 │ 0  │ websocket              │ default     │ N/A     │ fork    │ 8594     │ 0s     │ 1    │ online    │ 0%       │ 8.1mb    │ hungtv   │ disabled │
 └────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [websocket](ids: [ 0 ])
+[PM2] [websocket](0) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 8142     │ 5h     │ 10   │ online    │ 0%       │ 2.3gb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 40h    │ 0    │ online    │ 0%       │ 33.3mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 40h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 40h    │ 0    │ online    │ 0%       │ 27.8mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 9938     │ 0s     │ 2    │ online    │ 0%       │ 6.1mb    │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [app](ids: [ 1 ])
+[PM2] [app](1) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 9964     │ 0s     │ 11   │ online    │ 0%       │ 8.1mb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 40h    │ 0    │ online    │ 0%       │ 33.3mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 40h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 40h    │ 0    │ online    │ 0%       │ 27.8mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 9938     │ 5m     │ 2    │ online    │ 0%       │ 34.0mb   │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 39, res: 10, record: 13433 }
+{ req: 46, res: 20, record: 35408 }
+{ req: 57, res: 30, record: 60374 }
+{ req: 69, res: 40, record: 83171 }
+{ req: 79, res: 50, record: 108063 }
+{ req: 88, res: 60, record: 131434 }
+{ req: 97, res: 70, record: 154859 }
+{ req: 108, res: 80, record: 179442 }
+{ req: 118, res: 90, record: 202858 }
+{ req: 126, res: 100, record: 227444 }
+{ req: 139, res: 110, record: 248615 }
+{ req: 148, res: 120, record: 272473 }
+{ req: 157, res: 130, record: 296195 }
+{ req: 168, res: 140, record: 319452 }
+{ req: 179, res: 150, record: 341974 }
+{ req: 189, res: 160, record: 363081 }
+{ req: 198, res: 170, record: 384775 }
+{ req: 208, res: 180, record: 409133 }
+{ req: 218, res: 190, record: 433420 }
+{ req: 229, res: 200, record: 453609 }
+{ req: 239, res: 210, record: 475388 }
+{ req: 249, res: 220, record: 500388 }
+{ req: 258, res: 230, record: 524986 }
+{ req: 269, res: 240, record: 546402 }
+{ req: 277, res: 250, record: 569823 }
+{ req: 287, res: 260, record: 594187 }
+{ req: 296, res: 270, record: 618158 }
+{ req: 308, res: 280, record: 640012 }
+{ req: 319, res: 290, record: 663586 }
+{ req: 328, res: 300, record: 687674 }
+{ req: 337, res: 310, record: 710416 }
+{ req: 349, res: 320, record: 733583 }
+{ req: 359, res: 330, record: 755131 }
+{ req: 366, res: 340, record: 776687 }
+{ req: 379, res: 350, record: 801130 }
+{ req: 389, res: 360, record: 824284 }
+{ req: 399, res: 370, record: 848323 }
+{ req: 408, res: 380, record: 871872 }
+{ req: 419, res: 390, record: 893983 }
+{ req: 429, res: 400, record: 915013 }
+{ req: 436, res: 410, record: 939349 }
+{ req: 446, res: 420, record: 963716 }
+{ req: 457, res: 430, record: 986547 }
+{ req: 467, res: 440, record: 1011259 }
+{ req: 476, res: 450, record: 1031866 }
+{ req: 486, res: 460, record: 1054497 }
+{ req: 498, res: 470, record: 1076260 }
+{ req: 508, res: 480, record: 1098654 }
+{ req: 517, res: 490, record: 1123654 }
+{ req: 529, res: 500, record: 1146428 }
+{ req: 539, res: 510, record: 1169089 }
+{ req: 549, res: 520, record: 1193582 }
+{ req: 559, res: 530, record: 1217380 }
+{ req: 566, res: 540, record: 1242047 }
+{ req: 577, res: 550, record: 1263790 }
+{ req: 589, res: 560, record: 1287061 }
+{ req: 599, res: 570, record: 1310388 }
+{ req: 609, res: 580, record: 1330739 }
+{ req: 619, res: 590, record: 1355609 }
+{ req: 627, res: 600, record: 1380385 }
+{ req: 639, res: 610, record: 1403909 }
+{ req: 648, res: 620, record: 1427989 }
+{ req: 657, res: 630, record: 1452989 }
+{ req: 669, res: 640, record: 1475873 }
+{ req: 677, res: 650, record: 1497334 }
+{ req: 689, res: 660, record: 1522160 }
+{ req: 698, res: 670, record: 1545541 }
+{ req: 707, res: 680, record: 1569683 }
+{ req: 717, res: 690, record: 1593402 }
+{ req: 729, res: 700, record: 1617491 }
+{ req: 737, res: 710, record: 1637669 }
+{ req: 747, res: 720, record: 1659978 }
+{ req: 758, res: 730, record: 1681731 }
+{ req: 768, res: 740, record: 1703305 }
+{ req: 779, res: 750, record: 1723677 }
+{ req: 788, res: 760, record: 1740912 }
+{ req: 798, res: 770, record: 1761500 }
+{ req: 807, res: 780, record: 1782407 }
+{ req: 815, res: 790, record: 1801896 }
+{ req: 827, res: 800, record: 1822295 }
+{ req: 836, res: 810, record: 1839405 }
+{ req: 848, res: 820, record: 1859938 }
+{ req: 856, res: 830, record: 1881954 }
+{ req: 869, res: 840, record: 1899975 }
+{ req: 878, res: 850, record: 1918135 }
+{ req: 889, res: 860, record: 1936999 }
+{ req: 899, res: 870, record: 1956952 }
+{ req: 907, res: 880, record: 1978321 }
+{ req: 919, res: 890, record: 1996772 }
+{ req: 926, res: 900, record: 2018382 }
+{ req: 938, res: 910, record: 2036128 }
+{ req: 947, res: 920, record: 2057928 }
+{ req: 956, res: 930, record: 2077206 }
+{ req: 968, res: 940, record: 2098072 }
+{ req: 979, res: 950, record: 2113523 }
+{ req: 987, res: 960, record: 2133977 }
+{ req: 997, res: 970, record: 2153222 }
+{ req: 1009, res: 980, record: 2166841 }
+{ req: 1016, res: 990, record: 2187419 }
+{ req: 1029, res: 1000, record: 2208705 }
+{ req: 1039, res: 1010, record: 2228438 }
+{ req: 1046, res: 1020, record: 2249007 }
+{ req: 1056, res: 1030, record: 2270283 }
+{ req: 1068, res: 1040, record: 2292569 }
+{ req: 1078, res: 1050, record: 2313751 }
+{ req: 1088, res: 1060, record: 2334302 }
+{ req: 1099, res: 1070, record: 2353482 }
+{ req: 1109, res: 1080, record: 2375938 }
+{ req: 1117, res: 1090, record: 2398932 }
+{ req: 1129, res: 1100, record: 2420088 }
+{ req: 1137, res: 1110, record: 2441763 }
+{ req: 1148, res: 1120, record: 2463867 }
+{ req: 1157, res: 1130, record: 2480804 }
+{ req: 1169, res: 1140, record: 2499091 }
+{ req: 1178, res: 1150, record: 2519362 }
+{ req: 1188, res: 1160, record: 2541239 }
+{ req: 1198, res: 1170, record: 2561267 }
+{ req: 1205, res: 1180, record: 2580624 }
+{ req: 1218, res: 1190, record: 2602773 }
+{ req: 1228, res: 1200, record: 2623978 }
+{ req: 1239, res: 1210, record: 2641316 }
+{ req: 1248, res: 1220, record: 2660889 }
+{ req: 1257, res: 1230, record: 2680372 }
+{ req: 1269, res: 1240, record: 2697963 }
+{ req: 1277, res: 1250, record: 2720013 }
+{ req: 1287, res: 1260, record: 2739952 }
+{ req: 1299, res: 1270, record: 2760633 }
+{ req: 1307, res: 1280, record: 2784574 }
+{ req: 1318, res: 1290, record: 2806839 }
+{ req: 1327, res: 1300, record: 2829024 }
+{ req: 1339, res: 1310, record: 2852141 }
+{ req: 1348, res: 1320, record: 2874657 }
+{ req: 1358, res: 1330, record: 2895352 }
+{ req: 1368, res: 1340, record: 2916580 }
+{ req: 1378, res: 1350, record: 2941077 }
+{ req: 1388, res: 1360, record: 2962480 }
+{ req: 1399, res: 1370, record: 2983172 }
+{ req: 1407, res: 1380, record: 3005650 }
+{ req: 1418, res: 1390, record: 3022670 }
+{ req: 1426, res: 1400, record: 3043193 }
+{ req: 1438, res: 1410, record: 3062545 }
+{ req: 1448, res: 1420, record: 3081357 }
+{ req: 1456, res: 1430, record: 3100482 }
+{ req: 1469, res: 1440, record: 3122837 }
+{ req: 1477, res: 1450, record: 3143306 }
+{ req: 1489, res: 1460, record: 3163429 }
+{ req: 1496, res: 1470, record: 3184875 }
+{ req: 1508, res: 1480, record: 3206074 }
+{ req: 1519, res: 1490, record: 3228489 }
+{ req: 1527, res: 1500, record: 3249684 }
+{ req: 1537, res: 1510, record: 3270984 }
+{ req: 1547, res: 1520, record: 3291459 }
+{ req: 1557, res: 1530, record: 3315087 }
+{ req: 1569, res: 1540, record: 3337165 }
+{ req: 1576, res: 1550, record: 3355548 }
+{ req: 1586, res: 1560, record: 3373857 }
+{ req: 1586, res: 1570, record: 3392181 }
+{ req: 1586, res: 1580, record: 3414097 }
+{ req: 1586, res: 1586, record: 3429097 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250530.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+LIMIT 2500
+LIMIT_PROCESS 1000
+1587
+1587
+Fetching 1586
+{ req: 39, res: 10, record: 20870 }
+{ req: 47, res: 20, record: 42762 }
+{ req: 57, res: 30, record: 66440 }
+{ req: 67, res: 40, record: 90125 }
+{ req: 78, res: 50, record: 112994 }
+{ req: 87, res: 60, record: 136617 }
+{ req: 98, res: 70, record: 161504 }
+{ req: 108, res: 80, record: 186044 }
+{ req: 118, res: 90, record: 209506 }
+{ req: 129, res: 100, record: 232338 }
+{ req: 135, res: 110, record: 255629 }
+{ req: 145, res: 120, record: 278257 }
+{ req: 157, res: 130, record: 301514 }
+{ req: 168, res: 140, record: 323992 }
+{ req: 179, res: 150, record: 345528 }
+{ req: 187, res: 160, record: 369539 }
+{ req: 195, res: 170, record: 392357 }
+{ req: 204, res: 180, record: 415429 }
+{ req: 216, res: 190, record: 437061 }
+{ req: 228, res: 200, record: 460752 }
+{ req: 236, res: 210, record: 482450 }
+{ req: 247, res: 220, record: 506676 }
+{ req: 253, res: 230, record: 527699 }
+{ req: 265, res: 240, record: 550328 }
+{ req: 275, res: 250, record: 574692 }
+{ req: 287, res: 260, record: 595572 }
+{ req: 292, res: 270, record: 618883 }
+{ req: 308, res: 280, record: 641086 }
+{ req: 316, res: 290, record: 663661 }
+{ req: 325, res: 300, record: 687065 }
+{ req: 337, res: 310, record: 709250 }
+{ req: 342, res: 320, record: 730704 }
+{ req: 359, res: 330, record: 752761 }
+{ req: 369, res: 340, record: 776657 }
+{ req: 376, res: 350, record: 799837 }
+{ req: 384, res: 360, record: 824397 }
+{ req: 398, res: 370, record: 846543 }
+{ req: 401, res: 380, record: 869331 }
+{ req: 418, res: 390, record: 891210 }
+{ req: 426, res: 400, record: 914864 }
+{ req: 434, res: 410, record: 938935 }
+{ req: 449, res: 420, record: 961599 }
+{ req: 458, res: 430, record: 986274 }
+{ req: 469, res: 440, record: 1010380 }
+{ req: 478, res: 450, record: 1030118 }
+{ req: 487, res: 460, record: 1052398 }
+{ req: 495, res: 470, record: 1076033 }
+{ req: 508, res: 480, record: 1098961 }
+{ req: 517, res: 490, record: 1123060 }
+{ req: 527, res: 500, record: 1145610 }
+{ req: 538, res: 510, record: 1168889 }
+{ req: 549, res: 520, record: 1193763 }
+{ req: 559, res: 530, record: 1216126 }
+{ req: 564, res: 540, record: 1240891 }
+{ req: 572, res: 550, record: 1261801 }
+{ req: 580, res: 560, record: 1284309 }
+{ req: 598, res: 570, record: 1307132 }
+{ req: 607, res: 580, record: 1330608 }
+{ req: 613, res: 590, record: 1355608 }
+{ req: 628, res: 600, record: 1379132 }
+{ req: 637, res: 610, record: 1404132 }
+{ req: 647, res: 620, record: 1428212 }
+{ req: 653, res: 630, record: 1452037 }
+{ req: 665, res: 640, record: 1474044 }
+{ req: 678, res: 650, record: 1497014 }
+{ req: 683, res: 660, record: 1519949 }
+{ req: 695, res: 670, record: 1544949 }
+{ req: 706, res: 680, record: 1569915 }
+{ req: 718, res: 690, record: 1593588 }
+{ req: 728, res: 700, record: 1617955 }
+{ req: 734, res: 710, record: 1638732 }
+{ req: 742, res: 720, record: 1657294 }
+{ req: 753, res: 730, record: 1679405 }
+{ req: 762, res: 740, record: 1699989 }
+{ req: 777, res: 750, record: 1718855 }
+{ req: 782, res: 760, record: 1736805 }
+{ req: 795, res: 770, record: 1758086 }
+{ req: 804, res: 780, record: 1776759 }
+{ req: 818, res: 790, record: 1796350 }
+{ req: 829, res: 800, record: 1816638 }
+{ req: 836, res: 810, record: 1835936 }
+{ req: 842, res: 820, record: 1856035 }
+{ req: 856, res: 830, record: 1875571 }
+{ req: 868, res: 840, record: 1894572 }
+{ req: 876, res: 850, record: 1915056 }
+{ req: 882, res: 860, record: 1933916 }
+{ req: 894, res: 870, record: 1954549 }
+{ req: 908, res: 880, record: 1975220 }
+{ req: 911, res: 890, record: 1996500 }
+{ req: 924, res: 900, record: 2015040 }
+{ req: 937, res: 910, record: 2036998 }
+{ req: 946, res: 920, record: 2056454 }
+{ req: 959, res: 930, record: 2072188 }
+{ req: 966, res: 940, record: 2090023 }
+{ req: 972, res: 950, record: 2110008 }
+{ req: 986, res: 960, record: 2130350 }
+{ req: 994, res: 970, record: 2146004 }
+{ req: 1007, res: 980, record: 2164964 }
+{ req: 1014, res: 990, record: 2186178 }
+{ req: 1026, res: 1000, record: 2206123 }
+{ req: 1039, res: 1010, record: 2227597 }
+{ req: 1045, res: 1020, record: 2247728 }
+{ req: 1058, res: 1030, record: 2269838 }
+{ req: 1069, res: 1040, record: 2290414 }
+{ req: 1077, res: 1050, record: 2313363 }
+{ req: 1086, res: 1060, record: 2331860 }
+{ req: 1095, res: 1070, record: 2353978 }
+{ req: 1109, res: 1080, record: 2376964 }
+{ req: 1114, res: 1090, record: 2398276 }
+{ req: 1126, res: 1100, record: 2420531 }
+{ req: 1132, res: 1110, record: 2441991 }
+{ req: 1145, res: 1120, record: 2461340 }
+{ req: 1159, res: 1130, record: 2479154 }
+{ req: 1164, res: 1140, record: 2498598 }
+{ req: 1178, res: 1150, record: 2518975 }
+{ req: 1187, res: 1160, record: 2539600 }
+{ req: 1196, res: 1170, record: 2560400 }
+{ req: 1206, res: 1180, record: 2581800 }
+{ req: 1218, res: 1190, record: 2602901 }
+{ req: 1228, res: 1200, record: 2622990 }
+{ req: 1232, res: 1210, record: 2637964 }
+{ req: 1247, res: 1220, record: 2656840 }
+{ req: 1259, res: 1230, record: 2679746 }
+{ req: 1267, res: 1240, record: 2699933 }
+{ req: 1279, res: 1250, record: 2720082 }
+{ req: 1284, res: 1260, record: 2741185 }
+{ req: 1296, res: 1270, record: 2763369 }
+{ req: 1308, res: 1280, record: 2786217 }
+{ req: 1313, res: 1290, record: 2809225 }
+{ req: 1329, res: 1300, record: 2832124 }
+{ req: 1334, res: 1310, record: 2854799 }
+{ req: 1349, res: 1320, record: 2875404 }
+{ req: 1358, res: 1330, record: 2900404 }
+{ req: 1365, res: 1340, record: 2921553 }
+{ req: 1377, res: 1350, record: 2943591 }
+{ req: 1384, res: 1360, record: 2964044 }
+{ req: 1395, res: 1370, record: 2988098 }
+{ req: 1409, res: 1380, record: 3008705 }
+{ req: 1416, res: 1390, record: 3026878 }
+{ req: 1425, res: 1400, record: 3042483 }
+{ req: 1438, res: 1410, record: 3062537 }
+{ req: 1449, res: 1420, record: 3082021 }
+{ req: 1457, res: 1430, record: 3102072 }
+{ req: 1468, res: 1440, record: 3123933 }
+{ req: 1479, res: 1450, record: 3144224 }
+{ req: 1486, res: 1460, record: 3164446 }
+{ req: 1498, res: 1470, record: 3185690 }
+{ req: 1507, res: 1480, record: 3207988 }
+{ req: 1513, res: 1490, record: 3230087 }
+{ req: 1523, res: 1500, record: 3252291 }
+{ req: 1536, res: 1510, record: 3273623 }
+{ req: 1546, res: 1520, record: 3297610 }
+{ req: 1558, res: 1530, record: 3317623 }
+{ req: 1569, res: 1540, record: 3338329 }
+{ req: 1575, res: 1550, record: 3355581 }
+{ req: 1586, res: 1560, record: 3372705 }
+{ req: 1586, res: 1570, record: 3393695 }
+{ req: 1586, res: 1580, record: 3414917 }
+{ req: 1586, res: 1586, record: 3429097 }
+┌─────────┬─────────────────────────────┐
+│ (index) │           Values            │
+├─────────┼─────────────────────────────┤
+│    0    │ 'investorData20250530.json' │
+└─────────┴─────────────────────────────┘
+Finished reading the file.
+Use --update-env to update environment variables
+[PM2] Applying action restartProcessId on app [app](ids: [ 1 ])
+[PM2] [app](1) ✓
+┌────┬────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name                   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 1  │ app                    │ default     │ 1.0.0   │ fork    │ 11941    │ 0s     │ 15   │ online    │ 0%       │ 5.8mb    │ hungtv   │ disabled │
+│ 2  │ cloudflared            │ default     │ N/A     │ fork    │ 1974     │ 47h    │ 0    │ online    │ 2.2%     │ 30.6mb   │ hungtv   │ disabled │
+│ 3  │ http8888               │ default     │ N/A     │ fork    │ 1994     │ 47h    │ 0    │ online    │ 0%       │ 26.6mb   │ hungtv   │ disabled │
+│ 4  │ tunnellocalhost8888    │ default     │ N/A     │ fork    │ 2009     │ 47h    │ 0    │ online    │ 0%       │ 25.9mb   │ hungtv   │ disabled │
+│ 0  │ websocket              │ default     │ N/A     │ fork    │ 9938     │ 7h     │ 2    │ online    │ 0%       │ 46.2mb   │ hungtv   │ disabled │
+└────┴────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
