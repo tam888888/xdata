@@ -1,3 +1,4 @@
+git config --global push.default matching
 git config --global user.email "trinhvan.tam.group.8@gmail.com"
 git config --global user.name "tam888888"
 cd /home/hungsex/server/xdata
