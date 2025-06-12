@@ -84,7 +84,7 @@
         var vn30f = queryParams.get('vn30f');
         if (!vn30f) {
             vn30f = true;
-        }else{
+        } else {
             vn30f = s2b(vn30f)
         }
 
@@ -125,7 +125,7 @@
         }
         var vnimap = {}
         var countmap = {}
-        var base = { base: true };
+        var base = { base: true, lastTime: 0 };
         var p = (base) => {
             // if (base.base) console.log("Call base")
             // else console.log("Call interval")
@@ -139,7 +139,7 @@
             else {
                 ROOT_PATH_NOW = ROOT_PATH_NOW.includes('?') ? ROOT_PATH_NOW + '&' + pp + (symbols ? '&symbols=' + symbols : '') : ROOT_PATH_NOW + "?" + pp + (symbols ? '&symbols=' + symbols : '')
             }
-
+            base.lastTime = Date.now()
             // ROOT_PATH_NOW  = ROOT_PATH_NOW+"?" + pp + '&symbols=' + symbols
             var fd = ['busd', 'total_val']
             // console.log("load ", ROOT_PATH_NOW)
@@ -252,10 +252,10 @@
                             return e
                         }))
                     })
-                    if(vn30f){
+                    if (vn30f) {
                         adata = adata.filter(e => !e['stockSymbol'].startsWith('VN30'))
                     }
-                        
+
 
                     adata.sort((a, b) => {
                         if (a['lastTradedTime'] !== b['lastTradedTime']) {
@@ -533,7 +533,12 @@
 
         if (interval > 2000) {
             setInterval(() => {
-                p(base)
+                if (Date.now() - base.lastTime >= 3 * 60 * 1000) {
+                    base.base = true;
+                }
+                if (!document.hidden) {
+                    p(base)
+                }
             }, interval)
         }
 

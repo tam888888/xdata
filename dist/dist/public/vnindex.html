@@ -318,7 +318,12 @@
 
 
 
-        setInterval(getsymboldetail, 1000)
+        // setInterval(getsymboldetail, 1000)
+        setInterval(() => {
+            if (!document.hidden) {
+                getsymboldetail();
+            }
+        }, 1000)
 
         function getvnindexdata() {
             if (Date.now() - lastHandle >= 2000) {
@@ -333,7 +338,13 @@
                 })
             }
         }
-        setInterval(getvnindexdata, 2000)
+        // setInterval(getvnindexdata, 2000)
+
+        setInterval(() => {
+            if (!document.hidden) {
+                getvnindexdata();
+            }
+        }, 2000)
     </script>
 
 

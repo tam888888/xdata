@@ -147,14 +147,14 @@
         }
         var vnimap = {}
         var countmap = {}
-        var base = { base: true };
+        var base = { base: true, lastTime: 0 };
         var p = (base) => {
             // if (base.base) console.log("Call base")
             // else console.log("Call interval")
             var ROOT_PATH_NOW = ROOT_PATH;
             if (!base.base)
                 if (recently) ROOT_PATH_NOW = ROOT_PATH.includes('?') ? ROOT_PATH + "&recently=" + recently : ROOT_PATH + "?recently=" + recently
-
+            base.lastTime = Date.now()
 
             var fd = ['busd', 'total_val', 'bu_val', 'sd_val']
             $.get(ROOT_PATH_NOW, function (data) {
@@ -314,7 +314,7 @@
 
                                     position: function (pos, params, dom, rect, size) {
                                         var obj = { top: 10 }; // Luôn đặt tooltip theo tọa độ y của chuột
-                                        obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] =  size.viewSize[0]/2  - 200; // Canh trái/phải
+                                        obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = size.viewSize[0] / 2 - 200; // Canh trái/phải
                                         return obj;
                                     }
 
@@ -615,7 +615,13 @@
 
         if (interval > 2000) {
             setInterval(() => {
-                p(base)
+                // p(base)
+                if (Date.now() - base.lastTime >= 3 * 60 * 1000) {
+                    base.base = true;
+                }
+                if (!document.hidden) {
+                    p(base)
+                }
             }, interval)
         }
 

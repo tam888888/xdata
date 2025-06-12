@@ -562,9 +562,9 @@
                     url: querydate ? '/api/getsymbolsdata2?querydate=' + querydate : '/api/getsymbolsdata2', // Endpoint to get updated data
                     method: 'GET',
                     success: function (response) {
-                        
+
                         var table = $('#symbolTable').DataTable();
-                        pageIndex =  table.page();
+                        pageIndex = table.page();
                         // console.log("pageIndex ", pageIndex)
                         // console.log("Clear")
                         table.clear();
@@ -625,7 +625,7 @@
                             })
 
                         })
-                        
+
                         table.rows.add(data).page(pageIndex).draw()
                         // console.log("Set pageIndex ", pageIndex)
                         table.page(pageIndex).draw(false);
@@ -647,7 +647,7 @@
                             let lastSymbolChangeTable = keepArray[0].data
 
                             var table = $('#symbolChangeTable').DataTable();
-                            pageIndex2 =  table.page();
+                            pageIndex2 = table.page();
                             table.clear();
                             let c1 = {}
                             lastSymbolChangeTable.forEach(e => {
@@ -704,7 +704,12 @@
             }
 
             // Update DataTable every 5 seconds (adjust as needed)
-            setInterval(updateDataTable, 1000);
+            // setInterval(updateDataTable, 1000);
+            setInterval(() => {
+                if (!document.hidden) {
+                    updateDataTable();
+                }
+            }, 1000)
             // updateDataTable()
         });
 
