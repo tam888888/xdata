@@ -886,12 +886,13 @@
                 }
 
  
-                // var table = $('#myTable').DataTable()
+                var table = $('#myTable').DataTable()
                 // console.log("page", page)
-                // table.clear();
-                // table.rows.add(datanew);
-                // table.page(page).draw(false);
-                // table.page(page).draw('page');
+                table.clear();
+                table.rows.add(datanew);
+                table.page(page).draw(false);
+                table.page(page).draw('page');
+                table.order([2, 'desc']).draw();
 
                 // table.rows.add(datanew).draw(true)                
             }
