@@ -275,13 +275,45 @@
             formatDateToYYMM(getNextMonth(getNextMonth(new Date()))),].map(e => 'VN30F' + e)
         }
 
+        function formatDateToKRXCode(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1; // 1–12
+
+            // Map năm (2010–2039) sang ký tự: 0 → W, bỏ I, O, U
+            const yearCodes = [
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K',
+                'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W'
+            ];
+            const yearCode = yearCodes[year - 2010];
+
+            // Map tháng: 1–9, A–C (10–12)
+            const monthCode = month <= 9 ? String(month) : String.fromCharCode(55 + month); // 10->A, 11->B, 12->C
+
+            return `41I1${yearCode}${monthCode}000`;
+        }
+
+
+
+        function getVN30KRXCodes(count = 3) {
+            let date = new Date();
+            let result = [];
+            for (let i = 0; i < count; i++) {
+                result.push(formatDateToKRXCode(date));
+                date = getNextMonth(date);
+            }
+            // result = result.map(e => '"' + e + '"')
+            return result;
+        }
+
 
         const url = new URL(window.location.href);
         const queryParams = url.searchParams;
         var querydate = queryParams.get('querydate');
         // if (!querydate) querydate = getNowDate()
 
-        var VN30F = getPairVN30Feature().join()
+        // var VN30F = getPairVN30Feature().join()
+        var VN30F = getVN30KRXCodes().join()
         var lastDataVN30F;
         var lastVN30FIdx;
         var lastHandle = 0;
@@ -324,7 +356,6 @@
                 getsymboldetail();
             }
         }, 1000)
-
         function getvnindexdata() {
             if (Date.now() - lastHandle >= 2000) {
                 // console.log("Call api vnindexdata ", Date.now())
@@ -339,12 +370,11 @@
             }
         }
         // setInterval(getvnindexdata, 2000)
-
         setInterval(() => {
             if (!document.hidden) {
                 getvnindexdata();
             }
-        }, 2000)
+        }, 2000)        
     </script>
 
 
@@ -584,7 +614,8 @@
 
         const footer = (tooltipItems) => {
             // console.log(tooltipItems)            
-            if (!tooltipItems[0].dataset.label.startsWith('VN30F')) { return; }
+            // if (!tooltipItems[0].dataset.label.startsWith('VN30F')) { return; }
+            if (!tooltipItems[0].dataset.label.startsWith('41I1')) { return; }
             if (lastDataVN30F) {
                 // console.log(tooltipItems[0])
                 // console.log(lastDataVN30F)
@@ -743,190 +774,201 @@
             }
             return result;
         }
+
+        const state = { running: false }
         var handlevnidata = function (data) {
-            // Populate Table 1
-            if (data.timeline) {
-                lastHandle = Date.now()
-                var d = data.timeline.data.filter(e => e[1] > 0);
-                chart.data.labels = d.map(e => e[0])
-                chart.data.datasets[0].data = d.map(e => e[1])
-                chart.update();
+            try {
+                if (state.running) {
+                    return;
+                }
+                state.running = true;
+                // Populate Table 1
+                if (data.timeline) {
+                    lastHandle = Date.now()
+                    var d = data.timeline.data.filter(e => e[1] > 0);
+                    chart.data.labels = d.map(e => e[0])
+                    chart.data.datasets[0].data = d.map(e => e[1])
+                    chart.update();
 
-                myChart.data.labels = d.map(e => e[0])
-                myChart.data.datasets[0].data = d.map(e => e[4] + e[6] + e[8])
-                myChart.data.datasets[1].data = d.map(e => e[6])
-                myChart.data.datasets[2].data = d.map(e => e[8])
-                myChart.update();
+                    myChart.data.labels = d.map(e => e[0])
+                    myChart.data.datasets[0].data = d.map(e => e[4] + e[6] + e[8])
+                    myChart.data.datasets[1].data = d.map(e => e[6])
+                    myChart.data.datasets[2].data = d.map(e => e[8])
+                    myChart.update();
 
-                combineChart.data.labels = d.map(e => e[0])
-                combineChart.data.datasets[0].data = d.map(e => e[1])
-                combineChart.data.datasets[1].data = d.map(e => e[4] + e[6] + e[8])
-                combineChart.data.datasets[2].data = d.map(e => e[6])
-                combineChart.data.datasets[3].data = d.map(e => e[8])
-                combineChart.data.datasets[4].data = d.map(e => e[12])
-                combineChart.data.datasets[5].data = d.map(e => e[14])
-                if (lastDataVN30F)
-                    combineChart.data.datasets[6].data = lastDataVN30F
-                combineChart.data.datasets[7].data = cumulativeSum(d.map(e => e[4] + e[6] + e[8]))
-                combineChart.data.datasets[8].data = cumulativeSum(d.map(e => e[6]))
-                combineChart.data.datasets[9].data = cumulativeSum(d.map(e => e[8]))
-                combineChart.data.datasets[10].data = movingAverage(d.map(e => e[6]), 5)
-                combineChart.data.datasets[11].data = movingAverage(d.map(e => e[8]), 5)
-                combineChart.data.datasets[12].data = cumulativeSum(d.map(e => e[6] - e[8]))
-                combineChart.update();
+                    combineChart.data.labels = d.map(e => e[0])
+                    combineChart.data.datasets[0].data = d.map(e => e[1])
+                    combineChart.data.datasets[1].data = d.map(e => e[4] + e[6] + e[8])
+                    combineChart.data.datasets[2].data = d.map(e => e[6])
+                    combineChart.data.datasets[3].data = d.map(e => e[8])
+                    combineChart.data.datasets[4].data = d.map(e => e[12])
+                    combineChart.data.datasets[5].data = d.map(e => e[14])
+                    if (lastDataVN30F)
+                        combineChart.data.datasets[6].data = lastDataVN30F
+                    combineChart.data.datasets[7].data = cumulativeSum(d.map(e => e[4] + e[6] + e[8]))
+                    combineChart.data.datasets[8].data = cumulativeSum(d.map(e => e[6]))
+                    combineChart.data.datasets[9].data = cumulativeSum(d.map(e => e[8]))
+                    combineChart.data.datasets[10].data = movingAverage(d.map(e => e[6]), 5)
+                    combineChart.data.datasets[11].data = movingAverage(d.map(e => e[8]), 5)
+                    combineChart.data.datasets[12].data = cumulativeSum(d.map(e => e[6] - e[8]))
+                    combineChart.update();
 
-                data.timeline.data.sort((a, b) => { return b[2] - a[2] })
-                var timelineBody = document.getElementById('timelineBody');
-                timelineBody.innerHTML = '';
-                for (var i = 0; i < data.timeline.data.length; i++) {
+                    data.timeline.data.sort((a, b) => { return b[2] - a[2] })
+                    var timelineBody = document.getElementById('timelineBody');
+                    timelineBody.innerHTML = '';
+                    for (var i = 0; i < data.timeline.data.length; i++) {
+                        var row = document.createElement('tr');
+                        for (var j = 0; j < data.timeline.labels.length; j++) {
+                            var cell = document.createElement('td');
+
+                            cell.textContent = j <= 2 ? data.timeline.data[i][j] : numeral(data.timeline.data[i][j]).format('0,0');
+                            row.appendChild(cell);
+                        }
+                        timelineBody.appendChild(row);
+                    }
+
+
+                    statsHead = document.getElementById('headTable');
+                    statsHead.innerHTML = ''
+                    var theadRow = document.createElement('tr');
+                    statsHead.appendChild(theadRow);
+                    let label1 = ['Thời gian', 'VNINDEX', 'T', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán', 'Vol Đặt Mua', 'Val Đặt Mua', 'Vol Đặt Bán', 'Val Đặt Bán']
+                    for (var i = 0; i < label1.length; i++) {
+                        var th = document.createElement('th');
+                        th.textContent = label1[i];
+                        theadRow.appendChild(th);
+                    }
+
+                    statsHead = document.getElementById('footTable');
+                    statsHead.innerHTML = ''
+                    var theadRow = document.createElement('tr');
+                    statsHead.appendChild(theadRow);
+                    let start = 3;
+                    // console.table(data.timeline.data[0])
+                    let timeX = moment(data.timeline.data[0][0], 'HH:mm').format("x")
+
+
+
+                    let delta = Date.now() - timeX;
+                    // delta = 30 * 1000
+                    // console.log("timeX",timeX,delta/1000/60)
+                    let tpsa = []
+                    if (delta < 60 * 1000 && delta > 0) {
+                        let lasta = data.timeline.data[0]
+                        // console.table(lasta)
+                        for (let i = start; i <= lasta.length - 1; i++) {
+                            tpsa[i] = lasta[i] * 60 * 1000 / (delta)
+                        }
+                        tpsa[1] = (lasta[3] + lasta[5] + lasta[7]) * 60 * 1000 / (delta)
+                        tpsa[2] = (lasta[4] + lasta[6] + lasta[8]) * 60 * 1000 / (delta)
+                    }
+
+
+                    let sum = data.timeline.data.reduce((a, b) => {
+                        let ret = []
+                        for (let i = start; i <= a.length - 1; i++) {
+                            ret[i] = a[i] + b[i]
+                        }
+                        return ret;
+                    }, Array(11).fill(0, 3))
+
+                    sum[1] = sum[3] + sum[5] + sum[7]
+                    sum[2] = sum[4] + sum[6] + sum[8]
+
+
+                    label1 = ['Thống kê', 'Tổng Vol', 'Tổng Val', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán']
+                    for (var i = 0; i < label1.length; i++) {
+                        var th = document.createElement('th');
+                        if (i < 1) {
+                            th.textContent = label1[i];
+                        } else {
+                            // th.textContent = label1[i] + '/Phút\n' + Math.floor(sum[i]/data.timeline.data.length*100)/100;
+                            // th.textContent = label1[i] + '/Phút\n' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '\nT:' + numeral(sum[i]).format('0,0')
+                            //     + (tpsa[i] ? '\nctps: ' + numeral(tpsa[i]).format('0,0') : '');
+                            th.innerHTML = '<div>' + label1[i] + '/Phút</div>\n<div>' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '</div>\n<div>Tổng số</div>\n<div>'
+                                + numeral(sum[i]).format('0,0') + '</div>\n' + (tpsa[i] ? '<div>Tốc độ(now)</div>\n<div>' + numeral(tpsa[i]).format('0,0') + '</div>' : '')
+                        }
+                        theadRow.appendChild(th);
+
+                    }
+                    let pageLength = 10;
+                    let page = 0;
+                    let order = [[2, 'desc']];
+                    if ($.fn.DataTable.isDataTable('#myTable')) {
+                        // console.log($('#myTable').DataTable().settings().init().pageLength)
+                        pageLength = $('#myTable').DataTable().page.len();
+                        page = $('#myTable').DataTable().page();
+                        order = $('#myTable').DataTable().order();
+                        $('#myTable').DataTable().destroy();
+
+                    }
+                    let datanew = data.timeline.data.map(e => {
+                        let ne = {};
+                        data.timeline.labels.forEach((l, i) => {
+                            ne[l] = i <= 2 ? e[i] : numeral(e[i]).format('0,0');
+                        });
+                        return ne
+                    })
+                    let table = $('#myTable').DataTable(
+                        {
+                            // paging: true,
+                            searching: true,
+                            data: datanew,
+                            destroy: true,
+                            columns: [
+                                ...data.timeline.labels.map(e => { return { data: e, orderable: true } })
+                            ],
+                            order: order,
+                            processing: true,
+                            ordering: true,
+                            scroller: true,
+                            // scrollY: 200,                        
+                            // serverSide: true,
+                            lengthMenu: [10, 25, 50, 100, 200, 500, 2000],
+                            pageLength: pageLength,
+                            dom: 'lBfrtip',
+                            buttons: [
+                                'copy',
+                                'excel', 'pdf',
+                                'colvis'
+                            ]
+
+                        }
+                    );
+                    // var table = $('#myTable').DataTable()
+                    table.page(page).draw(false);
+
+                    // table.rows.add(datanew).draw(true)                
+                }
+
+                // Populate Table 2
+                if (data.stats) {
+                    var statsBody = document.getElementById('statsBody');
+                    var statsHead = document.getElementById('statsHead');
+                    statsHead.innerHTML = ''
+                    var theadRow = document.createElement('tr');
+                    statsHead.appendChild(theadRow);
+                    for (var i = 0; i < data.stats.labels.length; i++) {
+                        var th = document.createElement('th');
+                        th.textContent = data.stats.labels[i];
+                        theadRow.appendChild(th);
+                    }
+                    statsBody.innerHTML = '';
+
                     var row = document.createElement('tr');
-                    for (var j = 0; j < data.timeline.labels.length; j++) {
+                    for (var j = 0; j < data.stats.labels.length; j++) {
                         var cell = document.createElement('td');
-
-                        cell.textContent = j <= 2 ? data.timeline.data[i][j] : numeral(data.timeline.data[i][j]).format('0,0');
+                        cell.textContent = j <= 2 ? data.stats.data[j] : numeral(data.stats.data[j]).format('0,0');
                         row.appendChild(cell);
                     }
-                    timelineBody.appendChild(row);
+                    statsBody.appendChild(row);
                 }
-
-
-                statsHead = document.getElementById('headTable');
-                statsHead.innerHTML = ''
-                var theadRow = document.createElement('tr');
-                statsHead.appendChild(theadRow);
-                let label1 = ['Thời gian', 'VNINDEX', 'T', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán', 'Vol Đặt Mua', 'Val Đặt Mua', 'Vol Đặt Bán', 'Val Đặt Bán']
-                for (var i = 0; i < label1.length; i++) {
-                    var th = document.createElement('th');
-                    th.textContent = label1[i];
-                    theadRow.appendChild(th);
-                }
-
-                statsHead = document.getElementById('footTable');
-                statsHead.innerHTML = ''
-                var theadRow = document.createElement('tr');
-                statsHead.appendChild(theadRow);
-                let start = 3;
-                // console.table(data.timeline.data[0])
-                let timeX = moment(data.timeline.data[0][0], 'HH:mm').format("x")
-
-
-
-                let delta = Date.now() - timeX;
-                // delta = 30 * 1000
-                // console.log("timeX",timeX,delta/1000/60)
-                let tpsa = []
-                if (delta < 60 * 1000 && delta > 0) {
-                    let lasta = data.timeline.data[0]
-                    // console.table(lasta)
-                    for (let i = start; i <= lasta.length - 1; i++) {
-                        tpsa[i] = lasta[i] * 60 * 1000 / (delta)
-                    }
-                    tpsa[1] = (lasta[3] + lasta[5] + lasta[7]) * 60 * 1000 / (delta)
-                    tpsa[2] = (lasta[4] + lasta[6] + lasta[8]) * 60 * 1000 / (delta)
-                }
-
-
-                let sum = data.timeline.data.reduce((a, b) => {
-                    let ret = []
-                    for (let i = start; i <= a.length - 1; i++) {
-                        ret[i] = a[i] + b[i]
-                    }
-                    return ret;
-                }, Array(11).fill(0, 3))
-
-                sum[1] = sum[3] + sum[5] + sum[7]
-                sum[2] = sum[4] + sum[6] + sum[8]
-
-
-                label1 = ['Thống kê', 'Tổng Vol', 'Tổng Val', 'Vol KoXĐ', 'Val KoXĐ', 'Vol MuaCĐ', 'Val MuaCĐ', 'Vol BánCĐ', 'Val BánCĐ', 'Vol Mua-Bán', 'Val Mua-Bán']
-                for (var i = 0; i < label1.length; i++) {
-                    var th = document.createElement('th');
-                    if (i < 1) {
-                        th.textContent = label1[i];
-                    } else {
-                        // th.textContent = label1[i] + '/Phút\n' + Math.floor(sum[i]/data.timeline.data.length*100)/100;
-                        // th.textContent = label1[i] + '/Phút\n' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '\nT:' + numeral(sum[i]).format('0,0')
-                        //     + (tpsa[i] ? '\nctps: ' + numeral(tpsa[i]).format('0,0') : '');
-                        th.innerHTML = '<div>' + label1[i] + '/Phút</div>\n<div>' + numeral(sum[i] / data.timeline.data.length).format('0,0') + '</div>\n<div>Tổng số</div>\n<div>'
-                            + numeral(sum[i]).format('0,0') + '</div>\n' + (tpsa[i] ? '<div>Tốc độ(now)</div>\n<div>' + numeral(tpsa[i]).format('0,0') + '</div>' : '')
-                    }
-                    theadRow.appendChild(th);
-
-                }
-                let pageLength = 10;
-                let page = 0;
-                if ($.fn.DataTable.isDataTable('#myTable')) {
-                    // console.log($('#myTable').DataTable().settings().init().pageLength)
-                    pageLength = $('#myTable').DataTable().page.len();
-                    page = $('#myTable').DataTable().page();
-                    $('#myTable').DataTable().destroy();
-
-                }
-                let datanew = data.timeline.data.map(e => {
-                    let ne = {};
-                    data.timeline.labels.forEach((l, i) => {
-                        ne[l] = i <= 2 ? e[i] : numeral(e[i]).format('0,0');
-                    });
-                    return ne
-                })
-                let table = $('#myTable').DataTable(
-                    {
-                        // paging: true,
-                        searching: true,
-                        data: datanew,
-                        destroy: true,
-                        columns: [
-                            ...data.timeline.labels.map(e => { return { data: e, orderable: true } })
-                        ],
-                        order: [[2, 'desc']],
-                        processing: true,
-                        ordering: true,
-                        scroller: true,
-                        // scrollY: 200,                        
-                        // serverSide: true,
-                        lengthMenu: [10, 25, 50, 100, 200, 500, 2000],
-                        pageLength: pageLength,
-                        dom: 'lBfrtip',
-                        buttons: [
-                            'copy',
-                            'excel', 'pdf',
-                            'colvis'
-                        ]
-
-                    }
-                );
-                // var table = $('#myTable').DataTable()
-                table.page(page).draw(false);
-
-                // table.rows.add(datanew).draw(true)                
+            } catch (error) {
+                console.error("Error processing data:", error);
+            } finally {
+                state.running = false;
             }
 
-            // Populate Table 2
-            if (data.stats) {
-                var statsBody = document.getElementById('statsBody');
-                var statsHead = document.getElementById('statsHead');
-                statsHead.innerHTML = ''
-                var theadRow = document.createElement('tr');
-                statsHead.appendChild(theadRow);
-                for (var i = 0; i < data.stats.labels.length; i++) {
-                    var th = document.createElement('th');
-                    th.textContent = data.stats.labels[i];
-                    theadRow.appendChild(th);
-                }
-                statsBody.innerHTML = '';
-
-                var row = document.createElement('tr');
-                for (var j = 0; j < data.stats.labels.length; j++) {
-                    var cell = document.createElement('td');
-                    cell.textContent = j <= 2 ? data.stats.data[j] : numeral(data.stats.data[j]).format('0,0');
-                    row.appendChild(cell);
-                }
-                statsBody.appendChild(row);
-
-
-
-
-            }
         }
 
         socket.on('updateData', handlevnidata);
