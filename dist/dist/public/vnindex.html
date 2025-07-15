@@ -815,6 +815,9 @@
 
                     data.timeline.data.sort((a, b) => { return b[2] - a[2] })
                     var timelineBody = document.getElementById('timelineBody');
+                    while (timelineBody.firstChild) {
+                        timelineBody.removeChild(timelineBody.firstChild);
+                    }
                     timelineBody.innerHTML = '';
                     for (var i = 0; i < data.timeline.data.length; i++) {
                         var row = document.createElement('tr');
@@ -829,6 +832,9 @@
 
 
                     statsHead = document.getElementById('headTable');
+                    while (statsHead.firstChild) {
+                        statsHead.removeChild(statsHead.firstChild);
+                    }
                     statsHead.innerHTML = ''
                     var theadRow = document.createElement('tr');
                     statsHead.appendChild(theadRow);
@@ -840,6 +846,9 @@
                     }
 
                     statsHead = document.getElementById('footTable');
+                    while (statsHead.firstChild) {
+                        statsHead.removeChild(statsHead.firstChild);
+                    }                    
                     statsHead.innerHTML = ''
                     var theadRow = document.createElement('tr');
                     statsHead.appendChild(theadRow);
@@ -899,7 +908,9 @@
                         pageLength = $('#myTable').DataTable().page.len();
                         page = $('#myTable').DataTable().page();
                         order = $('#myTable').DataTable().order();
-                        $('#myTable').DataTable().destroy();
+                        $('#myTable').DataTable().clear().destroy();
+                        // $('#myTable').DataTable().off();
+                        $('#myTable tbody').empty();
 
                     }
                     let datanew = data.timeline.data.map(e => {
@@ -922,6 +933,7 @@
                             processing: true,
                             ordering: true,
                             scroller: true,
+                            retrieve: true,
                             // scrollY: 200,                        
                             // serverSide: true,
                             lengthMenu: [10, 25, 50, 100, 200, 500, 2000],
@@ -945,6 +957,9 @@
                 if (data.stats) {
                     var statsBody = document.getElementById('statsBody');
                     var statsHead = document.getElementById('statsHead');
+                    while (statsHead.firstChild) {
+                        statsHead.removeChild(statsHead.firstChild);
+                    }                    
                     statsHead.innerHTML = ''
                     var theadRow = document.createElement('tr');
                     statsHead.appendChild(theadRow);
@@ -952,6 +967,9 @@
                         var th = document.createElement('th');
                         th.textContent = data.stats.labels[i];
                         theadRow.appendChild(th);
+                    }
+                    while (statsBody.firstChild) {
+                        statsBody.removeChild(statsBody.firstChild);
                     }
                     statsBody.innerHTML = '';
 
