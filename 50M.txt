@@ -39,7 +39,6 @@ dist/websocket/data320250722.zst
 dist/websocket/data320250728.zst
 dist/websocket/data320250730.zst
 dist/websocket/data320250724.zst
-dist/websocket/data320250801.txt
 dist/websocket/data320250715.7z
 dist/websocket/data320250721.zst
 dist/websocket/data320250729.zst
